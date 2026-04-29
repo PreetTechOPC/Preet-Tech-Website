@@ -1,6 +1,0 @@
-{
-  "version": 3,
-  "sources": [],
-  "sections": [
-    {"offset": {"line": 4, "column": 0}, "map": {"version":3,"sources":["file:///Users/haldwani/Documents/Working/preet-tech-next-gen-digital-agency%202/app/privacy-policy/layout.tsx"],"sourcesContent":["import { Metadata } from 'next';\n\nexport const metadata: Metadata = {\n    title: \"Privacy Policy | Preet Tech OPC Private Limited\",\n    description: \"Read the Preet Tech OPC Private Limited Privacy Policy to understand how we collect, use, and protect your data.\",\n    alternates: {\n        canonical: 'https://preettech.com/privacy-policy',\n    }\n};\n\nexport default function Layout({\n    children,\n}: {\n    children: React.ReactNode;\n}) {\n    return (\n        <>\n            {children}\n        </>\n    );\n}\n"],"names":[],"mappings":";;;;;;;;AAEO,MAAM,WAAqB;IAC9B,OAAO;IACP,aAAa;IACb,YAAY;QACR,WAAW;IACf;AACJ;AAEe,SAAS,OAAO,EAC3B,QAAQ,EAGX;IACG,qBACI;kBACK;;AAGb"}}]
-}
