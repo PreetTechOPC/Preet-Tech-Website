@@ -1,0 +1,327 @@
+module.exports = [
+"[next]/internal/font/google/plus_jakarta_sans_6cbc0d5f.module.css [app-rsc] (css module)", ((__turbopack_context__) => {
+
+__turbopack_context__.v({
+  "className": "plus_jakarta_sans_6cbc0d5f-module__dx4leq__className",
+  "variable": "plus_jakarta_sans_6cbc0d5f-module__dx4leq__variable",
+});
+}),
+"[next]/internal/font/google/plus_jakarta_sans_6cbc0d5f.js [app-rsc] (ecmascript)", ((__turbopack_context__) => {
+"use strict";
+
+__turbopack_context__.s([
+    "default",
+    ()=>__TURBOPACK__default__export__
+]);
+var __TURBOPACK__imported__module__$5b$next$5d2f$internal$2f$font$2f$google$2f$plus_jakarta_sans_6cbc0d5f$2e$module$2e$css__$5b$app$2d$rsc$5d$__$28$css__module$29$__ = __turbopack_context__.i("[next]/internal/font/google/plus_jakarta_sans_6cbc0d5f.module.css [app-rsc] (css module)");
+;
+const fontData = {
+    className: __TURBOPACK__imported__module__$5b$next$5d2f$internal$2f$font$2f$google$2f$plus_jakarta_sans_6cbc0d5f$2e$module$2e$css__$5b$app$2d$rsc$5d$__$28$css__module$29$__["default"].className,
+    style: {
+        fontFamily: "'Plus Jakarta Sans', 'Plus Jakarta Sans Fallback'",
+        fontStyle: "normal"
+    }
+};
+if (__TURBOPACK__imported__module__$5b$next$5d2f$internal$2f$font$2f$google$2f$plus_jakarta_sans_6cbc0d5f$2e$module$2e$css__$5b$app$2d$rsc$5d$__$28$css__module$29$__["default"].variable != null) {
+    fontData.variable = __TURBOPACK__imported__module__$5b$next$5d2f$internal$2f$font$2f$google$2f$plus_jakarta_sans_6cbc0d5f$2e$module$2e$css__$5b$app$2d$rsc$5d$__$28$css__module$29$__["default"].variable;
+}
+const __TURBOPACK__default__export__ = fontData;
+}),
+"[next]/internal/font/google/outfit_9f4f9187.module.css [app-rsc] (css module)", ((__turbopack_context__) => {
+
+__turbopack_context__.v({
+  "className": "outfit_9f4f9187-module__4LtYgq__className",
+  "variable": "outfit_9f4f9187-module__4LtYgq__variable",
+});
+}),
+"[next]/internal/font/google/outfit_9f4f9187.js [app-rsc] (ecmascript)", ((__turbopack_context__) => {
+"use strict";
+
+__turbopack_context__.s([
+    "default",
+    ()=>__TURBOPACK__default__export__
+]);
+var __TURBOPACK__imported__module__$5b$next$5d2f$internal$2f$font$2f$google$2f$outfit_9f4f9187$2e$module$2e$css__$5b$app$2d$rsc$5d$__$28$css__module$29$__ = __turbopack_context__.i("[next]/internal/font/google/outfit_9f4f9187.module.css [app-rsc] (css module)");
+;
+const fontData = {
+    className: __TURBOPACK__imported__module__$5b$next$5d2f$internal$2f$font$2f$google$2f$outfit_9f4f9187$2e$module$2e$css__$5b$app$2d$rsc$5d$__$28$css__module$29$__["default"].className,
+    style: {
+        fontFamily: "'Outfit', 'Outfit Fallback'",
+        fontStyle: "normal"
+    }
+};
+if (__TURBOPACK__imported__module__$5b$next$5d2f$internal$2f$font$2f$google$2f$outfit_9f4f9187$2e$module$2e$css__$5b$app$2d$rsc$5d$__$28$css__module$29$__["default"].variable != null) {
+    fontData.variable = __TURBOPACK__imported__module__$5b$next$5d2f$internal$2f$font$2f$google$2f$outfit_9f4f9187$2e$module$2e$css__$5b$app$2d$rsc$5d$__$28$css__module$29$__["default"].variable;
+}
+const __TURBOPACK__default__export__ = fontData;
+}),
+"[next]/internal/font/google/jetbrains_mono_f8290d5a.module.css [app-rsc] (css module)", ((__turbopack_context__) => {
+
+__turbopack_context__.v({
+  "className": "jetbrains_mono_f8290d5a-module__2Nw1lG__className",
+  "variable": "jetbrains_mono_f8290d5a-module__2Nw1lG__variable",
+});
+}),
+"[next]/internal/font/google/jetbrains_mono_f8290d5a.js [app-rsc] (ecmascript)", ((__turbopack_context__) => {
+"use strict";
+
+__turbopack_context__.s([
+    "default",
+    ()=>__TURBOPACK__default__export__
+]);
+var __TURBOPACK__imported__module__$5b$next$5d2f$internal$2f$font$2f$google$2f$jetbrains_mono_f8290d5a$2e$module$2e$css__$5b$app$2d$rsc$5d$__$28$css__module$29$__ = __turbopack_context__.i("[next]/internal/font/google/jetbrains_mono_f8290d5a.module.css [app-rsc] (css module)");
+;
+const fontData = {
+    className: __TURBOPACK__imported__module__$5b$next$5d2f$internal$2f$font$2f$google$2f$jetbrains_mono_f8290d5a$2e$module$2e$css__$5b$app$2d$rsc$5d$__$28$css__module$29$__["default"].className,
+    style: {
+        fontFamily: "'JetBrains Mono', 'JetBrains Mono Fallback'",
+        fontStyle: "normal"
+    }
+};
+if (__TURBOPACK__imported__module__$5b$next$5d2f$internal$2f$font$2f$google$2f$jetbrains_mono_f8290d5a$2e$module$2e$css__$5b$app$2d$rsc$5d$__$28$css__module$29$__["default"].variable != null) {
+    fontData.variable = __TURBOPACK__imported__module__$5b$next$5d2f$internal$2f$font$2f$google$2f$jetbrains_mono_f8290d5a$2e$module$2e$css__$5b$app$2d$rsc$5d$__$28$css__module$29$__["default"].variable;
+}
+const __TURBOPACK__default__export__ = fontData;
+}),
+"[project]/app/client-layout.tsx [app-rsc] (client reference proxy) <module evaluation>", ((__turbopack_context__) => {
+"use strict";
+
+__turbopack_context__.s([
+    "default",
+    ()=>__TURBOPACK__default__export__
+]);
+// This file is generated by next-core EcmascriptClientReferenceModule.
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$server$2d$dom$2d$turbopack$2d$server$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/server/route-modules/app-page/vendored/rsc/react-server-dom-turbopack-server.js [app-rsc] (ecmascript)");
+;
+const __TURBOPACK__default__export__ = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$server$2d$dom$2d$turbopack$2d$server$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["registerClientReference"])(function() {
+    throw new Error("Attempted to call the default export of [project]/app/client-layout.tsx <module evaluation> from the server, but it's on the client. It's not possible to invoke a client function from the server, it can only be rendered as a Component or passed to props of a Client Component.");
+}, "[project]/app/client-layout.tsx <module evaluation>", "default");
+}),
+"[project]/app/client-layout.tsx [app-rsc] (client reference proxy)", ((__turbopack_context__) => {
+"use strict";
+
+__turbopack_context__.s([
+    "default",
+    ()=>__TURBOPACK__default__export__
+]);
+// This file is generated by next-core EcmascriptClientReferenceModule.
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$server$2d$dom$2d$turbopack$2d$server$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/server/route-modules/app-page/vendored/rsc/react-server-dom-turbopack-server.js [app-rsc] (ecmascript)");
+;
+const __TURBOPACK__default__export__ = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$server$2d$dom$2d$turbopack$2d$server$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["registerClientReference"])(function() {
+    throw new Error("Attempted to call the default export of [project]/app/client-layout.tsx from the server, but it's on the client. It's not possible to invoke a client function from the server, it can only be rendered as a Component or passed to props of a Client Component.");
+}, "[project]/app/client-layout.tsx", "default");
+}),
+"[project]/app/client-layout.tsx [app-rsc] (ecmascript)", ((__turbopack_context__) => {
+"use strict";
+
+var __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$client$2d$layout$2e$tsx__$5b$app$2d$rsc$5d$__$28$client__reference__proxy$29$__$3c$module__evaluation$3e$__ = __turbopack_context__.i("[project]/app/client-layout.tsx [app-rsc] (client reference proxy) <module evaluation>");
+var __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$client$2d$layout$2e$tsx__$5b$app$2d$rsc$5d$__$28$client__reference__proxy$29$__ = __turbopack_context__.i("[project]/app/client-layout.tsx [app-rsc] (client reference proxy)");
+;
+__turbopack_context__.n(__TURBOPACK__imported__module__$5b$project$5d2f$app$2f$client$2d$layout$2e$tsx__$5b$app$2d$rsc$5d$__$28$client__reference__proxy$29$__);
+}),
+"[project]/components/theme-provider.tsx [app-rsc] (client reference proxy) <module evaluation>", ((__turbopack_context__) => {
+"use strict";
+
+__turbopack_context__.s([
+    "ThemeProvider",
+    ()=>ThemeProvider
+]);
+// This file is generated by next-core EcmascriptClientReferenceModule.
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$server$2d$dom$2d$turbopack$2d$server$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/server/route-modules/app-page/vendored/rsc/react-server-dom-turbopack-server.js [app-rsc] (ecmascript)");
+;
+const ThemeProvider = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$server$2d$dom$2d$turbopack$2d$server$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["registerClientReference"])(function() {
+    throw new Error("Attempted to call ThemeProvider() from the server but ThemeProvider is on the client. It's not possible to invoke a client function from the server, it can only be rendered as a Component or passed to props of a Client Component.");
+}, "[project]/components/theme-provider.tsx <module evaluation>", "ThemeProvider");
+}),
+"[project]/components/theme-provider.tsx [app-rsc] (client reference proxy)", ((__turbopack_context__) => {
+"use strict";
+
+__turbopack_context__.s([
+    "ThemeProvider",
+    ()=>ThemeProvider
+]);
+// This file is generated by next-core EcmascriptClientReferenceModule.
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$server$2d$dom$2d$turbopack$2d$server$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/server/route-modules/app-page/vendored/rsc/react-server-dom-turbopack-server.js [app-rsc] (ecmascript)");
+;
+const ThemeProvider = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$server$2d$dom$2d$turbopack$2d$server$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["registerClientReference"])(function() {
+    throw new Error("Attempted to call ThemeProvider() from the server but ThemeProvider is on the client. It's not possible to invoke a client function from the server, it can only be rendered as a Component or passed to props of a Client Component.");
+}, "[project]/components/theme-provider.tsx", "ThemeProvider");
+}),
+"[project]/components/theme-provider.tsx [app-rsc] (ecmascript)", ((__turbopack_context__) => {
+"use strict";
+
+var __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$theme$2d$provider$2e$tsx__$5b$app$2d$rsc$5d$__$28$client__reference__proxy$29$__$3c$module__evaluation$3e$__ = __turbopack_context__.i("[project]/components/theme-provider.tsx [app-rsc] (client reference proxy) <module evaluation>");
+var __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$theme$2d$provider$2e$tsx__$5b$app$2d$rsc$5d$__$28$client__reference__proxy$29$__ = __turbopack_context__.i("[project]/components/theme-provider.tsx [app-rsc] (client reference proxy)");
+;
+__turbopack_context__.n(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$theme$2d$provider$2e$tsx__$5b$app$2d$rsc$5d$__$28$client__reference__proxy$29$__);
+}),
+"[project]/app/layout.tsx [app-rsc] (ecmascript)", ((__turbopack_context__) => {
+"use strict";
+
+__turbopack_context__.s([
+    "default",
+    ()=>RootLayout,
+    "metadata",
+    ()=>metadata
+]);
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/server/route-modules/app-page/vendored/rsc/react-jsx-dev-runtime.js [app-rsc] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$next$5d2f$internal$2f$font$2f$google$2f$plus_jakarta_sans_6cbc0d5f$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[next]/internal/font/google/plus_jakarta_sans_6cbc0d5f.js [app-rsc] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$next$5d2f$internal$2f$font$2f$google$2f$outfit_9f4f9187$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[next]/internal/font/google/outfit_9f4f9187.js [app-rsc] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$next$5d2f$internal$2f$font$2f$google$2f$jetbrains_mono_f8290d5a$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[next]/internal/font/google/jetbrains_mono_f8290d5a.js [app-rsc] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$app$2f$client$2d$layout$2e$tsx__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/app/client-layout.tsx [app-rsc] (ecmascript)"); // Separate client logic like Lenis
+var __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$theme$2d$provider$2e$tsx__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/components/theme-provider.tsx [app-rsc] (ecmascript)");
+;
+;
+;
+;
+;
+;
+;
+const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://preettech.com';
+const metadata = {
+    metadataBase: new URL(baseUrl),
+    title: {
+        default: "Preet Tech OPC Private Limited | Next Gen Digital Agency & IT Solutions",
+        template: "%s | Preet Tech OPC Private Limited - Digital Transformation Agency"
+    },
+    description: "Preet Tech OPC Private Limited is a top Next Gen Digital Agency offering custom software development, AI-driven marketing, web and app development, and enterprise IT solutions.",
+    keywords: [
+        "Next Gen Digital Agency",
+        "Top Digital Marketing & IT Agency",
+        "custom software development",
+        "AI-driven marketing",
+        "SEO optimization services",
+        "web and app development company",
+        "enterprise IT solutions",
+        "generative AI integration",
+        "digital transformation services",
+        "e-commerce development",
+        "performance marketing agency",
+        "cloud migration services",
+        "B2B digital agency",
+        "scalable tech solutions",
+        "brand identity design"
+    ],
+    openGraph: {
+        title: "Preet Tech OPC Private Limited | Next Gen Digital Agency & IT Solutions",
+        description: "Transform your business with Preet Tech OPC Private Limited, a leading digital agency and IT partner. We specialize in custom software development, digital marketing, and AI integration to accelerate your growth.",
+        url: baseUrl,
+        siteName: "Preet Tech OPC Private Limited",
+        type: "website"
+    },
+    twitter: {
+        card: "summary_large_image",
+        title: "Preet Tech OPC Private Limited | Next Gen Digital Agency & IT Solutions",
+        description: "Transform your business with Preet Tech OPC Private Limited, a leading digital agency and IT partner specializing in custom software and AI-driven marketing.",
+        creator: "@preettech"
+    },
+    robots: {
+        index: true,
+        follow: true,
+        googleBot: {
+            index: true,
+            follow: true,
+            'max-video-preview': -1,
+            'max-image-preview': 'large',
+            'max-snippet': -1
+        }
+    },
+    alternates: {
+        canonical: "/"
+    }
+};
+const schemaOrg = {
+    "@context": "https://schema.org",
+    "@graph": [
+        {
+            "@type": "Organization",
+            "@id": `${baseUrl}/#organization`,
+            "name": "Preet Tech OPC Private Limited",
+            "url": baseUrl,
+            "logo": {
+                "@type": "ImageObject",
+                "url": `${baseUrl}/icon.png`
+            },
+            "sameAs": [
+                "https://twitter.com/preettech",
+                "https://linkedin.com/company/preettech"
+            ]
+        },
+        {
+            "@type": "WebSite",
+            "@id": `${baseUrl}/#website`,
+            "url": baseUrl,
+            "name": "Preet Tech OPC Private Limited",
+            "publisher": {
+                "@id": `${baseUrl}/#organization`
+            },
+            "potentialAction": {
+                "@type": "SearchAction",
+                "target": `${baseUrl}/blog?q={search_term_string}`,
+                "query-input": "required name=search_term_string"
+            }
+        }
+    ]
+};
+function RootLayout({ children }) {
+    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("html", {
+        lang: "en",
+        className: `${__TURBOPACK__imported__module__$5b$next$5d2f$internal$2f$font$2f$google$2f$plus_jakarta_sans_6cbc0d5f$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["default"].variable} ${__TURBOPACK__imported__module__$5b$next$5d2f$internal$2f$font$2f$google$2f$outfit_9f4f9187$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["default"].variable} ${__TURBOPACK__imported__module__$5b$next$5d2f$internal$2f$font$2f$google$2f$jetbrains_mono_f8290d5a$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["default"].variable}`,
+        suppressHydrationWarning: true,
+        children: [
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("head", {
+                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("script", {
+                    type: "application/ld+json",
+                    dangerouslySetInnerHTML: {
+                        __html: JSON.stringify(schemaOrg)
+                    }
+                }, void 0, false, {
+                    fileName: "[project]/app/layout.tsx",
+                    lineNumber: 106,
+                    columnNumber: 17
+                }, this)
+            }, void 0, false, {
+                fileName: "[project]/app/layout.tsx",
+                lineNumber: 105,
+                columnNumber: 13
+            }, this),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("body", {
+                className: "antialiased font-sans bg-background text-foreground selection:bg-brand-medium/30 transition-colors duration-300",
+                suppressHydrationWarning: true,
+                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$theme$2d$provider$2e$tsx__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["ThemeProvider"], {
+                    attribute: "class",
+                    defaultTheme: "dark",
+                    enableSystem: false,
+                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$app$2f$client$2d$layout$2e$tsx__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["default"], {
+                        children: children
+                    }, void 0, false, {
+                        fileName: "[project]/app/layout.tsx",
+                        lineNumber: 113,
+                        columnNumber: 21
+                    }, this)
+                }, void 0, false, {
+                    fileName: "[project]/app/layout.tsx",
+                    lineNumber: 112,
+                    columnNumber: 17
+                }, this)
+            }, void 0, false, {
+                fileName: "[project]/app/layout.tsx",
+                lineNumber: 111,
+                columnNumber: 13
+            }, this)
+        ]
+    }, void 0, true, {
+        fileName: "[project]/app/layout.tsx",
+        lineNumber: 104,
+        columnNumber: 9
+    }, this);
+}
+}),
+"[project]/node_modules/next/dist/server/route-modules/app-page/vendored/rsc/react-jsx-dev-runtime.js [app-rsc] (ecmascript)", ((__turbopack_context__, module, exports) => {
+"use strict";
+
+module.exports = __turbopack_context__.r("[project]/node_modules/next/dist/server/route-modules/app-page/module.compiled.js [app-rsc] (ecmascript)").vendored['react-rsc'].ReactJsxDevRuntime; //# sourceMappingURL=react-jsx-dev-runtime.js.map
+}),
+];
+
+//# sourceMappingURL=%5Broot-of-the-server%5D__a37c458f._.js.map

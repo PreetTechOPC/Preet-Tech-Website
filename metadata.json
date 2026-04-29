@@ -1,0 +1,7 @@
+{
+  "name": "Preet Tech Next-Gen Digital Agency",
+  "description": "A futuristic, immersive digital universe for Preet Tech, featuring 3D interactions, neural networks, and cinematic animations.",
+  "requestFramePermissions": [
+    "camera"
+  ]
+}

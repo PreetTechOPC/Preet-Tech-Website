@@ -1,0 +1,297 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    :root {
+        --background: #030712;
+        --foreground: #f8fafc;
+        --surface: #0b0f1a;
+        --accent: #3994fa;
+        --accent-glow: rgba(63, 143, 204, 0.4);
+    }
+
+    .light {
+        --background: #ffffff;
+        --foreground: #020617;
+        --surface: #f1f5f9;
+        --accent: #3994fa;
+        --accent-glow: rgba(63, 143, 204, 0.4);
+    }
+
+    .dark {
+        --background: #030712;
+        --foreground: #f8fafc;
+        --surface: #0b0f1a;
+        --accent: #3994fa;
+        --accent-glow: rgba(63, 143, 204, 0.4);
+    }
+}
+
+body {
+    margin: 0;
+    background-color: var(--background);
+    color: var(--foreground);
+    overflow-x: clip;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* Custom Utilities */
+.text-glow {
+    text-shadow: 0 0 30px var(--accent-glow);
+}
+
+.glass-morphism {
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(8px) saturate(150%);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.dark .glass-morphism {
+    background: rgba(11, 15, 26, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Optimize for mobile/low-power */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.1ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.1ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+section {
+    /* content-visibility: auto skips paint/layout for off-screen sections */
+    content-visibility: auto;
+    contain-intrinsic-size: auto 600px;
+}
+
+/* Hero & navbar must always be visible */
+#hero, .hero-section, section:first-of-type, nav {
+    content-visibility: visible !important;
+}
+
+.mask-radial {
+    mask-image: radial-gradient(circle at center, black, transparent 80%);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+    width: 4px;
+    height: 4px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--background);
+}
+
+::-webkit-scrollbar-thumb {
+    background: #3994fa;
+    border-radius: 10px;
+}
+
+/* Hardware Acceleration — applied only to actively animated elements */
+.gpu {
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    will-change: transform;
+}
+
+.service-card {
+    contain: style paint;
+}
+
+/* glass-morphism: GPU promote only, no will-change (avoids layer explosion) */
+.glass-morphism {
+    transform: translateZ(0);
+    backface-visibility: hidden;
+}
+
+/* Smooth scrolling - prioritize speed over silkiness for desktop mousewheels */
+html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+}
+
+@media (min-width: 1024px) {
+  html {
+    /* Increase scrolling performance on large screens */
+    scrollbar-gutter: stable;
+  }
+}
+
+/* duplicate body block removed */
+
+.shadow-2xl, .shadow-xl {
+    --tw-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1) !important;
+}
+
+.clip-path-slant {
+    clip-path: polygon(10px 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%, 0 10px);
+}
+
+/* Carousel Animation */
+@keyframes marquee {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+.animate-marquee {
+    animation: marquee 30s linear infinite;
+    width: fit-content;
+}
+
+.group:hover .animate-marquee {
+    animation-play-state: paused;
+}
+
+@keyframes gradient-x {
+
+    0%,
+    100% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+}
+
+.animate-gradient-x {
+    animation: gradient-x 15s ease infinite;
+    background-size: 200% 200%;
+}
+
+@keyframes marquee-reverse {
+    0% {
+        transform: translateX(-50%);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
+.animate-marquee-reverse {
+    animation: marquee-reverse 30s linear infinite;
+    width: fit-content;
+}
+
+.group:hover .animate-marquee-reverse {
+    animation-play-state: paused;
+}
+
+@keyframes spin-slow {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.animate-spin-slow {
+    animation: spin-slow 12s linear infinite;
+}
+
+@keyframes scan {
+
+    0%,
+    100% {
+        transform: translateY(0);
+        opacity: 0;
+    }
+
+    50% {
+        transform: translateY(200px);
+        opacity: 1;
+    }
+}
+
+.animate-scan {
+    animation: scan 3s linear infinite;
+}
+
+@keyframes border-flow {
+
+    0%,
+    100% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+}
+
+.animate-border-flow {
+    animation: border-flow 6s ease infinite;
+}
+
+.perspective {
+    perspective: 2000px;
+}
+
+/* Blog Content Typography */
+.blog-content-rich h2 {
+    @apply text-2xl md:text-3xl font-black text-foreground mt-12 mb-6 tracking-tight;
+}
+
+.blog-content-rich h3 {
+    @apply text-xl md:text-2xl font-black text-foreground mt-10 mb-5 tracking-tight;
+}
+
+.blog-content-rich p {
+    @apply mb-6 leading-[1.8] text-slate-400;
+}
+
+.blog-content-rich ul,
+.blog-content-rich ol {
+    @apply mb-8 pl-6 space-y-4;
+}
+
+.blog-content-rich ul {
+    @apply list-disc;
+}
+
+.blog-content-rich ol {
+    @apply list-decimal;
+}
+
+.blog-content-rich li {
+    @apply text-slate-400;
+}
+
+.blog-content-rich li::marker {
+    @apply text-brand-cyan font-bold;
+}
+
+.blog-content-rich .cta-block {
+    @apply my-12 p-8 md:p-10 rounded-3xl bg-brand-medium/10 border border-brand-medium/20;
+}
+
+.blog-content-rich .cta-block h4 {
+    @apply text-xl font-bold mb-3 tracking-tight text-foreground;
+}
+
+.blog-content-rich .cta-block p {
+    @apply mb-6 text-slate-400 text-sm;
+}
+
+.blog-content-rich .cta-block button {
+    @apply px-6 py-3 bg-gradient-to-r from-[#3994fa] to-[#004aad] text-white rounded-xl font-bold text-xs uppercase tracking-widest hover:scale-105 transition-transform;
+}
+
+.gradient-btn {
+    @apply bg-gradient-to-r from-[#3994fa] to-[#004aad] text-white transition-all duration-300;
+}
