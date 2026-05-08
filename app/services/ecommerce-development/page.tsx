@@ -6,7 +6,7 @@ import {
     Building2, ChevronRight, Activity, Target, BarChart3, TrendingUp, Search,
     Globe, CheckCircle2, Share2, Briefcase, Rocket, Plus, Minus, Code2,
     Database, Cloud, Cpu, MonitorSmartphone, Tablet, Check, Star, Settings, Headphones, Users,
-    Play, CreditCard, ChevronDown, X, Globe2, Heart, Camera, Coffee, Home
+    Play, CreditCard, ChevronDown, X, Globe2, Heart, Camera, Coffee, Home, Smartphone
 } from 'lucide-react';
 import Navbar from '@/components/Navbar';
 import Link from 'next/link';
