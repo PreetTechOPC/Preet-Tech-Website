@@ -48,18 +48,19 @@ const Footer: React.FC = () => {
     };
 
     const FOOTER_LINKS = {
-        QuickLinks: [
-            { name: 'Services', href: '#services' },
-            { name: 'Growth Stories', href: '#case-studies' },
-            { name: 'Insights', href: '#insights' },
-            { name: 'Our Process', href: '#process' },
-            { name: 'Audit', href: '#audit' },
+        Solutions: [
+            { name: 'Ecommerce Development', href: '/services/ecommerce-development' },
+            { name: 'App Development', href: '/services/app-development' },
+            { name: 'AI Solutions', href: '/services/ai-solutions' },
+            { name: 'SaaS Development', href: '/services/saas-development' },
+            { name: 'CRM/ERP Systems', href: '/services/crm-erp-systems' },
         ],
         Company: [
-            { name: 'About Us', href: '#' },
-            { name: 'Careers', href: '#' },
-            { name: 'Contact', href: '#' },
-            { name: 'Partnership', href: '/services/partnership-marketing' },
+            { name: 'About Us', href: '/about' },
+            { name: 'Careers', href: '/careers' },
+            { name: 'Contact Us', href: '/contact' },
+            { name: 'Digital Marketing', href: '/services/performance-marketing' },
+            { name: 'Social Media', href: '/services/social-media-handling' },
         ],
         Legal: [
             { name: 'Privacy Policy', href: '/privacy-policy' },
@@ -113,7 +114,7 @@ const Footer: React.FC = () => {
                         <div className="space-y-8">
                             <h4 className="text-[10px] font-black uppercase tracking-[0.2em] text-brand-medium">Solutions</h4>
                             <ul className="space-y-4">
-                                {FOOTER_LINKS.QuickLinks.map((link) => (
+                                {FOOTER_LINKS.Solutions.map((link) => (
                                     <li key={link.name}>
                                         <a href={link.href} className="text-sm text-slate-400 hover:text-white transition-colors flex items-center gap-2 group">
                                             <span className="w-1.5 h-1.5 rounded-full bg-brand-medium/0 group-hover:bg-brand-medium transition-all" />

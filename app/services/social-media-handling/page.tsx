@@ -11,10 +11,12 @@ import {
     Smartphone, Bookmark, Check, CreditCard, type LucideIcon
 } from 'lucide-react';
 import Navbar from '@/components/Navbar';
+import Link from 'next/link';
 import Footer from '@/components/Footer';
 import PortfolioCarousel from '@/components/PortfolioCarousel';
 import SocialDashboard from '@/components/SocialDashboard';
 import PhoneInput from '@/components/PhoneInput';
+import CaseStudies, { CaseStudy } from '@/components/CaseStudies';
 export default function SocialMediaHandling() {
     const [isDarkMode, setIsDarkMode] = useState(false);
     const [mounted, setMounted] = useState(false);
@@ -22,6 +24,35 @@ export default function SocialMediaHandling() {
     const [isHeroSubmitting, setIsHeroSubmitting] = useState(false);
     const [isHeroSubmitted, setIsHeroSubmitted] = useState(false);
     const containerRef = useRef<HTMLDivElement>(null);
+
+    const SOCIAL_CASE_STUDIES: CaseStudy[] = [
+        {
+            id: 'social-1',
+            title: 'Viral Growth for Lifestyle Brand',
+            client: 'UrbanVibe',
+            category: 'Instagram / TikTok',
+            description: 'Leveraged trending audio and micro-influencer collaborations to increase organic reach by 1200% in 4 months.',
+            stats: [
+                { label: 'Followers', value: '+85k' },
+                { label: 'Reach', value: '2.4M' },
+                { label: 'Engage', value: '6.2%' }
+            ],
+            tags: ['Short-form Video', 'Influencers', 'Community']
+        },
+        {
+            id: 'social-2',
+            title: 'LinkedIn Thought Leadership',
+            client: 'Nexus Consult',
+            category: 'LinkedIn Strategy',
+            description: 'Positioned the CEO as a top voice in consulting, resulting in a 4x increase in inbound meeting requests.',
+            stats: [
+                { label: 'Inbound', value: '+400%' },
+                { label: 'Impressions', value: '1M+' },
+                { label: 'Connections', value: '+12k' }
+            ],
+            tags: ['Personal Branding', 'Copywriting', 'B2B']
+        }
+    ];
 
     // Form State
     const [formData, setFormData] = useState({
@@ -128,7 +159,12 @@ export default function SocialMediaHandling() {
                         </p>
 
                         <div className="flex flex-col sm:flex-row gap-5">
-                            <a href="#audit" className="px-8 sm:px-10 py-4 group bg-gradient-to-r from-[#3994fa] to-[#004aad] text-white hover:opacity-90 font-bold rounded-[2rem] transition-transform hover:-translate-y-0.5 shadow-lg shadow-[#3994fa]/20 flex items-center justify-center gap-2 text-base">Watch Demo <Play className="w-5 h-5 fill-current" strokeWidth={0} /></a>
+                            <Link
+                                href="/case-studies/social-media-handling"
+                                className="px-8 sm:px-10 py-4 group bg-gradient-to-r from-[#3994fa] to-[#004aad] text-white hover:opacity-90 font-bold rounded-[2rem] transition-transform hover:-translate-y-0.5 shadow-lg shadow-[#3994fa]/20 flex items-center justify-center gap-2 text-base"
+                            >
+                                Case Studies <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                            </Link>
                         </div>
 
                         <div className="flex flex-wrap gap-3 pt-4">
@@ -997,8 +1033,16 @@ export default function SocialMediaHandling() {
                 </div>
             </section>
 
+            {/* Success Stories Section */}
+            <CaseStudies 
+                studies={SOCIAL_CASE_STUDIES} 
+                subtitle="Social Impact" 
+                title="Brands That Stand Out."
+                themeColor="#3994fa"
+            />
+
             {/* 2️⃣1️⃣ Free Social Media Audit Form */}
-            < section id="audit" className="py-16 md:py-28 px-4 md:px-6 bg-slate-50 dark:bg-slate-900/50 reveal-section" >
+            <section id="audit" className="py-16 md:py-28 px-4 md:px-6 bg-slate-50 dark:bg-slate-900/50 reveal-section" >
                 <div className="max-w-3xl mx-auto">
                     <div className="bg-white dark:bg-slate-900 p-6 sm:p-8 md:p-12 rounded-3xl border border-slate-200 dark:border-white/10 shadow-2xl relative overflow-hidden">
                         <div className="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-brand-sky via-brand-medium to-brand-cyan" />

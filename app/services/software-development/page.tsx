@@ -49,9 +49,12 @@ import {
     Store,
     Rocket
 } from 'lucide-react';
+import Image from 'next/image';
+import Link from 'next/link';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import PhoneInput from '@/components/PhoneInput';
+import CaseStudies, { CaseStudy } from '@/components/CaseStudies';
 enum Theme {
     DARK = 'dark',
     LIGHT = 'light',
@@ -167,6 +170,36 @@ const SoftwareDevelopmentPage = () => {
     const [activeIndex, setActiveIndex] = useState(0);
     const [isDragging, setIsDragging] = useState(false);
     const [isVideoModalOpen, setIsVideoModalOpen] = useState(false);
+
+    const SW_CASE_STUDIES: CaseStudy[] = [
+        {
+            id: 'sw-1',
+            title: 'ERP Modernization for Logistics Giant',
+            client: 'GlobalLogix',
+            category: 'Enterprise Software',
+            description: 'Refactored a legacy monolithic ERP into a high-speed microservices architecture, reducing operational latency by 70%.',
+            stats: [
+                { label: 'Latency', value: '-70%' },
+                { label: 'Efficiency', value: '+45%' },
+                { label: 'ROI', value: '180%' }
+            ],
+            tags: ['Microservices', 'PostgreSQL', 'Docker']
+        },
+        {
+            id: 'sw-2',
+            title: 'Custom SaaS Platform for Real Estate',
+            client: 'PropTech Pro',
+            category: 'SaaS Engineering',
+            description: 'End-to-end engineering of a multi-tenant property management system with automated billing and 3D virtual tours.',
+            stats: [
+                { label: 'Tenants', value: '500+' },
+                { label: 'Reliability', value: '99.99%' },
+                { label: 'Features', value: '120+' }
+            ],
+            tags: ['Next.js', 'Go', 'GraphQL']
+        }
+    ];
+
     const x = useMotionValue(0);
     const containerRef = useRef<HTMLDivElement>(null);
     const timerRef = useRef<NodeJS.Timeout | null>(null);
@@ -314,9 +347,15 @@ const SoftwareDevelopmentPage = () => {
                         </p>
 
                         <div className="flex flex-wrap items-center gap-4 mb-10">
+                            <Link
+                                href="/case-studies/software-development"
+                                className="flex items-center gap-2 px-8 py-3.5 bg-gradient-to-r from-[#3994fa] to-[#004aad] hover:opacity-90 text-white font-bold rounded-full transition-all shadow-lg shadow-[#3994fa]/30 group text-sm md:text-base"
+                            >
+                                Case Studies <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                            </Link>
                             <button
                                 onClick={() => setIsVideoModalOpen(true)}
-                                className="flex items-center gap-2 px-8 py-3.5 bg-gradient-to-r from-[#3994fa] to-[#004aad] hover:opacity-90 text-white font-bold rounded-full transition-all shadow-lg shadow-[#3994fa]/30 group text-sm md:text-base"
+                                className="flex items-center gap-2 px-8 py-3.5 bg-white/10 hover:bg-white/20 text-slate-900 dark:text-white font-bold rounded-full transition-all border border-slate-200 dark:border-white/10 group text-sm md:text-base"
                             >
                                 Watch Demo
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5">
@@ -824,6 +863,14 @@ const SoftwareDevelopmentPage = () => {
                     </div>
                 </div>
             </section>
+
+            {/* Success Stories Section */}
+            <CaseStudies 
+                studies={SW_CASE_STUDIES} 
+                subtitle="Software Success" 
+                title="Engineering Complex Solutions."
+                themeColor="#3994fa"
+            />
 
             {/* Final Enterprise-Level CTA Section */}
             <section className="py-32 px-6 bg-[#020617] text-white overflow-hidden relative">

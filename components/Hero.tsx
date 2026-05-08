@@ -42,7 +42,7 @@ const Hero: React.FC<HeroProps> = ({ isDark: _ignoredIsDark }) => {
             <span
               className="text-[10px] sm:text-xs md:text-sm font-black uppercase text-slate-500 dark:text-white/70 mb-2 whitespace-nowrap"
             >
-              Welcome to Preet Tech OPC Private Limited
+              Best IT Company in Haldwani | Preet Tech OPC Private Limited
             </span>
             <h1 className="text-[3rem] sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl 2xl:text-9xl font-black tracking-tighter leading-[0.95] md:leading-[0.9] flex flex-col items-center text-center">
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-medium via-brand-cyan to-brand-deep italic pb-3 md:pb-6 px-2 md:px-4">
@@ -54,7 +54,7 @@ const Hero: React.FC<HeroProps> = ({ isDark: _ignoredIsDark }) => {
           <p
             className="text-sm sm:text-base md:text-xl text-slate-500 dark:text-slate-400 max-w-3xl leading-relaxed mb-6 md:mb-8 font-medium px-4 md:px-0 text-center mx-auto"
           >
-            Preet Tech OPC Private Limited is a top <span className="text-foreground dark:text-white font-bold">Next Gen Digital Agency</span> providing cutting-edge IT and digital marketing solutions. We excel in <span className="text-foreground dark:text-white font-bold">custom software development</span>, <span className="text-foreground dark:text-white font-bold">AI-driven marketing</span>, and scalable <span className="text-foreground dark:text-white font-bold">enterprise IT solutions</span> to power your brand's growth.
+            Preet Tech OPC Private Limited is the <strong>Best IT Company in Haldwani</strong> and a top <span className="text-foreground dark:text-white font-bold">Next Gen Digital Agency</span>. We are a leading <strong>Website Development Company</strong> and <strong>Software Development Company</strong> providing <strong>SEO Services</strong>, <strong>Digital Marketing</strong>, and scalable <span className="text-foreground dark:text-white font-bold">enterprise IT solutions</span> to power your brand's growth.
           </p>
 
           {/* Action Buttons */}

@@ -12,10 +12,12 @@ import {
     Scissors, Lightbulb, Workflow, Box, X
 } from 'lucide-react';
 import Navbar from '@/components/Navbar';
+import Link from 'next/link';
 import Footer from '@/components/Footer';
 import PortfolioCarousel from '@/components/PortfolioCarousel';
 import ThreeSphereScene from '@/components/ThreeSphere';
 import PhoneInput from '@/components/PhoneInput';
+import CaseStudies, { CaseStudy } from '@/components/CaseStudies';
 // --- 🛰️ Lightweight Static Background (CSS-only, no JS animations) ---
 const TechnicalBackground = ({ isDarkMode }: { isDarkMode: boolean }) => (
     <div className="absolute inset-0 pointer-events-none overflow-hidden z-0" aria-hidden="true">
@@ -48,6 +50,35 @@ export default function ContentCreation() {
     const [submitStatus, setSubmitStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
     const [isVideoOpen, setIsVideoOpen] = useState(false);
     const containerRef = useRef<HTMLDivElement>(null);
+
+    const CONTENT_CASE_STUDIES: CaseStudy[] = [
+        {
+            id: 'content-1',
+            title: 'Cinematic Brand Storytelling',
+            client: 'Veloce Motors',
+            category: 'Video Production',
+            description: 'Produced a series of high-octane brand films that garnered over 5M organic views and redefined the brand aesthetic.',
+            stats: [
+                { label: 'Views', value: '5M+' },
+                { label: 'Engagement', value: '12%' },
+                { label: 'Shares', value: '45k+' }
+            ],
+            tags: ['4K Video', 'Color Grading', 'Sound Design']
+        },
+        {
+            id: 'content-2',
+            title: 'High-Authority Blog Strategy',
+            client: 'TechPulse',
+            category: 'Copywriting / SEO',
+            description: 'Executed a data-driven content strategy that secured 50+ Top 3 Google rankings for competitive industry keywords.',
+            stats: [
+                { label: 'Top 3 Keywords', value: '50+' },
+                { label: 'Organic Traffic', value: '+240%' },
+                { label: 'Backlinks', value: '200+' }
+            ],
+            tags: ['SEO Writing', 'Whitepapers', 'Inbound']
+        }
+    ];
 
     useEffect(() => {
         setMounted(true);
@@ -130,8 +161,17 @@ export default function ContentCreation() {
                         <motion.div
                             className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start"
                         >
-                            <button onClick={() => setIsVideoOpen(true)} className="px-6 sm:px-8 py-3.5 sm:py-4 bg-gradient-to-r from-[#3994fa] to-[#004aad] hover:opacity-90 text-white rounded-full font-bold transition-all transform hover:-translate-y-1 shadow-lg shadow-[#3994fa]/25 flex items-center justify-center gap-2 text-sm sm:text-base cursor-pointer">
-                                Watch Demo <Play className="w-4 h-4 fill-white" />
+                            <Link
+                                href="/case-studies/content-creation"
+                                className="px-6 sm:px-8 py-3.5 sm:py-4 bg-gradient-to-r from-[#3994fa] to-[#004aad] hover:opacity-90 text-white rounded-full font-bold transition-all transform hover:-translate-y-1 shadow-lg shadow-[#3994fa]/25 flex items-center justify-center gap-2 text-sm sm:text-base cursor-pointer"
+                            >
+                                Case Studies <ArrowRight className="w-4 h-4" />
+                            </Link>
+                            <button
+                                onClick={() => setIsVideoOpen(true)}
+                                className="px-6 sm:px-8 py-3.5 sm:py-4 bg-white/10 hover:bg-white/20 text-slate-900 dark:text-white rounded-full font-bold transition-all border border-slate-200 dark:border-white/10 flex items-center justify-center gap-2 text-sm sm:text-base cursor-pointer"
+                            >
+                                Watch Demo <Play className="w-4 h-4 fill-slate-900 dark:fill-white" />
                             </button>
                         </motion.div>
                     </div>
@@ -584,6 +624,14 @@ export default function ContentCreation() {
                 </div>
             </section>
 
+
+            {/* Success Stories Section */}
+            <CaseStudies 
+                studies={CONTENT_CASE_STUDIES} 
+                subtitle="Creative Impact" 
+                title="Content That Captivates."
+                themeColor="#3994fa"
+            />
 
             {/* Final CTA Section */}
             <section className="py-24 px-4 md:px-6 bg-gradient-to-b from-transparent to-brand-medium/10 reveal-section">

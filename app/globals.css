@@ -288,10 +288,22 @@ html {
     @apply mb-6 text-slate-400 text-sm;
 }
 
-.blog-content-rich .cta-block button {
-    @apply px-6 py-3 bg-gradient-to-r from-[#3994fa] to-[#004aad] text-white rounded-xl font-bold text-xs uppercase tracking-widest hover:scale-105 transition-transform;
+.blog-content-rich .cta-block button,
+.blog-content-rich .cta-block .cta-link {
+    @apply inline-flex px-6 py-3 bg-gradient-to-r from-[#3994fa] to-[#004aad] text-white rounded-xl font-bold text-xs uppercase tracking-widest hover:scale-105 transition-transform no-underline;
 }
 
 .gradient-btn {
     @apply bg-gradient-to-r from-[#3994fa] to-[#004aad] text-white transition-all duration-300;
+}
+
+@keyframes gradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.animate-gradient {
+    animation: gradient 8s linear infinite;
+    background-size: 200% 200%;
 }

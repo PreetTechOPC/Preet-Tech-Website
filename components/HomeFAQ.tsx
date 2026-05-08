@@ -18,6 +18,10 @@ const FAQS = [
     {
         question: "Why should a B2B business choose your cloud migration services?",
         answer: "Our B2B digital agency specializes in secure, seamless cloud migration services. We reduce infrastructure costs, improve security, and ensure 99.99% uptime, allowing your enterprise to scale its tech solutions safely and efficiently."
+    },
+    {
+        question: "Why is Preet Tech considered the Best IT Company in Haldwani?",
+        answer: "Preet Tech is recognized as the Best IT Company in Haldwani because we combine local market understanding with global tech standards. As a premier Website Developer in Haldwani, we offer end-to-end Digital Marketing, SEO, and Software Development services that deliver real business growth."
     }
 ];
 

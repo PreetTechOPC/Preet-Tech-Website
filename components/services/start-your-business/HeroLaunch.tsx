@@ -14,6 +14,7 @@ import {
     Wallet,
     X
 } from 'lucide-react';
+import Link from 'next/link';
 import PhoneInput from '@/components/PhoneInput';
 
 const HeroLaunch = () => {
@@ -115,17 +116,22 @@ const HeroLaunch = () => {
                     </p>
 
                     <motion.div
-                        
-                        
-                        
+                        className="flex flex-col sm:flex-row gap-4"
                     >
+                        <Link
+                            href="/case-studies/start-your-business"
+                            className="px-8 py-4 bg-gradient-to-r from-[#3994fa] to-[#004aad] hover:opacity-90 text-white font-bold rounded-2xl transition-all shadow-lg shadow-[#3994fa]/20 flex items-center justify-center gap-3 group cursor-pointer"
+                        >
+                            Case Studies
+                            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                        </Link>
                         <button
                             onClick={() => setIsVideoOpen(true)}
-                            className="px-8 py-4 bg-gradient-to-r from-[#3994fa] to-[#004aad] hover:opacity-90 text-white font-bold rounded-2xl transition-all shadow-lg shadow-[#3994fa]/20 flex items-center gap-3 group"
+                            className="px-8 py-4 bg-white/10 dark:bg-white/5 border border-slate-200 dark:border-white/10 hover:bg-slate-50 dark:hover:bg-white/10 text-slate-900 dark:text-white font-bold rounded-2xl transition-all flex items-center justify-center gap-3 group cursor-pointer"
                         >
                             Watch Demo
-                            <div className="w-6 h-6 rounded-full bg-white/20 flex items-center justify-center">
-                                <Play className="w-3 h-3 fill-white" />
+                            <div className="w-6 h-6 rounded-full bg-[#3994fa]/10 flex items-center justify-center">
+                                <Play className="w-3 h-3 fill-[#3994fa] text-[#3994fa]" />
                             </div>
                         </button>
                     </motion.div>

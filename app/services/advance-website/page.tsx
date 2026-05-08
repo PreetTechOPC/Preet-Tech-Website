@@ -13,6 +13,7 @@ import {
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import PhoneInput from '@/components/PhoneInput';
+import CaseStudies, { CaseStudy } from '@/components/CaseStudies';
 
 
 // ----------------------------------------------------------------------
@@ -26,6 +27,35 @@ export default function AdvancedWebsiteDevelopment() {
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [isSubmitted, setIsSubmitted] = useState(false);
     const [isVideoOpen, setIsVideoOpen] = useState(false);
+
+    const ADV_CASE_STUDIES: CaseStudy[] = [
+        {
+            id: 'adv-1',
+            title: 'Headless E-commerce Transformation',
+            client: 'Moda Luxe',
+            category: 'Next.js / Shopify Headless',
+            description: 'Migrated a standard Shopify store to a headless Next.js frontend, improving page load speed by 300% and increasing conversion by 40%.',
+            stats: [
+                { label: 'Speed', value: '+300%' },
+                { label: 'Conversion', value: '+40%' },
+                { label: 'Lighthouse', value: '100/100' }
+            ],
+            tags: ['Next.js', 'Shopify Storefront API', 'Vercel']
+        },
+        {
+            id: 'adv-2',
+            title: 'Multi-Vendor Marketplace',
+            client: 'Gig economy Hub',
+            category: 'Marketplace Development',
+            description: 'Built a complex platform with real-time bidding, escrow payments, and an automated dispute resolution system.',
+            stats: [
+                { label: 'Vendors', value: '5k+' },
+                { label: 'Transactions', value: '$2M+' },
+                { label: 'Latency', value: '<50ms' }
+            ],
+            tags: ['Node.js', 'Socket.io', 'PostgreSQL']
+        }
+    ];
 
     // Form State
     const [formData, setFormData] = useState({
@@ -177,12 +207,18 @@ export default function AdvancedWebsiteDevelopment() {
                         <div
                             className="flex flex-col sm:flex-row gap-5"
                         >
-                            <button onClick={(e) => { e.preventDefault(); setIsVideoOpen(true); }} className="px-8 sm:px-10 py-4 sm:py-4 gap-2.5 text-base sm:text-lg group bg-gradient-to-r from-[#3994fa] to-[#004aad] text-white hover:opacity-90 font-bold rounded-[2rem] transition-transform hover:-translate-y-0.5 shadow-[0_8px_30px_rgb(63,143,204,0.3)] flex items-center justify-center relative overflow-hidden focus:outline-none">
-                                <span className="relative z-10 flex items-center gap-2">Watch Demo <Play className="w-5 h-5 fill-current" strokeWidth={0} /></span>
+                            <Link
+                                href="/case-studies/advance-website"
+                                className="px-8 sm:px-10 py-4 sm:py-4 gap-2.5 text-base sm:text-lg group bg-gradient-to-r from-[#3994fa] to-[#004aad] text-white hover:opacity-90 font-bold rounded-[2rem] transition-transform hover:-translate-y-0.5 shadow-[0_8px_30px_rgb(63,143,204,0.3)] flex items-center justify-center relative overflow-hidden focus:outline-none"
+                            >
+                                <span className="relative z-10 flex items-center gap-2">Case Studies <ArrowRight className="w-5 h-5" /></span>
+                            </Link>
+                            <button
+                                onClick={(e) => { e.preventDefault(); setIsVideoOpen(true); }}
+                                className="px-8 sm:px-10 py-4 sm:py-4 text-base sm:text-lg bg-white dark:bg-[#050608] border border-slate-200 dark:border-white/10 text-[#1a2b4b] dark:text-white hover:bg-slate-50 dark:hover:bg-white/5 font-bold rounded-[2rem] transition-transform hover:-translate-y-0.5 shadow-sm flex items-center justify-center"
+                            >
+                                Watch Demo <Play className="w-5 h-5 fill-current ml-2" strokeWidth={0} />
                             </button>
-                            <a href="#pricing" className="px-8 sm:px-10 py-4 sm:py-4 text-base sm:text-lg bg-white dark:bg-[#050608] border border-slate-200 dark:border-white/10 text-[#1a2b4b] dark:text-white hover:bg-slate-50 dark:hover:bg-white/5 font-bold rounded-[2rem] transition-transform hover:-translate-y-0.5 shadow-sm flex items-center justify-center">
-                                View Pricing
-                            </a>
                         </div>
 
                         {/* Floating Tech Stack Badges */}
@@ -1229,6 +1265,14 @@ export default function AdvancedWebsiteDevelopment() {
                 </div>
             </section>
 
+
+            {/* Success Stories Section */}
+            <CaseStudies 
+                studies={ADV_CASE_STUDIES} 
+                subtitle="Technical Excellence" 
+                title="Websites That Scale Businesses."
+                themeColor="#3994fa"
+            />
 
             {/* 1️⃣9️⃣ Final High-Impact CTA */}
             <section className="py-16 md:py-32 px-4 md:px-6 bg-slate-50 dark:bg-[#020617] text-slate-900 dark:text-white relative overflow-hidden border-t border-slate-200 dark:border-transparent">

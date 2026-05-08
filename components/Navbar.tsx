@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, ArrowUpRight, Sun, Moon, Globe, Smartphone, Palette, Share2, TrendingUp, ChevronRight, ChevronLeft, Target, Rocket, Cpu, Zap, Shield, Monitor, Layout, UserCheck } from 'lucide-react';
+import { Menu, X, ArrowUpRight, Sun, Moon, Globe, Smartphone, Palette, Share2, TrendingUp, ChevronRight, ChevronLeft, Target, Rocket, Cpu, Zap, Shield, Monitor, Layout, UserCheck, ShoppingCart, BrainCircuit, Cloud, Database } from 'lucide-react';
 import Link from 'next/link';
 import { useTheme } from 'next-themes';
 
@@ -72,6 +72,11 @@ const Navbar: React.FC<NavbarProps> = ({ isDark: _ignoredIsDark, toggleTheme: _i
         { name: 'Advance Website', icon: Monitor, href: '/services/advance-website', detail: 'Custom Enterprise Features', longDesc: 'Advance Websites engineered for complex operations, custom enterprise features, and maximum scalability.' },
         { name: 'App Development', icon: Smartphone, href: '/services/app-development', detail: 'Native & Cross-platform reach', longDesc: 'Building high-performance mobile applications with seamless user experiences across iOS and Android ecosystems.' },
         { name: 'Software Development', icon: Cpu, href: '/services/software-development', detail: 'Custom enterprise logic', longDesc: 'Architecting complex software systems tailored to your business operations, ensuring efficiency and long-term scalability.' },
+        { name: 'Ecommerce Development', icon: ShoppingCart, href: '/services/ecommerce-development', detail: 'High-conversion online stores', longDesc: 'Scalable e-commerce platforms and multi-vendor marketplaces built to drive global sales and customer retention.' },
+        { name: 'AI Solutions', icon: BrainCircuit, href: '/services/ai-solutions', detail: 'Intelligent automation & LLMs', longDesc: 'Integrating generative AI and intelligent automation into your business processes to future-proof your digital operations.' },
+        { name: 'SaaS Development', icon: Cloud, href: '/services/saas-development', detail: 'Scalable cloud-native platforms', longDesc: 'Building robust software-as-a-service platforms designed for millions of users with high availability and security.' },
+        { name: 'CRM/ERP Systems', icon: Database, href: '/services/crm-erp-systems', detail: 'Custom business management', longDesc: 'Tailor-made enterprise resource planning and customer relationship management systems to optimize your business workflows.' },
+
       ]
     },
     marketing: {

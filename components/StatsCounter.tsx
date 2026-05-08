@@ -1,13 +1,29 @@
 "use client";
 
 import React, { memo } from 'react';
-import { motion } from 'framer-motion';
+import { motion, useSpring, useTransform, useMotionValue, useInView } from 'framer-motion';
 import { Activity, Users, Zap, Briefcase } from 'lucide-react';
 
 const Odometer = memo(({ value, suffix }: { value: number; suffix: string }) => {
+    const ref = React.useRef(null);
+    const isInView = useInView(ref, { once: true, margin: "-100px" });
+    const motionValue = useMotionValue(0);
+    const springValue = useSpring(motionValue, {
+        damping: 30,
+        stiffness: 100,
+    });
+    const displayValue = useTransform(springValue, (latest) => Math.floor(latest));
+
+    React.useEffect(() => {
+        if (isInView) {
+            motionValue.set(value);
+        }
+    }, [isInView, value, motionValue]);
+
     return (
-        <span className="tabular-nums">
-            {value}{suffix}
+        <span ref={ref} className="tabular-nums">
+            <motion.span>{displayValue}</motion.span>
+            {suffix}
         </span>
     );
 });

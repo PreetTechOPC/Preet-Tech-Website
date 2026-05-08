@@ -38,6 +38,7 @@ import {
     Activity
 } from 'lucide-react';
 import Navbar from '@/components/Navbar';
+import Link from 'next/link';
 import Footer from '@/components/Footer';
 import ThreeSphereScene from '@/components/ThreeSphere';
 import PhoneInput from '@/components/PhoneInput';
@@ -354,8 +355,17 @@ export default function PartnershipMarketing() {
                         <motion.div
                             className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start"
                         >
-                            <button onClick={() => setIsVideoOpen(true)} className="px-6 sm:px-8 py-3.5 sm:py-4 bg-gradient-to-r from-[#3994fa] to-[#004aad] hover:opacity-90 text-white rounded-full font-bold transition-all transform hover:-translate-y-1 shadow-lg shadow-[#3994fa]/25 flex items-center justify-center gap-2 text-sm sm:text-base cursor-pointer">
-                                Watch Demo <Play className="w-4 h-4 fill-white" />
+                            <Link
+                                href="/case-studies/partnership-marketing"
+                                className="px-6 sm:px-8 py-3.5 sm:py-4 bg-gradient-to-r from-[#3994fa] to-[#004aad] hover:opacity-90 text-white rounded-full font-bold transition-all transform hover:-translate-y-1 shadow-lg shadow-[#3994fa]/25 flex items-center justify-center gap-2 text-sm sm:text-base cursor-pointer"
+                            >
+                                Case Studies <ArrowRight className="w-4 h-4" />
+                            </Link>
+                            <button
+                                onClick={() => setIsVideoOpen(true)}
+                                className="px-6 sm:px-8 py-3.5 sm:py-4 bg-white/10 hover:bg-white/20 text-slate-900 dark:text-white rounded-full font-bold transition-all border border-slate-200 dark:border-white/10 flex items-center justify-center gap-2 text-sm sm:text-base cursor-pointer"
+                            >
+                                Watch Demo <Play className="w-4 h-4 fill-slate-900 dark:fill-white" />
                             </button>
                         </motion.div>
                     </div>

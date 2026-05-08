@@ -1055,4 +1055,164 @@ export const BLOG_POSTS: BlogPost[] = [
       keywords: ["Web3 enterprise", "smart contracts", "decentralised architecture", "IPFS", "blockchain development"],
     },
   },
+  {
+    id: "cs-4",
+    title: "Angelic Beauty and Wellness Studio: Elevating a Luxury Spa Experience Online",
+    slug: "case-study-angelic-beauty-wellness",
+    excerpt: "How we helped Angelic Beauty and Wellness Studio build a premium digital presence and implement an automated booking system that increased appointments by 45%.",
+    content: `
+      <h2>The Challenge</h2>
+      <p>Angelic Beauty and Wellness Studio, a high-end spa and wellness centre, struggled with a fragmented digital presence. Their social media was inconsistent, and their booking process was entirely manual, leading to missed appointments and administrative bottlenecks.</p>
+
+      <h2>Our Strategy</h2>
+      <h3>1. Luxury Digital Identity</h3>
+      <p>We designed an eco-friendly, minimalist website that reflected their "Angelic" brand values. Using a soft, premium color palette and high-quality visual storytelling, we created a digital sanctuary for their clients.</p>
+
+      <h3>2. Social Media Growth & Handling</h3>
+      <p>Our team took over their social media management, focusing on aesthetic consistency and community engagement. We launched targeted campaigns that showcased their unique wellness treatments and expert staff.</p>
+
+      <h3>3. Automated Booking System</h3>
+      <p>We integrated a custom, user-friendly booking engine that allowed clients to schedule treatments, select practitioners, and pay online 24/7. This eliminated manual scheduling errors and reduced no-shows through automated reminders.</p>
+
+      <div class="cta-block">
+        <h4>Experience the Angelic Transformation Online</h4>
+        <p>Explore the official Angelic Beauty and Wellness Studio website to see their full range of premium wellness services and our digital engineering in action.</p>
+        <a href="https://angelicstudio.in/" target="_blank" rel="noopener noreferrer" class="cta-link">Visit website</a>
+      </div>
+
+      <h2>The Results</h2>
+      <ul>
+        <li><strong>45% increase in monthly appointments</strong> within the first 60 days.</li>
+        <li><strong>80% reduction in administrative time</strong> spent on manual booking.</li>
+        <li><strong>3x increase in social media engagement</strong> and follower growth.</li>
+        <li>Successfully launched a digital "wellness blog" that attracts 2,000+ visitors monthly.</li>
+      </ul>
+
+      <h2>Conclusion</h2>
+      <p>By aligning their digital aesthetics with their physical luxury experience and automating their backend operations, Angelic Beauty and Wellness Studio has established itself as a digital leader in the luxury wellness space.</p>
+    `,
+    category: "Web Design",
+    author: {
+      name: "Sarah Miller",
+      role: "Content Lead",
+      avatar: null,
+    },
+    date: "Mar 15, 2026",
+    readTime: "5 min read",
+    featuredImage: "/images/services/social-media.png",
+    isFeatured: false,
+    tags: ["Wellness", "Social Media", "Web Design", "Automation", "Eco Website", "Case Study"],
+    seo: {
+      title: "Angelic Beauty and Wellness Studio Case Study | Preet Tech",
+      description: "How Preet Tech helped Angelic Beauty and Wellness Studio scale their luxury spa through premium design, social media handling, and automated booking.",
+      keywords: ["wellness marketing", "spa website design", "social media handling", "beauty studio automation"],
+    },
+  },
+  {
+    id: "cs-5",
+    title: "AK Real Estate: Automating Lead Generation in a Competitive Market",
+    slug: "case-study-ak-real-estate-lead-gen",
+    excerpt: "Engineering a high-performance lead generation engine for AK Real Estate that delivered a 5x increase in qualified property inquiries.",
+    content: `
+      <h2>The Challenge</h2>
+      <p>AK Real Estate, a premium property firm, was struggling with high lead acquisition costs and a low conversion rate from their existing website. They needed a technical solution to capture, qualify, and manage leads more effectively in a crowded market.</p>
+
+      <h2>Our Approach</h2>
+      <h3>1. Advanced Property Portal</h3>
+      <p>We built a high-performance "Advance Website" featuring interactive property maps, 3D virtual tours, and a lightning-fast search engine. The site was optimized for mobile-first users who browse properties on the go.</p>
+
+      <h3>2. AI-Powered Lead Qualification</h3>
+      <p>We deployed an AI chatbot that interacted with visitors in real-time, answering property-specific questions and qualifying leads based on budget, location, and urgency before passing them to the sales team.</p>
+
+      <h3>3. Performance Marketing Strategy</h3>
+      <p>Our team launched targeted Google Search and Meta Ads campaigns focused on high-intent property seekers. We used dynamic remarketing to keep AK Real Estate top-of-mind for users who had previously viewed specific listings.</p>
+
+      <div class="cta-block">
+        <h4>Experience High-Performance Lead Gen</h4>
+        <p>Visit the official AK Real Estate portal to see our advanced property search and lead qualification systems in action.</p>
+        <a href="https://www.akestate.in/" target="_blank" rel="noopener noreferrer" class="cta-link">Visit website</a>
+      </div>
+
+      <h2>The Results</h2>
+      <ul>
+        <li><strong>5x increase in qualified leads</strong> month-over-month.</li>
+        <li><strong>30% reduction in Cost Per Lead (CPL)</strong> through precision targeting.</li>
+        <li><strong>100% automated lead distribution</strong> to the sales team via custom CRM integration.</li>
+        <li>Website load speed improved by 70%, leading to a significantly lower bounce rate.</li>
+      </ul>
+
+      <h2>Conclusion</h2>
+      <p>AK Real Estate's success proves that in the modern property market, technology is the ultimate differentiator. A fast, intelligent, and performance-driven digital presence is essential for scaling a real estate brand today.</p>
+    `,
+    category: "Performance Marketing",
+    author: {
+      name: "Preet Singh",
+      role: "CEO & Growth Strategist",
+      avatar: null,
+    },
+    date: "Mar 18, 2026",
+    readTime: "6 min read",
+    featuredImage: "/images/services/advance-website.png",
+    isFeatured: false,
+    tags: ["Real Estate", "Lead Generation", "Performance Marketing", "AI", "Advance Website", "Eco Website", "Case Study"],
+    seo: {
+      title: "AK Real Estate Case Study: Lead Generation Automation | Preet Tech",
+      description: "How Preet Tech built a high-performance lead generation engine for AK Real Estate, increasing property inquiries by 5x.",
+      keywords: ["real estate marketing", "property lead generation", "real estate website design", "performance marketing case study"],
+    },
+  },
+  {
+    id: "cs-6",
+    title: "BCWS: Building a Digital Community for Student Wellness",
+    slug: "case-study-bcws-community-platform",
+    excerpt: "How we helped Bareilly College Wellness Society (BCWS) launch an 'Eco Website' and content hub to support student mental health and wellness.",
+    content: `
+      <h2>The Challenge</h2>
+      <p>The Bareilly College Wellness Society (BCWS) needed a digital home to provide students with wellness resources, mental health support, and a sense of community. They required a platform that was accessible, calming, and easy to manage for their student volunteers.</p>
+
+      <h2>Our Solution</h2>
+      <h3>1. Eco-Centric Community Hub</h3>
+      <p>We developed a custom "Eco Website" for BCWS, prioritizing accessibility and a soothing user experience. The design focused on calm aesthetics and intuitive navigation to ensure students could find support easily.</p>
+
+      <h3>2. Content & Resource Management</h3>
+      <p>We implemented a simple, student-friendly CMS that allowed BCWS to upload wellness articles, video resources, and event updates. We also integrated a secure, anonymous "Confession & Support" portal.</p>
+
+      <h3>3. Strategic Outreach</h3>
+      <p>Our team provided a digital strategy to help BCWS reach more students across the campus through organic social media growth and content marketing focused on student well-being.</p>
+
+      <div class="cta-block">
+        <h4>Support the BCWS Mission</h4>
+        <p>Visit the official BCWS platform to explore wellness resources, mental health support, and the vibrant Bareilly College community hub.</p>
+        <a href="https://bcws.mmf.org.in/" target="_blank" rel="noopener noreferrer" class="cta-link">Visit website</a>
+      </div>
+
+      <h2>The Impact</h2>
+      <ul>
+        <li><strong>Reached over 5,000+ students</strong> within the first month of launch.</li>
+        <li><strong>1,000+ wellness resources downloaded</strong> by the student community.</li>
+        <li>Established a secure, anonymous channel for mental health inquiries.</li>
+        <li>Empowered student volunteers to manage their own digital presence effectively.</li>
+        <li>NPS score of 92 from the student body.</li>
+      </ul>
+
+      <h2>Conclusion</h2>
+      <p>BCWS is now a digital beacon for student wellness at Bareilly College. Their new platform has successfully bridged the gap between student needs and professional support, creating a sustainable digital community.</p>
+    `,
+    category: "Web Design",
+    author: {
+      name: "Dev Rohan",
+      role: "Head of Tech",
+      avatar: null,
+    },
+    date: "Mar 20, 2026",
+    readTime: "5 min read",
+    featuredImage: "/images/services/eco-website.png",
+    isFeatured: false,
+    tags: ["Education", "Wellness", "Community", "Eco Website", "Case Study"],
+    seo: {
+      title: "BCWS Case Study: Student Wellness Community Platform | Preet Tech",
+      description: "How Preet Tech helped Bareilly College Wellness Society (BCWS) build a digital community and wellness hub for students.",
+      keywords: ["student wellness website", "college community platform", "mental health resources online", "eco website case study"],
+    },
+  },
 ];

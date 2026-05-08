@@ -12,11 +12,13 @@ import {
     Atom, Server, HardDrive, ShoppingCart, Store, Users, Target
 } from 'lucide-react';
 import Image from 'next/image';
+import Link from 'next/link';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import ThreeSphereScene from '@/components/ThreeSphere';
 import { portfolioItems } from '@/lib/eco-portfolio';
 import PhoneInput from '@/components/PhoneInput';
+import CaseStudies, { CaseStudy } from '@/components/CaseStudies';
 // GSAP removed for performance
 
 // --- 🛰️ Lightweight Static Background (CSS-only, no JS animations) ---
@@ -49,6 +51,35 @@ export default function EcoWebsiteDevelopment() {
     const targetAudienceRef = useRef<HTMLDivElement>(null);
     const portfolioSliderRef = useRef<HTMLDivElement>(null);
 
+    const ECO_CASE_STUDIES: CaseStudy[] = [
+        {
+            id: 'eco-1',
+            title: 'Zero-Carbon Landing Page',
+            client: 'GreenFlow',
+            category: 'Sustainable Web',
+            description: 'Optimized assets and code to achieve a 0.2g CO2 per view rating, while increasing conversion rates by 25%.',
+            stats: [
+                { label: 'CO2/view', value: '0.2g' },
+                { label: 'Page Speed', value: '0.8s' },
+                { label: 'Conversion', value: '+25%' }
+            ],
+            tags: ['Green Hosting', 'WebP', 'SVG Icons']
+        },
+        {
+            id: 'eco-2',
+            title: 'Sustainable E-commerce Store',
+            client: 'EarthGoods',
+            category: 'Eco-Commerce',
+            description: 'A dark-mode first e-commerce platform designed to reduce OLED power consumption and server load.',
+            stats: [
+                { label: 'Power Save', value: '30%' },
+                { label: 'Data Weight', value: '-60%' },
+                { label: 'Sales', value: '$500k+' }
+            ],
+            tags: ['React', 'Static Gen', 'Dark Mode']
+        }
+    ];
+
     // Form State
     const [formData, setFormData] = useState({
         name: '',
@@ -57,7 +88,7 @@ export default function EcoWebsiteDevelopment() {
         phone: '',
         countryCode: '+91',
         industry: '',
-        budget: '₹3,999', // default from options
+        budget: '₹4,999', // default from options
     });
     const [submitStatus, setSubmitStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
 
@@ -76,7 +107,7 @@ export default function EcoWebsiteDevelopment() {
             });
             if (res.ok) {
                 setSubmitStatus('success');
-                setFormData({ name: '', businessName: '', email: '', phone: '', countryCode: '+91', industry: '', budget: '₹3,999' });
+                setFormData({ name: '', businessName: '', email: '', phone: '', countryCode: '+91', industry: '', budget: '₹4,999' });
                 setTimeout(() => setSubmitStatus('idle'), 5000);
             } else {
                 setSubmitStatus('error');
@@ -181,7 +212,7 @@ export default function EcoWebsiteDevelopment() {
                                     "availableLanguage": ["English", "Hindi"]
                                 }
                             },
-                            "description": "Professional, mobile-responsive, and SEO-ready websites built in 3–7 days starting at ₹3,999. Includes domain setup, contact form, WhatsApp chat integration, social media links, and basic SEO for small businesses, startups, and freelancers across India.",
+                            "description": "Professional, mobile-responsive, and SEO-ready websites built in 3–7 days starting at ₹4,999. Includes domain setup, contact form, WhatsApp chat integration, social media links, and basic SEO for small businesses, startups, and freelancers across India.",
                             "areaServed": "India",
                             "offers": {
                                 "@type": "Offer",
@@ -257,14 +288,23 @@ export default function EcoWebsiteDevelopment() {
                         </span>
                         <h1 className="text-3xl sm:text-5xl lg:text-7xl font-black tracking-tighter leading-[1.1] text-slate-900 dark:text-white">
                             Professional Websites <br />
-                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#3994fa] to-brand-medium">Starting ₹3,999.</span>
+                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#3994fa] to-brand-medium">Starting ₹4,999.</span>
                         </h1>
                         <p className="text-base md:text-lg text-slate-600 dark:text-slate-400 max-w-lg mx-auto lg:mx-0 leading-relaxed font-medium">
                             Get a fully responsive, SEO-ready, and mobile-optimized website for your small business or startup — delivered in just <strong>3–7 working days</strong>. No hidden charges, no technical headaches.
                         </p>
                         <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-                            <button onClick={() => setIsVideoOpen(true)} className="px-6 sm:px-8 py-3.5 sm:py-4 bg-gradient-to-r from-[#3994fa] to-[#004aad] hover:opacity-90 text-white rounded-full font-bold transition-all transform hover:-translate-y-1 shadow-lg shadow-[#3994fa]/25 flex items-center justify-center gap-2 text-sm sm:text-base cursor-pointer">
-                                Watch Demo <Play className="w-4 h-4 fill-white" />
+                            <Link
+                                href="/case-studies/eco-website"
+                                className="px-6 sm:px-8 py-3.5 sm:py-4 bg-gradient-to-r from-[#3994fa] to-[#004aad] hover:opacity-90 text-white rounded-full font-bold transition-all transform hover:-translate-y-1 shadow-lg shadow-[#3994fa]/25 flex items-center justify-center gap-2 text-sm sm:text-base cursor-pointer"
+                            >
+                                Case Studies <ArrowRight className="w-4 h-4" />
+                            </Link>
+                            <button
+                                onClick={() => setIsVideoOpen(true)}
+                                className="px-6 sm:px-8 py-3.5 sm:py-4 bg-white/10 hover:bg-white/20 text-slate-900 dark:text-white rounded-full font-bold transition-all border border-slate-200 dark:border-white/10 flex items-center justify-center gap-2 text-sm sm:text-base cursor-pointer"
+                            >
+                                Watch Demo <Play className="w-4 h-4 fill-slate-900 dark:fill-white" />
                             </button>
                         </div>
                     </div>
@@ -322,7 +362,7 @@ export default function EcoWebsiteDevelopment() {
                                     <div className="relative group">
                                         <CreditCard strokeWidth={1.5} className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400 group-focus-within:text-[#3994fa] transition-colors pointer-events-none" />
                                         <select required value={formData.budget} onChange={(e) => setFormData({ ...formData, budget: e.target.value })} className="w-full bg-slate-50/50 dark:bg-slate-950/50 border border-slate-200 dark:border-slate-800 rounded-2xl py-4 pl-12 pr-10 outline-none focus:border-[#3994fa] focus:ring-1 focus:ring-[#3994fa]/20 transition-all appearance-none text-slate-700 dark:text-slate-200 text-sm">
-                                            <option value="₹3,999">₹3,999</option>
+                                            <option value="₹4,999">₹4,999</option>
                                             <option value="₹10k - ₹25k">₹10k - ₹25k</option>
                                             <option value="₹25k - ₹50k">₹25k - ₹50k</option>
                                             <option value="₹50k+">₹50k+</option>
@@ -410,14 +450,14 @@ export default function EcoWebsiteDevelopment() {
                                 ].map((stat: any, i) => (
                                     <motion.div
                                         key={i}
-                                        
+
                                         className={`bg-white dark:bg-slate-900/80 p-4 sm:p-6 rounded-[1.25rem] sm:rounded-2xl border border-slate-100 dark:border-white/5 relative overflow-hidden group/stat transition-all duration-300 shadow-sm hover:shadow-xl ${stat.shift ? 'mt-6 sm:mt-8' : ''} ${stat.glow}`}
                                     >
                                         {/* Floating decorative dot (like in the design for specific cards) */}
                                         {stat.dot && (
                                             <motion.div
-                                                
-                                                
+
+
                                                 className={`absolute top-8 left-20 sm:top-10 sm:left-[6.5rem] w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full ${typeof stat.dot === 'string' ? stat.dot : stat.color.replace('text', 'bg')} opacity-90`}
                                             />
                                         )}
@@ -439,8 +479,8 @@ export default function EcoWebsiteDevelopment() {
                                                 className={`h-full relative overflow-hidden ${stat.barBg}`}
                                             >
                                                 <motion.div
-                                                    
-                                                    
+
+
                                                     className="absolute inset-0 w-1/2 h-full bg-gradient-to-r from-transparent via-white/50 dark:via-white/30 to-transparent"
                                                 />
                                             </motion.div>
@@ -467,7 +507,7 @@ export default function EcoWebsiteDevelopment() {
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                         {[
                             { title: "Rapid 3–7 Day Delivery", subtitle: "Concept to Live Site, Fast", icon: Rocket },
-                            { title: "Budget-Friendly Pricing", subtitle: "Starting at Just ₹3,999", icon: CreditCard },
+                            { title: "Budget-Friendly Pricing", subtitle: "Starting at Just ₹4,999", icon: CreditCard },
                             { title: "Premium UI/UX Design", subtitle: "Modern, Clean & Conversion-Focused", icon: PenTool },
                             { title: "SEO-Ready Website Structure", subtitle: "Built for Google Rankings", icon: Search },
                             { title: "100% Mobile Optimized", subtitle: "Flawless on All Devices", icon: Smartphone },
@@ -736,7 +776,7 @@ export default function EcoWebsiteDevelopment() {
                             </span>
                             <h2 className="text-2xl sm:text-3xl md:text-5xl font-black text-slate-900 dark:text-white leading-[1.1] tracking-tighter">
                                 Everything Included in Your <br />
-                                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#3994fa] to-brand-medium italic">₹3,999 Eco-Website Package.</span>
+                                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#3994fa] to-brand-medium italic">₹4,999 Eco-Website Package.</span>
                             </h2>
                             <p className="text-slate-500 dark:text-slate-400 text-sm md:text-base max-w-2xl mx-auto mt-4 leading-relaxed">No surprise charges. No add-on traps. One transparent price — everything your business needs to launch online, built right the first time.</p>
                         </div>
@@ -747,10 +787,10 @@ export default function EcoWebsiteDevelopment() {
                                 { label: "Lead Capture Contact Form", icon: Mail },
                                 { label: "Basic On-Page SEO Setup", icon: Search },
                                 { label: "100% Mobile Responsive", icon: Smartphone },
-                                { label: "Domain & Hosting Guidance", icon: Cloud },
-                                { label: "WhatsApp Live Chat Button", icon: MessageCircle },
+                                { label: "1 Year Free Domain", icon: Cloud },
+                                { label: "Lifetime Free Hosting", icon: Cloud },
                                 { label: "Social Media Integration", icon: Share2 },
-                                { label: "Domain Registration Setup", icon: Globe }
+                                { label: "WhatsApp Live Chat Button", icon: MessageCircle }
                             ].map((feature, i) => (
                                 <div
                                     key={i}
@@ -803,8 +843,8 @@ export default function EcoWebsiteDevelopment() {
                                                 onClick={() => setIsIndustryDropdownOpen(false)}
                                             />
                                             <motion.div
-                                                
-                                                
+
+
                                                 exit={{ opacity: 0, y: 10, scale: 0.95 }}
                                                 className="absolute right-0 sm:left-0 sm:right-auto mt-3 w-72 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-[2.5rem] shadow-2xl z-50 overflow-hidden backdrop-blur-md"
                                             >
@@ -1021,11 +1061,11 @@ export default function EcoWebsiteDevelopment() {
                                         stroke="url(#speedGradientPremium)"
                                         strokeWidth="4"
                                         strokeDasharray="263"
-                                        
-                                        
-                                        
 
-                                        
+
+
+
+
                                         strokeLinecap="round"
                                     />
                                     <defs>
@@ -1043,7 +1083,7 @@ export default function EcoWebsiteDevelopment() {
 
 
 
-                                    
+
                                     className="text-7xl md:text-[100px] font-black text-slate-900 dark:text-white tracking-widest leading-none drop-shadow-sm"
                                 >
                                     99
@@ -1053,8 +1093,8 @@ export default function EcoWebsiteDevelopment() {
 
                             {/* Floating Premium Tech Chips */}
                             <motion.div
-                                
-                                
+
+
                                 className="absolute -top-4 right-4 md:-top-6 md:right-8 bg-white/95 dark:bg-slate-800/95 border border-slate-200 dark:border-white/10 px-5 py-3 rounded-xl shadow-xl z-20"
                             >
                                 <div className="flex items-center gap-3">
@@ -1067,8 +1107,8 @@ export default function EcoWebsiteDevelopment() {
                             </motion.div>
 
                             <motion.div
-                                
-                                
+
+
                                 className="absolute bottom-1/4 -left-6 md:-left-12 bg-white/95 dark:bg-slate-800/95 border border-slate-200 dark:border-white/10 px-5 py-3 rounded-xl shadow-xl z-20"
                             >
                                 <div className="flex items-center gap-2.5">
@@ -1128,8 +1168,8 @@ export default function EcoWebsiteDevelopment() {
 
                             {/* Floating "Indexed" Badge */}
                             <motion.div
-                                
-                                
+
+
                                 className="absolute top-12 -right-4 bg-green-500 text-white text-[10px] font-black px-3 py-1 rounded-full shadow-lg flex items-center gap-1"
                             >
                                 <CheckCircle2 className="w-3 h-3" /> INDEXED
@@ -1209,7 +1249,7 @@ export default function EcoWebsiteDevelopment() {
                             ].map((item, i) => (
                                 <motion.div
                                     key={i}
-                                    
+
                                     className="relative flex flex-col items-start lg:items-center text-left lg:text-center"
                                 >
                                     {/* Pulse Marker */}
@@ -1267,7 +1307,7 @@ export default function EcoWebsiteDevelopment() {
                     <div className="hidden xl:block">
                         {/* Piece 1: Performance */}
                         <div
-                            className="absolute left-[-15%] top-[10%] w-56 p-6 bg-white/60 dark:bg-slate-900/60 rounded-[2.5rem] border border-white/20 dark:border-white/5 shadow-xl rotate-[-5deg] gpu"
+                            className="absolute left-[-18%] top-[5%] w-56 p-6 bg-white/60 dark:bg-slate-900/60 rounded-[2.5rem] border border-white/20 dark:border-white/5 shadow-xl rotate-[-5deg] gpu"
                         >
                             <div className="flex items-center gap-4 mb-4">
                                 <div className="w-10 h-10 rounded-xl bg-green-500/10 flex items-center justify-center">
@@ -1283,7 +1323,7 @@ export default function EcoWebsiteDevelopment() {
 
                         {/* Piece 2: Rapid Delivery */}
                         <div
-                            className="absolute left-[-12%] bottom-[10%] w-60 p-6 bg-white/60 dark:bg-slate-900/60 rounded-[2.5rem] border border-white/20 dark:border-white/5 shadow-xl rotate-[5deg] gpu"
+                            className="absolute left-[-16%] bottom-[5%] w-60 p-6 bg-white/60 dark:bg-slate-900/60 rounded-[2.5rem] border border-white/20 dark:border-white/5 shadow-xl rotate-[5deg] gpu"
                         >
                             <div className="flex items-center gap-4 mb-3">
                                 <div className="w-10 h-10 rounded-xl bg-[#3994fa]/10 flex items-center justify-center">
@@ -1297,7 +1337,7 @@ export default function EcoWebsiteDevelopment() {
 
                         {/* Piece 3: Global Infra */}
                         <div
-                            className="absolute right-[-15%] top-[15%] w-56 p-6 bg-white/60 dark:bg-slate-900/60 rounded-[2.5rem] border border-white/20 dark:border-white/5 shadow-xl rotate-[8deg] gpu"
+                            className="absolute right-[-18%] top-[10%] w-56 p-6 bg-white/60 dark:bg-slate-900/60 rounded-[2.5rem] border border-white/20 dark:border-white/5 shadow-xl rotate-[8deg] gpu"
                         >
                             <div className="flex items-center gap-4 mb-4">
                                 <div className="w-10 h-10 rounded-xl bg-blue-500/10 flex items-center justify-center">
@@ -1310,7 +1350,7 @@ export default function EcoWebsiteDevelopment() {
 
                         {/* Piece 4: Satisfaction */}
                         <div
-                            className="absolute right-[-12%] bottom-[15%] w-64 p-6 bg-white/60 dark:bg-slate-900/60 rounded-[2.5rem] border border-white/20 dark:border-white/5 shadow-xl rotate-[-8deg] gpu"
+                            className="absolute right-[-16%] bottom-[10%] w-64 p-6 bg-white/60 dark:bg-slate-900/60 rounded-[2.5rem] border border-white/20 dark:border-white/5 shadow-xl rotate-[-8deg] gpu"
                         >
                             <div className="flex items-center gap-4 mb-4">
                                 <div className="w-10 h-10 rounded-xl bg-orange-500/10 flex items-center justify-center">
@@ -1332,7 +1372,7 @@ export default function EcoWebsiteDevelopment() {
 
                         {/* Main Card - Landscape Transition (Compact) */}
                         <motion.div
-                            
+
                             className="relative bg-white dark:bg-slate-900 rounded-[2rem] sm:rounded-[2.8rem] overflow-hidden border border-white/20 dark:border-slate-800/50 shadow-2xl"
                         >
                             <div className="grid grid-cols-1 lg:grid-cols-2">
@@ -1353,9 +1393,9 @@ export default function EcoWebsiteDevelopment() {
                                     <h3 className="text-slate-400 dark:text-slate-500 font-bold uppercase tracking-widest text-[9px] md:text-[10px] mb-4 relative z-10">Starting At Just</h3>
 
                                     <div className="flex flex-col sm:flex-row items-center sm:items-baseline gap-2 sm:gap-4 mb-2 relative z-10">
-                                        <span className="text-xl md:text-2xl text-slate-300 dark:text-slate-600 line-through font-bold">₹4,999</span>
+                                        <span className="text-xl md:text-2xl text-slate-300 dark:text-slate-600 line-through font-bold">₹5,999</span>
                                         <span className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black text-transparent bg-clip-text bg-gradient-to-br from-slate-900 to-slate-700 dark:from-white dark:to-slate-400 tracking-tighter">
-                                            ₹3,999
+                                            ₹4,999
                                         </span>
                                     </div>
                                     <p className="text-[10px] font-bold text-[#3994fa] uppercase tracking-widest bg-[#3994fa]/10 px-3 py-1 rounded-lg">No Hidden Charges.</p>
@@ -1367,17 +1407,18 @@ export default function EcoWebsiteDevelopment() {
                                     <div className="space-y-4 mb-8 sm:mb-10">
                                         {[
                                             { text: "Premium Custom Design", bold: true },
-                                            { text: "Domain & Hosting Setup", bold: false },
-                                            { text: "Google SEO Framework", bold: false },
-                                            { text: "WhatsApp Chat Integration", bold: false },
-                                            { text: "Launch in 3–7 Days", bold: true }
+                                            { text: "Lifetime Free Hosting", bold: true },
+                                            { text: "1 Year Free Domain", bold: true },
+                                            { text: "WhatsApp Chat Integration", bold: true },
+                                            { text: "Launch in 3–7 Days", bold: true },
+                                            { text: "1 SEO Keywords ", bold: true }
                                         ].map((item, i) => (
                                             <motion.div
                                                 key={i}
 
 
 
-                                                
+
                                                 className="flex items-center gap-3 sm:gap-4 group/item"
                                             >
                                                 <div className="w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-[#3994fa]/20 flex items-center justify-center shrink-0 group-hover/item:bg-[#3994fa] group-hover/item:text-slate-900 transition-all">
@@ -1499,7 +1540,7 @@ export default function EcoWebsiteDevelopment() {
                     <div className="space-y-4 px-2 sm:px-0">
                         {[
                             { q: "How long does it take to build my eco website?", a: "Typically 3–7 working days from the date we receive your content and brief. Our streamlined process means most clients are live within a week — often faster. The exact timeline depends on how quickly feedback and content are shared." },
-                            { q: "Is domain registration included in the ₹3,999 plan?", a: "Domain registration cost is separate (typically ₹800–₹1,500/year for a .com domain), but we handle the entire setup process for you. We guide you through domain purchase and connect it to your website completely free of charge." },
+                            { q: "Is domain registration included in the ₹4,999 plan?", a: "Domain registration cost is separate (typically ₹800–₹1,500/year for a .com domain), but we handle the entire setup process for you. We guide you through domain purchase and connect it to your website completely free of charge." },
                             { q: "Can I upgrade from the eco plan to a premium website later?", a: "Absolutely! Your eco website is built on a scalable foundation. You can upgrade to our advanced website plans — including e-commerce, custom animations, or CMS integration — at any time without starting from scratch." },
                             { q: "Do you provide support after my website goes live?", a: "Yes! We offer post-launch support to fix any issues that arise after going live. We also offer optional monthly maintenance plans for ongoing updates, security patches, and performance monitoring." },
                             { q: "How many revision rounds are included?", a: "We include one comprehensive revision round during the design phase where you can request changes to layout, colors, content, and structure. Additional revision rounds can be added as a paid upgrade if needed." },
@@ -1527,13 +1568,21 @@ export default function EcoWebsiteDevelopment() {
             </section>
 
 
+            {/* Success Stories Section */}
+            <CaseStudies 
+                studies={ECO_CASE_STUDIES} 
+                subtitle="Sustainability Impact" 
+                title="Green Tech That Grows."
+                themeColor="#3994fa"
+            />
+
             {/* 1️⃣7️⃣ Final CTA Section */}
             <section className="py-16 sm:py-24 px-6 bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-white text-center relative overflow-hidden reveal-section">
                 <div className="absolute inset-0 bg-gradient-to-r from-[#3994fa]/5 to-brand-medium/10 dark:from-brand-deep/20 dark:to-brand-medium/20" />
                 <div className="relative z-10 max-w-4xl mx-auto">
                     <h2 className="text-2xl xs:text-3xl sm:text-4xl md:text-6xl font-black mb-4 leading-[1.2] sm:leading-tight text-slate-900 dark:text-white">
                         Launch Your Business Website <br />
-                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-medium to-[#3994fa]">in 3–7 Days for ₹3,999</span>
+                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-medium to-[#3994fa]">in 3–7 Days for ₹4,999 +GST</span>
                     </h2>
                     <p className="text-slate-500 dark:text-slate-400 text-sm md:text-lg max-w-2xl mx-auto mb-8 leading-relaxed">
                         Join 150+ businesses, freelancers, and startups across India who trusted Preet Tech OPC Private Limited to get them online — professionally, affordably, and fast.
@@ -1549,18 +1598,18 @@ export default function EcoWebsiteDevelopment() {
                 {isVideoOpen && (
                     <motion.div
 
-                        
 
 
-                        
+
+
                         className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/95"
                         onClick={() => setIsVideoOpen(false)}
                     >
                         <motion.div
-                            
-                            
+
+
                             exit={{ scale: 0.95, opacity: 0 }}
-                            
+
                             className="relative w-full aspect-video max-w-4xl bg-black rounded-2xl overflow-hidden border border-white/10 shadow-2xl flex items-center justify-center will-change-transform"
                             onClick={e => e.stopPropagation()}
                         >

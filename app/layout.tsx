@@ -31,7 +31,17 @@ export const metadata: Metadata = {
         template: "%s | Preet Tech OPC Private Limited - Digital Transformation Agency",
     },
     description: "Preet Tech OPC Private Limited is a top Next Gen Digital Agency offering custom software development, AI-driven marketing, web and app development, and enterprise IT solutions.",
-    keywords: ["Next Gen Digital Agency", "Top Digital Marketing & IT Agency", "custom software development", "AI-driven marketing", "SEO optimization services", "web and app development company", "enterprise IT solutions", "generative AI integration", "digital transformation services", "e-commerce development", "performance marketing agency", "cloud migration services", "B2B digital agency", "scalable tech solutions", "brand identity design"],
+    keywords: [
+        "Preet Tech", "IT Company in Haldwani", "Website Development Company", "Web Development Services",
+        "Software Development Company", "Digital Marketing Agency", "Social Media Marketing", "SEO Services",
+        "Google Ads Services", "Website Designing Company", "IT Solutions Provider", "Best IT Company in Haldwani",
+        "App Development Company", "Online Marketing Agency", "Branding Agency", "Next Gen Digital Agency",
+        "Top Digital Marketing & IT Agency", "custom software development", "AI-driven marketing",
+        "SEO optimization services", "web and app development company", "enterprise IT solutions",
+        "generative AI integration", "digital transformation services", "e-commerce development",
+        "performance marketing agency", "cloud migration services", "B2B digital agency",
+        "scalable tech solutions", "brand identity design"
+    ],
     openGraph: {
         title: "Preet Tech OPC Private Limited | Next Gen Digital Agency & IT Solutions",
         description: "Transform your business with Preet Tech OPC Private Limited, a leading digital agency and IT partner. We specialize in custom software development, digital marketing, and AI integration to accelerate your growth.",

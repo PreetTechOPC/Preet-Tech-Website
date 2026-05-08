@@ -22,6 +22,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
         '/services/social-media-handling',
         '/services/software-development',
         '/services/start-your-business',
+        '/services/ecommerce-development',
+        '/services/ai-solutions',
+        '/services/saas-development',
+        '/services/crm-erp-systems',
     ];
 
     const staticSitemapEntries: MetadataRoute.Sitemap = staticPages.map((route) => ({

@@ -63,7 +63,9 @@ import {
     X
 } from 'lucide-react';
 import Navbar from '@/components/Navbar';
+import Link from 'next/link';
 import Footer from '@/components/Footer';
+import CaseStudies, { CaseStudy } from '@/components/CaseStudies';
 import ThreeSphereScene from '@/components/ThreeSphere';
 import PhoneInput from '@/components/PhoneInput';
 const Odometer = ({ value, suffix, prefix = "" }: { value: number; suffix: string; prefix?: string }) => {
@@ -96,7 +98,7 @@ const Odometer = ({ value, suffix, prefix = "" }: { value: number; suffix: strin
 
     return (
         <span ref={ref} className="tabular-nums">
-            {prefix}{value}{suffix}
+            {prefix}{displayValue}{suffix}
         </span>
     );
 };
@@ -127,6 +129,35 @@ const PerformanceMarketing = () => {
     const [theme, setTheme] = useState<Theme>(Theme.DARK);
     const containerRef = useRef<HTMLDivElement>(null);
     const [isVideoOpen, setIsVideoOpen] = useState(false);
+
+    const CASE_STUDIES: CaseStudy[] = [
+        {
+            id: 'growth-1',
+            title: 'Scaling D2C Brand to $1M/mo',
+            client: 'Luxe Wear',
+            category: 'E-commerce Scaling',
+            description: 'Implemented a multi-channel meta-funnel strategy focusing on high LTV customers and creative testing velocity.',
+            stats: [
+                { label: 'ROAS', value: '4.8x' },
+                { label: 'Growth', value: '+310%' },
+                { label: 'CAC', value: '-22%' }
+            ],
+            tags: ['Meta Ads', 'Retention', 'CRO']
+        },
+        {
+            id: 'growth-2',
+            title: 'B2B Lead Gen for Fintech SaaS',
+            client: 'PayFlow',
+            category: 'Lead Generation',
+            description: 'Hyper-targeted LinkedIn and Google Search campaigns that doubled the sales pipeline in under 90 days.',
+            stats: [
+                { label: 'Leads/mo', value: '1.2k+' },
+                { label: 'CPL', value: '-45%' },
+                { label: 'Pipeline', value: '$2.4M' }
+            ],
+            tags: ['LinkedIn Ads', 'Google Ads', 'ABM']
+        }
+    ];
 
     // Form State for Hero
     const [formData, setFormData] = useState({
@@ -191,8 +222,7 @@ const PerformanceMarketing = () => {
         { name: "Next Gen", logo: "https://cdn.simpleicons.org/facebook/1877F2" },
         { name: "Wealth Tech", logo: "https://cdn.simpleicons.org/hubspot/FF7A59" },
         { name: "Growth Co", logo: "https://cdn.simpleicons.org/shopify/96BF48" },
-        { name: "Digital First", logo: "https://cdn.simpleicons.org/mailchimp/FFE01B" },
-        { name: "Sales Pro", logo: "https://cdn.simpleicons.org/salesforce/00A1E0" }
+        { name: "Digital First", logo: "https://cdn.simpleicons.org/mailchimp/FFE01B" }
     ];
 
     const whyChooseUs = [
@@ -431,8 +461,17 @@ const PerformanceMarketing = () => {
                         <div
                             className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start"
                         >
-                            <button onClick={() => setIsVideoOpen(true)} className="px-6 sm:px-8 py-3.5 sm:py-4 bg-gradient-to-r from-[#3994fa] to-[#004aad] hover:opacity-90 text-white rounded-full font-bold transition-all transform hover:-translate-y-1 shadow-lg shadow-[#3994fa]/25 flex items-center justify-center gap-2 text-sm sm:text-base cursor-pointer">
-                                Watch Demo <Play className="w-4 h-4 fill-white" />
+                            <Link
+                                href="/case-studies/performance-marketing"
+                                className="px-6 sm:px-8 py-3.5 sm:py-4 bg-gradient-to-r from-[#3994fa] to-[#004aad] hover:opacity-90 text-white rounded-full font-bold transition-all transform hover:-translate-y-1 shadow-lg shadow-[#3994fa]/25 flex items-center justify-center gap-2 text-sm sm:text-base cursor-pointer"
+                            >
+                                Case Studies <ArrowRight className="w-4 h-4" />
+                            </Link>
+                            <button
+                                onClick={() => setIsVideoOpen(true)}
+                                className="px-6 sm:px-8 py-3.5 sm:py-4 bg-white/10 hover:bg-white/20 text-slate-900 dark:text-white rounded-full font-bold transition-all border border-slate-200 dark:border-white/10 flex items-center justify-center gap-2 text-sm sm:text-base cursor-pointer"
+                            >
+                                Watch Demo <Play className="w-4 h-4 fill-slate-900 dark:fill-white" />
                             </button>
                         </div>
                     </div>
@@ -618,14 +657,7 @@ const PerformanceMarketing = () => {
                         </div>
                     </div>
 
-                    <div className="mt-20 p-8 rounded-[2rem] bg-slate-50 dark:bg-white/5 border border-slate-100 dark:border-white/5 flex flex-col md:flex-row items-center justify-between gap-6">
-                        <p className="text-base font-medium text-slate-600 dark:text-slate-400">
-                            <span className="text-slate-900 dark:text-white font-black uppercase text-xs">The Result:</span> You only pay for the growth we deliver.
-                        </p>
-                        <button className="px-8 py-4 bg-gradient-to-r from-[#3994fa] to-[#004aad] hover:opacity-95 text-white rounded-xl font-black text-[10px] uppercase tracking-widest transition-all whitespace-nowrap shadow-lg shadow-[#3994fa]/20">
-                            Request Your Audit
-                        </button>
-                    </div>
+
                 </div>
             </section>
 
@@ -1095,23 +1127,26 @@ const PerformanceMarketing = () => {
             <section className="py-24 px-6 bg-white dark:bg-[#030712] relative overflow-hidden scroll-reveal">
                 <div className="max-w-6xl mx-auto">
                     <div className="flex flex-col md:flex-row items-center justify-between gap-16 lg:gap-32">
-                        <div className="max-w-[280px] w-full relative shrink-0">
-                            <div className="absolute -left-6 top-2.5 w-1.5 h-1.5 bg-indigo-500 rotate-45 rounded-[1px]" />
-                            <h3 className="text-lg md:text-xl font-black tracking-tight text-slate-900 dark:text-white mb-4 uppercase">
-                                THE <span className="text-brand-medium">GROWTH</span> STACK
+                        <div className="max-w-md w-full relative shrink-0">
+                            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-500/10 border border-indigo-500/20 mb-6">
+                                <span className="w-1.5 h-1.5 rounded-full bg-indigo-500 animate-pulse" />
+                                <span className="text-[9px] font-black uppercase tracking-[0.3em] text-indigo-500">Infrastructure</span>
+                            </div>
+                            <h3 className="text-3xl md:text-5xl font-black tracking-tighter text-slate-900 dark:text-white mb-6 uppercase leading-[0.9]">
+                                THE <span className="text-brand-medium">GROWTH</span> <br /> STACK.
                             </h3>
-                            <p className="text-[10px] text-slate-500 font-medium leading-[1.8]">
+                            <p className="text-sm md:text-base text-slate-500 dark:text-slate-400 font-medium leading-relaxed">
                                 We utilize the world's most advanced marketing platforms and tracking technologies to ensure your business stays ahead of the curve.
                             </p>
                         </div>
                         <div className="w-full lg:flex-1">
-                            <div className="grid grid-cols-2 lg:grid-cols-3 gap-6">
+                            <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 md:gap-6">
                                 {tools.map((tool, i) => (
-                                    <div key={i} className="flex flex-col items-center justify-center h-28 md:h-32 rounded-3xl bg-white dark:bg-white/[0.02] shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:shadow-none border border-slate-50 dark:border-white/5 transition-all w-full group">
-                                        <div className="w-8 h-8 md:w-10 md:h-10 mb-4 flex items-center justify-center opacity-40 group-hover:opacity-100 transition-opacity">
+                                    <div key={i} className="flex flex-col items-center justify-center h-32 md:h-40 rounded-[2rem] bg-white dark:bg-white/[0.02] border border-slate-100 dark:border-white/5 transition-all w-full group hover:bg-slate-50 dark:hover:bg-white/5 hover:border-brand-medium/30 hover:-translate-y-1">
+                                        <div className="w-10 h-10 md:w-14 md:h-14 mb-4 flex items-center justify-center opacity-40 group-hover:opacity-100 transition-opacity">
                                             <img src={tool.icon} alt={tool.name} className="w-full h-full object-contain filter grayscale group-hover:grayscale-0 transition-all duration-300 pointer-events-none" onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }} />
                                         </div>
-                                        <span className="text-[6px] md:text-[7px] font-black uppercase tracking-[0.2em] text-[#94a3b8] dark:text-slate-500 text-center">{tool.name}</span>
+                                        <span className="text-[8px] md:text-[10px] font-black uppercase tracking-[0.2em] text-slate-400 dark:text-slate-500 text-center group-hover:text-brand-medium transition-colors">{tool.name}</span>
                                     </div>
                                 ))}
                             </div>
@@ -1121,82 +1156,142 @@ const PerformanceMarketing = () => {
             </section>
 
             {/* 13. ROI & Reporting System */}
-            <section className="py-32 px-6 bg-slate-50 dark:bg-black relative overflow-hidden text-slate-900 dark:text-white scroll-reveal">
-                <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
-                    <div>
-                        <span className="text-brand-medium text-[10px] font-black uppercase tracking-[0.4em] mb-4 block">Total Transparency</span>
-                        <h2 className="text-4xl md:text-5xl font-black tracking-tight uppercase mb-8 leading-tight">
-                            ROI & Reporting <br /> <span className="text-brand-medium">System</span>
-                        </h2>
-                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                            {[
-                                { title: "Weekly Reports", icon: FileSpreadsheet },
-                                { title: "KPI Tracking", icon: Target },
-                                { title: "ROAS Monitoring", icon: Activity },
-                                { title: "Real-Time Data", icon: Gauge }
-                            ].map((item, i) => (
-                                <div key={i} className="p-6 bg-white dark:bg-white/5 border border-slate-200 dark:border-white/5 rounded-2xl flex items-center gap-4 group hover:bg-slate-50 dark:hover:bg-white/10 transition-colors">
-                                    <div className="w-10 h-10 rounded-lg bg-brand-medium/20 flex items-center justify-center">
-                                        <item.icon className="w-5 h-5 text-brand-medium" />
-                                    </div>
-                                    <span className="text-sm font-black uppercase tracking-tight">
-                                        {item.title}
-                                    </span>
-                                </div>
-                            ))}
-                        </div>
-                    </div>
+            <section className="py-24 md:py-32 px-6 bg-white dark:bg-[#030712] relative overflow-hidden scroll-reveal">
+                {/* Background Decor */}
+                <div className="absolute top-1/4 right-0 w-[600px] h-[600px] bg-brand-medium/5 blur-[120px] rounded-full pointer-events-none" />
+                <div className="absolute bottom-1/4 left-0 w-[500px] h-[500px] bg-[#3994fa]/5 blur-[100px] rounded-full pointer-events-none" />
 
-                    {/* 13.5 Related Services / SEO Silo */}
-                    <div className="mt-16 relative z-10">
-                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                            {[
-                                { t: 'Content Creation', link: '/services/content-creation', d: 'High-converting visuals for your ads.' },
-                                { t: 'Social Media Handling', link: '/services/social-media-handling', d: 'Full organic community management.' },
-                                { t: 'App Development', link: '/services/app-development', d: 'Custom performance-first applications.' }
-                            ].map((service, i) => (
-                                <a
-                                    key={i}
-                                    href={service.link}
-                                    className="p-8 rounded-[2rem] bg-white dark:bg-white/5 border border-slate-200 dark:border-white/5 hover:border-brand-medium/50 transition-all group"
+                <div className="max-w-7xl mx-auto relative z-10">
+                    <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20">
+                        
+                        {/* Left Column: Heading + Features + Graph */}
+                        <div className="lg:col-span-7 space-y-12">
+                            <div className="space-y-6">
+                                <span className="text-brand-medium text-[10px] font-black uppercase tracking-[0.4em] mb-4 block">Total Transparency</span>
+                                <h2 className="text-4xl md:text-6xl font-black tracking-tight uppercase leading-[0.95] text-slate-900 dark:text-white">
+                                    ROI & Reporting <br /> <span className="text-brand-medium italic">System.</span>
+                                </h2>
+                                <p className="text-slate-500 dark:text-slate-400 text-sm md:text-base font-medium max-w-xl">
+                                    We provide real-time data clarity, ensuring every marketing dollar is tracked, optimized, and delivering measurable impact.
+                                </p>
+                            </div>
+
+                            {/* 4 Mini Cards */}
+                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                {[
+                                    { title: "Weekly Reports", icon: FileSpreadsheet, desc: "Detailed performance breakdown" },
+                                    { title: "KPI Tracking", icon: Target, desc: "Custom goals monitoring" },
+                                    { title: "ROAS Monitoring", icon: Activity, desc: "Direct revenue impact analysis" },
+                                    { title: "Real-Time Data", icon: Gauge, desc: "24/7 Live dashboard access" }
+                                ].map((item, i) => (
+                                    <motion.div 
+                                        key={i} 
+                                        whileHover={{ y: -5 }}
+                                        className="p-5 bg-slate-50 dark:bg-white/[0.03] border border-slate-200 dark:border-white/5 rounded-2xl flex items-center gap-4 group transition-all hover:bg-white dark:hover:bg-white/5 hover:shadow-xl hover:shadow-brand-medium/5"
+                                    >
+                                        <div className="w-10 h-10 rounded-xl bg-brand-medium/10 flex items-center justify-center group-hover:scale-110 transition-transform">
+                                            <item.icon className="w-5 h-5 text-brand-medium" />
+                                        </div>
+                                        <div>
+                                            <span className="text-[11px] font-black uppercase tracking-tight block text-slate-900 dark:text-white">
+                                                {item.title}
+                                            </span>
+                                            <span className="text-[9px] text-slate-400 font-medium">{item.desc}</span>
+                                        </div>
+                                    </motion.div>
+                                ))}
+                            </div>
+
+                            {/* Large Graph Visualization */}
+                            <div className="relative group pt-4">
+                                <motion.div 
+                                    initial={{ opacity: 0, y: 20 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    className="relative rounded-3xl border border-slate-200 dark:border-white/10 overflow-hidden shadow-2xl bg-white dark:bg-[#070b14] p-5 sm:p-8"
                                 >
-                                    <h4 className="text-lg font-black uppercase mb-2 group-hover:text-brand-medium transition-colors">{service.t}</h4>
-                                    <p className="text-xs text-slate-500 dark:text-slate-400 mb-6">{service.d}</p>
-                                    <div className="flex items-center text-brand-medium font-bold text-[10px] uppercase tracking-widest gap-2">
-                                        Explore Service <ArrowRight className="w-4 h-4" />
+                                    <div className="flex items-center justify-between mb-8">
+                                        <div className="flex items-center gap-2">
+                                            <div className="w-2.5 h-2.5 rounded-full bg-red-500/80" />
+                                            <div className="w-2.5 h-2.5 rounded-full bg-yellow-500/80" />
+                                            <div className="w-2.5 h-2.5 rounded-full bg-green-500/80" />
+                                        </div>
+                                        <div className="text-[9px] font-black uppercase tracking-widest text-slate-400">
+                                            Campaign Performance Index
+                                        </div>
                                     </div>
-                                </a>
-                            ))}
+                                    
+                                    <div className="aspect-[16/9] md:aspect-[21/9] bg-slate-50/50 dark:bg-white/[0.02] rounded-2xl relative overflow-hidden p-6 md:p-10 border border-slate-100 dark:border-white/5">
+                                        <div className="flex justify-between items-end h-full gap-2 md:gap-4 relative z-10">
+                                            {[60, 40, 85, 50, 95, 75, 100].map((h, i) => (
+                                                <motion.div
+                                                    key={i}
+                                                    initial={{ height: 0 }}
+                                                    whileInView={{ height: `${h}%` }}
+                                                    transition={{ duration: 1.2, delay: i * 0.1, ease: [0.22, 1, 0.36, 1] }}
+                                                    className="flex-1 bg-gradient-to-t from-brand-medium via-brand-medium to-[#3994fa] rounded-t-lg relative group/bar shadow-[0_0_20px_rgba(57,148,250,0.15)]"
+                                                >
+                                                    <div className="absolute -top-8 left-1/2 -translate-x-1/2 bg-slate-900 dark:bg-white text-white dark:text-slate-900 text-[8px] font-black px-2 py-1 rounded opacity-0 group-hover/bar:opacity-100 transition-all scale-75 group-hover/bar:scale-100">
+                                                        {h}%
+                                                    </div>
+                                                </motion.div>
+                                            ))}
+                                        </div>
+                                        
+                                        {/* Grid Lines */}
+                                        <div className="absolute inset-x-0 bottom-0 h-full flex flex-col justify-between opacity-[0.03] pointer-events-none p-6 md:p-10">
+                                            {[...Array(5)].map((_, i) => (
+                                                <div key={i} className="w-full h-px bg-slate-900 dark:bg-white" />
+                                            ))}
+                                        </div>
+                                        
+                                        {/* Bottom Fade */}
+                                        <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-white dark:from-[#070b14] to-transparent pointer-events-none z-20" />
+                                    </div>
+                                </motion.div>
+                            </div>
                         </div>
-                    </div>
 
-                    <div className="relative group">
-                        {/* Dashboard Mockup Placeholder */}
-                        <div className="relative rounded-3xl border border-slate-200 dark:border-white/10 overflow-hidden shadow-2xl bg-white dark:bg-[#030712] p-4">
-                            <div className="flex items-center gap-2 mb-4 px-2">
-                                <div className="w-3 h-3 rounded-full bg-red-500" />
-                                <div className="w-3 h-3 rounded-full bg-yellow-500" />
-                                <div className="w-3 h-3 rounded-full bg-green-500" />
+                        {/* Right Column: Service Cards */}
+                        <div className="lg:col-span-5 space-y-6">
+                            <div className="pb-4">
+                                <h3 className="text-sm font-black uppercase tracking-widest text-slate-400 dark:text-slate-500 mb-2">Omni-Channel Synergy</h3>
+                                <div className="h-1 w-12 bg-brand-medium rounded-full" />
                             </div>
-                            <div className="aspect-[1.5/1] bg-slate-100 dark:bg-slate-800/40 rounded-xl relative overflow-hidden p-6">
-                                <div className="flex justify-between items-end h-full gap-4">
-                                    {[60, 40, 80, 50, 90, 70, 100].map((h, i) => (
-                                        <div
-                                            key={i}
-                                            style={{ height: `${h}%` }}
-                                            className="flex-1 bg-gradient-to-t from-brand-medium to-brand-medium rounded-t-lg opacity-80"
-                                        />
-                                    ))}
-                                </div>
-                                <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-white dark:from-[#030712] to-transparent pointer-events-none" />
-                            </div>
-                        </div>
-                        {/* Floating stat badge - static position, no infinite loop */}
-                        <div
-                            className="absolute -top-5 -right-5 sm:-top-10 sm:-right-10 p-4 sm:p-6 bg-white dark:bg-white/10 backdrop-blur-md border border-slate-200 dark:border-white/20 rounded-2xl shadow-2xl z-20"
-                        >
-                            <p className="text-[8px] font-black uppercase tracking-widest text-brand-medium mb-1 text-center">Live ROAS</p>
-                            <p className="text-xl sm:text-2xl font-black text-slate-900 dark:text-white">4.82x</p>
+                            
+                            {[
+                                { t: 'Content Creation', link: '/services/content-creation', d: 'High-converting visuals and cinematic ad creatives engineered for maximum engagement.', icon: Share2 },
+                                { t: 'Social Media Handling', link: '/services/social-media-handling', d: 'Strategic community management and organic scaling across all social platforms.', icon: Instagram },
+                                { t: 'App Development', link: '/services/app-development', d: 'Performance-first custom applications built for seamless user journeys and scaling.', icon: Code2 }
+                            ].map((service, i) => (
+                                <motion.div
+                                    key={i}
+                                    initial={{ opacity: 0, x: 20 }}
+                                    whileInView={{ opacity: 1, x: 0 }}
+                                    transition={{ delay: i * 0.1 }}
+                                >
+                                    <Link
+                                        href={service.link}
+                                        className="block p-8 rounded-[2.5rem] bg-slate-50 dark:bg-white/[0.02] border border-slate-200 dark:border-white/5 hover:border-brand-medium/40 hover:bg-white dark:hover:bg-white/[0.04] transition-all group relative overflow-hidden"
+                                    >
+                                        <div className="absolute top-0 right-0 w-32 h-32 bg-brand-medium/5 blur-2xl -translate-y-1/2 translate-x-1/2 group-hover:scale-150 transition-transform" />
+                                        
+                                        <div className="flex items-start justify-between mb-4">
+                                            <div className="w-12 h-12 rounded-2xl bg-white dark:bg-slate-900 border border-slate-100 dark:border-white/10 flex items-center justify-center group-hover:scale-110 group-hover:border-brand-medium/30 transition-all shadow-sm">
+                                                <service.icon className="w-6 h-6 text-brand-medium" />
+                                            </div>
+                                            <ChevronRight className="w-5 h-5 text-slate-300 group-hover:text-brand-medium group-hover:translate-x-1 transition-all" />
+                                        </div>
+                                        
+                                        <h4 className="text-xl font-black uppercase mb-3 text-slate-900 dark:text-white group-hover:text-brand-medium transition-colors">{service.t}</h4>
+                                        <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed mb-6 font-medium line-clamp-2">{service.d}</p>
+                                        
+                                        <div className="flex items-center text-brand-medium font-black text-[10px] uppercase tracking-widest gap-2">
+                                            Explore Service <ArrowRight className="w-3.5 h-3.5" />
+                                        </div>
+                                    </Link>
+                                </motion.div>
+                            ))}
+
                         </div>
                     </div>
                 </div>
@@ -1329,6 +1424,14 @@ const PerformanceMarketing = () => {
                     </div>
                 </div>
             </section>
+
+            {/* Success Stories Section */}
+            <CaseStudies 
+                studies={CASE_STUDIES} 
+                subtitle="Performance Metrics" 
+                title="Scaling Brands with Precision."
+                themeColor="#3994fa"
+            />
 
             {/* 15. Final Strong CTA Section */}
             <section className="py-12 px-6 mb-12 scroll-reveal">

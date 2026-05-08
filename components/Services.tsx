@@ -1,6 +1,6 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Globe, Smartphone, Palette, Share2, TrendingUp, ArrowUpRight, ArrowRight, ArrowLeft, ChevronLeft, ChevronRight, Binary, Rocket, MessageSquare, Code2, Wrench, Users, Target } from 'lucide-react';
+import { Globe, Smartphone, Palette, Share2, TrendingUp, ArrowUpRight, ArrowRight, ArrowLeft, ChevronLeft, ChevronRight, Binary, Rocket, MessageSquare, Code2, Wrench, Users, Target, ShoppingCart, Cpu, Cloud, Database } from 'lucide-react';
 import Link from 'next/link';
 
 const SERVICES = [
@@ -91,6 +91,42 @@ const SERVICES = [
     tag: 'WEB_10',
     description: 'Custom Enterprise Features and complex operations engineered for maximum horizontal scaling and authority.',
     icon: Globe,
+    accent: 'text-brand-deep',
+    bg: 'from-indigo-600/10 to-transparent'
+  },
+  {
+    id: 'ecommerce-development',
+    title: 'Ecommerce Development',
+    tag: 'STORE_11',
+    description: 'High-conversion online stores and multi-vendor marketplaces built to scale your retail business globally.',
+    icon: ShoppingCart,
+    accent: 'text-brand-medium',
+    bg: 'from-blue-500/10 to-transparent'
+  },
+  {
+    id: 'ai-solutions',
+    title: 'AI Solutions',
+    tag: 'BRAIN_12',
+    description: 'Generative AI integration and intelligent automation to future-proof your business operations.',
+    icon: Cpu,
+    accent: 'text-brand-sky',
+    bg: 'from-sky-500/10 to-transparent'
+  },
+  {
+    id: 'saas-development',
+    title: 'SaaS Development',
+    tag: 'CLOUD_13',
+    description: 'Scalable cloud-native software-as-a-service platforms engineered for millions of concurrent users.',
+    icon: Cloud,
+    accent: 'text-brand-cyan',
+    bg: 'from-cyan-400/10 to-transparent'
+  },
+  {
+    id: 'crm-erp-systems',
+    title: 'CRM/ERP Systems',
+    tag: 'LOGIC_14',
+    description: 'Custom enterprise resource planning and customer relationship management tools to optimize your workflow.',
+    icon: Database,
     accent: 'text-brand-deep',
     bg: 'from-indigo-600/10 to-transparent'
   }

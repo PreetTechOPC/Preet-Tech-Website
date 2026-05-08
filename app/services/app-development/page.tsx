@@ -9,8 +9,10 @@ import {
     Play, CreditCard, ChevronDown, X
 } from 'lucide-react';
 import Navbar from '@/components/Navbar';
+import Link from 'next/link';
 import Footer from '@/components/Footer';
 import PortfolioCarousel from '@/components/PortfolioCarousel';
+import CaseStudies, { CaseStudy } from '@/components/CaseStudies';
 import ThreeSphereScene from '@/components/ThreeSphere';
 import PhoneInput from '@/components/PhoneInput';
 // --- 🛰️ Lightweight Static Background (CSS-only, no JS animations) ---
@@ -147,6 +149,35 @@ export default function AppDevelopmentPage() {
     const [expandedSolutions, setExpandedSolutions] = useState<number | null>(null);
     const [isVideoOpen, setIsVideoOpen] = useState(false);
     const containerRef = useRef<HTMLDivElement>(null);
+
+    const APP_CASE_STUDIES: CaseStudy[] = [
+        {
+            id: 'app-1',
+            title: 'Fintech Wallet: 1M+ Transactions',
+            client: 'PayEdge',
+            category: 'Fintech / Banking',
+            description: 'A robust cross-platform mobile wallet with biometric security, real-time transfers, and micro-investment features.',
+            stats: [
+                { label: 'Users', value: '250k+' },
+                { label: 'Uptime', value: '99.9%' },
+                { label: 'Rating', value: '4.8/5' }
+            ],
+            tags: ['React Native', 'Node.js', 'AWS']
+        },
+        {
+            id: 'app-2',
+            title: 'HealthTech: Remote Patient Care',
+            client: 'MediTrack',
+            category: 'Healthcare',
+            description: 'HIPAA compliant mobile platform connecting patients with doctors through video calls and automated health tracking.',
+            stats: [
+                { label: 'Video Calls', value: '50k+' },
+                { label: 'Diagnosis', value: '10k+' },
+                { label: 'Retention', value: '85%' }
+            ],
+            tags: ['Swift', 'Kotlin', 'WebRTC']
+        }
+    ];
 
     // Form State
     const [formData, setFormData] = useState({
@@ -408,8 +439,17 @@ export default function AppDevelopmentPage() {
                             Get a high-performance, custom-built mobile app for your business — delivered fast by our expert team. Scalable, secure, and user-focused designs tailored for <strong>real results</strong>.
                         </p>
                         <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-                            <button onClick={() => setIsVideoOpen(true)} className="px-6 sm:px-8 py-3.5 sm:py-4 bg-gradient-to-r from-[#3994fa] to-[#004aad] text-white rounded-full font-bold transition-all transform hover:-translate-y-1 shadow-lg shadow-[#3994fa]/25 flex items-center justify-center gap-2 text-sm sm:text-base cursor-pointer hover:opacity-90">
-                                Watch Demo <Play className="w-4 h-4 fill-white" />
+                            <Link
+                                href="/case-studies/app-development"
+                                className="px-6 sm:px-8 py-3.5 sm:py-4 bg-gradient-to-r from-[#3994fa] to-[#004aad] text-white rounded-full font-bold transition-all transform hover:-translate-y-1 shadow-lg shadow-[#3994fa]/25 flex items-center justify-center gap-2 text-sm sm:text-base cursor-pointer hover:opacity-90"
+                            >
+                                Case Studies <ArrowRight className="w-4 h-4" />
+                            </Link>
+                            <button
+                                onClick={() => setIsVideoOpen(true)}
+                                className="px-6 sm:px-8 py-3.5 sm:py-4 bg-white/10 hover:bg-white/20 text-slate-900 dark:text-white rounded-full font-bold transition-all border border-slate-200 dark:border-white/10 flex items-center justify-center gap-2 text-sm sm:text-base cursor-pointer"
+                            >
+                                Watch Demo <Play className="w-4 h-4 fill-slate-900 dark:fill-white" />
                             </button>
                         </div>
                     </div>
@@ -638,13 +678,13 @@ export default function AppDevelopmentPage() {
                         {[{ n: 'React Native', icon: "https://cdn.worldvectorlogo.com/logos/react-2.svg" },
                         { n: 'Flutter', icon: "https://cdn.worldvectorlogo.com/logos/flutter.svg" },
                         { n: 'Node.js', icon: "https://cdn.worldvectorlogo.com/logos/nodejs-icon.svg" },
-                        { n: 'Express', icon: "https://cdn.worldvectorlogo.com/logos/express-109.svg" },
+                        { n: 'Express', icon: "https://cdn.simpleicons.org/express", invert: true },
                         { n: 'MongoDB', icon: "https://cdn.worldvectorlogo.com/logos/mongodb-icon-1.svg" },
                         { n: 'Firebase', icon: "https://cdn.worldvectorlogo.com/logos/firebase-1.svg" },
                         { n: 'AWS', icon: "https://cdn.worldvectorlogo.com/logos/aws-2.svg" },
-                        { n: 'Stripe', icon: "https://cdn.worldvectorlogo.com/logos/stripe-4.svg" }].map((tech, i) => (
+                        { n: 'Stripe', icon: "https://cdn.worldvectorlogo.com/logos/stripe-4.svg" }].map((tech: any, i) => (
                             <div key={i} className="group p-6 rounded-2xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-white/5 text-center transition-all flex flex-col items-center justify-center h-full hover:border-brand-cyan/30 hover:-translate-y-1 hover:scale-105">
-                                <img src={tech.icon} alt={tech.n} className="w-10 h-10 object-contain mb-3 filter grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-300" />
+                                <img src={tech.icon} alt={tech.n} className={`w-10 h-10 object-contain mb-3 filter grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-300 ${tech.invert ? 'dark:invert' : ''}`} />
                                 <span className="font-bold text-[10px] uppercase tracking-wider text-slate-500 group-hover:text-slate-900 dark:group-hover:text-white transition-colors">{tech.n}</span>
                             </div>
                         ))}
@@ -690,6 +730,14 @@ export default function AppDevelopmentPage() {
                 </div>
             </section>
 
+
+            {/* Success Stories Section */}
+            <CaseStudies 
+                studies={APP_CASE_STUDIES} 
+                subtitle="Application Success" 
+                title="Apps Built for Global Scale."
+                themeColor="#3994fa"
+            />
 
             {/* Final High-Impact CTA Section */}
             <section className="py-24 md:py-36 px-4 md:px-6 bg-[#fafafa] dark:bg-[#030712] text-slate-900 dark:text-white reveal-section relative overflow-hidden text-center">
