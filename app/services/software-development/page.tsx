@@ -385,7 +385,7 @@ const SoftwareDevelopmentPage = () => {
                     </div>
 
                     {/* Hero Right: Strategy Form */}
-                    <div className="lg:col-span-5 hero-form-box">
+                    <div id="strategy-form" className="lg:col-span-5 hero-form-box scroll-mt-32">
                         <div className="glass-morphism rounded-[2.5rem] p-6 md:p-8 border border-slate-200 dark:border-white/10 shadow-xl relative z-10 bg-white/40 dark:bg-slate-900/40 backdrop-blur-lg">
                             <div className="mb-6">
                                 <h3 className="text-xl md:text-2xl font-black uppercase tracking-tighter text-slate-900 dark:text-white mb-2">Request Strategy Call</h3>
@@ -857,9 +857,9 @@ const SoftwareDevelopmentPage = () => {
                     />
 
                     <div className="flex flex-wrap justify-center gap-6 mt-12">
-                        <button className="group relative bg-gradient-to-r from-[#3994fa] to-[#004aad] hover:opacity-95 text-white rounded-2xl px-12 py-5 font-black text-xs uppercase tracking-[0.2em] transition-all hover:scale-105 active:scale-95 shadow-2xl shadow-[#3994fa]/20">
+                        <Link href="#strategy-form" className="group relative bg-gradient-to-r from-[#3994fa] to-[#004aad] hover:opacity-95 text-white rounded-2xl px-12 py-5 font-black text-xs uppercase tracking-[0.2em] transition-all hover:scale-105 active:scale-95 shadow-2xl shadow-[#3994fa]/20">
                             Book Free Strategy Call
-                        </button>
+                        </Link>
                     </div>
                 </div>
             </section>
@@ -895,12 +895,12 @@ const SoftwareDevelopmentPage = () => {
                     </p>
 
                     <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
-                        <button className="w-full sm:w-auto px-12 py-6 bg-gradient-to-r from-[#3994fa] to-[#004aad] hover:opacity-95 text-white rounded-2xl font-black text-xs uppercase tracking-[0.2em] transition-all shadow-xl shadow-[#3994fa]/20">
+                        <Link href="#strategy-form" className="w-full sm:w-auto px-12 py-6 bg-gradient-to-r from-[#3994fa] to-[#004aad] hover:opacity-95 text-white rounded-2xl font-black text-xs uppercase tracking-[0.2em] transition-all shadow-xl shadow-[#3994fa]/20 flex items-center justify-center">
                             Start Your Software Project
-                        </button>
-                        <button className="w-full sm:w-auto px-12 py-6 bg-white/5 border border-[#3994fa]/20 text-white hover:bg-gradient-to-r hover:from-[#3994fa] hover:to-[#004aad] hover:border-transparent rounded-2xl font-black text-xs uppercase tracking-[0.2em] transition-all">
+                        </Link>
+                        <Link href="/contact" className="w-full sm:w-auto px-12 py-6 bg-white/5 border border-[#3994fa]/20 text-white hover:bg-gradient-to-r hover:from-[#3994fa] hover:to-[#004aad] hover:border-transparent rounded-2xl font-black text-xs uppercase tracking-[0.2em] transition-all flex items-center justify-center">
                             Talk to Our Experts
-                        </button>
+                        </Link>
                     </div>
                 </div>
             </section>

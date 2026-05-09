@@ -6,16 +6,16 @@ export const metadata: Metadata = {
     description: "Maximize your business growth with ROI-driven performance marketing services starting at ₹19,999. Expert Meta Ads, Google Ads management, and data-backed scaling strategies for startups and e-commerce.",
     keywords: [
         "Performance Marketing Services",
-        "PPC Management Agency",
+        "PPC Management IT Company",
         "Google Ads Services",
         "Meta Ads Management",
         "ROI-Focused Marketing",
-        "E-commerce Growth Agency",
+        "E-commerce Growth IT Company",
         "SaaS Lead Generation",
         "Scale Your ROAS",
         "Data-Driven Marketing",
         "Lead Generation Services",
-        "Digital Advertising Agency"
+        "Digital Advertising IT Company"
     ],
     alternates: {
         canonical: 'https://preettech.com/services/performance-marketing',

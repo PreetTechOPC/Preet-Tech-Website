@@ -59,11 +59,9 @@ export default function BlogHero({ activeCategory, onCategoryChange, onSearch }:
                     <div className="w-full flex items-center gap-3">
 
                         {/* Scrollable tab pills */}
-                        <div className="flex-1 relative -mx-4 px-4 sm:mx-0 sm:px-0 overflow-hidden">
+                        <div className="flex-1 relative -mx-4 px-4 sm:mx-0 sm:px-0">
                             <motion.div
-                                
-                                
-                                className="flex justify-start sm:justify-center gap-2 overflow-x-auto hide-scrollbar pb-2 pt-2"
+                                className="flex justify-start sm:justify-center gap-2 overflow-x-auto hide-scrollbar pb-2 pt-2 px-4 sm:px-0"
                             >
                                 {ALL_CATEGORIES.map((cat) => (
                                     <button
@@ -71,7 +69,7 @@ export default function BlogHero({ activeCategory, onCategoryChange, onSearch }:
                                         onClick={() => handleSelect(cat)}
                                         className={`flex-shrink-0 px-6 py-2 rounded-xl text-[10px] font-black uppercase tracking-widest transition-all duration-300 border ${activeCategory === cat
                                             ? 'bg-gradient-to-r from-[#3994fa] to-[#004aad] border-transparent text-white shadow-lg shadow-[#3994fa]/20 scale-105'
-                                            : 'bg-white/5 border-white/10 text-slate-500 hover:border-brand-sky/40 hover:text-brand-cyan'
+                                            : 'bg-white/5 border-white/10 text-slate-300 hover:border-brand-sky/40 hover:text-white hover:bg-white/10'
                                             }`}
                                     >
                                         {cat === 'All' ? 'All Posts' : cat}
@@ -86,7 +84,7 @@ export default function BlogHero({ activeCategory, onCategoryChange, onSearch }:
                                 onClick={() => setDropdownOpen((prev) => !prev)}
                                 className={`flex items-center gap-2 px-5 py-2.5 rounded-xl text-[10px] font-black uppercase tracking-widest border transition-all duration-300 ${dropdownOpen
                                     ? 'bg-gradient-to-r from-[#3994fa] to-[#004aad] border-transparent text-white shadow-lg shadow-[#3994fa]/20'
-                                    : 'bg-white/5 border-white/10 text-slate-400 hover:border-brand-sky/40 hover:text-brand-cyan'
+                                    : 'bg-white/5 border-white/10 text-slate-200 hover:border-brand-sky/40 hover:text-white hover:bg-white/10'
                                     }`}
                             >
                                 <span className="hidden sm:inline">

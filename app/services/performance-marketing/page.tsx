@@ -587,7 +587,7 @@ const PerformanceMarketing = () => {
                     <div className="text-center mb-16">
                         <span className="text-brand-medium text-[10px] font-black uppercase tracking-[0.4em] mb-4 block">The ROI Advantage</span>
                         <h2 className="text-3xl md:text-5xl font-black tracking-tight text-slate-900 dark:text-white uppercase">
-                            The Best <span className="text-brand-medium">Performance Marketing Agency</span> For You
+                            The Best <span className="text-brand-medium">Performance Marketing IT Company</span> For You
                         </h2>
                     </div>
 
@@ -965,9 +965,9 @@ const PerformanceMarketing = () => {
                             <p className="text-slate-400 text-base md:text-lg font-medium mb-10">
                                 Don't leave your growth to chance. Get a custom performance roadmap designed for your specific business goals.
                             </p>
-                            <button className="px-10 py-5 bg-brand-medium text-[#030712] rounded-xl font-black text-[10px] uppercase tracking-[0.2em] hover:bg-white transition-all shadow-2xl shadow-brand-medium/20 group flex items-center gap-2 mx-auto">
+                            <Link href="/contact" className="px-10 py-5 bg-brand-medium text-[#030712] rounded-xl font-black text-[10px] uppercase tracking-[0.2em] hover:bg-white transition-all shadow-2xl shadow-brand-medium/20 group flex items-center gap-2 mx-auto">
                                 Book Free Performance Audit <ArrowRight className="w-4 h-4 group-hover:translate-x-2 transition-transform" />
-                            </button>
+                            </Link>
                         </div>
                     </div>
                 </div>
@@ -1446,9 +1446,9 @@ const PerformanceMarketing = () => {
                         <p className="text-sm md:text-base font-bold uppercase tracking-widest mb-10 opacity-80">
                             Stop Guessing. Start Scaling Profitably.
                         </p>
-                        <button className="px-10 py-5 bg-slate-900 text-white hover:bg-gradient-to-r hover:from-[#3994fa] hover:to-[#004aad] rounded-xl font-black text-[10px] uppercase tracking-[0.2em] transition-all shadow-2xl flex items-center gap-2 mx-auto group">
+                        <Link href="/contact" className="px-10 py-5 bg-slate-900 text-white hover:bg-gradient-to-r hover:from-[#3994fa] hover:to-[#004aad] rounded-xl font-black text-[10px] uppercase tracking-[0.2em] transition-all shadow-2xl flex items-center gap-2 mx-auto group">
                             Start Your Growth Journey <ArrowUpRight className="w-5 h-5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
-                        </button>
+                        </Link>
                     </div>
                 </div>
             </section>

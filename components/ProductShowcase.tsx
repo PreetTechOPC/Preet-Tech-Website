@@ -259,7 +259,7 @@ const ProductShowcase: React.FC = () => {
 
                                     <div className="mt-5 pt-5 border-t border-slate-100 dark:border-white/5">
                                         <a
-                                            href={`https://wa.me/917900310428?text=${encodeURIComponent(product.whatsappMsg)}`}
+                                            href={`https://wa.me/919756667397?text=${encodeURIComponent(product.whatsappMsg)}`}
                                             target="_blank"
                                             rel="noopener noreferrer"
                                             className="w-full py-3 bg-gradient-to-r from-[#3994fa] to-[#004aad] text-white rounded-xl font-black text-[9px] uppercase tracking-[0.25em] flex items-center justify-center gap-2 active:scale-[0.98] shadow-lg hover:shadow-[#3994fa]/20 transition-all"

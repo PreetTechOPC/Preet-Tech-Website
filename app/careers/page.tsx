@@ -38,6 +38,7 @@ import { AnimatePresence } from 'framer-motion';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import ThreeSphereScene from '@/components/ThreeSphere';
+import PhoneInput from '@/components/PhoneInput';
 import { jsPDF } from 'jspdf';
 import autoTable from 'jspdf-autotable';
 
@@ -63,12 +64,16 @@ const CareersPage = () => {
     const [formStatus, setFormStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
     const [selectedFile, setSelectedFile] = useState<File | null>(null);
     const [formData, setFormData] = useState({
+        position: '',
         name: '',
         email: '',
         phone: '',
+        countryCode: '+91',
         experience: '',
         portfolio: '',
-        motivation: ''
+        motivation: '',
+        resume: null as File | null,
+        resumeName: ''
     });
 
     const generatePDF = (data: any, position: string) => {
@@ -126,12 +131,16 @@ const CareersPage = () => {
                 setFormStatus('success');
                 // Reset form
                 setFormData({
+                    position: '',
                     name: '',
                     email: '',
                     phone: '',
+                    countryCode: '+91',
                     experience: '',
                     portfolio: '',
-                    motivation: ''
+                    motivation: '',
+                    resume: null,
+                    resumeName: ''
                 });
                 setSelectedFile(null);
             } else {
@@ -354,7 +363,7 @@ const CareersPage = () => {
                             <a href="#positions" className="px-10 py-5 bg-gradient-to-r from-[#3994fa] to-[#004aad] text-white rounded-2xl font-black uppercase tracking-widest text-[11px] shadow-xl shadow-[#3994fa]/20 hover:scale-105 transition-all">
                                 View Openings
                             </a>
-                            <a href="/contact" className="px-10 py-5 border border-slate-200 dark:border-white/10 rounded-2xl font-black uppercase tracking-widest text-[11px] hover:bg-slate-50 dark:hover:bg-white/5 transition-all">
+                            <a href="/about" className="px-10 py-5 border border-slate-200 dark:border-white/10 rounded-2xl font-black uppercase tracking-widest text-[11px] hover:bg-slate-50 dark:hover:bg-white/5 transition-all">
                                 Our Mission
                             </a>
                         </motion.div>
@@ -362,149 +371,9 @@ const CareersPage = () => {
                 </div>
             </section>
 
-            {/* 2. Culture & Values */}
-            <section className="py-24 md:py-32 px-6 bg-slate-50 dark:bg-[#030712]/50 relative overflow-hidden">
-                <div className="max-w-7xl mx-auto relative z-10">
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-                        <div className="space-y-8">
-                            <span className="text-brand-medium text-[10px] font-black uppercase tracking-[0.4em] block">Our DNA</span>
-                            <h2 className="text-4xl md:text-6xl font-black tracking-tight uppercase leading-[0.95]">
-                                Not Just a Job. <br />
-                                <span className="text-brand-medium italic">A Mission.</span>
-                            </h2>
-                            <p className="text-slate-500 dark:text-slate-400 text-base md:text-lg font-medium leading-relaxed max-w-xl">
-                                At Preet Tech OPC Private Limited, we don't just build websites or apps. We engineer growth. We are obsessed with high-performance, scalability, and delivering results that actually move the needle.
-                            </p>
-                            
-                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-4">
-                                {[
-                                    { title: "Radical Transparency", desc: "No politics, just results." },
-                                    { title: "Velocity First", desc: "We move fast, we ship faster." },
-                                    { title: "Infinite Growth", desc: "Constant learning is mandatory." },
-                                    { title: "Elite Craft", desc: "Quality is not an option." }
-                                ].map((value, i) => (
-                                    <div key={i} className="flex gap-4">
-                                        <div className="w-6 h-6 rounded-full bg-brand-medium/20 flex items-center justify-center shrink-0">
-                                            <CheckCircle2 className="w-3.5 h-3.5 text-brand-medium" />
-                                        </div>
-                                        <div>
-                                            <h4 className="font-bold text-slate-900 dark:text-white uppercase text-xs tracking-wider mb-1">{value.title}</h4>
-                                            <p className="text-slate-500 text-[11px] font-medium leading-relaxed">{value.desc}</p>
-                                        </div>
-                                    </div>
-                                ))}
-                            </div>
-                        </div>
 
-                        <div className="relative">
-                            <div className="aspect-[4/5] rounded-[3rem] bg-gradient-to-br from-brand-medium/20 to-brand-cyan/20 p-[1px] overflow-hidden group shadow-2xl relative">
-                                <div className="absolute inset-0 bg-[#050608] overflow-hidden rounded-[3rem]">
-                                    {/* Grid Overlay */}
-                                    <div className="absolute inset-0 bg-[linear-gradient(to_right,#1e293b_1px,transparent_1px),linear-gradient(to_bottom,#1e293b_1px,transparent_1px)] bg-[size:40px_40px] opacity-[0.05]" />
-                                    
-                                    <div className="relative h-full w-full p-8 md:p-12 flex flex-col">
-                                        {/* Header area of the "app" */}
-                                        <div className="flex items-center justify-between mb-12">
-                                            <div className="space-y-1">
-                                                <div className="h-2 w-24 bg-white/10 rounded-full" />
-                                                <div className="h-1.5 w-16 bg-white/5 rounded-full" />
-                                            </div>
-                                            <div className="w-10 h-10 rounded-xl bg-brand-medium/10 border border-brand-medium/20 flex items-center justify-center">
-                                                <TrendingUp className="w-5 h-5 text-brand-medium" />
-                                            </div>
-                                        </div>
 
-                                        {/* The Bar Graph */}
-                                        <div className="flex-1 flex items-end justify-between gap-3 px-2 pb-12 relative">
-                                            {/* Baseline */}
-                                            <div className="absolute bottom-[47px] left-0 right-0 h-px bg-white/5" />
-                                            
-                                            {[95, 82, 75, 88, 65, 70].map((h, i) => (
-                                                <div key={i} className="flex-1 flex flex-col items-center gap-4 group/bar">
-                                                    {/* Percentage Label on Hover */}
-                                                    <motion.div 
-                                                        initial={{ opacity: 0, y: 10 }}
-                                                        whileHover={{ opacity: 1, y: 0 }}
-                                                        className="absolute -top-6 text-[10px] font-mono text-brand-medium font-bold pointer-events-none whitespace-nowrap"
-                                                    >
-                                                        +{h}% Growth
-                                                    </motion.div>
 
-                                                    <div className="relative w-full h-[180px] flex items-end justify-center">
-                                                        {/* Bar Background Track */}
-                                                        <div className="absolute inset-0 bg-white/[0.02] rounded-t-xl" />
-                                                        
-                                                        {/* Animated Bar */}
-                                                        <motion.div
-                                                            initial={{ height: 0 }}
-                                                            whileInView={{ height: `${h}%` }}
-                                                            transition={{ 
-                                                                duration: 1.2, 
-                                                                delay: 0.2 + (i * 0.1),
-                                                                ease: [0.33, 1, 0.68, 1]
-                                                            }}
-                                                            className="w-full rounded-t-xl relative group-hover/bar:brightness-125 transition-all shadow-[0_0_20px_rgba(57,148,250,0.1)]"
-                                                            style={{
-                                                                background: `linear-gradient(to top, #3994fa10 0%, #3994fa 100%)`
-                                                            }}
-                                                        >
-                                                            {/* Top Cap Glow */}
-                                                            <div className="absolute top-0 left-0 right-0 h-1 bg-brand-cyan rounded-full shadow-[0_0_15px_#3994fa]" />
-                                                        </motion.div>
-                                                    </div>
-
-                                                    {/* X-Axis Label */}
-                                                    <span className="text-[7px] font-mono text-slate-500 uppercase tracking-tighter text-center h-8 flex items-center leading-tight">
-                                                        {['AI / ML', 'Dev Ops', 'Software', 'Cyber', 'Cloud', 'Design'][i]}
-                                                    </span>
-                                                </div>
-                                            ))}
-                                        </div>
-
-                                        {/* Stats Overview */}
-                                        <div className="grid grid-cols-2 gap-4 mt-auto pt-6 border-t border-white/5">
-                                            <div className="space-y-1">
-                                                <p className="text-[8px] font-black uppercase tracking-widest text-slate-500">Global Tech Market</p>
-                                                <p className="text-xl font-black text-white">$5.2T+</p>
-                                            </div>
-                                            <div className="space-y-1 text-right">
-                                                <p className="text-[8px] font-black uppercase tracking-widest text-slate-500">AI Innovation Index</p>
-                                                <p className="text-xl font-black text-brand-medium">Top 1%</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="absolute -top-10 -right-10 bg-white dark:bg-slate-900 p-8 rounded-3xl border border-slate-100 dark:border-white/10 shadow-2xl z-20 hidden md:block">
-                                <div className="text-4xl font-black text-brand-medium mb-1 tracking-tighter">100%</div>
-                                <div className="text-[9px] font-black uppercase tracking-[0.3em] text-slate-400">Growth Mindset</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            {/* 3. Benefits */}
-            <section className="py-24 md:py-32 px-6 relative">
-                <div className="max-w-7xl mx-auto">
-                    <div className="text-center mb-20 space-y-4">
-                        <span className="text-brand-medium text-[10px] font-black uppercase tracking-[0.4em] block">Perks & Benefits</span>
-                        <h2 className="text-4xl md:text-5xl font-black tracking-tight uppercase leading-[0.95]">Life at <span className="text-brand-medium italic">Preet Tech.</span></h2>
-                    </div>
-
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-                        {BENEFITS.map((benefit, i) => (
-                            <div key={i} className="p-8 rounded-[2rem] bg-white dark:bg-white/[0.02] border border-slate-100 dark:border-white/5 group hover:border-brand-medium/30 transition-all hover:-translate-y-1">
-                                <div className="w-14 h-14 rounded-2xl bg-brand-medium/10 flex items-center justify-center mb-6 group-hover:bg-brand-medium transition-colors">
-                                    <benefit.icon className="w-6 h-6 text-brand-medium group-hover:text-white transition-colors" />
-                                </div>
-                                <h3 className="text-lg font-bold text-slate-900 dark:text-white uppercase mb-3 tracking-wide">{benefit.title}</h3>
-                                <p className="text-sm text-slate-500 dark:text-slate-400 font-medium leading-relaxed">{benefit.desc}</p>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-            </section>
 
             {/* 4. Open Positions */}
             <section id="positions" className="py-24 md:py-32 px-6 bg-slate-50 dark:bg-[#030712]/50">
@@ -650,13 +519,11 @@ const CareersPage = () => {
                                             </div>
                                             <div className="space-y-2">
                                                 <label className="text-[10px] font-black uppercase tracking-widest text-slate-500 ml-1">Phone Number</label>
-                                                <input 
-                                                    required
-                                                    type="tel" 
-                                                    placeholder="+91 XXXXX XXXXX" 
+                                                <PhoneInput 
                                                     value={formData.phone}
-                                                    onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                                                    className="w-full bg-white dark:bg-white/5 border border-slate-200 dark:border-white/10 rounded-2xl px-6 py-4 text-sm font-medium outline-none focus:border-brand-medium transition-all"
+                                                    onChange={(val) => setFormData({ ...formData, phone: val })}
+                                                    countryCode={formData.countryCode}
+                                                    onCountryCodeChange={(code) => setFormData({ ...formData, countryCode: code })}
                                                 />
                                             </div>
                                         </div>

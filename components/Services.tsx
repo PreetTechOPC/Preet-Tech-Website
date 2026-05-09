@@ -306,7 +306,7 @@ const Services: React.FC = () => {
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-medium to-brand-cyan italic font-black">Solutions.</span>
             </h2>
             <p className="text-slate-600 dark:text-slate-400 mt-4 text-base md:text-lg font-medium leading-relaxed">
-              As a premier <span className="font-bold text-foreground dark:text-white">web and app development company</span>, we empower brands with <span className="font-bold text-foreground dark:text-white">generative AI integration</span>, robust <span className="font-bold text-foreground dark:text-white">e-commerce development</span>, and <span className="font-bold text-foreground dark:text-white">B2B digital agency</span> expertise.
+              As a premier <span className="font-bold text-foreground dark:text-white">web and app development company</span>, we empower brands with <span className="font-bold text-foreground dark:text-white">generative AI integration</span>, robust <span className="font-bold text-foreground dark:text-white">e-commerce development</span>, and <span className="font-bold text-foreground dark:text-white">B2B IT Company</span> expertise.
             </p>
           </div>
 

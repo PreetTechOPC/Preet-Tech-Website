@@ -6,9 +6,9 @@ export const metadata: Metadata = {
     description: "Elevate your brand with award-winning content creation services starting at ₹4,999. Specializing in high-engaging social media reels, short-form videos, and performance-driven ad creatives for startups and E-commerce brands.",
     keywords: [
         "Content Creation Services",
-        "Social Media Content Agency",
+        "Social Media Content IT Company",
         "Short-form Video Production",
-        "Ad Creative Agency",
+        "Ad Creative IT Company",
         "Video Production Studio",
         "Content Strategy for Startups",
         "Reels and TikTok Production",

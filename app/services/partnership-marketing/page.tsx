@@ -234,7 +234,7 @@ export default function PartnershipMarketing() {
             benefit: "High-Margin Scale"
         },
         {
-            title: "Agencies",
+            title: "IT Companies",
             desc: "Offer more value to your clients by implementing revenue-sharing structures that boost their ROI.",
             benefit: "Expand Service Portfolio"
         },
@@ -324,9 +324,9 @@ export default function PartnershipMarketing() {
 
             {/* Sticky Mobile CTA */}
             <div className="fixed bottom-0 left-0 right-0 z-[100] p-4 lg:hidden border-t border-slate-200 dark:border-white/10 bg-white/80 dark:bg-slate-950/80 backdrop-blur-md">
-                <button onClick={() => document.getElementById('consultation')?.scrollIntoView({ behavior: 'smooth' })} className="w-full py-4 bg-gradient-to-r from-[#3994fa] to-[#004aad] text-white rounded-xl font-black text-xs uppercase tracking-[0.2em] shadow-lg active:scale-95 transition-transform">
+                <Link href="/contact" className="block w-full py-4 bg-gradient-to-r from-[#3994fa] to-[#004aad] text-white rounded-xl font-black text-xs uppercase tracking-[0.2em] shadow-lg active:scale-95 transition-transform text-center">
                     Book Strategy Call
-                </button>
+                </Link>
             </div>
 
             {/* 1️⃣ Hero Section */}
@@ -479,7 +479,7 @@ export default function PartnershipMarketing() {
                             Why Choose <span className="italic text-brand-cyan">Preet Tech OPC Private Limited?</span>
                         </h2>
                         <p className="text-lg text-slate-500 dark:text-slate-400 font-medium leading-relaxed mb-12">
-                            Traditional agencies sell 'hours' and 'services.' We sell outcomes. Our authority is built on real sales data and high-trust partnerships.
+                            Traditional it companies sell 'hours' and 'services.' We sell outcomes. Our authority is built on real sales data and high-trust partnerships.
                         </p>
 
                         <div className="space-y-6">
@@ -507,7 +507,7 @@ export default function PartnershipMarketing() {
                                 <div className="space-y-8">
                                     <div className="flex items-center justify-between">
                                         <div className="space-y-1">
-                                            <p className="text-[10px] font-black text-brand-cyan uppercase tracking-[0.3em]">Agency Authority</p>
+                                            <p className="text-[10px] font-black text-brand-cyan uppercase tracking-[0.3em]">IT Company Authority</p>
                                             <p className="text-2xl font-black text-slate-900 dark:text-white tracking-tighter uppercase">Sales Impact</p>
                                         </div>
                                         <BarChart3 className="w-8 h-8 text-brand-cyan" />
@@ -742,9 +742,9 @@ export default function PartnershipMarketing() {
                     <p className="text-xl text-slate-500 dark:text-slate-400 font-medium mb-12 max-w-2xl mx-auto leading-relaxed">
                         We limit the number of active partnerships we manage to ensure maximum focus and execution. Skip the guesswork and tap into zero-risk performance-driven growth.
                     </p>
-                    <button onClick={() => document.getElementById('consultation')?.scrollIntoView({ behavior: 'smooth' })} className="px-12 py-5 bg-gradient-to-r from-[#3994fa] to-[#004aad] text-white rounded-xl font-black text-sm uppercase tracking-widest hover:opacity-90 transition-all transform hover:-translate-y-1 shadow-2xl shadow-[#3994fa]/40">
+                    <Link href="/contact" className="inline-block px-12 py-5 bg-gradient-to-r from-[#3994fa] to-[#004aad] text-white rounded-xl font-black text-sm uppercase tracking-widest hover:opacity-90 transition-all transform hover:-translate-y-1 shadow-2xl shadow-[#3994fa]/40">
                         Schedule Free Collab Call
-                    </button>
+                    </Link>
                 </div>
             </section>
 
@@ -856,9 +856,9 @@ export default function PartnershipMarketing() {
                         </p>
 
                         <div className="flex flex-col sm:flex-row items-center justify-center gap-6 pt-4">
-                            <button onClick={() => document.getElementById('consultation')?.scrollIntoView({ behavior: 'smooth' })} className="w-full sm:w-auto px-10 py-5 bg-gradient-to-r from-[#3994fa] to-[#004aad] text-white rounded-2xl font-bold text-xs uppercase tracking-widest hover:opacity-90 transition-all shadow-xl shadow-[#3994fa]/20 flex items-center justify-center gap-3">
+                            <Link href="/contact" className="w-full sm:w-auto px-10 py-5 bg-gradient-to-r from-[#3994fa] to-[#004aad] text-white rounded-2xl font-bold text-xs uppercase tracking-widest hover:opacity-90 transition-all shadow-xl shadow-[#3994fa]/20 flex items-center justify-center gap-3">
                                 Start Your Partnership <Rocket className="w-4 h-4" />
-                            </button>
+                            </Link>
                             <a href="/contact" className="w-full sm:w-auto px-10 py-5 bg-transparent border border-white/20 text-white rounded-2xl font-bold text-xs uppercase tracking-widest hover:bg-gradient-to-r hover:from-[#3994fa] hover:to-[#004aad] hover:border-transparent hover:opacity-90 transition-all flex items-center justify-center gap-3 active:scale-95">
                                 <MessageSquare className="w-4 h-4" /> Contact Growth Team
                             </a>

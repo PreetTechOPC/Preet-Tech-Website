@@ -49,7 +49,7 @@ export default function TermsOfServicePage() {
 
                     <div className="space-y-4">
                         <h2 className="text-2xl font-black uppercase text-foreground dark:text-white">1. Agreement to Terms</h2>
-                        <p>These Terms of Service ("Terms") constitute a legally binding agreement between you (whether individually or on behalf of an entity) and Preet Tech OPC Private Limited Global ("we," "us," or "our"). By leveraging our digital transformation agency services, custom software deployments, or navigating our website, you expressly agree to be bound by these Terms.</p>
+                        <p>These Terms of Service ("Terms") constitute a legally binding agreement between you (whether individually or on behalf of an entity) and Preet Tech OPC Private Limited Global ("we," "us," or "our"). By leveraging our digital transformation it company services, custom software deployments, or navigating our website, you expressly agree to be bound by these Terms.</p>
                     </div>
 
                     <div className="space-y-4">

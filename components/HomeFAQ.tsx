@@ -4,8 +4,8 @@ import { ChevronDown } from 'lucide-react';
 
 const FAQS = [
     {
-        question: "What makes Preet Tech OPC Private Limited a top Next Gen Digital Agency?",
-        answer: "As a leading Next Gen Digital Agency, we combine over a decade of IT experience with cutting-edge generative AI integration. We specialize in custom software development, AI-driven marketing, and scalable tech solutions to ensure your business stays ahead of the digital curve."
+        question: "What makes Preet Tech OPC Private Limited a top Next Gen IT Company?",
+        answer: "As a leading Next Gen IT Company, we combine over a decade of IT experience with cutting-edge generative AI integration. We specialize in custom software development, AI-driven marketing, and scalable tech solutions to ensure your business stays ahead of the digital curve."
     },
     {
         question: "Do you offer custom software and e-commerce development?",
@@ -17,7 +17,7 @@ const FAQS = [
     },
     {
         question: "Why should a B2B business choose your cloud migration services?",
-        answer: "Our B2B digital agency specializes in secure, seamless cloud migration services. We reduce infrastructure costs, improve security, and ensure 99.99% uptime, allowing your enterprise to scale its tech solutions safely and efficiently."
+        answer: "Our B2B IT Company specializes in secure, seamless cloud migration services. We reduce infrastructure costs, improve security, and ensure 99.99% uptime, allowing your enterprise to scale its tech solutions safely and efficiently."
     },
     {
         question: "Why is Preet Tech considered the Best IT Company in Haldwani?",

@@ -63,7 +63,7 @@ export default function CookiePolicyPage() {
 
                     <div className="space-y-4">
                         <h2 className="text-2xl font-black uppercase text-foreground dark:text-white">3. Analytics and Performance Cookies</h2>
-                        <p>To continuously elevate our UI/UX design agency capabilities, we implement diagnostic algorithms that gather anonymous usage parameters. These analytics (e.g., Google Analytics tracking) calculate traffic, entry behavior, and load performance, allowing us to build scalable operations dynamically.</p>
+                        <p>To continuously elevate our UI/UX design it company capabilities, we implement diagnostic algorithms that gather anonymous usage parameters. These analytics (e.g., Google Analytics tracking) calculate traffic, entry behavior, and load performance, allowing us to build scalable operations dynamically.</p>
                     </div>
 
                     <div className="space-y-4">

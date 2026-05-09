@@ -49,18 +49,17 @@ const Footer: React.FC = () => {
 
     const FOOTER_LINKS = {
         Solutions: [
-            { name: 'Ecommerce Development', href: '/services/ecommerce-development' },
+            { name: 'Eco Website', href: '/services/eco-website' },
+            { name: 'Advance Website', href: '/services/advance-website' },
             { name: 'App Development', href: '/services/app-development' },
-            { name: 'AI Solutions', href: '/services/ai-solutions' },
-            { name: 'SaaS Development', href: '/services/saas-development' },
-            { name: 'CRM/ERP Systems', href: '/services/crm-erp-systems' },
+            { name: 'Software Development', href: '/services/software-development' },
         ],
         Company: [
             { name: 'About Us', href: '/about' },
             { name: 'Careers', href: '/careers' },
             { name: 'Contact Us', href: '/contact' },
-            { name: 'Digital Marketing', href: '/services/performance-marketing' },
-            { name: 'Social Media', href: '/services/social-media-handling' },
+            { name: 'Blog', href: '/blog' },
+            { name: 'Business Tools', href: '/services/business-tools' },
         ],
         Legal: [
             { name: 'Privacy Policy', href: '/privacy-policy' },
@@ -77,7 +76,7 @@ const Footer: React.FC = () => {
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-8 mb-20 md:mb-24">
 
                     {/* Brand Column */}
-                    <div className="lg:col-span-5 space-y-8">
+                    <div className="lg:col-span-4 space-y-8">
                         <div className="flex items-center gap-4">
                             <img
                                 src="/logo-preet-tech-black.png"
@@ -110,13 +109,13 @@ const Footer: React.FC = () => {
                     </div>
 
                     {/* Links Columns */}
-                    <div className="lg:col-span-3 grid grid-cols-2 gap-8">
+                    <div className="lg:col-span-4 grid grid-cols-2 gap-8">
                         <div className="space-y-8">
                             <h4 className="text-[10px] font-black uppercase tracking-[0.2em] text-brand-medium">Solutions</h4>
                             <ul className="space-y-4">
                                 {FOOTER_LINKS.Solutions.map((link) => (
                                     <li key={link.name}>
-                                        <a href={link.href} className="text-sm text-slate-400 hover:text-white transition-colors flex items-center gap-2 group">
+                                        <a href={link.href} className="text-sm text-slate-400 hover:text-white transition-colors flex items-center gap-2 group whitespace-nowrap">
                                             <span className="w-1.5 h-1.5 rounded-full bg-brand-medium/0 group-hover:bg-brand-medium transition-all" />
                                             {link.name}
                                         </a>
@@ -130,7 +129,7 @@ const Footer: React.FC = () => {
                             <ul className="space-y-4">
                                 {FOOTER_LINKS.Company.map((link) => (
                                     <li key={link.name}>
-                                        <a href={link.href} className="text-sm text-slate-400 hover:text-white transition-colors flex items-center gap-2 group">
+                                        <a href={link.href} className="text-sm text-slate-400 hover:text-white transition-colors flex items-center gap-2 group whitespace-nowrap">
                                             <span className="w-1.5 h-1.5 rounded-full bg-brand-medium/0 group-hover:bg-brand-medium transition-all" />
                                             {link.name}
                                         </a>

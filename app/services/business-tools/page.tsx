@@ -1182,7 +1182,7 @@ export default function ToolsMarketplace() {
   const [visibleCount, setVisibleCount] = useState(12);
   const [openFAQ, setOpenFAQ] = useState<number | null>(null);
 
-  const whatsappNumber = "917900310428"; // You can change this if needed
+  const whatsappNumber = "919756667397"; // You can change this if needed
 
   useEffect(() => {
     const storedTheme = localStorage.getItem('theme');

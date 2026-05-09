@@ -295,7 +295,7 @@ export default function ContentCreation() {
                 <div className="max-w-7xl mx-auto">
                     <div className="text-center mb-20 space-y-4">
                         <span className="text-brand-medium font-bold uppercase tracking-[0.2em] text-xs">The Preet Tech OPC Private Limited Edge</span>
-                        <h2 className="text-3xl md:text-5xl lg:text-6xl font-black tracking-tight">The Best Content Creation Agency for You.</h2>
+                        <h2 className="text-3xl md:text-5xl lg:text-6xl font-black tracking-tight">The Best Content Creation IT Company for You.</h2>
                         <p className="text-slate-500 dark:text-slate-400 max-w-2xl mx-auto">We don't just "make content". We build growth assets that appreciate in value over time.</p>
                     </div>
 
@@ -650,14 +650,12 @@ export default function ContentCreation() {
                         >
                             Start Your Content Project <Plus className="w-5 h-5" />
                         </motion.button>
-                        <motion.button
-                            onClick={() => document.getElementById('consultation')?.scrollIntoView({ behavior: 'smooth' })}
-                            
-                            
+                        <Link
+                            href="/contact"
                             className="px-12 py-6 border-2 border-[#3994fa]/20 hover:bg-gradient-to-r hover:from-[#3994fa] hover:to-[#004aad] hover:text-white hover:border-transparent font-black rounded-2xl flex items-center gap-4 uppercase tracking-[0.15em] text-sm transition-all"
                         >
                             Schedule Free Call <Calendar className="w-5 h-5" />
-                        </motion.button>
+                        </Link>
                     </div>
                 </div>
             </section>

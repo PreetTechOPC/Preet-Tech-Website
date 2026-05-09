@@ -1,17 +1,17 @@
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-    title: "About Preet Tech OPC Private Limited | Innovative IT Solutions Company & Digital Agency",
+    title: "About Preet Tech OPC Private Limited | Innovative IT Solutions Company & IT Company",
     description: "Preet Tech OPC Private Limited is an innovative IT solutions company specializing in custom software development, digital transformation, AI automation, and enterprise tech solutions.",
     keywords: [
         "Innovative IT Solutions Company",
         "custom software development",
-        "digital transformation agency",
+        "digital transformation IT Company",
         "enterprise IT solutions",
         "web application development",
         "mobile app development services",
         "scalable cloud infrastructure",
-        "UI/UX design agency",
+        "UI/UX design IT Company",
         "artificial intelligence solutions",
         "future-ready technology",
         "high-performance web architecture",

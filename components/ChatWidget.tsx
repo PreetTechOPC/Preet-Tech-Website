@@ -8,6 +8,8 @@ import { twMerge } from 'tailwind-merge';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 
+import { usePathname } from 'next/navigation';
+
 function cn(...inputs: ClassValue[]) {
     return twMerge(clsx(inputs));
 }
@@ -25,6 +27,8 @@ const QUICK_ACTIONS = [
 ];
 
 export default function ChatWidget() {
+    const pathname = usePathname();
+    const widgetRef = useRef<HTMLDivElement>(null);
     const [isOpen, setIsOpen] = useState(false);
     const [isExpanded, setIsExpanded] = useState(false);
     const [messages, setMessages] = useState<Message[]>([
@@ -33,6 +37,27 @@ export default function ChatWidget() {
     const [input, setInput] = useState('');
     const [isLoading, setIsLoading] = useState(false);
     const messagesEndRef = useRef<HTMLDivElement>(null);
+
+    // Close on navigation
+    useEffect(() => {
+        setIsOpen(false);
+    }, [pathname]);
+
+    // Close on click outside
+    useEffect(() => {
+        const handleClickOutside = (event: MouseEvent) => {
+            if (widgetRef.current && !widgetRef.current.contains(event.target as Node)) {
+                setIsOpen(false);
+            }
+        };
+
+        if (isOpen) {
+            document.addEventListener('mousedown', handleClickOutside);
+        }
+        return () => {
+            document.removeEventListener('mousedown', handleClickOutside);
+        };
+    }, [isOpen]);
 
     const scrollToBottom = () => {
         messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -86,7 +111,7 @@ export default function ChatWidget() {
     };
 
     return (
-        <div className="fixed bottom-4 right-4 md:bottom-6 md:right-6 z-[9999] font-sans flex flex-col items-end">
+        <div ref={widgetRef} className="fixed bottom-4 right-4 md:bottom-6 md:right-6 z-[9999] font-sans flex flex-col items-end">
             <AnimatePresence>
                 {isOpen && (
                     <motion.div
@@ -243,20 +268,19 @@ export default function ChatWidget() {
                 )}
             </AnimatePresence>
 
-            {/* Toggle Button */}
             <motion.button
-
-
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
                 onClick={() => setIsOpen(!isOpen)}
                 className={cn(
                     "flex items-center justify-center transition-all duration-300 relative z-50 shadow-2xl overflow-hidden",
                     isOpen
-                        ? "w-14 h-14 md:w-16 md:h-16 bg-slate-900 rounded-full border border-white/10 text-white rotate-90"
-                        : "w-20 h-20 md:w-24 md:h-24 bg-transparent border-0 p-0"
+                        ? "w-12 h-12 md:w-14 md:h-14 bg-slate-900 rounded-full border border-white/10 text-white rotate-90"
+                        : "w-14 h-14 md:w-16 md:h-16 bg-transparent border-0 p-0"
                 )}
             >
                 {isOpen ? (
-                    <X size={36} className="-rotate-90" />
+                    <X size={24} className="-rotate-90" />
                 ) : (
                     <div className="absolute inset-0 w-full h-full flex items-center justify-center pointer-events-none">
                         <img

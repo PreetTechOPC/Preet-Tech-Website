@@ -582,7 +582,7 @@ export default function EcoWebsiteDevelopment() {
                             { label: "Coaches", icon: MessageSquare },
                             { label: "Consultants", icon: Briefcase },
                             { label: "Startups", icon: Rocket },
-                            { label: "Small Agencies", icon: Globe },
+                            { label: "Small IT Companies", icon: Globe },
                             { label: "Personal Brands", icon: Sparkles },
                             { label: "Health Clinics", icon: Heart },
                             { label: "Restaurants", icon: Coffee },
@@ -599,7 +599,7 @@ export default function EcoWebsiteDevelopment() {
                             { label: "Coaches", icon: MessageSquare },
                             { label: "Consultants", icon: Briefcase },
                             { label: "Startups", icon: Rocket },
-                            { label: "Small Agencies", icon: Globe },
+                            { label: "Small IT Companies", icon: Globe },
                             { label: "Personal Brands", icon: Sparkles },
                             { label: "Health Clinics", icon: Heart },
                         ].map((item, i) => (
@@ -1180,7 +1180,7 @@ export default function EcoWebsiteDevelopment() {
                     <div className="order-1 lg:order-2">
                         <span className="text-[#3994fa] font-bold uppercase tracking-widest text-[10px] md:text-xs">Built for Google Rankings</span>
                         <h2 className="text-3xl md:text-5xl font-black mt-4 mb-4 text-slate-900 dark:text-white">SEO-Ready Website<br />Structure Included.</h2>
-                        <p className="text-slate-500 dark:text-slate-400 text-sm md:text-base mb-10 leading-relaxed max-w-md">Every eco website we build is engineered to rank on Google from day one — no costly SEO agency needed to get started.</p>
+                        <p className="text-slate-500 dark:text-slate-400 text-sm md:text-base mb-10 leading-relaxed max-w-md">Every eco website we build is engineered to rank on Google from day one — no costly SEO it company needed to get started.</p>
 
                         <div className="space-y-6">
                             {[

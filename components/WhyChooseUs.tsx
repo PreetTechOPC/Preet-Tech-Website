@@ -50,13 +50,13 @@ const WhyChooseUs: React.FC = () => {
                         className="text-3xl md:text-6xl font-black text-foreground mb-6 tracking-tight leading-tight"
                     >
                         Why Leaders Choose Our <br />
-                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-medium to-brand-cyan">SEO & IT Agency.</span>
+                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-medium to-brand-cyan">SEO & IT Company.</span>
                     </h2>
 
                     <p
                         className="text-base md:text-lg text-slate-600 dark:text-slate-400 leading-relaxed max-w-2xl mx-auto"
                     >
-                        As a top <span className="font-bold text-foreground dark:text-white">performance marketing agency</span>, we bridge the gap between ambitious vision and technical reality with robust <span className="font-bold text-foreground dark:text-white">SEO optimization services</span>, secure <span className="font-bold text-foreground dark:text-white">cloud migration services</span>, and distinct <span className="font-bold text-foreground dark:text-white">brand identity design</span>. Partner with a team built for digital dominance.
+                        As a top <span className="font-bold text-foreground dark:text-white">performance marketing IT Company</span>, we bridge the gap between ambitious vision and technical reality with robust <span className="font-bold text-foreground dark:text-white">SEO optimization services</span>, secure <span className="font-bold text-foreground dark:text-white">cloud migration services</span>, and distinct <span className="font-bold text-foreground dark:text-white">brand identity design</span>. Partner with a team built for digital dominance.
                     </p>
                 </div>
 

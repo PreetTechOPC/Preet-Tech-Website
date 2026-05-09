@@ -83,7 +83,7 @@ export const BLOG_POSTS: BlogPost[] = [
     seo: {
       title: "How to Scale Your SaaS with Performance Marketing | Preet Tech",
       description: "Discover actionable performance marketing strategies to scale your SaaS business efficiently. Learn about KPIs, attribution, and optimization.",
-      keywords: ["SaaS marketing", "performance marketing", "growth strategy", "digital agency"],
+      keywords: ["SaaS marketing", "performance marketing", "growth strategy", "digital it company"],
     },
   },
   {
@@ -601,33 +601,33 @@ export const BLOG_POSTS: BlogPost[] = [
   },
   {
     id: "14",
-    title: "Why Your Digital Agency Needs a World-Class Website (Not Just a Good One)",
-    slug: "digital-agency-website-best-practices",
-    excerpt: "Your agency's website is your #1 sales tool. Clients judge your capabilities in seconds. Here's how to build one that wins pitches before you say a word.",
+    title: "Why Your Digital IT Company Needs a World-Class Website (Not Just a Good One)",
+    slug: "digital-it company-website-best-practices",
+    excerpt: "Your it company's website is your #1 sales tool. Clients judge your capabilities in seconds. Here's how to build one that wins pitches before you say a word.",
     content: `
       <h2>First Impressions Are Business Decisions</h2>
-      <p>When a potential client lands on your agency's website, they aren't just browsing — they're evaluating. In under 10 seconds, they form an impression about your competence, creativity, and trustworthiness. Your website is your most important portfolio piece.</p>
+      <p>When a potential client lands on your it company's website, they aren't just browsing — they're evaluating. In under 10 seconds, they form an impression about your competence, creativity, and trustworthiness. Your website is your most important portfolio piece.</p>
 
       <h3>1. Lead With Results, Not Services</h3>
-      <p>Too many agency websites lead with "We offer SEO, Paid Ads, and Content Marketing." That's generic. The best agency sites lead with outcomes: "We helped HealthBrand 3x their MQL volume in 90 days." Lead with proof, and services become the how-to story behind it.</p>
+      <p>Too many it company websites lead with "We offer SEO, Paid Ads, and Content Marketing." That's generic. The best it company sites lead with outcomes: "We helped HealthBrand 3x their MQL volume in 90 days." Lead with proof, and services become the how-to story behind it.</p>
 
       <h3>2. Case Studies Are Your Greatest Asset</h3>
       <p>A well-produced case study page — with real numbers, before-and-afters, and client quotes — is worth more than any paid campaign. It converts skeptical visitors into warm leads without any additional spend.</p>
 
       <h3>3. Premium Design = Premium Clients</h3>
-      <p>Your website design signals the caliber of clients you attract. Advanced animations, thoughtful typography, and a cohesive color system communicate that you pay attention to details — which is exactly what premium clients want from their agency partner.</p>
+      <p>Your website design signals the caliber of clients you attract. Advanced animations, thoughtful typography, and a cohesive color system communicate that you pay attention to details — which is exactly what premium clients want from their it company partner.</p>
 
       <h3>4. Fast, Mobile-First, and Accessible</h3>
-      <p>Technical excellence is non-negotiable. An agency website that loads slowly or looks broken on mobile instantly destroys credibility. Use Next.js, optimize your Core Web Vitals, and test across all major devices.</p>
+      <p>Technical excellence is non-negotiable. An it company website that loads slowly or looks broken on mobile instantly destroys credibility. Use Next.js, optimize your Core Web Vitals, and test across all major devices.</p>
 
       <div class="cta-block">
-        <h4>Preet Tech Builds Agency Websites That Win</h4>
-        <p>We've helped dozens of digital agencies build online presences that attract bigger clients and command higher retainers. Let's talk.</p>
+        <h4>Preet Tech Builds IT Company Websites That Win</h4>
+        <p>We've helped dozens of digital it companies build online presences that attract bigger clients and command higher retainers. Let's talk.</p>
         <button>Book Free Strategy Call</button>
       </div>
 
       <h2>Conclusion</h2>
-      <p>Your agency website is not a brochure — it's a revenue machine. Treat it as your best-performing salesperson, invest in it accordingly, and watch your pipeline transform.</p>
+      <p>Your it company website is not a brochure — it's a revenue machine. Treat it as your best-performing salesperson, invest in it accordingly, and watch your pipeline transform.</p>
     `,
     category: "Web Design",
     author: {
@@ -638,11 +638,11 @@ export const BLOG_POSTS: BlogPost[] = [
     date: "Mar 10, 2026",
     readTime: "5 min read",
     featuredImage: "/images/services/advance-website.png",
-    tags: ["Agency Website", "Web Design", "Lead Generation", "Digital Agency"],
+    tags: ["IT Company Website", "Web Design", "Lead Generation", "Digital IT Company"],
     seo: {
-      title: "Why Your Digital Agency Needs a World-Class Website | Preet Tech",
-      description: "Learn how to build a digital agency website that wins clients. Case study strategy, premium design, and technical best practices.",
-      keywords: ["digital agency website", "agency web design", "best agency websites 2026"],
+      title: "Why Your Digital IT Company Needs a World-Class Website | Preet Tech",
+      description: "Learn how to build a digital it company website that wins clients. Case study strategy, premium design, and technical best practices.",
+      keywords: ["digital it company website", "it company web design", "best it company websites 2026"],
     },
   },
   // ─── Case Studies ──────────────────────────────────────────────────────────

@@ -89,6 +89,14 @@ export default function SocialMediaHandling() {
         else { localStorage.setItem('theme', 'light'); }
     };
 
+    const handleBudgetClick = (budget: string) => {
+        setFormData(prev => ({ ...prev, budget }));
+        const element = document.getElementById('consultation');
+        if (element) {
+            element.scrollIntoView({ behavior: 'smooth' });
+        }
+    };
+
     const handleFormSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         setIsHeroSubmitting(true);
@@ -180,7 +188,7 @@ export default function SocialMediaHandling() {
                         <div className="absolute -inset-8 bg-gradient-to-br from-brand-medium/10 via-brand-sky/5 to-brand-medium/10 blur-[60px] rounded-[3rem] -z-10" />
 
                         {/* Consultation Lead Form */}
-                        <div className="relative z-10 w-full bg-white dark:bg-[#0a0f18] border border-slate-200 dark:border-white/10 rounded-[2.5rem] p-8 sm:p-12 shadow-2xl overflow-hidden group">
+                        <div id="consultation" className="relative z-10 w-full bg-white dark:bg-[#0a0f18] border border-slate-200 dark:border-white/10 rounded-[2.5rem] p-8 sm:p-12 shadow-2xl overflow-hidden group scroll-mt-32">
                             <div className="absolute top-0 right-0 w-64 h-64 bg-brand-medium/5 dark:bg-brand-medium/10 blur-[60px] rounded-full pointer-events-none group-hover:bg-brand-medium/10 transition-colors duration-500" />
                             <div className="absolute bottom-0 left-0 w-64 h-64 bg-brand-sky/5 dark:bg-brand-sky/10 blur-[60px] rounded-full pointer-events-none group-hover:bg-brand-sky/10 transition-colors duration-500" />
 
@@ -686,7 +694,7 @@ export default function SocialMediaHandling() {
                         </div>
                         <div className="h-20 rounded-xl bg-gradient-to-r from-brand-medium/10 to-brand-deep/10 border border-brand-medium/10 flex items-end p-2 gap-1">
                             {[30, 45, 35, 60, 50, 70, 55, 80, 65, 85, 75, 90].map((h, i) => (
-                                <motion.div key={i}  className="flex-1 bg-gradient-to-t from-brand-medium to-brand-deep rounded-t opacity-70" />
+                                <motion.div key={i} className="flex-1 bg-gradient-to-t from-brand-medium to-brand-deep rounded-t opacity-70" />
                             ))}
                         </div>
                     </div>
@@ -980,9 +988,9 @@ export default function SocialMediaHandling() {
                     </div>
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                         {[
-                            { tier: 'Basic', price: '\u20b99,999', mo: '/month', features: ['12 Posts / Month', 'Basic Post Design', 'Monthly Report', '1 Platform', 'Email Support'], highlight: false },
-                            { tier: 'Standard', price: '\u20b914,999', mo: '/month', features: ['16-20 Posts / Month', 'Reels Included', '2 Platforms', 'Advanced Strategy', 'Detailed Analytics Report', 'Priority Support'], highlight: true },
-                            { tier: 'Custom', price: 'Let\'s Talk', mo: '', features: ['Tailored Content Plan', 'Multi-Platform Management', 'Paid Ads Integration', 'Advanced Growth Strategy', 'Dedicated Account Manager', 'Weekly Strategy Calls'], highlight: false }
+                            { tier: 'Basic', price: '\u20b915,000', mo: '/month', features: ['10 Posts / Month', '7 Poster + 3 Reels', 'Monthly Report', 'Platform Meta'], highlight: false, budget: '10k-25k' },
+                            { tier: 'Standard', price: '\u20b925,000', mo: '/month', features: ['16 Posts / Month', '10 Poster + 6 Reels', ' Platform Meta', 'Advanced Strategy', 'Detailed Analytics Report', '2 Shoots Monthly '], highlight: true, budget: '25k-50k' },
+                            { tier: 'Custom', price: 'Let\'s Talk', mo: '', features: ['Tailored Content Plan', 'Multi-Platform Management', 'Paid Ads Integration', 'Advanced Growth Strategy', 'Dedicated Account Manager', 'Weekly Strategy Calls'], highlight: false, budget: '50k+' }
                         ].map((plan, i) => (
                             <div key={i} className={`rounded-2xl overflow-hidden relative shadow-lg ${plan.highlight ? 'border-2 border-brand-medium bg-gradient-to-b from-brand-medium/10 to-transparent' : 'bg-white/5 border border-white/10'}`}>
                                 {plan.highlight && <div className="bg-brand-medium text-white text-center py-2 text-[10px] font-black uppercase tracking-[0.3em]">Most Popular</div>}
@@ -994,7 +1002,12 @@ export default function SocialMediaHandling() {
                                             <li key={j} className="flex items-start gap-3 text-sm"><CheckCircle2 className={`w-4 h-4 shrink-0 mt-0.5 ${plan.highlight ? 'text-brand-sky' : 'text-slate-500'}`} /><span>{f}</span></li>
                                         ))}
                                     </ul>
-                                    <a href="#audit" className={`block w-full py-4 rounded-xl font-bold text-sm uppercase tracking-wider text-center transition-all ${plan.highlight ? 'bg-gradient-to-r from-[#3994fa] to-[#004aad] text-white hover:opacity-95' : 'bg-white/5 border border-white/10 hover:bg-gradient-to-r hover:from-[#3994fa] hover:to-[#004aad] hover:border-transparent'}`}>Get Started</a>
+                                    <button
+                                        onClick={() => handleBudgetClick(plan.budget)}
+                                        className={`block w-full py-4 rounded-xl font-bold text-sm uppercase tracking-wider text-center transition-all ${plan.highlight ? 'bg-gradient-to-r from-[#3994fa] to-[#004aad] text-white hover:opacity-95' : 'bg-white/5 border border-white/10 hover:bg-gradient-to-r hover:from-[#3994fa] hover:to-[#004aad] hover:border-transparent'}`}
+                                    >
+                                        Get Started
+                                    </button>
                                 </div>
                             </div>
                         ))}
@@ -1034,9 +1047,9 @@ export default function SocialMediaHandling() {
             </section>
 
             {/* Success Stories Section */}
-            <CaseStudies 
-                studies={SOCIAL_CASE_STUDIES} 
-                subtitle="Social Impact" 
+            <CaseStudies
+                studies={SOCIAL_CASE_STUDIES}
+                subtitle="Social Impact"
                 title="Brands That Stand Out."
                 themeColor="#3994fa"
             />
@@ -1119,8 +1132,8 @@ export default function SocialMediaHandling() {
                         <p className="text-lg md:text-xl text-slate-400 max-w-2xl mx-auto leading-relaxed">Let&apos;s build a powerful online presence that converts followers into customers.</p>
                     </div>
                     <div className="flex flex-col sm:flex-row items-center justify-center gap-5">
-                        <a href="#audit" className="px-8 sm:px-12 py-5 sm:py-6 bg-gradient-to-r from-[#3994fa] to-[#004aad] text-white rounded-xl sm:rounded-2xl font-black uppercase tracking-widest text-xs sm:text-sm hover:shadow-[0_0_60px_rgba(63,143,204,0.4)] transition-all hover:-translate-y-1 flex items-center justify-center gap-3"><Rocket className="w-5 h-5" /> Start My Social Growth</a>
-                        <a href="tel:+919876543210" className="px-8 sm:px-12 py-5 sm:py-6 border-2 border-white/10 rounded-xl sm:rounded-2xl font-bold uppercase tracking-widest text-xs sm:text-sm hover:bg-white/5 transition-all flex items-center justify-center gap-3"><Phone className="w-5 h-5" /> Call Us Directly</a>
+                        <a href="#consultation" className="px-8 sm:px-12 py-5 sm:py-6 bg-gradient-to-r from-[#3994fa] to-[#004aad] text-white rounded-xl sm:rounded-2xl font-black uppercase tracking-widest text-xs sm:text-sm hover:shadow-[0_0_60px_rgba(63,143,204,0.4)] transition-all hover:-translate-y-1 flex items-center justify-center gap-3"><Rocket className="w-5 h-5" /> Start My Social Growth</a>
+                        <a href="tel:+919756667397" className="px-8 sm:px-12 py-5 sm:py-6 border-2 border-white/10 rounded-xl sm:rounded-2xl font-bold uppercase tracking-widest text-xs sm:text-sm hover:bg-white/5 transition-all flex items-center justify-center gap-3"><Phone className="w-5 h-5" /> Call Us Directly</a>
                     </div>
                     <div className="flex flex-wrap items-center justify-center gap-6 sm:gap-8 pt-8 border-t border-white/10">
                         {[{ v: '500+', l: 'Posts Created' }, { v: '96%', l: 'Client Satisfaction' }, { v: '3x', l: 'Avg Growth Rate' }, { v: '50+', l: 'Brands Managed' }].map((stat, i) => (

@@ -758,9 +758,9 @@ export default function AppDevelopmentPage() {
                         <a href="#consultation" className="w-full sm:w-auto px-12 py-6 bg-gradient-to-r from-[#3994fa] to-[#004aad] hover:opacity-95 text-white rounded-2xl font-black uppercase tracking-widest text-sm hover:scale-105 transition-all shadow-xl shadow-[#3994fa]/25 flex items-center justify-center gap-3">
                             Start Your Project Today <Rocket className="w-5 h-5" />
                         </a>
-                        <a href="#consultation" className="w-full sm:w-auto px-12 py-6 border border-slate-300 dark:border-white/20 hover:bg-gradient-to-r hover:from-[#3994fa] hover:to-[#004aad] hover:text-white hover:border-transparent text-slate-900 dark:text-white rounded-2xl font-bold uppercase tracking-widest text-sm transition-all flex items-center justify-center gap-3 active:scale-95 shadow-sm hover:shadow-[#3994fa]/20">
+                        <Link href="/contact" className="w-full sm:w-auto px-12 py-6 border border-slate-300 dark:border-white/20 hover:bg-gradient-to-r hover:from-[#3994fa] hover:to-[#004aad] hover:text-white hover:border-transparent text-slate-900 dark:text-white rounded-2xl font-bold uppercase tracking-widest text-sm transition-all flex items-center justify-center gap-3 active:scale-95 shadow-sm hover:shadow-[#3994fa]/20">
                             Schedule Free Call <Phone className="w-5 h-5" />
-                        </a>
+                        </Link>
                     </div>
                 </div>
             </section>

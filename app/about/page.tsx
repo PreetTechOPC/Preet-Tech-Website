@@ -116,7 +116,7 @@ export default function AboutPage() {
                             <span className="text-brand-medium font-black uppercase tracking-[0.4em] text-[10px] mb-6 block">Our Story</span>
                             <h2 className="text-4xl md:text-5xl font-black tracking-tighter uppercase mb-6 leading-none">
                                 Premier Digital <br />
-                                <span className="text-brand-medium">Transformation Agency.</span>
+                                <span className="text-brand-medium">Transformation IT Company.</span>
                             </h2>
                             <div className="space-y-4 text-slate-500 dark:text-slate-400 text-base md:text-lg font-medium leading-relaxed">
                                 <p>
@@ -374,7 +374,7 @@ export default function AboutPage() {
                         {[
                             {
                                 q: "What makes Preet Tech OPC Private Limited an innovative IT solutions company?",
-                                a: "Our deep expertise in scalable cloud infrastructure, AI automation, and full-stack custom software development firmly positions us as a top digital transformation agency that consistently delivers forward-thinking results."
+                                a: "Our deep expertise in scalable cloud infrastructure, AI automation, and full-stack custom software development firmly positions us as a top digital transformation it company that consistently delivers forward-thinking results."
                             },
                             {
                                 q: "Do you offer mobile app development services?",

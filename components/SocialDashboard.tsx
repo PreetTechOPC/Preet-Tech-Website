@@ -53,10 +53,17 @@ const SocialDashboard = () => {
                         {bars.map((h, i) => (
                             <motion.div
                                 key={i}
-                                
-                                
-                                
-                                
+                                initial={{ height: 0 }}
+                                whileInView={{ height: [`${h * 0.8}%`, `${h}%`, `${h * 0.9}%`, `${h}%`] }}
+                                transition={{
+                                    height: {
+                                        duration: 2.5 + Math.random() * 1.5,
+                                        repeat: Infinity,
+                                        repeatType: "reverse",
+                                        ease: "easeInOut",
+                                        delay: i * 0.05
+                                    }
+                                }}
                                 className="flex-1 bg-gradient-to-t from-blue-500/80 to-blue-400/90 rounded-t-lg relative group"
                             >
                                 <motion.div
@@ -76,11 +83,14 @@ const SocialDashboard = () => {
                             </div>
                             <div className="h-10 w-full bg-slate-50 dark:bg-white/5 rounded-xl border border-slate-100/50 dark:border-white/5 overflow-hidden">
                                 <motion.div
-                                    
-                                    
-                                    
-                                    
-                                    className="h-full w-full bg-gradient-to-r from-blue-500/10 via-blue-400/20 to-blue-500/10"
+                                    initial={{ x: "-100%" }}
+                                    animate={{ x: "100%" }}
+                                    transition={{ 
+                                        duration: 3, 
+                                        repeat: Infinity, 
+                                        ease: "linear" 
+                                    }}
+                                    className="h-full w-full bg-gradient-to-r from-blue-500/0 via-blue-400/20 to-blue-500/0"
                                 />
                             </div>
                         </div>
@@ -94,10 +104,9 @@ const SocialDashboard = () => {
                             </div>
                             <div className="relative h-2.5 w-full bg-slate-100 dark:bg-white/10 rounded-full overflow-hidden">
                                 <motion.div
-                                    
-                                    
-                                    
-                                    
+                                    initial={{ width: 0 }}
+                                    whileInView={{ width: "70%" }}
+                                    transition={{ duration: 1.5, ease: "easeOut", delay: 0.2 }}
                                     className="h-full bg-blue-500 rounded-full shadow-[0_0_10px_rgba(59,130,246,0.5)]"
                                 />
                             </div>

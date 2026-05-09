@@ -13,7 +13,6 @@ import {
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import PhoneInput from '@/components/PhoneInput';
-import CaseStudies, { CaseStudy } from '@/components/CaseStudies';
 
 
 // ----------------------------------------------------------------------
@@ -28,34 +27,7 @@ export default function AdvancedWebsiteDevelopment() {
     const [isSubmitted, setIsSubmitted] = useState(false);
     const [isVideoOpen, setIsVideoOpen] = useState(false);
 
-    const ADV_CASE_STUDIES: CaseStudy[] = [
-        {
-            id: 'adv-1',
-            title: 'Headless E-commerce Transformation',
-            client: 'Moda Luxe',
-            category: 'Next.js / Shopify Headless',
-            description: 'Migrated a standard Shopify store to a headless Next.js frontend, improving page load speed by 300% and increasing conversion by 40%.',
-            stats: [
-                { label: 'Speed', value: '+300%' },
-                { label: 'Conversion', value: '+40%' },
-                { label: 'Lighthouse', value: '100/100' }
-            ],
-            tags: ['Next.js', 'Shopify Storefront API', 'Vercel']
-        },
-        {
-            id: 'adv-2',
-            title: 'Multi-Vendor Marketplace',
-            client: 'Gig economy Hub',
-            category: 'Marketplace Development',
-            description: 'Built a complex platform with real-time bidding, escrow payments, and an automated dispute resolution system.',
-            stats: [
-                { label: 'Vendors', value: '5k+' },
-                { label: 'Transactions', value: '$2M+' },
-                { label: 'Latency', value: '<50ms' }
-            ],
-            tags: ['Node.js', 'Socket.io', 'PostgreSQL']
-        }
-    ];
+
 
     // Form State
     const [formData, setFormData] = useState({
@@ -245,6 +217,7 @@ export default function AdvancedWebsiteDevelopment() {
 
                         {/* Custom Lead Form */}
                         <div
+                            id="lead-form"
                             className="relative z-10 w-full bg-white dark:bg-[#0a0f18] border border-slate-200  dark:border-white/10 rounded-[2.5rem] p-8 sm:p-12 shadow-[0_20px_60px_-15px_rgba(0,0,0,0.05)] dark:shadow-[0_20px_60px_-15px_rgba(63,143,204,0.05)] overflow-hidden group"
                         >
                             {/* Decorative background gradients */}
@@ -1128,7 +1101,7 @@ export default function AdvancedWebsiteDevelopment() {
                                         ))}
                                     </ul>
                                 </div>
-                                <a href="#contact" className={`w-full mt-8 py-4 text-sm ${plan.highlight ? "ring-2 ring-[#3994fa] ring-offset-2 ring-offset-slate-900" : ""} bg-gradient-to-r from-[#3994fa] to-[#004aad] text-white hover:opacity-90 font-bold rounded-full transition-all hover:-translate-y-0.5 shadow-md hover:shadow-lg hover:shadow-[#3994fa]/20 text-center uppercase tracking-[0.1em] flex items-center justify-center`}>
+                                <a href="#lead-form" className={`w-full mt-8 py-4 text-sm ${plan.highlight ? "ring-2 ring-[#3994fa] ring-offset-2 ring-offset-slate-900" : ""} bg-gradient-to-r from-[#3994fa] to-[#004aad] text-white hover:opacity-90 font-bold rounded-full transition-all hover:-translate-y-0.5 shadow-md hover:shadow-lg hover:shadow-[#3994fa]/20 text-center uppercase tracking-[0.1em] flex items-center justify-center`}>
                                     Get Started
                                 </a>
                             </div>
@@ -1137,84 +1110,7 @@ export default function AdvancedWebsiteDevelopment() {
                 </div>
             </section>
 
-            {/* 1️⃣6️⃣ Premium Pricing Structure */}
-            <section className="py-16 md:py-32 px-4 md:px-6 reveal-section">
-                <div className="max-w-7xl mx-auto">
-                    <div className="text-center mb-20 space-y-4">
-                        <span className="text-[#3994fa] font-bold uppercase tracking-[0.2em] text-xs">Investment Tiers</span>
-                        <h2 className="text-4xl md:text-5xl font-bold tracking-tight">Transparent Pricing.</h2>
-                        <p className="text-slate-600 dark:text-slate-400 max-w-2xl mx-auto font-medium">Every project is unique. Choose a tier that matches your scale, and we'll tailor the scope to your exact requirements.</p>
-                    </div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-                        {[
-                            {
-                                tier: 'Growth',
-                                price: '₹1.5L - 3L',
-                                desc: 'For startups and SMBs needing a custom, high-performance website.',
-                                deliverables: ['5-10 Custom Pages', 'Responsive Design', 'Basic SEO Setup', 'CMS Integration', 'Contact Forms & CTAs', '30-Day Post-Launch Support'],
-                                timeline: '3-4 Weeks',
-                                highlight: false
-                            },
-                            {
-                                tier: 'Enterprise',
-                                price: '₹3L - 8L',
-                                desc: 'For scaling businesses requiring complex web applications and integrations.',
-                                deliverables: ['15-30+ Custom Pages', 'Custom UI/UX Design', 'Advanced SEO & Analytics', 'API Integrations', 'Admin Dashboard', 'E-Commerce / Booking System', '90-Day Support & Optimization'],
-                                timeline: '6-10 Weeks',
-                                highlight: true
-                            },
-                            {
-                                tier: 'Custom',
-                                price: 'Let\'s Talk',
-                                desc: 'For enterprises requiring fully bespoke architectures and ongoing development.',
-                                deliverables: ['Unlimited Pages & Modules', 'Full Custom Framework', 'Microservices / Headless CMS', 'Multi-Language Support', 'Enterprise Security', 'Dedicated Dev Team', 'Ongoing Technical Partnership'],
-                                timeline: 'Scoped per project',
-                                highlight: false
-                            }
-                        ].map((plan, i) => (
-                            <div
-                                key={i}
-                                className={`rounded-3xl flex flex-col h-full overflow-hidden relative ${plan.highlight
-                                    ? 'bg-gradient-to-b from-[#3994fa]/10 to-transparent border-2 border-[#3994fa] shadow-2xl shadow-[#3994fa]/10'
-                                    : 'bg-white dark:bg-slate-900 border border-slate-200 dark:border-white/10'
-                                    }`}
-                            >
-                                {plan.highlight && (
-                                    <div className="bg-[#3994fa] text-slate-950 text-center py-2 text-[10px] font-black uppercase tracking-[0.3em]">
-                                        Most Popular
-                                    </div>
-                                )}
-                                <div className="p-8 md:p-10 flex flex-col flex-1">
-                                    <div className="flex-1">
-                                        <h3 className="text-xl font-bold mb-1">{plan.tier}</h3>
-                                        <div className="text-3xl md:text-4xl font-black text-[#3994fa] mb-3">{plan.price}</div>
-                                        <p className="text-sm text-slate-500 mb-8 font-medium">{plan.desc}</p>
-
-                                        <div className="flex items-center gap-2 mb-6 text-sm">
-                                            <Clock className="w-4 h-4 text-[#3994fa]" />
-                                            <span className="font-bold text-slate-600 dark:text-slate-300">{plan.timeline}</span>
-                                        </div>
-
-                                        <ul className="space-y-3 mb-8">
-                                            {plan.deliverables.map((d, j) => (
-                                                <li key={j} className="flex items-start gap-3 text-sm">
-                                                    <Check className="w-4 h-4 text-[#3994fa] mt-0.5 shrink-0" />
-                                                    <span className="font-medium">{d}</span>
-                                                </li>
-                                            ))}
-                                        </ul>
-                                    </div>
-
-                                    <a href="#contact" className={`w-full py-4 mt-auto text-sm ${plan.highlight ? "ring-2 ring-[#3994fa] ring-offset-2 ring-offset-slate-900" : ""} bg-gradient-to-r from-[#3994fa] to-[#004aad] text-white hover:opacity-90 font-bold rounded-full transition-all hover:-translate-y-0.5 shadow-md hover:shadow-lg hover:shadow-[#3994fa]/20 text-center uppercase tracking-[0.1em] flex items-center justify-center`}>
-                                        {plan.highlight ? 'Start Enterprise Project' : 'Get a Quote'}
-                                    </a>
-                                </div>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-            </section>
 
             {/* 1️⃣7️⃣ FAQs */}
             <section className="py-16 md:py-32 px-4 md:px-6 bg-slate-50 dark:bg-slate-900/30 reveal-section">
@@ -1230,7 +1126,7 @@ export default function AdvancedWebsiteDevelopment() {
                             { q: 'What technologies do you use?', a: 'We primarily build with React, Next.js, Node.js, TypeScript, and PostgreSQL. For hosting, we deploy on AWS, GCP, or Vercel depending on your needs. Every stack decision is tailored to your project requirements.' },
                             { q: 'Do you provide ongoing maintenance?', a: 'Yes. We offer three tiers of maintenance—Essential, Professional, and Enterprise. Each includes varying levels of support, from basic updates to full technical partnership with unlimited development hours.' },
                             { q: 'Can you integrate with our existing systems?', a: 'Absolutely. We specialize in API integrations, CRM connections (Salesforce, HubSpot), payment gateways (Stripe, Razorpay), and custom middleware. We\'ll map out all integrations during the strategy phase.' },
-                            { q: 'What makes your approach different from other agencies?', a: 'We don\'t use templates or page builders. Every project is custom-coded from scratch with a focus on performance, conversion optimization, and long-term scalability. We think like engineers, not just designers.' },
+                            { q: 'What makes your approach different from other it companies?', a: 'We don\'t use templates or page builders. Every project is custom-coded from scratch with a focus on performance, conversion optimization, and long-term scalability. We think like engineers, not just designers.' },
                             { q: 'Do you handle UI/UX design as well?', a: 'Yes. Our process includes comprehensive UX research, wireframing, high-fidelity prototyping, and user testing. We design with conversion psychology and brand alignment at the core.' },
                             { q: 'What if I need changes after launch?', a: 'All our plans include a post-launch support period. Beyond that, you can subscribe to one of our maintenance plans for ongoing changes, feature additions, and optimization.' },
                             { q: 'How do I get started?', a: 'Simply book a free strategy call through our consultation form below. We\'ll discuss your vision, assess your requirements, and provide a custom proposal within 48 hours.' }
@@ -1266,13 +1162,7 @@ export default function AdvancedWebsiteDevelopment() {
             </section>
 
 
-            {/* Success Stories Section */}
-            <CaseStudies 
-                studies={ADV_CASE_STUDIES} 
-                subtitle="Technical Excellence" 
-                title="Websites That Scale Businesses."
-                themeColor="#3994fa"
-            />
+
 
             {/* 1️⃣9️⃣ Final High-Impact CTA */}
             <section className="py-16 md:py-32 px-4 md:px-6 bg-slate-50 dark:bg-[#020617] text-slate-900 dark:text-white relative overflow-hidden border-t border-slate-200 dark:border-transparent">
@@ -1303,11 +1193,11 @@ export default function AdvancedWebsiteDevelopment() {
                     <div
                         className="flex flex-col sm:flex-row items-center justify-center gap-6"
                     >
-                        <a href="#contact" className="px-8 sm:px-12 py-5 sm:py-6 gap-3 text-xs sm:text-sm group bg-gradient-to-r from-[#3994fa] to-[#004aad] text-white hover:opacity-90 font-bold rounded-full transition-all hover:-translate-y-0.5 shadow-md hover:shadow-lg hover:shadow-[#3994fa]/20 text-center uppercase tracking-[0.1em] flex items-center justify-center">
+                        <a href="#lead-form" className="px-8 sm:px-12 py-5 sm:py-6 gap-3 text-xs sm:text-sm group bg-gradient-to-r from-[#3994fa] to-[#004aad] text-white hover:opacity-90 font-bold rounded-full transition-all hover:-translate-y-0.5 shadow-md hover:shadow-lg hover:shadow-[#3994fa]/20 text-center uppercase tracking-[0.1em] flex items-center justify-center">
                             <Rocket className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                             Start Your Project Now
                         </a>
-                        <a href="tel:+919876543210" className="px-8 sm:px-12 py-5 sm:py-6 gap-3 text-xs sm:text-sm bg-gradient-to-r from-[#3994fa] to-[#004aad] text-white hover:opacity-90 font-bold rounded-full transition-all hover:-translate-y-0.5 shadow-md hover:shadow-lg hover:shadow-[#3994fa]/20 text-center uppercase tracking-[0.1em] flex items-center justify-center">
+                        <a href="tel:+919756667397" className="px-8 sm:px-12 py-5 sm:py-6 gap-3 text-xs sm:text-sm bg-gradient-to-r from-[#3994fa] to-[#004aad] text-white hover:opacity-90 font-bold rounded-full transition-all hover:-translate-y-0.5 shadow-md hover:shadow-lg hover:shadow-[#3994fa]/20 text-center uppercase tracking-[0.1em] flex items-center justify-center">
                             <Phone className="w-5 h-5 group-hover:hidden" />
                             <Phone className="w-5 h-5 hidden group-hover:block animate-bounce" />
                             Call Us Directly

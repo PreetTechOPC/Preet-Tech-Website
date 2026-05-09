@@ -68,16 +68,16 @@ const CaseStudies: React.FC<CaseStudiesProps> = ({
                             initial={{ opacity: 0, y: 30 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             transition={{ delay: idx * 0.1 }}
-                            className="group relative"
+                            className="group relative h-full"
                         >
-                            <div className="relative rounded-[2.5rem] bg-slate-50 dark:bg-white/[0.03] border border-slate-100 dark:border-white/10 p-8 md:p-12 transition-all hover:border-brand-medium/30 hover:shadow-2xl hover:shadow-brand-medium/5">
+                            <div className="h-full flex flex-col relative rounded-[2.5rem] bg-slate-50 dark:bg-white/[0.03] border border-slate-100 dark:border-white/10 p-8 md:p-12 transition-all hover:border-brand-medium/30 hover:shadow-2xl hover:shadow-brand-medium/5">
                                 {/* Category Badge */}
                                 <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white dark:bg-white/5 border border-slate-200 dark:border-white/10 mb-8">
                                     <span className="w-1.5 h-1.5 rounded-full" style={{ backgroundColor: themeColor }} />
                                     <span className="text-[10px] font-black uppercase tracking-widest text-slate-500 dark:text-slate-400">{study.category}</span>
                                 </div>
 
-                                <div className="space-y-6">
+                                <div className="space-y-6 flex-1 flex flex-col">
                                     <h3 className="text-2xl md:text-3xl font-black text-slate-900 dark:text-white leading-tight uppercase tracking-tight group-hover:text-brand-medium transition-colors">
                                         {study.title}
                                     </h3>
@@ -105,7 +105,7 @@ const CaseStudies: React.FC<CaseStudiesProps> = ({
                                         ))}
                                     </div>
 
-                                    <div className="pt-8">
+                                    <div className="pt-8 mt-auto">
                                         <button className="flex items-center gap-2 text-xs font-black uppercase tracking-widest text-slate-900 dark:text-white group-hover:text-brand-medium transition-colors">
                                             View Full Strategy <ArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
                                         </button>

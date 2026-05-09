@@ -18,11 +18,11 @@ const Hero: React.FC<HeroProps> = ({ isDark: _ignoredIsDark }) => {
       {/* 1. LAYERED BACKGROUNDS */}
       <div className="absolute inset-0 z-0 pointer-events-none">
         {/* Tech Grid */}
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,#1e293b_1px,transparent_1px),linear-gradient(to_bottom,#1e293b_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)] opacity-[0.03] dark:opacity-[0.15]" />
-
-        {/* Radial Glows */}
-        <div className="absolute top-1/2 left-1/4 -translate-x-1/2 -translate-y-1/2 w-[350px] h-[350px] md:w-[450px] md:h-[450px] bg-brand-medium/10 blur-[48px] rounded-full gpu" />
-        <div className="absolute top-1/2 right-1/4 translate-x-1/2 -translate-y-1/2 w-[350px] h-[350px] md:w-[450px] md:h-[450px] bg-brand-cyan/10 blur-[48px] rounded-full delay-200 gpu" />
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#1e293b_1px,transparent_1px),linear-gradient(to_bottom,#1e293b_1px,transparent_1px)] bg-[size:3rem_3rem] md:bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)] opacity-[0.03] dark:opacity-[0.15]" />
+        
+        {/* Radial Glows - Enhanced for depth */}
+        <div className="absolute top-1/2 left-1/2 md:left-1/4 -translate-x-1/2 -translate-y-1/2 w-[350px] md:w-[600px] h-[350px] md:h-[600px] bg-brand-medium/15 blur-[80px] md:blur-[120px] rounded-full gpu opacity-50 md:opacity-100" />
+        <div className="absolute top-1/3 right-1/4 translate-x-1/2 -translate-y-1/2 w-[300px] md:w-[500px] h-[300px] md:h-[500px] bg-brand-cyan/10 blur-[80px] md:blur-[100px] rounded-full delay-500 gpu opacity-40 md:opacity-100" />
       </div>
 
       {/* 2. 3D CENTRAL ELEMENT (BACKGROUND) */}
@@ -31,47 +31,44 @@ const Hero: React.FC<HeroProps> = ({ isDark: _ignoredIsDark }) => {
       {/* 3. CENTERED CONTENT */}
       <div className="container mx-auto px-6 relative z-20 flex flex-col items-center text-center">
         <motion.div
-           
-           
-           
-           
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, ease: "easeOut" }}
           className="flex flex-col items-center max-w-4xl gpu"
         >
           {/* Main Headline */}
-          <div className="flex flex-col items-center gap-2 mb-6 md:mb-8">
+          <div className="flex flex-col items-center gap-4 mb-10 md:mb-12">
             <span
-              className="text-[10px] sm:text-xs md:text-sm font-black uppercase text-slate-500 dark:text-white/70 mb-2 whitespace-nowrap"
+              className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-brand-medium/10 border border-brand-medium/20 text-[10px] md:text-xs font-bold uppercase tracking-[0.2em] text-brand-medium dark:text-brand-cyan mb-2 backdrop-blur-sm"
             >
-              Best IT Company in Haldwani | Preet Tech OPC Private Limited
+              <Sparkles className="w-3 h-3" />
+              BEST IT COMPANY
             </span>
-            <h1 className="text-[3rem] sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl 2xl:text-9xl font-black tracking-tighter leading-[0.95] md:leading-[0.9] flex flex-col items-center text-center">
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-medium via-brand-cyan to-brand-deep italic pb-3 md:pb-6 px-2 md:px-4">
-                REDEFINE POSSIBLE.
+            <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-black tracking-tighter leading-[1.05] md:leading-[0.9] flex flex-col items-center text-center px-4">
+              <span className="text-transparent bg-clip-text bg-gradient-to-br from-white via-white/90 to-brand-medium/80 dark:from-white dark:via-white/90 dark:to-brand-medium/50 py-2">
+                REDEFINE<br className="md:hidden" /> POSSIBLE.
               </span>
             </h1>
           </div>
 
           <p
-            className="text-sm sm:text-base md:text-xl text-slate-500 dark:text-slate-400 max-w-3xl leading-relaxed mb-6 md:mb-8 font-medium px-4 md:px-0 text-center mx-auto"
+            className="text-base md:text-xl text-slate-500 dark:text-slate-400 max-w-2xl leading-relaxed md:leading-relaxed mb-10 md:mb-12 font-medium px-2 md:px-0 text-center mx-auto"
           >
-            Preet Tech OPC Private Limited is the <strong>Best IT Company in Haldwani</strong> and a top <span className="text-foreground dark:text-white font-bold">Next Gen Digital Agency</span>. We are a leading <strong>Website Development Company</strong> and <strong>Software Development Company</strong> providing <strong>SEO Services</strong>, <strong>Digital Marketing</strong>, and scalable <span className="text-foreground dark:text-white font-bold">enterprise IT solutions</span> to power your brand's growth.
+            Empowering brands through <span className="text-foreground dark:text-white font-bold">strategic digital innovation</span>. We specialize in bespoke website development, high-performance software solutions, and data-driven marketing to scale your vision in the digital era.
           </p>
 
           {/* Action Buttons */}
           <motion.div
-            
-            
-            
-            
-            className="flex flex-col sm:flex-row gap-4 md:gap-6 w-full sm:w-auto px-10 sm:px-0"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            className="flex flex-col sm:flex-row gap-5 md:gap-6 w-full sm:w-auto px-4 sm:px-0"
           >
             <Link
               href="/about"
-              onMouseEnter={() => setHovered(true)}
-              onMouseLeave={() => setHovered(false)}
-              className="group relative px-8 sm:px-12 py-4 sm:py-5 bg-gradient-to-r from-[#3994fa] to-[#004aad] text-white font-black tracking-widest uppercase text-[10px] sm:text-xs rounded-2xl overflow-hidden transition-all shadow-lg shadow-[#3994fa]/20 hover:opacity-90 hover:-translate-y-1 active:scale-95 text-center flex items-center justify-center"
+              className="group relative px-10 sm:px-12 py-5 bg-gradient-to-r from-[#3994fa] to-[#004aad] text-white font-bold tracking-widest uppercase text-[11px] sm:text-xs rounded-2xl overflow-hidden transition-all shadow-xl shadow-[#3994fa]/30 hover:shadow-2xl hover:shadow-[#3994fa]/40 hover:-translate-y-1 active:scale-95 text-center flex items-center justify-center min-h-[60px]"
             >
-              <div className="absolute inset-0 bg-white/20 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-400 skew-x-12" />
+              <div className="absolute inset-0 bg-white/20 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-500 skew-x-12" />
               <span className="relative flex items-center justify-center gap-3">
                 Learn More <ArrowUpRight className="w-5 h-5 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
               </span>
@@ -79,10 +76,10 @@ const Hero: React.FC<HeroProps> = ({ isDark: _ignoredIsDark }) => {
 
             <Link 
               href="/contact"
-              className="group px-8 sm:px-12 py-4 sm:py-5 bg-white dark:bg-white/5 border-2 border-[#3994fa]/20 text-slate-900 dark:text-white font-black text-[10px] sm:text-xs tracking-widest uppercase transition-all rounded-2xl hover:bg-gradient-to-r hover:from-[#3994fa] hover:to-[#004aad] hover:text-white hover:border-transparent hover:-translate-y-1 active:scale-95 shadow-lg hover:shadow-[#3994fa]/20 flex items-center justify-center"
+              className="group px-10 sm:px-12 py-5 bg-white/5 backdrop-blur-md border border-white/10 text-slate-900 dark:text-white font-bold text-[11px] sm:text-xs tracking-widest uppercase transition-all rounded-2xl hover:bg-white/10 hover:-translate-y-1 active:scale-95 flex items-center justify-center min-h-[60px]"
             >
               <span className="flex items-center justify-center gap-3">
-                Book Strategy Call <Hexagon className="w-5 h-5 transition-transform duration-400 group-hover:rotate-180" />
+                Book Strategy Call <Hexagon className="w-5 h-5 transition-transform duration-500 group-hover:rotate-180" />
               </span>
             </Link>
           </motion.div>
@@ -144,8 +141,16 @@ const Hero: React.FC<HeroProps> = ({ isDark: _ignoredIsDark }) => {
               <motion.div
                 key={i}
                 initial={{ height: 0 }}
-                animate={{ height: `${h}%` }}
-                transition={{ duration: 1, delay: 0.5 + i * 0.1, ease: "easeOut" }}
+                animate={{ height: [`${h * 0.7}%`, `${h}%`, `${h * 0.8}%`, `${h}%`] }}
+                transition={{ 
+                  height: {
+                    duration: 3 + Math.random() * 2,
+                    repeat: Infinity,
+                    repeatType: "reverse",
+                    ease: "easeInOut",
+                    delay: 0.5 + i * 0.1
+                  }
+                }}
                 className="flex-1 bg-brand-cyan rounded-t-sm"
               />
             ))}

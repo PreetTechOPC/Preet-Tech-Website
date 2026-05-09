@@ -27,32 +27,32 @@ const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://preettech.com';
 export const metadata: Metadata = {
     metadataBase: new URL(baseUrl),
     title: {
-        default: "Preet Tech OPC Private Limited | Next Gen Digital Agency & IT Solutions",
-        template: "%s | Preet Tech OPC Private Limited - Digital Transformation Agency",
+        default: "Preet Tech | Best IT Company in Haldwani",
+        template: "%s | Preet Tech OPC Private Limited - Digital Transformation IT Company",
     },
-    description: "Preet Tech OPC Private Limited is a top Next Gen Digital Agency offering custom software development, AI-driven marketing, web and app development, and enterprise IT solutions.",
+    description: "Preet Tech OPC Private Limited is a top Next Gen IT Company offering custom software development, AI-driven marketing, web and app development, and enterprise IT solutions.",
     keywords: [
         "Preet Tech", "IT Company in Haldwani", "Website Development Company", "Web Development Services",
-        "Software Development Company", "Digital Marketing Agency", "Social Media Marketing", "SEO Services",
+        "Software Development Company", "Digital Marketing IT Company", "Social Media Marketing", "SEO Services",
         "Google Ads Services", "Website Designing Company", "IT Solutions Provider", "Best IT Company in Haldwani",
-        "App Development Company", "Online Marketing Agency", "Branding Agency", "Next Gen Digital Agency",
-        "Top Digital Marketing & IT Agency", "custom software development", "AI-driven marketing",
+        "App Development Company", "Online Marketing IT Company", "Branding IT Company", "Next Gen IT Company",
+        "Top Digital Marketing & IT Company", "custom software development", "AI-driven marketing",
         "SEO optimization services", "web and app development company", "enterprise IT solutions",
         "generative AI integration", "digital transformation services", "e-commerce development",
-        "performance marketing agency", "cloud migration services", "B2B digital agency",
+        "performance marketing IT Company", "cloud migration services", "B2B IT Company",
         "scalable tech solutions", "brand identity design"
     ],
     openGraph: {
-        title: "Preet Tech OPC Private Limited | Next Gen Digital Agency & IT Solutions",
-        description: "Transform your business with Preet Tech OPC Private Limited, a leading digital agency and IT partner. We specialize in custom software development, digital marketing, and AI integration to accelerate your growth.",
+        title: "Preet Tech OPC Private Limited | Next Gen IT Company & IT Solutions",
+        description: "Transform your business with Preet Tech OPC Private Limited, a leading IT Company and IT partner. We specialize in custom software development, digital marketing, and AI integration to accelerate your growth.",
         url: baseUrl,
         siteName: "Preet Tech OPC Private Limited",
         type: "website",
     },
     twitter: {
         card: "summary_large_image",
-        title: "Preet Tech OPC Private Limited | Next Gen Digital Agency & IT Solutions",
-        description: "Transform your business with Preet Tech OPC Private Limited, a leading digital agency and IT partner specializing in custom software and AI-driven marketing.",
+        title: "Preet Tech OPC Private Limited | Next Gen IT Company & IT Solutions",
+        description: "Transform your business with Preet Tech OPC Private Limited, a leading IT Company and IT partner specializing in custom software and AI-driven marketing.",
         creator: "@preettech",
     },
     robots: {
