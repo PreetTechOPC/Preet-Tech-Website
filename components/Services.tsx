@@ -160,7 +160,7 @@ const ServiceCard = React.memo(({ service, idx }: { service: any; idx: number })
 
       <div className="relative z-10 pt-5 md:pt-6 border-t border-slate-200/50 dark:border-white/5 flex items-center justify-between">
         <div className="flex flex-col gap-0.5">
-          <span className="text-[8px] font-mono text-slate-400 uppercase tracking-widest font-black">Status</span>
+          <span className="text-[8px] font-mono text-slate-600 dark:text-slate-200 uppercase tracking-widest font-black">Status</span>
           <div className="flex items-center gap-1">
             <div className="w-1 h-1 rounded-full bg-emerald-500 animate-pulse" />
             <span className="text-[9px] font-black text-foreground/80 dark:text-white/80 uppercase">Available</span>
@@ -171,6 +171,7 @@ const ServiceCard = React.memo(({ service, idx }: { service: any; idx: number })
           href={`/services/${service.id}`} 
           className="w-9 h-9 md:w-10 md:h-10 rounded-full border border-slate-100 dark:border-white/10 flex items-center justify-center group-hover:bg-brand-medium group-hover:text-white transition-all duration-300 group-hover:border-brand-medium"
           onDragStart={(e) => e.preventDefault()}
+          aria-label={`View details for ${service.title}`}
         >
           <ArrowUpRight className="w-3.5 h-3.5 md:w-4 md:h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
         </Link>
@@ -350,7 +351,7 @@ const Services: React.FC = () => {
       {/* Infinite Loop Slider Layout - Bleeding to edges */}
       <div className="relative w-full mt-4 gpu">
         {/* Drag Hint */}
-        <div className="absolute -top-8 right-6 md:right-12 text-[10px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-widest flex items-center gap-2 pointer-events-none animate-pulse">
+        <div className="absolute -top-8 right-6 md:right-12 text-[10px] font-bold text-slate-700 dark:text-slate-200 uppercase tracking-widest flex items-center gap-2 pointer-events-none animate-pulse">
            <ArrowRight className="w-3 h-3" />
            Drag to Explore
         </div>

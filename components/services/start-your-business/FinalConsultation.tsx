@@ -2,10 +2,13 @@
 
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { CheckCircle2, ArrowRight, User, Mail, Phone, Lightbulb, DollarSign, Calendar } from 'lucide-react';
+import { CheckCircle2, ArrowRight, User, Mail, Phone, Lightbulb, IndianRupee, Calendar } from 'lucide-react';
 import PhoneInput from '@/components/PhoneInput';
+import { useCurrency } from '@/hooks/useCurrency';
+import { DollarSign } from 'lucide-react';
 
 const FinalConsultation = () => {
+    const { currency } = useCurrency();
     const [formStatus, setFormStatus] = useState<'idle' | 'submitting' | 'success'>('idle');
     const [formData, setFormData] = useState({
         name: '',
@@ -119,8 +122,12 @@ const FinalConsultation = () => {
 
                             {/* Target Budget */}
                             <div className="relative group">
-                                <DollarSign className="absolute left-6 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-700 dark:text-slate-300 group-focus-within:text-brand-medium dark:text-brand-cyan transition-colors" />
-                                <input required type="text" value={formData.budget || ''} onChange={(e) => setFormData({ ...formData, budget: e.target.value })} placeholder="TARGET BUDGET" className="w-full h-16 bg-slate-50 dark:bg-black/40 border border-slate-100 dark:border-white/5 rounded-2xl py-2 pl-16 pr-6 text-[11px] font-black uppercase text-slate-700 dark:text-slate-300 tracking-[0.2em] placeholder:text-slate-700 dark:text-slate-300 focus:outline-none focus:ring-4 focus:ring-brand-medium/10 dark:ring-brand-cyan/10 focus:bg-white dark:focus:bg-black transition-all" />
+                                {currency.code === 'INR' ? (
+                                    <IndianRupee className="absolute left-6 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-700 dark:text-slate-300 group-focus-within:text-brand-medium dark:text-brand-cyan transition-colors" />
+                                ) : (
+                                    <DollarSign className="absolute left-6 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-700 dark:text-slate-300 group-focus-within:text-brand-medium dark:text-brand-cyan transition-colors" />
+                                )}
+                                <input required type="text" value={formData.budget || ''} onChange={(e) => setFormData({ ...formData, budget: e.target.value })} placeholder={`TARGET BUDGET (${currency.code})`} className="w-full h-16 bg-slate-50 dark:bg-black/40 border border-slate-100 dark:border-white/5 rounded-2xl py-2 pl-16 pr-6 text-[11px] font-black uppercase text-slate-700 dark:text-slate-300 tracking-[0.2em] placeholder:text-slate-700 dark:text-slate-300 focus:outline-none focus:ring-4 focus:ring-brand-medium/10 dark:ring-brand-cyan/10 focus:bg-white dark:focus:bg-black transition-all" />
                             </div>
 
                             <button

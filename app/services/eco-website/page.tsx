@@ -19,6 +19,7 @@ import ThreeSphereScene from '@/components/ThreeSphere';
 import { portfolioItems } from '@/lib/eco-portfolio';
 import PhoneInput from '@/components/PhoneInput';
 import CaseStudies, { CaseStudy } from '@/components/CaseStudies';
+import BudgetSelect from '@/components/BudgetSelect';
 // GSAP removed for performance
 
 // --- 🛰️ Lightweight Static Background (CSS-only, no JS animations) ---
@@ -73,7 +74,7 @@ export default function EcoWebsiteDevelopment() {
             stats: [
                 { label: 'Power Save', value: '30%' },
                 { label: 'Data Weight', value: '-60%' },
-                { label: 'Sales', value: '$500k+' }
+                { label: 'Sales', value: '₹500k+' }
             ],
             tags: ['React', 'Static Gen', 'Dark Mode']
         }
@@ -87,7 +88,7 @@ export default function EcoWebsiteDevelopment() {
         phone: '',
         countryCode: '+91',
         industry: '',
-        budget: '₹4,999', // default from options
+        budget: '', // Dynamically set based on location
     });
     const [submitStatus, setSubmitStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
 
@@ -106,7 +107,7 @@ export default function EcoWebsiteDevelopment() {
             });
             if (res.ok) {
                 setSubmitStatus('success');
-                setFormData({ name: '', businessName: '', email: '', phone: '', countryCode: '+91', industry: '', budget: '₹4,999' });
+                setFormData({ name: '', businessName: '', email: '', phone: '', countryCode: '+91', industry: '', budget: '' });
                 setTimeout(() => setSubmitStatus('idle'), 5000);
             } else {
                 setSubmitStatus('error');
@@ -354,12 +355,11 @@ export default function EcoWebsiteDevelopment() {
                                     <label className="text-[10px] md:text-xs font-bold text-slate-500 uppercase tracking-widest pl-1">Budget Range</label>
                                     <div className="relative group">
                                         <CreditCard strokeWidth={1.5} className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 md:w-5 md:h-5 text-slate-400 group-focus-within:text-[#3994fa] transition-colors pointer-events-none" />
-                                        <select required value={formData.budget} onChange={(e) => setFormData({ ...formData, budget: e.target.value })} className="w-full bg-slate-50/50 dark:bg-slate-950/50 border border-slate-200 dark:border-slate-800 rounded-xl md:rounded-2xl py-3 md:py-4 pl-10 md:pl-12 pr-10 outline-none focus:border-[#3994fa] focus:ring-1 focus:ring-[#3994fa]/20 transition-all appearance-none text-slate-700 dark:text-slate-200 text-[13px] md:text-sm">
-                                            <option value="₹4,999">₹4,999</option>
-                                            <option value="₹10k - ₹25k">₹10k - ₹25k</option>
-                                            <option value="₹25k - ₹50k">₹25k - ₹50k</option>
-                                            <option value="₹50k+">₹50k+</option>
-                                        </select>
+                                        <BudgetSelect 
+                                            value={formData.budget} 
+                                            onChange={(val) => setFormData({ ...formData, budget: val })} 
+                                            className="w-full bg-slate-50/50 dark:bg-slate-950/50 border border-slate-200 dark:border-slate-800 rounded-xl md:rounded-2xl py-3 md:py-4 pl-10 md:pl-12 pr-10 outline-none focus:border-[#3994fa] focus:ring-1 focus:ring-[#3994fa]/20 transition-all appearance-none text-slate-700 dark:text-slate-200 text-[13px] md:text-sm"
+                                        />
                                         <ChevronDown className="absolute right-4 top-1/2 -translate-y-1/2 w-4 h-4 md:w-5 md:h-5 text-slate-400 pointer-events-none" />
                                     </div>
                                 </div>

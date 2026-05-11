@@ -118,9 +118,9 @@ const SimpleSteps: React.FC = () => {
                         <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-brand-cyan/10 rounded-full blur-[40px] translate-y-1/2 -translate-x-1/2 opacity-50 group-hover:opacity-100 transition-opacity duration-400" />
 
                         <div className="relative z-10 text-center lg:text-left max-w-2xl">
-                            <h4 className="text-3xl md:text-4xl lg:text-5xl font-black text-foreground mb-4 md:mb-6 tracking-tighter leading-[1.1]">
+                            <h3 className="text-3xl md:text-4xl lg:text-5xl font-black text-foreground mb-4 md:mb-6 tracking-tighter leading-[1.1]">
                                 Ready to start your <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-medium to-brand-cyan italic pr-2">journey?</span>
-                            </h4>
+                            </h3>
                             <p className="text-base md:text-lg text-slate-600 dark:text-slate-400 font-medium leading-relaxed m-0">
                                 The first step is a conversation. Let's discuss how we can engineer your business's next exponential growth phase.
                             </p>

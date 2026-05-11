@@ -4,7 +4,12 @@ import React, { useState, memo } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowUpRight, Globe, Cpu, Hexagon, Activity, Sparkles } from 'lucide-react';
 import Link from 'next/link';
-import ThreeSphereScene from './ThreeSphere';
+import dynamic from 'next/dynamic';
+
+const ThreeSphereScene = dynamic(() => import('./ThreeSphere'), {
+  ssr: false,
+  loading: () => <div className="absolute inset-0 z-0 bg-background" />
+});
 
 interface HeroProps {
   isDark?: boolean;
@@ -76,14 +81,14 @@ const Hero: React.FC<HeroProps> = ({ isDark: _ignoredIsDark }) => {
               BEST IT COMPANY
             </motion.span>
             <h1 className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-black tracking-tighter leading-[0.95] md:leading-[0.9] flex flex-col items-center text-center px-4 drop-shadow-2xl">
-              <span className="text-transparent bg-clip-text bg-gradient-to-br from-white via-white/90 to-brand-medium/80 dark:from-white dark:via-white/90 dark:to-brand-medium/50 py-2 max-w-5xl">
+              <span className="text-transparent bg-clip-text bg-gradient-to-br from-slate-950 via-slate-800 to-brand-medium dark:from-white dark:via-white/90 dark:to-brand-medium/50 py-2 max-w-5xl">
                 SCALE <br /> GLOBALLY
               </span>
             </h1>
           </div>
 
           <p
-            className="text-base md:text-xl text-slate-500 dark:text-slate-400 max-w-2xl leading-relaxed md:leading-relaxed mb-10 md:mb-12 font-medium px-4 md:px-0 text-center mx-auto opacity-90"
+            className="text-base md:text-xl text-slate-600 dark:text-slate-400 max-w-2xl leading-relaxed md:leading-relaxed mb-10 md:mb-12 font-medium px-4 md:px-0 text-center mx-auto opacity-90"
           >
             Building high-performance digital experiences that help modern businesses grow, scale, and lead in the digital era.
           </p>
@@ -101,13 +106,13 @@ const Hero: React.FC<HeroProps> = ({ isDark: _ignoredIsDark }) => {
             >
               <div className="absolute inset-0 bg-white/20 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-500 skew-x-12" />
               <span className="relative flex items-center justify-center gap-3">
-                Learn More <ArrowUpRight className="w-5 h-5 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
+                Learn More about Preet Tech <ArrowUpRight className="w-5 h-5 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
               </span>
             </Link>
 
             <Link 
               href="/contact"
-              className="group px-10 sm:px-12 py-4.5 md:py-5 bg-white/5 backdrop-blur-md border border-white/10 text-slate-900 dark:text-white font-bold text-[11px] sm:text-xs tracking-widest uppercase transition-all rounded-2xl hover:bg-white/10 hover:-translate-y-1 active:scale-95 flex items-center justify-center min-h-[56px] md:min-h-[60px]"
+              className="group px-10 sm:px-12 py-4.5 md:py-5 bg-slate-100 dark:bg-white/5 backdrop-blur-md border border-slate-200 dark:border-white/10 text-slate-900 dark:text-white font-bold text-[11px] sm:text-xs tracking-widest uppercase transition-all rounded-2xl hover:bg-slate-200 dark:hover:bg-white/10 hover:-translate-y-1 active:scale-95 flex items-center justify-center min-h-[56px] md:min-h-[60px]"
             >
               <span className="flex items-center justify-center gap-3">
                 Book Strategy Call <Hexagon className="w-5 h-5 transition-transform duration-500 group-hover:rotate-180" />
@@ -221,7 +226,7 @@ const Hero: React.FC<HeroProps> = ({ isDark: _ignoredIsDark }) => {
             <div className="absolute inset-0 bg-emerald-500/20 blur-2xl animate-pulse" />
             <Cpu className="w-16 h-16 text-emerald-500 relative z-10" />
           </div>
-          <h4 className="font-black text-sm uppercase tracking-widest mb-1 text-foreground">App & Software</h4>
+          <div className="font-black text-sm uppercase tracking-widest mb-1 text-foreground">App & Software</div>
           <p className="text-[10px] font-bold text-emerald-500 uppercase">Scalable Solutions...</p>
         </motion.div>
 

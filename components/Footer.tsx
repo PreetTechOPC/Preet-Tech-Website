@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Facebook, Twitter, Linkedin, Instagram, ArrowUp, Mail, MapPin, Send, Cpu, ChevronRight } from 'lucide-react';
 import Link from 'next/link';
+import Image from 'next/image';
 
 const Footer: React.FC = () => {
     // Newsletter State
@@ -78,22 +79,26 @@ const Footer: React.FC = () => {
                     {/* Brand Column */}
                     <div className="lg:col-span-4 space-y-8">
                         <div className="flex items-center gap-4">
-                            <img
-                                src="/logo-preet-tech-black.png"
-                                alt="Preet Tech OPC Private Limited Logo"
-                                className="h-12 md:h-14 w-auto object-contain"
-                            />
+                            <div className="relative h-12 md:h-14 w-32 md:w-40">
+                                <Image
+                                    src="/logo-preet-tech-black.png"
+                                    alt="Preet Tech OPC Private Limited Logo"
+                                    fill
+                                    className="object-contain"
+                                    sizes="(max-width: 768px) 128px, 160px"
+                                />
+                            </div>
                         </div>
                         <p className="text-slate-400 leading-relaxed max-w-sm text-sm md:text-base italic">
                             "A high-performance digital partner specializing in engineering growth, building scalable architectures, and delivering measurable results for global visionaries."
                         </p>
                         <div className="flex gap-4">
                             {[
-                                { Icon: Linkedin, href: "https://www.linkedin.com/company/preet-tech?originalSubdomain=in" },
-                                { Icon: Twitter, href: "#" },
-                                { Icon: Facebook, href: "https://www.facebook.com/Preetinfotech/" },
-                                { Icon: Instagram, href: "https://www.instagram.com/preettech/" }
-                            ].map(({ Icon, href }, i) => (
+                                { Icon: Linkedin, href: "https://www.linkedin.com/company/preet-tech?originalSubdomain=in", name: "LinkedIn" },
+                                { Icon: Twitter, href: "#", name: "Twitter" },
+                                { Icon: Facebook, href: "https://www.facebook.com/Preetinfotech/", name: "Facebook" },
+                                { Icon: Instagram, href: "https://www.instagram.com/preettech/", name: "Instagram" }
+                            ].map(({ Icon, href, name }, i) => (
                                 <motion.a
                                     key={i}
                                     href={href}
@@ -101,6 +106,7 @@ const Footer: React.FC = () => {
                                     rel="noopener noreferrer"
                                     
                                     className="w-11 h-11 rounded-full bg-white/5 flex items-center justify-center text-slate-400 transition-all border border-white/5 hover:bg-white/10 hover:border-brand-medium/30"
+                                    aria-label={`Visit our ${name} page`}
                                 >
                                     <Icon className="w-5 h-5" />
                                 </motion.a>
@@ -111,7 +117,7 @@ const Footer: React.FC = () => {
                     {/* Links Columns */}
                     <div className="lg:col-span-4 grid grid-cols-2 gap-8">
                         <div className="space-y-8">
-                            <h4 className="text-[10px] font-black uppercase tracking-[0.2em] text-brand-medium">Solutions</h4>
+                            <h3 className="text-[10px] font-black uppercase tracking-[0.2em] text-brand-medium">Solutions</h3>
                             <ul className="space-y-4">
                                 {FOOTER_LINKS.Solutions.map((link) => (
                                     <li key={link.name}>
@@ -125,7 +131,7 @@ const Footer: React.FC = () => {
                         </div>
 
                         <div className="space-y-8">
-                            <h4 className="text-[10px] font-black uppercase tracking-[0.2em] text-brand-medium">Company</h4>
+                            <h3 className="text-[10px] font-black uppercase tracking-[0.2em] text-brand-medium">Company</h3>
                             <ul className="space-y-4">
                                 {FOOTER_LINKS.Company.map((link) => (
                                     <li key={link.name}>
@@ -141,7 +147,7 @@ const Footer: React.FC = () => {
 
                     {/* Subscription Column */}
                     <div className="lg:col-span-4 space-y-8">
-                        <h4 className="text-[10px] font-black uppercase tracking-[0.2em] text-brand-medium">Stay Updated</h4>
+                        <h3 className="text-[10px] font-black uppercase tracking-[0.2em] text-brand-medium">Stay Updated</h3>
                         <p className="text-slate-400 text-sm leading-relaxed">Join our high-performance newsletter to receive the latest insights on digital growth.</p>
                         <form onSubmit={handleSubscribe} className="relative group">
                             <input
@@ -158,6 +164,7 @@ const Footer: React.FC = () => {
                                 type="submit"
                                 disabled={subscribeStatus === 'loading'}
                                 className="absolute right-2 top-2 bottom-2 px-5 rounded-xl bg-gradient-to-r from-[#3994fa] to-[#004aad] text-white flex items-center justify-center hover:opacity-90 transition-all shadow-[0_4px_14px_rgba(57,148,250,0.4)] disabled:opacity-50 disabled:cursor-not-allowed"
+                                aria-label="Subscribe to newsletter"
                             >
                                 {subscribeStatus === 'loading' ? (
                                     <span className="w-4 h-4 rounded-full border-2 border-white/20 border-t-white animate-spin" />
@@ -172,13 +179,13 @@ const Footer: React.FC = () => {
                             </p>
                         )}
                         <div className="space-y-3">
-                            <div className="flex items-center gap-3 text-[10px] font-mono text-slate-500">
+                            <div className="flex items-center gap-3 text-[10px] font-mono text-slate-300">
                                 <div className="w-8 h-8 rounded-lg bg-white/5 flex items-center justify-center shrink-0">
                                     <MapPin className="w-3.5 h-3.5" />
                                 </div>
                                 <span className="flex-1">Preet Tech OPC Private Limited, near Krishna Hospital, Subhash Nagar, Haldwani, Uttarakhand 263139</span>
                             </div>
-                            <div className="flex items-center gap-3 text-[10px] font-mono text-slate-500">
+                            <div className="flex items-center gap-3 text-[10px] font-mono text-slate-300">
                                 <div className="w-8 h-8 rounded-lg bg-white/5 flex items-center justify-center shrink-0">
                                     <Mail className="w-3.5 h-3.5" />
                                 </div>
@@ -192,17 +199,17 @@ const Footer: React.FC = () => {
                 {/* Bottom Bar */}
                 <div className="pt-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-8">
                     <div className="flex flex-col lg:flex-row items-center gap-4 lg:gap-12 text-center lg:text-left">
-                        <span className="text-slate-500 text-[9px] font-medium tracking-wide italic">© {new Date().getFullYear()} Preet Tech OPC Private Limited. All Rights Reserved. Designed & Developed by Preet Tech OPC Private Limited.</span>
+                        <span className="text-slate-300 text-[9px] font-medium tracking-wide italic">© {new Date().getFullYear()} Preet Tech OPC Private Limited. All Rights Reserved. Designed & Developed by Preet Tech OPC Private Limited.</span>
                         <div className="flex gap-4 lg:gap-6">
                             {FOOTER_LINKS.Legal.map(link => (
-                                <Link key={link.name} href={link.href} className="text-slate-500 hover:text-brand-medium text-[9px] transition-colors uppercase tracking-widest font-bold">{link.name}</Link>
+                                <Link key={link.name} href={link.href} className="text-slate-300 hover:text-white text-[9px] transition-colors uppercase tracking-widest font-bold">{link.name}</Link>
                             ))}
                         </div>
                     </div>
 
                     <button
                         onClick={scrollToTop}
-                        className="group flex items-center gap-4 text-[10px] font-black uppercase tracking-[0.2em] text-slate-400 hover:text-white transition-all"
+                        className="group flex items-center gap-4 text-[10px] font-black uppercase tracking-[0.2em] text-slate-300 hover:text-white transition-all"
                     >
                         Back to Top
                         <div className="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center group-hover:border-brand-medium group-hover:bg-brand-medium/10 transition-all">

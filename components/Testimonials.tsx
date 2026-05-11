@@ -67,7 +67,7 @@ const ReviewCard = memo(({ review }: { review: typeof REVIEWS[0] }) => (
           {review.initials}
         </div>
         <div>
-          <h4 className="text-foreground font-bold text-sm">{review.name}</h4>
+          <h3 className="text-foreground font-bold text-sm">{review.name}</h3>
           <p className="text-[10px] text-brand-medium font-mono uppercase tracking-wider">
             {review.role}, {review.company}
           </p>

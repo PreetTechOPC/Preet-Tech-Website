@@ -4,6 +4,7 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, ArrowUpRight, Sun, Moon, Globe, Smartphone, Palette, Share2, TrendingUp, ChevronRight, ChevronLeft, Target, Rocket, Cpu, Zap, Shield, Monitor, Layout, UserCheck, ShoppingCart, BrainCircuit, Cloud, Database } from 'lucide-react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { useTheme } from 'next-themes';
 
 interface NavbarProps {
@@ -112,11 +113,14 @@ const Navbar: React.FC<NavbarProps> = ({ isDark: _ignoredIsDark, toggleTheme: _i
             }`}
         >
           {/* Logo & Brand */}
-          <Link href="/" className="flex items-center group relative z-[210]" onClick={() => setIsOpen(false)}>
-            <img
+          <Link href="/" className="flex items-center group relative z-[210] w-28 md:w-32 h-10 md:h-12" onClick={() => setIsOpen(false)}>
+            <Image
               src={isDark ? '/logo-preet-tech-black.png' : '/logo-preet-tech.png'}
               alt="Preet Tech OPC Private Limited Logo"
-              className={`h-10 md:h-12 w-auto object-contain transition-all duration-300 group-hover:scale-105`}
+              fill
+              className="object-contain transition-all duration-300 group-hover:scale-105"
+              priority
+              sizes="(max-width: 768px) 112px, 128px"
             />
           </Link>
 
@@ -164,6 +168,7 @@ const Navbar: React.FC<NavbarProps> = ({ isDark: _ignoredIsDark, toggleTheme: _i
                 : (isDark ? 'text-white' : 'text-slate-900')
                 }`}
               onClick={() => setIsOpen(!isOpen)}
+              aria-label={isOpen ? "Close Menu" : "Open Menu"}
             >
               {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </button>

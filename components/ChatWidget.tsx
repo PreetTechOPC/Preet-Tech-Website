@@ -3,6 +3,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { MessageSquare, X, Send, Bot, User, Loader2, Calendar, Sparkles, ArrowRight, Maximize2, Minimize2 } from 'lucide-react';
+import Image from 'next/image';
 import { clsx, type ClassValue } from 'clsx';
 import { twMerge } from 'tailwind-merge';
 import ReactMarkdown from 'react-markdown';
@@ -134,8 +135,15 @@ export default function ChatWidget() {
                         {/* Header */}
                         <div className="p-6 border-b border-slate-200 dark:border-white/10 flex items-center justify-between bg-gradient-to-r from-brand-medium/10 to-transparent">
                             <div className="flex items-center gap-3">
-                                <div className="w-10 h-10 rounded-2xl bg-brand-medium flex items-center justify-center text-black overflow-hidden shadow-inner">
-                                    <img src="/ChatBot Icon.png" alt="Preet Tech OPC Private Limited AI" className="w-full h-full object-cover" loading="eager" />
+                                <div className="w-10 h-10 rounded-2xl bg-brand-medium flex items-center justify-center text-black overflow-hidden shadow-inner relative">
+                                    <Image 
+                                        src="/ChatBot Icon.png" 
+                                        alt="Preet Tech OPC Private Limited AI" 
+                                        fill
+                                        className="object-cover" 
+                                        sizes="40px"
+                                        priority 
+                                    />
                                 </div>
                                 <div>
                                     <h3 className="text-sm font-black uppercase tracking-wider">Preet Tech OPC Private Limited AI</h3>
@@ -256,6 +264,7 @@ export default function ChatWidget() {
                                     type="submit"
                                     disabled={!input.trim() || isLoading}
                                     className="absolute right-2 top-1/2 -translate-y-1/2 p-2.5 bg-gradient-to-r from-[#3994fa] to-[#004aad] text-white rounded-xl hover:scale-105 active:scale-95 transition-all disabled:opacity-50 disabled:scale-100"
+                                    aria-label="Send message"
                                 >
                                     <ArrowRight size={20} />
                                 </button>
@@ -272,6 +281,7 @@ export default function ChatWidget() {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={() => setIsOpen(!isOpen)}
+                aria-label={isOpen ? "Close Chat" : "Open Chat"}
                 className={cn(
                     "flex items-center justify-center transition-all duration-300 relative z-50 shadow-2xl overflow-hidden",
                     isOpen
@@ -283,11 +293,13 @@ export default function ChatWidget() {
                     <X size={24} className="-rotate-90" />
                 ) : (
                     <div className="absolute inset-0 w-full h-full flex items-center justify-center pointer-events-none">
-                        <img
+                        <Image
                             src="/ChatBot Icon.png"
                             alt="ChatBot"
+                            width={64}
+                            height={64}
                             className="w-full h-full object-contain drop-shadow-2xl"
-                            loading="eager"
+                            priority
                         />
                     </div>
                 )}

@@ -508,7 +508,7 @@ export default function PartnershipMarketing() {
                                     </div>
 
                                     <div className="p-8 rounded-[2rem] bg-slate-50 dark:bg-white/5 border border-slate-200 dark:border-white/10">
-                                        <div className="text-5xl font-black text-slate-900 dark:text-white mb-2 tracking-tighter">$14M+</div>
+                                        <div className="text-5xl font-black text-slate-900 dark:text-white mb-2 tracking-tighter">₹14M+</div>
                                         <p className="text-[11px] font-black text-slate-500 uppercase tracking-widest">Revenue Generated for Partners</p>
                                         <div className="mt-8 flex gap-2">
                                             {[1, 2, 3, 4, 5, 6].map(i => (
@@ -863,7 +863,7 @@ export default function PartnershipMarketing() {
                         {[
                             { v: '0%', l: 'Upfront Risk', i: Shield },
                             { v: '100%', l: 'Sales-Aligned', i: CheckCircle2 },
-                            { v: '$14M+', l: 'Revenue Driven', i: TrendingUp },
+                            { v: '₹14M+', l: 'Revenue Driven', i: TrendingUp },
                             { v: '50+', l: 'Active Collabs', i: Users }
                         ].map((stat, i) => (
                             <motion.div

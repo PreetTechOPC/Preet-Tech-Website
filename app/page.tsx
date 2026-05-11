@@ -1,86 +1,58 @@
-"use client";
+import { Metadata } from "next";
+import HomeClient from "./HomeClient";
 
-import dynamic from 'next/dynamic';
-import React from 'react';
-import Navbar from '../components/Navbar';
-import Hero from '../components/Hero';
-import Footer from '../components/Footer';
+export const metadata: Metadata = {
+    title: "Preet Tech | Next-Gen IT Company & Digital Transformation Partner",
+    description: "Empower your business with Preet Tech, a leading IT Company specializing in custom software development, AI automation, and high-performance digital marketing. We deliver scalable solutions for global growth.",
+    keywords: [
+        "Preet Tech", "IT Company", "Next-Gen Software Solutions", "AI Automation Services",
+        "Custom Web Development", "Digital Transformation", "Performance Marketing Agency",
+        "Scalable Business Solutions", "Enterprise IT Services", "Best IT Agency"
+    ],
+    alternates: {
+        canonical: "/",
+    },
+};
 
-// Skeleton placeholder for below-fold sections while they hydrate
-const SectionSkeleton = () => (
-    <div className="w-full py-16 md:py-24 bg-background animate-pulse">
-        <div className="max-w-7xl mx-auto px-6 space-y-4">
-            <div className="h-4 w-32 bg-white/5 rounded-full" />
-            <div className="h-10 w-2/3 bg-white/5 rounded-2xl" />
-            <div className="h-4 w-full max-w-xl bg-white/5 rounded-full" />
-        </div>
-    </div>
-);
-
-// SSR-disabled only for components that use browser-only APIs (drag, Three.js, scroll position)
-const Services = dynamic(() => import('../components/Services'), {
-    ssr: false,
-    loading: () => <SectionSkeleton />,
-});
-const WhyChooseUs = dynamic(() => import('../components/WhyChooseUs'), {
-    ssr: false,
-    loading: () => <SectionSkeleton />,
-});
-const StatsCounter = dynamic(() => import('../components/StatsCounter'), {
-    ssr: false,
-    loading: () => <SectionSkeleton />,
-});
-const SimpleSteps = dynamic(() => import('../components/SimpleSteps'), {
-    ssr: false,
-    loading: () => <SectionSkeleton />,
-});
-const ReadyToPartner = dynamic(() => import('../components/ReadyToPartner'), {
-    ssr: false,
-    loading: () => <SectionSkeleton />,
-});
-const Testimonials = dynamic(() => import('../components/Testimonials'), {
-    ssr: false,
-    loading: () => <SectionSkeleton />,
-});
-const ProductShowcase = dynamic(() => import('../components/ProductShowcase'), {
-    ssr: false,
-    loading: () => <SectionSkeleton />,
-});
-const Insights = dynamic(() => import('../components/Insights'), {
-    ssr: false,
-    loading: () => <SectionSkeleton />,
-});
-const HomeFAQ = dynamic(() => import('../components/HomeFAQ'), {
-    ssr: false,
-    loading: () => <SectionSkeleton />,
-});
+const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+        {
+            "@type": "Question",
+            "name": "What services does Preet Tech provide?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Preet Tech provides a comprehensive range of services including custom software development, AI automation solutions, web and mobile app development, performance marketing, and enterprise digital transformation."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "Does Preet Tech offer AI automation for small businesses?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes, Preet Tech specializes in scalable AI solutions that can be tailored for both small businesses looking to automate tasks and large enterprises seeking complex digital transformation."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "How can I start a project with Preet Tech?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "You can start by booking a free consultation through our website or contacting our team directly to discuss your business requirements and growth goals."
+            }
+        }
+    ]
+};
 
 export default function Home() {
     return (
-        <main className="w-full max-w-full selection:bg-brand-medium/30 overflow-x-clip bg-background text-foreground transition-colors duration-300">
-            <Navbar />
-
-            <Hero />
-
-            <Services />
-
-            <WhyChooseUs />
-
-            <StatsCounter />
-
-            <Insights />
-
-            <SimpleSteps />
-
-            <Testimonials />
-
-            <ProductShowcase />
-
-            <HomeFAQ />
-
-            <ReadyToPartner />
-
-            <Footer />
-        </main>
+        <>
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+            />
+            <HomeClient />
+        </>
     );
 }
