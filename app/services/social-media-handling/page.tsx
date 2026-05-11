@@ -17,6 +17,7 @@ import PortfolioCarousel from '@/components/PortfolioCarousel';
 import SocialDashboard from '@/components/SocialDashboard';
 import PhoneInput from '@/components/PhoneInput';
 import CaseStudies, { CaseStudy } from '@/components/CaseStudies';
+
 export default function SocialMediaHandling() {
     const [isDarkMode, setIsDarkMode] = useState(false);
     const [mounted, setMounted] = useState(false);
@@ -166,10 +167,10 @@ export default function SocialMediaHandling() {
                             Strategic content, creative design, and data-driven management to build your online presence and turn followers into loyal customers.
                         </p>
 
-                        <div className="flex flex-col sm:flex-row gap-5">
+                        <div className="flex flex-col sm:flex-row gap-5 justify-center lg:justify-start">
                             <Link
                                 href="/case-studies/social-media-handling"
-                                className="px-8 sm:px-10 py-4 group bg-gradient-to-r from-[#3994fa] to-[#004aad] text-white hover:opacity-90 font-bold rounded-[2rem] transition-transform hover:-translate-y-0.5 shadow-lg shadow-[#3994fa]/20 flex items-center justify-center gap-2 text-base"
+                                className="px-6 sm:px-10 py-4 sm:py-5 group bg-gradient-to-r from-[#3994fa] to-[#004aad] text-white hover:opacity-90 font-black rounded-2xl transition-all hover:-translate-y-1 shadow-lg shadow-[#3994fa]/20 flex items-center justify-center gap-2 text-[11px] sm:text-[13px] uppercase tracking-widest"
                             >
                                 Case Studies <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                             </Link>
@@ -254,11 +255,11 @@ export default function SocialMediaHandling() {
                                         </div>
 
                                         <div className="pt-4">
-                                            <button disabled={isHeroSubmitting} type="submit" className="w-full py-4 text-[13px] gap-2 disabled:opacity-70 group/btn duration-300 bg-gradient-to-r from-[#3994fa] to-[#004aad] text-white hover:opacity-90 font-bold rounded-full transition-all hover:-translate-y-0.5 shadow-md hover:shadow-lg hover:shadow-[#3994fa]/20 text-center uppercase tracking-[0.1em] flex items-center justify-center">
+                                            <button disabled={isHeroSubmitting} type="submit" className="w-full px-6 sm:px-10 py-4 sm:py-5 text-[11px] sm:text-[13px] gap-2 disabled:opacity-70 group/btn duration-300 bg-gradient-to-r from-[#3994fa] to-[#004aad] text-white hover:opacity-90 font-black rounded-2xl transition-all hover:-translate-y-1 shadow-md hover:shadow-lg hover:shadow-[#3994fa]/20 text-center uppercase tracking-widest flex items-center justify-center">
                                                 {isHeroSubmitting ? (
                                                     <span className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
                                                 ) : (
-                                                    <span className="flex items-center gap-2 uppercase tracking-widest text-[13px]">Get Free Consultation <ArrowRight className="w-4 h-4 ml-1 group-hover/btn:translate-x-1 transition-transform" /></span>
+                                                    <span className="flex items-center gap-2 uppercase tracking-widest text-[11px] sm:text-[13px]">Get Free Consultation <ArrowRight className="w-4 h-4 ml-1 group-hover/btn:translate-x-1 transition-transform" /></span>
                                                 )}
                                             </button>
                                             {submitStatus === 'error' && <p className="text-red-500 text-[10px] font-black uppercase text-center mt-2 tracking-widest">Error! Please try again.</p>}
@@ -464,7 +465,7 @@ export default function SocialMediaHandling() {
                 </div>
             </section>
 
-            {/* 🔟 Caption Writing & Hashtag Strategy */}
+            {/* 10 Caption Writing & Hashtag Strategy */}
             <section className="py-16 md:py-28 px-4 md:px-6 reveal-section">
                 <div className="max-w-5xl mx-auto text-center space-y-12">
                     <div className="space-y-4">
@@ -484,7 +485,7 @@ export default function SocialMediaHandling() {
                 </div>
             </section>
 
-            {/* 1️⃣1️⃣ Posting & Scheduling */}
+            {/* 11 Posting & Scheduling */}
             <section className="py-16 md:py-28 px-4 md:px-6 bg-slate-50 dark:bg-slate-900/50 reveal-section">
                 <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-20 items-center">
                     <div className="order-2 lg:order-1 p-4 sm:p-8 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-white/10 shadow-xl">
@@ -509,7 +510,7 @@ export default function SocialMediaHandling() {
                 </div>
             </section>
 
-            {/* 1️⃣2️⃣ Community Management */}
+            {/* 12 Community Management */}
             <section className="py-16 md:py-28 px-4 md:px-6 reveal-section">
                 <div className="max-w-7xl mx-auto">
                     <div className="text-center mb-16 space-y-4">
@@ -529,7 +530,7 @@ export default function SocialMediaHandling() {
                 </div>
             </section>
 
-            {/* 1️⃣3️⃣ Growth Strategy */}
+            {/* 13 Growth Strategy */}
             <section className="py-16 md:py-28 px-4 md:px-6 bg-[#080B10] text-white reveal-section">
                 <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-20 items-center">
                     <div className="space-y-8">
@@ -557,7 +558,6 @@ export default function SocialMediaHandling() {
                         ];
                         const chartH = 160;
                         const barW = 100 / bars.length;
-                        const points = bars.map((b, i) => `${i * barW + barW / 2}%,${chartH - (b.h / 100) * chartH + 4}px`).join(' ');
                         return (
                             <div className="p-5 sm:p-6 rounded-2xl bg-white/[0.04] border border-white/10 backdrop-blur-sm">
                                 {/* Header */}
@@ -678,7 +678,7 @@ export default function SocialMediaHandling() {
                 </div>
             </section>
 
-            {/* 1️⃣4️⃣ Analytics & Monthly Reporting */}
+            {/* 14 Analytics & Monthly Reporting */}
             <section className="py-16 md:py-28 px-4 md:px-6 reveal-section">
                 <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-20 items-center">
                     <div className="order-2 lg:order-1 p-4 sm:p-6 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-white/10 shadow-xl">
@@ -694,7 +694,7 @@ export default function SocialMediaHandling() {
                         </div>
                         <div className="h-20 rounded-xl bg-gradient-to-r from-brand-medium/10 to-brand-deep/10 border border-brand-medium/10 flex items-end p-2 gap-1">
                             {[30, 45, 35, 60, 50, 70, 55, 80, 65, 85, 75, 90].map((h, i) => (
-                                <motion.div key={i} className="flex-1 bg-gradient-to-t from-brand-medium to-brand-deep rounded-t opacity-70" />
+                                <div key={i} className="flex-1 bg-gradient-to-t from-brand-medium to-brand-deep rounded-t opacity-70" style={{ height: `${h}%` }} />
                             ))}
                         </div>
                     </div>
@@ -711,7 +711,7 @@ export default function SocialMediaHandling() {
                 </div>
             </section>
 
-            {/* 1️⃣5️⃣ Paid Ads Integration */}
+            {/* 15 Paid Ads Integration */}
             <section className="py-16 md:py-28 px-4 md:px-6 bg-slate-50 dark:bg-slate-900/50 reveal-section">
                 <div className="max-w-5xl mx-auto text-center space-y-10">
                     <div className="space-y-4">
@@ -731,7 +731,7 @@ export default function SocialMediaHandling() {
                 </div>
             </section>
 
-            {/* 1️⃣6️⃣ Our Process */}
+            {/* 16 Our Process */}
             <section className="py-16 md:py-28 px-4 md:px-6 reveal-section">
                 <div className="max-w-7xl mx-auto">
                     <div className="text-center mb-16 space-y-4">
@@ -755,7 +755,7 @@ export default function SocialMediaHandling() {
                 </div>
             </section>
 
-            {/* 1️⃣7️⃣ Portfolio / Sample Posts — Carousel */}
+            {/* 17 Portfolio / Sample Posts — Carousel */}
             {(() => {
                 const cards = [
                     {
@@ -960,7 +960,7 @@ export default function SocialMediaHandling() {
                 );
             })()}
 
-            {/* 1️⃣8️⃣ Industries We Serve */}
+            {/* 18 Industries We Serve */}
             <section className="py-16 md:py-28 px-4 md:px-6 reveal-section">
                 <div className="max-w-7xl mx-auto">
                     <div className="text-center mb-16 space-y-4">
@@ -978,7 +978,7 @@ export default function SocialMediaHandling() {
                 </div>
             </section>
 
-            {/* 1️⃣9️⃣ Pricing */}
+            {/* 19 Pricing */}
             <section id="pricing" className="py-16 md:py-28 px-4 md:px-6 bg-[#080B10] text-white reveal-section">
                 <div className="max-w-6xl mx-auto">
                     <div className="text-center mb-16 space-y-4">
@@ -1004,7 +1004,7 @@ export default function SocialMediaHandling() {
                                     </ul>
                                     <button
                                         onClick={() => handleBudgetClick(plan.budget)}
-                                        className={`block w-full py-4 rounded-xl font-bold text-sm uppercase tracking-wider text-center transition-all ${plan.highlight ? 'bg-gradient-to-r from-[#3994fa] to-[#004aad] text-white hover:opacity-95' : 'bg-white/5 border border-white/10 hover:bg-gradient-to-r hover:from-[#3994fa] hover:to-[#004aad] hover:border-transparent'}`}
+                                        className={`block w-full px-6 sm:px-10 py-4 sm:py-5 rounded-2xl font-black text-[11px] sm:text-[13px] uppercase tracking-widest text-center transition-all ${plan.highlight ? 'bg-gradient-to-r from-[#3994fa] to-[#004aad] text-white hover:opacity-95' : 'bg-white/5 border border-white/10 hover:bg-gradient-to-r hover:from-[#3994fa] hover:to-[#004aad] hover:border-transparent'}`}
                                     >
                                         Get Started
                                     </button>
@@ -1015,7 +1015,7 @@ export default function SocialMediaHandling() {
                 </div>
             </section>
 
-            {/* 2️⃣0️⃣ FAQs */}
+            {/* 20 FAQs */}
             < section className="py-16 md:py-28 px-4 md:px-6 reveal-section" >
                 <div className="max-w-4xl mx-auto">
                     <div className="text-center mb-16 space-y-4">
@@ -1054,7 +1054,7 @@ export default function SocialMediaHandling() {
                 themeColor="#3994fa"
             />
 
-            {/* 2️⃣1️⃣ Free Social Media Audit Form */}
+            {/* 21 Free Social Media Audit Form */}
             <section id="audit" className="py-16 md:py-28 px-4 md:px-6 bg-slate-50 dark:bg-slate-900/50 reveal-section" >
                 <div className="max-w-3xl mx-auto">
                     <div className="bg-white dark:bg-slate-900 p-6 sm:p-8 md:p-12 rounded-3xl border border-slate-200 dark:border-white/10 shadow-2xl relative overflow-hidden">
@@ -1107,7 +1107,7 @@ export default function SocialMediaHandling() {
                                         <div><label className="block text-xs font-bold uppercase tracking-widest text-slate-400 mb-2">Monthly Budget</label><select value={auditFormData.budget} onChange={(e) => setAuditFormData({ ...auditFormData, budget: e.target.value })} className="w-full px-4 py-3.5 rounded-xl bg-slate-50 dark:bg-white/5 border border-slate-200 dark:border-white/10 text-sm font-medium focus:ring-2 focus:ring-brand-medium focus:border-transparent outline-none transition-all appearance-none"><option>Under ₹10,000</option><option>₹10,000 - ₹25,000</option><option>₹25,000 - ₹50,000</option><option>₹50,000+</option></select></div>
                                         <div><label className="block text-xs font-bold uppercase tracking-widest text-slate-400 mb-2">Primary Goal</label><select value={auditFormData.goal} onChange={(e) => setAuditFormData({ ...auditFormData, goal: e.target.value })} className="w-full px-4 py-3.5 rounded-xl bg-slate-50 dark:bg-white/5 border border-slate-200 dark:border-white/10 text-sm font-medium focus:ring-2 focus:ring-brand-medium focus:border-transparent outline-none transition-all appearance-none"><option>Brand Awareness</option><option>Lead Generation</option><option>Sales & Revenue</option><option>Community Building</option><option>All of the Above</option></select></div>
                                     </div>
-                                    <button disabled={auditSubmitStatus === 'loading'} type="submit" className="w-full py-5 rounded-xl bg-gradient-to-r from-[#3994fa] to-[#004aad] text-white font-black uppercase tracking-widest text-sm hover:shadow-xl hover:shadow-[#3994fa]/20 transition-all flex items-center justify-center gap-3">
+                                    <button disabled={auditSubmitStatus === 'loading'} type="submit" className="w-full px-6 sm:px-10 py-4 sm:py-5 rounded-2xl bg-gradient-to-r from-[#3994fa] to-[#004aad] text-white font-black uppercase tracking-widest text-[11px] sm:text-[13px] hover:shadow-xl hover:shadow-[#3994fa]/20 transition-all flex items-center justify-center gap-3">
                                         <Send className="w-5 h-5" />
                                         {auditSubmitStatus === 'loading' ? 'Processing...' : 'Get Free Audit'}
                                     </button>
@@ -1120,8 +1120,8 @@ export default function SocialMediaHandling() {
                 </div>
             </section>
 
-            {/* 2️⃣2️⃣ Final CTA */}
-            < section className="py-16 md:py-28 px-4 md:px-6 bg-[#020617] text-white relative overflow-hidden" >
+            {/* 22 Final CTA */}
+            <section className="py-16 md:py-28 px-4 md:px-6 bg-[#020617] text-white relative overflow-hidden">
                 <div className="absolute inset-0 pointer-events-none">
                     <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] md:w-[800px] h-[600px] md:h-[800px] bg-gradient-to-br from-brand-medium/20 grid-parallax via-brand-medium/15 to-brand-cyan/20 blur-[200px] rounded-full opacity-30" />
                 </div>
@@ -1132,8 +1132,8 @@ export default function SocialMediaHandling() {
                         <p className="text-lg md:text-xl text-slate-400 max-w-2xl mx-auto leading-relaxed">Let&apos;s build a powerful online presence that converts followers into customers.</p>
                     </div>
                     <div className="flex flex-col sm:flex-row items-center justify-center gap-5">
-                        <a href="#consultation" className="px-8 sm:px-12 py-5 sm:py-6 bg-gradient-to-r from-[#3994fa] to-[#004aad] text-white rounded-xl sm:rounded-2xl font-black uppercase tracking-widest text-xs sm:text-sm hover:shadow-[0_0_60px_rgba(63,143,204,0.4)] transition-all hover:-translate-y-1 flex items-center justify-center gap-3"><Rocket className="w-5 h-5" /> Start My Social Growth</a>
-                        <a href="tel:+919756667397" className="px-8 sm:px-12 py-5 sm:py-6 border-2 border-white/10 rounded-xl sm:rounded-2xl font-bold uppercase tracking-widest text-xs sm:text-sm hover:bg-white/5 transition-all flex items-center justify-center gap-3"><Phone className="w-5 h-5" /> Call Us Directly</a>
+                        <a href="#consultation" className="px-6 sm:px-10 py-4 sm:py-5 bg-gradient-to-r from-[#3994fa] to-[#004aad] text-white rounded-2xl font-black uppercase tracking-widest text-[11px] sm:text-[13px] hover:shadow-[0_0_60px_rgba(63,143,204,0.4)] transition-all hover:-translate-y-1 flex items-center justify-center gap-3"><Rocket className="w-5 h-5" /> Start My Social Growth</a>
+                        <a href="tel:+919756667397" className="px-6 sm:px-10 py-4 sm:py-5 border-2 border-white/10 rounded-2xl font-black uppercase tracking-widest text-[11px] sm:text-[13px] hover:bg-white/5 transition-all flex items-center justify-center gap-3 hover:-translate-y-1"><Phone className="w-5 h-5" /> Call Us Directly</a>
                     </div>
                     <div className="flex flex-wrap items-center justify-center gap-6 sm:gap-8 pt-8 border-t border-white/10">
                         {[{ v: '500+', l: 'Posts Created' }, { v: '96%', l: 'Client Satisfaction' }, { v: '3x', l: 'Avg Growth Rate' }, { v: '50+', l: 'Brands Managed' }].map((stat, i) => (
@@ -1144,6 +1144,6 @@ export default function SocialMediaHandling() {
             </section>
 
             <Footer />
-        </main >
+        </main>
     );
 }

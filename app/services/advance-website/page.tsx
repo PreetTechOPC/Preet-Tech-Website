@@ -25,7 +25,6 @@ export default function AdvancedWebsiteDevelopment() {
     const containerRef = useRef<HTMLDivElement>(null);
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [isSubmitted, setIsSubmitted] = useState(false);
-    const [isVideoOpen, setIsVideoOpen] = useState(false);
 
 
 
@@ -181,16 +180,10 @@ export default function AdvancedWebsiteDevelopment() {
                         >
                             <Link
                                 href="/case-studies/advance-website"
-                                className="px-8 sm:px-10 py-4 sm:py-4 gap-2.5 text-base sm:text-lg group bg-gradient-to-r from-[#3994fa] to-[#004aad] text-white hover:opacity-90 font-bold rounded-[2rem] transition-transform hover:-translate-y-0.5 shadow-[0_8px_30px_rgb(63,143,204,0.3)] flex items-center justify-center relative overflow-hidden focus:outline-none"
+                                className="px-6 sm:px-10 py-4 sm:py-5 bg-gradient-to-r from-[#3994fa] to-[#004aad] hover:opacity-90 text-white rounded-2xl font-black uppercase tracking-widest text-[11px] sm:text-[13px] shadow-lg shadow-[#3994fa]/25 flex items-center justify-center gap-2 transition-all hover:-translate-y-1"
                             >
-                                <span className="relative z-10 flex items-center gap-2">Case Studies <ArrowRight className="w-5 h-5" /></span>
+                                Case Studies <ArrowRight className="w-4 h-4" />
                             </Link>
-                            <button
-                                onClick={(e) => { e.preventDefault(); setIsVideoOpen(true); }}
-                                className="px-8 sm:px-10 py-4 sm:py-4 text-base sm:text-lg bg-white dark:bg-[#050608] border border-slate-200 dark:border-white/10 text-[#1a2b4b] dark:text-white hover:bg-slate-50 dark:hover:bg-white/5 font-bold rounded-[2rem] transition-transform hover:-translate-y-0.5 shadow-sm flex items-center justify-center"
-                            >
-                                Watch Demo <Play className="w-5 h-5 fill-current ml-2" strokeWidth={0} />
-                            </button>
                         </div>
 
                         {/* Floating Tech Stack Badges */}
@@ -307,14 +300,14 @@ export default function AdvancedWebsiteDevelopment() {
                                             <button
                                                 disabled={isSubmitting}
                                                 type="submit"
-                                                className="w-full py-4 text-[13px] gap-2 disabled:opacity-70 group/btn duration-300 bg-gradient-to-r from-[#3994fa] to-[#004aad] text-white hover:opacity-90 font-bold rounded-full transition-all hover:-translate-y-0.5 shadow-md hover:shadow-lg hover:shadow-[#3994fa]/20 text-center uppercase tracking-[0.1em] flex items-center justify-center"
+                                                className="w-full px-6 sm:px-10 py-4 sm:py-5 bg-gradient-to-r from-[#3994fa] to-[#004aad] hover:opacity-90 text-white rounded-2xl font-black uppercase tracking-widest text-[11px] sm:text-[13px] shadow-lg shadow-[#3994fa]/25 flex items-center justify-center gap-2 transition-all hover:-translate-y-1 disabled:opacity-70"
                                             >
                                                 {isSubmitting ? (
-                                                    <span className="flex items-center gap-2 font-mono text-xs uppercase tracking-widest">
+                                                    <span className="flex items-center gap-2">
                                                         <span className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
                                                     </span>
                                                 ) : (
-                                                    <span className="flex items-center gap-2 uppercase tracking-widest text-[13px]">
+                                                    <span className="flex items-center gap-2">
                                                         Get Free Consultation <ArrowRight className="w-4 h-4 ml-1 group-hover/btn:translate-x-1 transition-transform" />
                                                     </span>
                                                 )}
@@ -950,12 +943,32 @@ export default function AdvancedWebsiteDevelopment() {
                                 ].map((layer, i) => (
                                     <div key={i} className="flex lg:flex-col items-center gap-6 lg:gap-8 w-full group">
 
-                                        {/* Node Marker */}
-                                        <div className="shrink-0 w-14 h-14 rounded-full bg-slate-50 dark:bg-slate-900 border-[3px] border-slate-200 dark:border-slate-800 flex items-center justify-center group-hover:border-[#3994fa] transition-colors shadow-xl relative z-10">
+                                        {/* Node Marker with Synchronized Pulse */}
+                                        <motion.div 
+                                            animate={{ 
+                                                boxShadow: [
+                                                    "0 0 0px rgba(57,148,250,0)", 
+                                                    "0 0 15px rgba(57,148,250,0.3)", 
+                                                    "0 0 0px rgba(57,148,250,0)"
+                                                ],
+                                                borderColor: [
+                                                    "rgba(226, 232, 240, 1)", 
+                                                    "rgba(57, 148, 250, 0.6)", 
+                                                    "rgba(226, 232, 240, 1)"
+                                                ]
+                                            }}
+                                            transition={{ 
+                                                duration: 2.5, 
+                                                repeat: Infinity, 
+                                                delay: i * 0.6, 
+                                                ease: "linear" 
+                                            }}
+                                            className="shrink-0 w-14 h-14 rounded-full bg-slate-50 dark:bg-slate-900 border-[3px] flex items-center justify-center group-hover:border-[#3994fa] transition-colors shadow-xl relative z-10"
+                                        >
                                             <div className="w-6 h-6 rounded-full bg-slate-200 dark:bg-slate-800 group-hover:bg-[#3994fa]/20 flex items-center justify-center text-slate-500 group-hover:text-[#3994fa] transition-colors">
                                                 <layer.mainIcon className="w-3.5 h-3.5" />
                                             </div>
-                                        </div>
+                                        </motion.div>
 
                                         {/* Content Card */}
                                         <div className="flex-1 w-full bg-white dark:bg-[#0a0f16] p-6 lg:p-8 rounded-[1.5rem] md:rounded-[2rem] border border-slate-200 dark:border-white/5 shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:shadow-none group-hover:-translate-y-1 group-hover:border-[#3994fa]/30 transition-all duration-300 relative overflow-hidden">
@@ -971,7 +984,24 @@ export default function AdvancedWebsiteDevelopment() {
                                             <div className="space-y-3">
                                                 {layer.items.map((item, j) => (
                                                     <div key={j} className="flex items-center gap-3 p-3 rounded-xl bg-slate-50 dark:bg-white/[0.03] border border-slate-100 dark:border-white/5 group-hover:border-slate-300 dark:group-hover:border-white/10 transition-colors">
-                                                        <item.icon className={`w-4 h-4 ${layer.textClass}`} strokeWidth={2} />
+                                                        <motion.div
+                                                            animate={{ 
+                                                                color: ["#94a3b8", "#3994fa", "#94a3b8"],
+                                                                filter: [
+                                                                    "drop-shadow(0 0 0px rgba(57, 148, 250, 0))", 
+                                                                    "drop-shadow(0 0 10px rgba(57, 148, 250, 0.6))", 
+                                                                    "drop-shadow(0 0 0px rgba(57, 148, 250, 0))"
+                                                                ]
+                                                            }}
+                                                            transition={{ 
+                                                                duration: 2.5, 
+                                                                repeat: Infinity, 
+                                                                delay: i * 0.6 + (j * 0.1),
+                                                                ease: "easeInOut" 
+                                                            }}
+                                                        >
+                                                            <item.icon className="w-4 h-4" strokeWidth={2.5} />
+                                                        </motion.div>
                                                         <span className="text-sm font-semibold text-slate-700 dark:text-slate-300">{item.name}</span>
                                                     </div>
                                                 ))}
@@ -1101,7 +1131,7 @@ export default function AdvancedWebsiteDevelopment() {
                                         ))}
                                     </ul>
                                 </div>
-                                <a href="#lead-form" className={`w-full mt-8 py-4 text-sm ${plan.highlight ? "ring-2 ring-[#3994fa] ring-offset-2 ring-offset-slate-900" : ""} bg-gradient-to-r from-[#3994fa] to-[#004aad] text-white hover:opacity-90 font-bold rounded-full transition-all hover:-translate-y-0.5 shadow-md hover:shadow-lg hover:shadow-[#3994fa]/20 text-center uppercase tracking-[0.1em] flex items-center justify-center`}>
+                                <a href="#lead-form" className="w-full mt-8 px-6 sm:px-10 py-4 sm:py-5 bg-gradient-to-r from-[#3994fa] to-[#004aad] hover:opacity-90 text-white rounded-2xl font-black uppercase tracking-widest text-[11px] sm:text-[13px] shadow-lg shadow-[#3994fa]/25 flex items-center justify-center gap-2 transition-all hover:-translate-y-1">
                                     Get Started
                                 </a>
                             </div>
@@ -1193,13 +1223,13 @@ export default function AdvancedWebsiteDevelopment() {
                     <div
                         className="flex flex-col sm:flex-row items-center justify-center gap-6"
                     >
-                        <a href="#lead-form" className="px-8 sm:px-12 py-5 sm:py-6 gap-3 text-xs sm:text-sm group bg-gradient-to-r from-[#3994fa] to-[#004aad] text-white hover:opacity-90 font-bold rounded-full transition-all hover:-translate-y-0.5 shadow-md hover:shadow-lg hover:shadow-[#3994fa]/20 text-center uppercase tracking-[0.1em] flex items-center justify-center">
-                            <Rocket className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                        <a href="#lead-form" className="px-6 sm:px-10 py-4 sm:py-5 bg-gradient-to-r from-[#3994fa] to-[#004aad] hover:opacity-90 text-white rounded-2xl font-black uppercase tracking-widest text-[11px] sm:text-[13px] shadow-lg shadow-[#3994fa]/25 flex items-center justify-center gap-2 transition-all hover:-translate-y-1">
+                            <Rocket className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform" />
                             Start Your Project Now
                         </a>
-                        <a href="tel:+919756667397" className="px-8 sm:px-12 py-5 sm:py-6 gap-3 text-xs sm:text-sm bg-gradient-to-r from-[#3994fa] to-[#004aad] text-white hover:opacity-90 font-bold rounded-full transition-all hover:-translate-y-0.5 shadow-md hover:shadow-lg hover:shadow-[#3994fa]/20 text-center uppercase tracking-[0.1em] flex items-center justify-center">
-                            <Phone className="w-5 h-5 group-hover:hidden" />
-                            <Phone className="w-5 h-5 hidden group-hover:block animate-bounce" />
+                        <a href="tel:+919756667397" className="px-6 sm:px-10 py-4 sm:py-5 bg-gradient-to-r from-[#3994fa] to-[#004aad] hover:opacity-90 text-white rounded-2xl font-black uppercase tracking-widest text-[11px] sm:text-[13px] shadow-lg shadow-[#3994fa]/25 flex items-center justify-center gap-2 transition-all hover:-translate-y-1">
+                            <Phone className="w-4 h-4 sm:w-5 sm:h-5 group-hover:hidden" />
+                            <Phone className="w-4 h-4 sm:w-5 sm:h-5 hidden group-hover:block animate-bounce" />
                             Call Us Directly
                         </a>
                     </div>
@@ -1208,37 +1238,7 @@ export default function AdvancedWebsiteDevelopment() {
 
             <Footer />
 
-            {/* Video Modal */}
-            {isVideoOpen && (
-                <div
-                    className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/95"
-                    onClick={() => setIsVideoOpen(false)}
-                >
-                    <div
-                        className="relative w-full aspect-video max-w-4xl bg-black rounded-2xl overflow-hidden border border-white/10 shadow-2xl flex items-center justify-center will-change-transform"
-                        onClick={e => e.stopPropagation()}
-                    >
-                        <button
-                            onClick={() => setIsVideoOpen(false)}
-                            className="absolute top-4 right-4 z-[110] w-10 h-10 bg-black/60 hover:bg-black/80 border border-white/20 rounded-full flex items-center justify-center text-white transition-colors"
-                        >
-                            <X className="w-5 h-5" />
-                        </button>
 
-                        {/* YouTube Embed */}
-                        <div className="absolute inset-0 w-full h-full bg-black">
-                            <iframe
-                                src="https://www.youtube.com/embed/CBYfXlP7ppQ?autoplay=1"
-                                className="w-full h-full border-0"
-                                loading="lazy"
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                allowFullScreen
-                                title="Preet Tech OPC Private Limited Video"
-                            />
-                        </div>
-                    </div>
-                </div>
-            )}
         </main>
     );
 }

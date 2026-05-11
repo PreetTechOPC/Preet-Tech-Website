@@ -42,7 +42,6 @@ const TechnicalBackground = ({ isDarkMode }: { isDarkMode: boolean }) => (
 export default function EcoWebsiteDevelopment() {
     const [isDarkMode, setIsDarkMode] = useState(false);
     const [openFAQ, setOpenFAQ] = useState<number | null>(null);
-    const [isVideoOpen, setIsVideoOpen] = useState(false);
     const [isHovering, setIsHovering] = useState(false);
     const [portfolioIndex, setPortfolioIndex] = useState(0);
     const [isIndustryDropdownOpen, setIsIndustryDropdownOpen] = useState(false);
@@ -296,46 +295,40 @@ export default function EcoWebsiteDevelopment() {
                         <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
                             <Link
                                 href="/case-studies/eco-website"
-                                className="px-6 sm:px-8 py-3.5 sm:py-4 bg-gradient-to-r from-[#3994fa] to-[#004aad] hover:opacity-90 text-white rounded-full font-bold transition-all transform hover:-translate-y-1 shadow-lg shadow-[#3994fa]/25 flex items-center justify-center gap-2 text-sm sm:text-base cursor-pointer"
+                                className="px-6 sm:px-10 py-4 sm:py-5 bg-gradient-to-r from-[#3994fa] to-[#004aad] hover:opacity-90 text-white rounded-2xl font-black uppercase tracking-widest text-[11px] sm:text-[13px] shadow-lg shadow-[#3994fa]/25 flex items-center justify-center gap-2 transition-all hover:-translate-y-1"
                             >
                                 Case Studies <ArrowRight className="w-4 h-4" />
                             </Link>
-                            <button
-                                onClick={() => setIsVideoOpen(true)}
-                                className="px-6 sm:px-8 py-3.5 sm:py-4 bg-white/10 hover:bg-white/20 text-slate-900 dark:text-white rounded-full font-bold transition-all border border-slate-200 dark:border-white/10 flex items-center justify-center gap-2 text-sm sm:text-base cursor-pointer"
-                            >
-                                Watch Demo <Play className="w-4 h-4 fill-slate-900 dark:fill-white" />
-                            </button>
                         </div>
                     </div>
 
-                    <div id="contact" className="relative hero-content mt-8 lg:mt-0 w-full max-w-lg mx-auto lg:max-w-none scroll-mt-32">
-                        <div className="bg-white dark:bg-slate-900 p-6 sm:p-10 rounded-[2.5rem] shadow-2xl relative z-10 border border-slate-200 dark:border-slate-800">
-                            <form onSubmit={handleFormSubmit} className="space-y-6">
+                    <div id="contact" className="relative hero-content mt-8 lg:mt-0 w-full max-w-lg mx-auto lg:max-w-none scroll-mt-32 px-2 md:px-0">
+                        <div className="bg-white dark:bg-slate-900 px-4 py-6 sm:p-10 rounded-[2rem] md:rounded-[2.5rem] shadow-2xl relative z-10 border border-slate-200 dark:border-slate-800">
+                            <form onSubmit={handleFormSubmit} className="space-y-4 md:space-y-6">
                                 <div className="space-y-1.5">
-                                    <label className="text-xs font-bold text-slate-500 uppercase tracking-widest pl-1">Full Name</label>
+                                    <label className="text-[10px] md:text-xs font-bold text-slate-500 uppercase tracking-widest pl-1">Full Name</label>
                                     <div className="relative group">
-                                        <User strokeWidth={1.5} className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400 group-focus-within:text-[#3994fa] transition-colors" />
-                                        <input required type="text" value={formData.name || ''} onChange={(e) => setFormData({ ...formData, name: e.target.value })} placeholder="John Doe" className="w-full bg-slate-50/50 dark:bg-slate-950/50 border border-slate-200 dark:border-slate-800 rounded-2xl py-4 pl-12 pr-4 outline-none focus:border-[#3994fa] focus:ring-1 focus:ring-[#3994fa]/20 transition-all text-sm text-slate-700 dark:text-slate-200" />
+                                        <User strokeWidth={1.5} className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 md:w-5 md:h-5 text-slate-400 group-focus-within:text-[#3994fa] transition-colors" />
+                                        <input required type="text" value={formData.name || ''} onChange={(e) => setFormData({ ...formData, name: e.target.value })} placeholder="John Doe" className="w-full bg-slate-50/50 dark:bg-slate-950/50 border border-slate-200 dark:border-slate-800 rounded-xl md:rounded-2xl py-3 md:py-4 pl-10 md:pl-12 pr-4 outline-none focus:border-[#3994fa] focus:ring-1 focus:ring-[#3994fa]/20 transition-all text-[13px] md:text-sm text-slate-700 dark:text-slate-200" />
                                     </div>
                                 </div>
                                 <div className="space-y-1.5">
-                                    <label className="text-xs font-bold text-slate-500 uppercase tracking-widest pl-1">Business Name</label>
+                                    <label className="text-[10px] md:text-xs font-bold text-slate-500 uppercase tracking-widest pl-1">Business Name</label>
                                     <div className="relative group">
-                                        <Building2 strokeWidth={1.5} className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400 group-focus-within:text-[#3994fa] transition-colors" />
-                                        <input required type="text" value={formData.businessName || ''} onChange={(e) => setFormData({ ...formData, businessName: e.target.value })} placeholder="Your Company Ltd." className="w-full bg-slate-50/50 dark:bg-slate-950/50 border border-slate-200 dark:border-slate-800 rounded-2xl py-4 pl-12 pr-4 outline-none focus:border-[#3994fa] focus:ring-1 focus:ring-[#3994fa]/20 transition-all text-sm text-slate-700 dark:text-slate-200" />
+                                        <Building2 strokeWidth={1.5} className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 md:w-5 md:h-5 text-slate-400 group-focus-within:text-[#3994fa] transition-colors" />
+                                        <input required type="text" value={formData.businessName || ''} onChange={(e) => setFormData({ ...formData, businessName: e.target.value })} placeholder="Your Company Ltd." className="w-full bg-slate-50/50 dark:bg-slate-950/50 border border-slate-200 dark:border-slate-800 rounded-xl md:rounded-2xl py-3 md:py-4 pl-10 md:pl-12 pr-4 outline-none focus:border-[#3994fa] focus:ring-1 focus:ring-[#3994fa]/20 transition-all text-[13px] md:text-sm text-slate-700 dark:text-slate-200" />
                                     </div>
                                 </div>
-                                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6">
                                     <div className="space-y-1.5">
-                                        <label className="text-xs font-bold text-slate-500 uppercase tracking-widest pl-1">Email</label>
+                                        <label className="text-[10px] md:text-xs font-bold text-slate-500 uppercase tracking-widest pl-1">Email</label>
                                         <div className="relative group">
-                                            <Mail strokeWidth={1.5} className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400 group-focus-within:text-[#3994fa] transition-colors" />
-                                            <input required type="email" value={formData.email || ''} onChange={(e) => setFormData({ ...formData, email: e.target.value })} placeholder="john@example.com" className="w-full bg-slate-50/50 dark:bg-slate-950/50 border border-slate-200 dark:border-slate-800 rounded-2xl py-4 pl-12 pr-4 outline-none focus:border-[#3994fa] focus:ring-1 focus:ring-[#3994fa]/20 transition-all text-sm text-slate-700 dark:text-slate-200" />
+                                            <Mail strokeWidth={1.5} className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 md:w-5 md:h-5 text-slate-400 group-focus-within:text-[#3994fa] transition-colors" />
+                                            <input required type="email" value={formData.email || ''} onChange={(e) => setFormData({ ...formData, email: e.target.value })} placeholder="john@example.com" className="w-full bg-slate-50/50 dark:bg-slate-950/50 border border-slate-200 dark:border-slate-800 rounded-xl md:rounded-2xl py-3 md:py-4 pl-10 md:pl-12 pr-4 outline-none focus:border-[#3994fa] focus:ring-1 focus:ring-[#3994fa]/20 transition-all text-[13px] md:text-sm text-slate-700 dark:text-slate-200" />
                                         </div>
                                     </div>
                                     <div className="space-y-1.5">
-                                        <label className="text-xs font-bold text-slate-500 uppercase tracking-widest pl-1">Phone</label>
+                                        <label className="text-[10px] md:text-xs font-bold text-slate-500 uppercase tracking-widest pl-1">Phone</label>
                                         <PhoneInput
                                             value={formData.phone || ''}
                                             onChange={(val) => setFormData({ ...formData, phone: val })}
@@ -345,33 +338,33 @@ export default function EcoWebsiteDevelopment() {
                                     </div>
                                 </div>
                                 <div className="space-y-1.5">
-                                    <label className="text-xs font-bold text-slate-500 uppercase tracking-widest pl-1">Choose Industry</label>
+                                    <label className="text-[10px] md:text-xs font-bold text-slate-500 uppercase tracking-widest pl-1">Choose Industry</label>
                                     <div className="relative group">
-                                        <Briefcase strokeWidth={1.5} className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400 group-focus-within:text-[#3994fa] transition-colors pointer-events-none" />
-                                        <select required value={formData.industry} onChange={(e) => setFormData({ ...formData, industry: e.target.value })} className="w-full bg-slate-50/50 dark:bg-slate-950/50 border border-slate-200 dark:border-slate-800 rounded-2xl py-4 pl-12 pr-10 outline-none focus:border-[#3994fa] focus:ring-1 focus:ring-[#3994fa]/20 transition-all appearance-none text-slate-700 dark:text-slate-200 text-sm">
+                                        <Briefcase strokeWidth={1.5} className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 md:w-5 md:h-5 text-slate-400 group-focus-within:text-[#3994fa] transition-colors pointer-events-none" />
+                                        <select required value={formData.industry} onChange={(e) => setFormData({ ...formData, industry: e.target.value })} className="w-full bg-slate-50/50 dark:bg-slate-950/50 border border-slate-200 dark:border-slate-800 rounded-xl md:rounded-2xl py-3 md:py-4 pl-10 md:pl-12 pr-10 outline-none focus:border-[#3994fa] focus:ring-1 focus:ring-[#3994fa]/20 transition-all appearance-none text-slate-700 dark:text-slate-200 text-[13px] md:text-sm">
                                             <option value="" disabled>Select your industry</option>
                                             {industries.map((ind) => (
                                                 <option key={ind} value={ind}>{ind}</option>
                                             ))}
                                         </select>
-                                        <ChevronDown className="absolute right-4 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400 pointer-events-none" />
+                                        <ChevronDown className="absolute right-4 top-1/2 -translate-y-1/2 w-4 h-4 md:w-5 md:h-5 text-slate-400 pointer-events-none" />
                                     </div>
                                 </div>
                                 <div className="space-y-1.5">
-                                    <label className="text-xs font-bold text-slate-500 uppercase tracking-widest pl-1">Budget Range</label>
+                                    <label className="text-[10px] md:text-xs font-bold text-slate-500 uppercase tracking-widest pl-1">Budget Range</label>
                                     <div className="relative group">
-                                        <CreditCard strokeWidth={1.5} className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400 group-focus-within:text-[#3994fa] transition-colors pointer-events-none" />
-                                        <select required value={formData.budget} onChange={(e) => setFormData({ ...formData, budget: e.target.value })} className="w-full bg-slate-50/50 dark:bg-slate-950/50 border border-slate-200 dark:border-slate-800 rounded-2xl py-4 pl-12 pr-10 outline-none focus:border-[#3994fa] focus:ring-1 focus:ring-[#3994fa]/20 transition-all appearance-none text-slate-700 dark:text-slate-200 text-sm">
+                                        <CreditCard strokeWidth={1.5} className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 md:w-5 md:h-5 text-slate-400 group-focus-within:text-[#3994fa] transition-colors pointer-events-none" />
+                                        <select required value={formData.budget} onChange={(e) => setFormData({ ...formData, budget: e.target.value })} className="w-full bg-slate-50/50 dark:bg-slate-950/50 border border-slate-200 dark:border-slate-800 rounded-xl md:rounded-2xl py-3 md:py-4 pl-10 md:pl-12 pr-10 outline-none focus:border-[#3994fa] focus:ring-1 focus:ring-[#3994fa]/20 transition-all appearance-none text-slate-700 dark:text-slate-200 text-[13px] md:text-sm">
                                             <option value="₹4,999">₹4,999</option>
                                             <option value="₹10k - ₹25k">₹10k - ₹25k</option>
                                             <option value="₹25k - ₹50k">₹25k - ₹50k</option>
                                             <option value="₹50k+">₹50k+</option>
                                         </select>
-                                        <ChevronDown className="absolute right-4 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400 pointer-events-none" />
+                                        <ChevronDown className="absolute right-4 top-1/2 -translate-y-1/2 w-4 h-4 md:w-5 md:h-5 text-slate-400 pointer-events-none" />
                                     </div>
                                 </div>
                                 <div className="pt-2">
-                                    <button disabled={submitStatus === "loading"} type="submit" className="w-full py-4 bg-gradient-to-r from-[#3994fa] to-[#004aad] hover:opacity-90 text-white font-black rounded-2xl transition-all shadow-[0_0_20px_rgba(63,143,204,0.2)] hover:shadow-[0_0_30px_rgba(63,143,204,0.4)] text-[13px] uppercase tracking-widest flex items-center justify-center gap-2">
+                                    <button disabled={submitStatus === "loading"} type="submit" className="w-full py-3.5 md:py-4 bg-gradient-to-r from-[#3994fa] to-[#004aad] hover:opacity-90 text-white font-black rounded-xl md:rounded-2xl transition-all shadow-[0_0_20px_rgba(63,143,204,0.2)] hover:shadow-[0_0_30px_rgba(63,143,204,0.4)] text-[12px] md:text-[13px] uppercase tracking-widest flex items-center justify-center gap-2">
                                         {submitStatus === "loading" ? "Submitting..." : "Get Free Consultation"} <ArrowRight strokeWidth={2.5} className="w-4 h-4 ml-1" />
                                     </button>
                                 </div>
@@ -1494,8 +1487,14 @@ export default function EcoWebsiteDevelopment() {
                     </div>
 
                     <div className="relative">
-                        {/* Connecting Line (Desktop) */}
-                        <div className="hidden md:block absolute top-[40%] left-[10%] w-[80%] h-[2px] bg-gradient-to-r from-transparent via-slate-200 dark:via-slate-800 to-transparent -z-10" />
+                        {/* Connecting Line (Desktop) with Infinite Running Glow */}
+                        <div className="hidden md:block absolute top-[40%] left-[10%] w-[80%] h-[2px] bg-slate-200/30 dark:bg-white/5 -z-10 overflow-hidden rounded-full">
+                            <motion.div 
+                                animate={{ x: ['-100%', '200%'] }}
+                                transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
+                                className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-[#3994fa] to-transparent shadow-[0_0_15px_rgba(63,143,204,0.8)]"
+                            />
+                        </div>
 
                         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 md:gap-6 relative z-10">
                             {[
@@ -1513,9 +1512,29 @@ export default function EcoWebsiteDevelopment() {
                                             0{i + 1}
                                         </div>
 
-                                        <div className="w-20 h-20 rounded-2xl bg-slate-50 dark:bg-white/5 flex items-center justify-center mb-6 shadow-sm border border-slate-100 dark:border-white/5 group-hover:scale-110 group-hover:bg-[#3994fa] transition-all duration-300">
+                                        <motion.div 
+                                            animate={{ 
+                                                boxShadow: [
+                                                    "0 0 0px rgba(57,148,250,0)", 
+                                                    "0 0 20px rgba(57,148,250,0.4)", 
+                                                    "0 0 0px rgba(57,148,250,0)"
+                                                ],
+                                                borderColor: [
+                                                    "rgba(57,148,250,0.1)", 
+                                                    "rgba(57,148,250,0.6)", 
+                                                    "rgba(57,148,250,0.1)"
+                                                ]
+                                            }}
+                                            transition={{ 
+                                                duration: 2, 
+                                                repeat: Infinity, 
+                                                delay: i * 0.6, 
+                                                ease: "easeInOut" 
+                                            }}
+                                            className="w-20 h-20 rounded-2xl bg-slate-50 dark:bg-white/5 flex items-center justify-center mb-6 shadow-sm border border-slate-100 dark:border-white/5 group-hover:scale-110 group-hover:bg-[#3994fa] transition-all duration-300"
+                                        >
                                             <item.icon className="w-8 h-8 text-slate-400 group-hover:text-white transition-colors duration-300" />
-                                        </div>
+                                        </motion.div>
 
                                         <h4 className="text-xl font-black text-slate-900 dark:text-white mb-3 group-hover:text-[#3994fa] transition-colors">{item.title}</h4>
                                         <p className="text-sm font-medium text-slate-500 dark:text-slate-400 leading-relaxed max-w-[200px] mx-auto">
@@ -1587,54 +1606,13 @@ export default function EcoWebsiteDevelopment() {
                     <p className="text-slate-500 dark:text-slate-400 text-sm md:text-lg max-w-2xl mx-auto mb-8 leading-relaxed">
                         Join 150+ businesses, freelancers, and startups across India who trusted Preet Tech OPC Private Limited to get them online — professionally, affordably, and fast.
                     </p>
-                    <a href="#contact" className="w-full sm:w-auto px-8 sm:px-10 py-4 sm:py-5 bg-gradient-to-r from-[#3994fa] to-[#004aad] hover:opacity-95 text-white rounded-full font-black text-sm sm:text-lg uppercase tracking-widest hover:scale-105 transition-transform shadow-[0_0_40px_-10px_rgba(63,143,204,0.3)] inline-block">
-                        Get My Free Consultation Now →
+                    <a href="#contact" className="px-6 sm:px-10 py-4 sm:py-5 bg-gradient-to-r from-[#3994fa] to-[#004aad] hover:opacity-95 text-white rounded-2xl font-black uppercase tracking-widest text-[11px] sm:text-[13px] shadow-xl inline-block hover:opacity-90 transition-all hover:-translate-y-1">
+                        Get My Free Consultation Now
                     </a>
                 </div>
             </section>
 
-            {/* Video Modal */}
-            <AnimatePresence>
-                {isVideoOpen && (
-                    <motion.div
 
-
-
-
-
-                        className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/95"
-                        onClick={() => setIsVideoOpen(false)}
-                    >
-                        <motion.div
-
-
-                            exit={{ scale: 0.95, opacity: 0 }}
-
-                            className="relative w-full aspect-video max-w-4xl bg-black rounded-2xl overflow-hidden border border-white/10 shadow-2xl flex items-center justify-center will-change-transform"
-                            onClick={e => e.stopPropagation()}
-                        >
-                            <button
-                                onClick={() => setIsVideoOpen(false)}
-                                className="absolute top-4 right-4 z-[110] w-10 h-10 bg-black/60 hover:bg-black/80 border border-white/20 rounded-full flex items-center justify-center text-white transition-colors"
-                            >
-                                <X className="w-5 h-5" />
-                            </button>
-
-                            {/* YouTube Embed */}
-                            <div className="absolute inset-0 w-full h-full bg-black">
-                                <iframe
-                                    src="https://www.youtube.com/embed/CBYfXlP7ppQ?autoplay=1"
-                                    className="w-full h-full border-0"
-                                    loading="lazy"
-                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                    allowFullScreen
-                                    title="Preet Tech OPC Private Limited Video"
-                                />
-                            </div>
-                        </motion.div>
-                    </motion.div>
-                )}
-            </AnimatePresence>
 
             <Footer />
         </main >

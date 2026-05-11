@@ -225,10 +225,10 @@ export default function EcommerceDevelopmentPage() {
                             Scale your business with high-performance <strong>Ecommerce Website Development</strong>. We build custom online stores, Shopify platforms, and multi-vendor marketplaces that convert.
                         </p>
                         <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-                            <Link href="#consultation" className="px-8 py-4 bg-gradient-to-r from-[#3994fa] to-[#004aad] text-white rounded-full font-bold shadow-lg shadow-[#3994fa]/25 flex items-center justify-center gap-2">
+                            <Link href="#consultation" className="px-6 sm:px-10 py-4 sm:py-5 bg-gradient-to-r from-[#3994fa] to-[#004aad] hover:opacity-90 text-white rounded-2xl font-black uppercase tracking-widest text-[11px] sm:text-[13px] shadow-lg shadow-[#3994fa]/25 flex items-center justify-center gap-2 transition-all hover:-translate-y-1">
                                 Get Started <ArrowRight className="w-4 h-4" />
                             </Link>
-                            <Link href="/case-studies" className="px-8 py-4 bg-white/10 text-slate-900 dark:text-white rounded-full font-bold border border-slate-200 dark:border-white/10 flex items-center justify-center gap-2">
+                            <Link href="/case-studies" className="px-6 sm:px-10 py-4 sm:py-5 bg-white/10 text-slate-900 dark:text-white rounded-2xl font-black uppercase tracking-widest text-[11px] sm:text-[13px] border border-slate-200 dark:border-white/10 flex items-center justify-center gap-2 transition-all hover:-translate-y-1">
                                 View Portfolio <Layout className="w-4 h-4" />
                             </Link>
                         </div>
@@ -260,7 +260,7 @@ export default function EcommerceDevelopmentPage() {
                                         <option value="₹5L+">₹5L+</option>
                                     </select>
                                 </div>
-                                <button disabled={submitStatus === "loading"} type="submit" className="w-full py-4 bg-gradient-to-r from-[#3994fa] to-[#004aad] text-white font-black rounded-2xl transition-all shadow-lg hover:shadow-[#3994fa]/30 text-[13px] uppercase tracking-widest">
+                                <button disabled={submitStatus === "loading"} type="submit" className="w-full px-6 sm:px-10 py-4 sm:py-5 bg-gradient-to-r from-[#3994fa] to-[#004aad] hover:opacity-90 text-white rounded-2xl font-black uppercase tracking-widest text-[11px] sm:text-[13px] shadow-lg shadow-[#3994fa]/25 flex items-center justify-center gap-2 transition-all hover:-translate-y-1 disabled:opacity-70">
                                     {submitStatus === "loading" ? "Submitting..." : "Get Free Consultation"}
                                 </button>
                                 {submitStatus === 'success' && <p className="text-emerald-500 text-xs font-bold text-center">We will contact you shortly!</p>}
@@ -309,7 +309,7 @@ export default function EcommerceDevelopmentPage() {
                     <h2 className="text-5xl md:text-7xl font-black tracking-tighter">Ready to Scale Your <span className="text-[#3994fa]">Online Store?</span></h2>
                     <p className="text-slate-400 text-lg md:text-xl">Join hundreds of successful brands built by Preet Tech. Let's build your ecommerce empire today.</p>
                     <div className="flex flex-col sm:flex-row justify-center gap-6">
-                        <Link href="#consultation" className="px-12 py-6 bg-[#3994fa] text-white rounded-2xl font-black uppercase tracking-widest text-sm shadow-xl shadow-[#3994fa]/20">Start Your Project</Link>
+                        <Link href="#consultation" className="px-6 sm:px-10 py-4 sm:py-5 bg-[#3994fa] text-white rounded-2xl font-black uppercase tracking-widest text-[11px] sm:text-[13px] shadow-xl shadow-[#3994fa]/20 transition-all hover:opacity-90">Start Your Project</Link>
                     </div>
                 </div>
             </section>

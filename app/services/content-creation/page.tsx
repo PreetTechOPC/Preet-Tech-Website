@@ -48,7 +48,6 @@ export default function ContentCreation() {
         budget: 'Social Media',
     });
     const [submitStatus, setSubmitStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
-    const [isVideoOpen, setIsVideoOpen] = useState(false);
     const containerRef = useRef<HTMLDivElement>(null);
 
     const CONTENT_CASE_STUDIES: CaseStudy[] = [
@@ -163,16 +162,11 @@ export default function ContentCreation() {
                         >
                             <Link
                                 href="/case-studies/content-creation"
-                                className="px-6 sm:px-8 py-3.5 sm:py-4 bg-gradient-to-r from-[#3994fa] to-[#004aad] hover:opacity-90 text-white rounded-full font-bold transition-all transform hover:-translate-y-1 shadow-lg shadow-[#3994fa]/25 flex items-center justify-center gap-2 text-sm sm:text-base cursor-pointer"
+                                className="px-6 sm:px-10 py-4 sm:py-5 bg-gradient-to-r from-[#3994fa] to-[#004aad] hover:opacity-90 text-white rounded-2xl font-black transition-all transform hover:-translate-y-1 shadow-lg shadow-[#3994fa]/25 flex items-center justify-center gap-2 text-[11px] sm:text-[13px] uppercase tracking-widest cursor-pointer"
                             >
-                                Case Studies <ArrowRight className="w-4 h-4" />
+                                Case Studies <ArrowRight className="w-5 h-5" />
                             </Link>
-                            <button
-                                onClick={() => setIsVideoOpen(true)}
-                                className="px-6 sm:px-8 py-3.5 sm:py-4 bg-white/10 hover:bg-white/20 text-slate-900 dark:text-white rounded-full font-bold transition-all border border-slate-200 dark:border-white/10 flex items-center justify-center gap-2 text-sm sm:text-base cursor-pointer"
-                            >
-                                Watch Demo <Play className="w-4 h-4 fill-slate-900 dark:fill-white" />
-                            </button>
+
                         </motion.div>
                     </div>
 
@@ -229,8 +223,8 @@ export default function ContentCreation() {
                                     </div>
                                 </div>
                                 <div className="pt-2">
-                                    <button disabled={submitStatus === "loading"} type="submit" className="w-full py-4 bg-gradient-to-r from-[#3994fa] to-[#004aad] hover:opacity-90 text-white font-black rounded-2xl transition-all shadow-[0_0_20px_rgba(63,143,204,0.2)] hover:shadow-[0_0_30px_rgba(63,143,204,0.4)] text-[13px] uppercase tracking-widest flex items-center justify-center gap-2">
-                                        {submitStatus === "loading" ? "Submitting..." : "Get Free Consultation"} <ArrowRight strokeWidth={2.5} className="w-4 h-4 ml-1" />
+                                    <button disabled={submitStatus === "loading"} type="submit" className="w-full px-6 sm:px-10 py-4 sm:py-5 bg-gradient-to-r from-[#3994fa] to-[#004aad] hover:opacity-90 text-white font-black rounded-2xl transition-all shadow-[0_0_20px_rgba(63,143,204,0.2)] hover:shadow-[0_0_30px_rgba(63,143,204,0.4)] text-[11px] sm:text-[13px] uppercase tracking-widest flex items-center justify-center gap-2">
+                                        {submitStatus === "loading" ? "Submitting..." : "Get Free Consultation"} <ArrowRight strokeWidth={2.5} className="w-5 h-5 ml-1" />
                                     </button>
                                 </div>
                                 {submitStatus === 'success' && (
@@ -644,15 +638,13 @@ export default function ContentCreation() {
                     <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
                         <motion.button
                             onClick={() => document.getElementById('consultation')?.scrollIntoView({ behavior: 'smooth' })}
-                            
-                            
-                            className="px-12 py-6 bg-gradient-to-r from-[#3994fa] to-[#004aad] hover:opacity-95 text-white font-black rounded-2xl shadow-2xl flex items-center gap-4 uppercase tracking-[0.15em] text-sm"
+                            className="px-6 sm:px-10 py-4 sm:py-5 bg-gradient-to-r from-[#3994fa] to-[#004aad] hover:opacity-95 text-white font-black rounded-2xl shadow-2xl flex items-center gap-4 uppercase tracking-widest text-[11px] sm:text-[13px]"
                         >
                             Start Your Content Project <Plus className="w-5 h-5" />
                         </motion.button>
                         <Link
                             href="/contact"
-                            className="px-12 py-6 border-2 border-[#3994fa]/20 hover:bg-gradient-to-r hover:from-[#3994fa] hover:to-[#004aad] hover:text-white hover:border-transparent font-black rounded-2xl flex items-center gap-4 uppercase tracking-[0.15em] text-sm transition-all"
+                            className="px-6 sm:px-10 py-4 sm:py-5 border-2 border-[#3994fa]/20 hover:bg-gradient-to-r hover:from-[#3994fa] hover:to-[#004aad] hover:text-white hover:border-transparent font-black rounded-2xl flex items-center gap-4 uppercase tracking-widest text-[11px] sm:text-[13px] transition-all"
                         >
                             Schedule Free Call <Calendar className="w-5 h-5" />
                         </Link>
@@ -660,45 +652,7 @@ export default function ContentCreation() {
                 </div>
             </section>
 
-            {/* Video Modal */}
-            <AnimatePresence>
-                {isVideoOpen && (
-                    <motion.div
 
-                        
-                        exit={{ opacity: 0 }}
-                        className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/95"
-                        onClick={() => setIsVideoOpen(false)}
-                    >
-                        <motion.div
-                            
-                            
-                            exit={{ scale: 0.95, opacity: 0 }}
-                            
-                            className="relative w-full aspect-video max-w-4xl bg-black rounded-2xl overflow-hidden border border-white/10 shadow-2xl flex items-center justify-center"
-                            onClick={e => e.stopPropagation()}
-                        >
-                            <button
-                                onClick={() => setIsVideoOpen(false)}
-                                className="absolute top-4 right-4 z-[110] w-10 h-10 bg-black/60 hover:bg-black/80 border border-white/20 rounded-full flex items-center justify-center text-white transition-colors"
-                            >
-                                <X className="w-5 h-5" />
-                            </button>
-
-                            {/* YouTube Embed */}
-                            <div className="absolute inset-0 w-full h-full bg-black">
-                                <iframe
-                                    src="https://www.youtube.com/embed/CBYfXlP7ppQ?autoplay=1"
-                                    className="w-full h-full border-0"
-                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                    allowFullScreen
-                                    title="Preet Tech OPC Private Limited Video"
-                                />
-                            </div>
-                        </motion.div>
-                    </motion.div>
-                )}
-            </AnimatePresence>
 
             <Footer />
 
@@ -711,7 +665,7 @@ export default function ContentCreation() {
                 <div className="glass-morphism rounded-2xl border border-white/20 p-2 shadow-2xl pointer-events-auto">
                     <a
                         href="#consultation"
-                        className="w-full py-4 bg-gradient-to-r from-[#3994fa] to-[#004aad] text-white font-bold rounded-xl flex items-center justify-center gap-3 uppercase tracking-widest text-xs"
+                        className="w-full py-4 bg-gradient-to-r from-[#3994fa] to-[#004aad] text-white font-black rounded-xl flex items-center justify-center gap-3 uppercase tracking-widest text-[11px]"
                     >
                         Free Strategy Call <ArrowRight className="w-4 h-4" />
                     </a>

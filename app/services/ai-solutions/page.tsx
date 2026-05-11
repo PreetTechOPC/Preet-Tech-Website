@@ -74,9 +74,9 @@ export default function AISolutionsPage() {
 
                 <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center relative z-10">
                     <div className="space-y-6 lg:space-y-8 text-center lg:text-left">
-                        <span className="inline-block px-4 py-1 rounded-full bg-[#3994fa]/10 text-[#3994fa] text-[10px] md:text-xs font-bold uppercase tracking-widest border border-[#3994fa]/20">
+                        <div className="inline-flex items-center px-4 py-1 rounded-full bg-[#3994fa]/10 text-[#3994fa] text-[10px] md:text-xs font-bold uppercase tracking-widest border border-[#3994fa]/20">
                             AI Website Development & Automation
-                        </span>
+                        </div>
                         <h1 className="text-3xl sm:text-5xl lg:text-7xl font-black tracking-tighter leading-[1.1] text-slate-900 dark:text-white">
                             Future-Proof Your <br />
                             <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-purple-600 dark:to-cyan-400 italic">Business with AI.</span>
@@ -85,7 +85,7 @@ export default function AISolutionsPage() {
                             Preet Tech provides cutting-edge <strong>AI Marketing Solutions</strong> and custom AI integrations to automate your business and scale your digital presence.
                         </p>
                         <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-                            <Link href="#consultation" className="px-8 py-4 bg-gradient-to-r from-[#3994fa] to-[#004aad] text-white rounded-full font-bold shadow-lg flex items-center justify-center gap-2">Build AI Solution <ArrowRight className="w-4 h-4" /></Link>
+                            <Link href="#consultation" className="px-8 py-4 bg-gradient-to-r from-[#3994fa] to-[#004aad] text-white rounded-2xl font-bold shadow-lg flex items-center justify-center gap-2 transition-transform hover:-translate-y-0.5">Build AI Solution <ArrowRight className="w-4 h-4" /></Link>
                         </div>
                     </div>
 
@@ -94,7 +94,7 @@ export default function AISolutionsPage() {
                             <form onSubmit={handleFormSubmit} className="space-y-6">
                                 <div className="space-y-1.5"><label className="text-xs font-bold text-slate-500 uppercase tracking-widest">Full Name</label><input required type="text" value={formData.name} onChange={(e) => setFormData({ ...formData, name: e.target.value })} placeholder="John Doe" className="w-full bg-slate-50/50 dark:bg-slate-950/50 border border-slate-200 dark:border-slate-800 rounded-2xl py-4 px-6 outline-none text-sm" /></div>
                                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6"><div className="space-y-1.5"><label className="text-xs font-bold text-slate-500 uppercase tracking-widest">Email</label><input required type="email" value={formData.email} onChange={(e) => setFormData({ ...formData, email: e.target.value })} placeholder="john@example.com" className="w-full bg-slate-50/50 dark:bg-slate-950/50 border border-slate-200 dark:border-slate-800 rounded-2xl py-4 px-6 outline-none text-sm" /></div><div className="space-y-1.5"><label className="text-xs font-bold text-slate-500 uppercase tracking-widest">Phone</label><PhoneInput value={formData.phone} onChange={(val) => setFormData({ ...formData, phone: val })} countryCode={formData.countryCode} onCountryCodeChange={(code) => setFormData({ ...formData, countryCode: code })} /></div></div>
-                                <button disabled={submitStatus === "loading"} type="submit" className="w-full py-4 bg-gradient-to-r from-[#3994fa] to-purple-600 text-white font-black rounded-2xl transition-all shadow-lg text-[13px] uppercase tracking-widest">{submitStatus === "loading" ? "Submitting..." : "Get AI Consultation"}</button>
+                                <button disabled={submitStatus === "loading"} type="submit" className="w-full py-4 bg-gradient-to-r from-[#3994fa] to-purple-600 text-white font-black rounded-2xl transition-all shadow-lg text-[13px] uppercase tracking-widest hover:opacity-90">{submitStatus === "loading" ? "Submitting..." : "Get AI Consultation"}</button>
                                 {submitStatus === 'success' && <p className="text-emerald-500 text-xs font-bold text-center">AI strategy on its way!</p>}
                             </form>
                         </div>
@@ -125,9 +125,9 @@ export default function AISolutionsPage() {
             <section className="py-24 md:py-36 px-6 bg-slate-950 text-white text-center relative overflow-hidden">
                 <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-blue-900/20 via-transparent to-transparent opacity-50" />
                 <div className="max-w-4xl mx-auto relative z-10 space-y-10">
-                    <h2 className="text-5xl md:text-7xl font-black tracking-tighter">Ready to Deploy <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400">AI Intelligence?</span></h2>
+                    <h2 className="text-4xl md:text-7xl font-black tracking-tighter">Ready to Deploy <br/><span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400">AI Intelligence?</span></h2>
                     <p className="text-slate-400 text-lg md:text-xl font-medium">Preet Tech is your partner in AI transformation. Let's build the future together.</p>
-                    <Link href="#consultation" className="inline-block px-12 py-6 bg-[#3994fa] text-white rounded-2xl font-black uppercase tracking-widest text-sm shadow-xl">Get Started with AI</Link>
+                    <Link href="#consultation" className="px-6 sm:px-10 py-4 sm:py-5 bg-gradient-to-r from-[#3994fa] to-[#004aad] text-white rounded-2xl font-black uppercase tracking-widest text-[11px] sm:text-[13px] shadow-xl inline-block hover:opacity-90 transition-all hover:-translate-y-1">Get Started with AI</Link>
                 </div>
             </section>
 

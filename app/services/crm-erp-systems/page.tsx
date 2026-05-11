@@ -73,9 +73,9 @@ export default function CRMERPSystemsPage() {
 
                 <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center relative z-10">
                     <div className="space-y-6 lg:space-y-8 text-center lg:text-left">
-                        <span className="inline-block px-4 py-1 rounded-full bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300 text-[10px] md:text-xs font-bold uppercase tracking-widest border border-slate-300 dark:border-slate-700">
+                        <div className="inline-flex items-center px-4 py-1 rounded-full bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300 text-[10px] md:text-xs font-bold uppercase tracking-widest border border-slate-300 dark:border-slate-700">
                             Custom Software & ERP Development
-                        </span>
+                        </div>
                         <h1 className="text-3xl sm:text-5xl lg:text-7xl font-black tracking-tighter leading-[1.1] text-slate-900 dark:text-white">
                             Streamline Your <br />
                             <span className="text-transparent bg-clip-text bg-gradient-to-r from-slate-600 to-slate-900 dark:to-white">Business Operations.</span>
@@ -84,7 +84,7 @@ export default function CRMERPSystemsPage() {
                             Preet Tech develops custom <strong>CRM Development</strong> and <strong>ERP Solutions</strong> that help businesses automate workflows and manage growth effectively.
                         </p>
                         <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-                            <Link href="#consultation" className="px-8 py-4 bg-slate-900 dark:bg-white dark:text-slate-900 text-white rounded-full font-bold shadow-lg flex items-center justify-center gap-2">Consult an Expert <ArrowRight className="w-4 h-4" /></Link>
+                            <Link href="#consultation" className="px-8 py-4 bg-gradient-to-r from-[#3994fa] to-[#004aad] text-white rounded-2xl font-bold shadow-lg flex items-center justify-center gap-2 transition-transform hover:-translate-y-0.5">Consult an Expert <ArrowRight className="w-4 h-4" /></Link>
                         </div>
                     </div>
 
@@ -93,7 +93,7 @@ export default function CRMERPSystemsPage() {
                             <form onSubmit={handleFormSubmit} className="space-y-6">
                                 <div className="space-y-1.5"><label className="text-xs font-bold text-slate-500 uppercase tracking-widest">Full Name</label><input required type="text" value={formData.name} onChange={(e) => setFormData({ ...formData, name: e.target.value })} placeholder="John Doe" className="w-full bg-slate-50/50 dark:bg-slate-950/50 border border-slate-200 dark:border-slate-800 rounded-2xl py-4 px-6 outline-none text-sm" /></div>
                                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6"><div className="space-y-1.5"><label className="text-xs font-bold text-slate-500 uppercase tracking-widest">Email</label><input required type="email" value={formData.email} onChange={(e) => setFormData({ ...formData, email: e.target.value })} placeholder="john@example.com" className="w-full bg-slate-50/50 dark:bg-slate-950/50 border border-slate-200 dark:border-slate-800 rounded-2xl py-4 px-6 outline-none text-sm" /></div><div className="space-y-1.5"><label className="text-xs font-bold text-slate-500 uppercase tracking-widest">Phone</label><PhoneInput value={formData.phone} onChange={(val) => setFormData({ ...formData, phone: val })} countryCode={formData.countryCode} onCountryCodeChange={(code) => setFormData({ ...formData, countryCode: code })} /></div></div>
-                                <button disabled={submitStatus === "loading"} type="submit" className="w-full py-4 bg-slate-900 dark:bg-white dark:text-slate-900 text-white font-black rounded-2xl transition-all shadow-lg text-[13px] uppercase tracking-widest">{submitStatus === "loading" ? "Submitting..." : "Get Business Audit"}</button>
+                                <button disabled={submitStatus === "loading"} type="submit" className="w-full py-4 bg-slate-900 dark:bg-white dark:text-slate-900 text-white font-black rounded-2xl transition-all shadow-lg text-[13px] uppercase tracking-widest hover:opacity-90">{submitStatus === "loading" ? "Submitting..." : "Get Business Audit"}</button>
                                 {submitStatus === 'success' && <p className="text-emerald-500 text-xs font-bold text-center">We'll help you automate!</p>}
                             </form>
                         </div>
@@ -123,9 +123,9 @@ export default function CRMERPSystemsPage() {
 
             <section className="py-24 md:py-36 px-6 bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-white text-center relative overflow-hidden">
                 <div className="max-w-4xl mx-auto relative z-10 space-y-10">
-                    <h2 className="text-5xl md:text-7xl font-black tracking-tighter">Ready to <span className="text-slate-500">Automate Your Success?</span></h2>
-                    <p className="text-slate-500 dark:text-slate-400 text-lg md:text-xl">Stop managing spreadsheets. Start managing growth with Preet Tech.</p>
-                    <Link href="#consultation" className="inline-block px-12 py-6 bg-slate-900 dark:bg-white dark:text-slate-900 text-white rounded-2xl font-black uppercase tracking-widest text-sm shadow-xl">Start Your Transformation</Link>
+                    <h2 className="text-4xl md:text-7xl font-black tracking-tighter">Ready to <br/><span className="text-slate-500">Automate Your Success?</span></h2>
+                    <p className="text-slate-500 dark:text-slate-400 text-lg md:text-xl font-medium">Stop managing spreadsheets. Start managing growth with Preet Tech.</p>
+                    <Link href="#consultation" className="px-6 sm:px-10 py-4 sm:py-5 bg-gradient-to-r from-[#3994fa] to-[#004aad] text-white rounded-2xl font-black uppercase tracking-widest text-[11px] sm:text-[13px] shadow-xl inline-block hover:opacity-90 transition-all hover:-translate-y-1">Start Your Transformation</Link>
                 </div>
             </section>
 

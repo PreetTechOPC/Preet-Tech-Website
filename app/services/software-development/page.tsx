@@ -169,7 +169,6 @@ const SoftwareDevelopmentPage = () => {
     const [expandedSolution, setExpandedSolution] = useState<number | null>(null);
     const [activeIndex, setActiveIndex] = useState(0);
     const [isDragging, setIsDragging] = useState(false);
-    const [isVideoModalOpen, setIsVideoModalOpen] = useState(false);
 
     const SW_CASE_STUDIES: CaseStudy[] = [
         {
@@ -349,19 +348,11 @@ const SoftwareDevelopmentPage = () => {
                         <div className="flex flex-wrap items-center gap-4 mb-10">
                             <Link
                                 href="/case-studies/software-development"
-                                className="flex items-center gap-2 px-8 py-3.5 bg-gradient-to-r from-[#3994fa] to-[#004aad] hover:opacity-90 text-white font-bold rounded-full transition-all shadow-lg shadow-[#3994fa]/30 group text-sm md:text-base"
+                                className="px-6 sm:px-10 py-4 sm:py-5 bg-gradient-to-r from-[#3994fa] to-[#004aad] hover:opacity-90 text-white rounded-2xl font-black uppercase tracking-widest text-[11px] sm:text-[13px] shadow-lg shadow-[#3994fa]/25 flex items-center justify-center gap-2 transition-all hover:-translate-y-1"
                             >
                                 Case Studies <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                             </Link>
-                            <button
-                                onClick={() => setIsVideoModalOpen(true)}
-                                className="flex items-center gap-2 px-8 py-3.5 bg-white/10 hover:bg-white/20 text-slate-900 dark:text-white font-bold rounded-full transition-all border border-slate-200 dark:border-white/10 group text-sm md:text-base"
-                            >
-                                Watch Demo
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5">
-                                    <path fillRule="evenodd" d="M4.5 5.653c0-1.426 1.529-2.33 2.779-1.643l11.54 6.348c1.295.712 1.295 2.573 0 3.285L7.28 19.991c-1.25.687-2.779-.217-2.779-1.643V5.653z" clipRule="evenodd" />
-                                </svg>
-                            </button>
+
                         </div>
 
                         <div className="flex flex-wrap items-center gap-8 pt-8 border-t border-slate-200 dark:border-white/5">
@@ -435,7 +426,7 @@ const SoftwareDevelopmentPage = () => {
                                 </select>
                                 <textarea placeholder="Project Description" rows={3} value={formData.description || ''} onChange={(e) => setFormData({ ...formData, description: e.target.value })} className="w-full bg-slate-50 dark:bg-black/40 border border-slate-200 dark:border-white/10 rounded-2xl py-4 px-6 text-sm text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-brand-cyan/50 transition-all font-medium resize-none"></textarea>
 
-                                <button disabled={submitStatus === "loading"} type="submit" className="w-full group bg-gradient-to-r from-[#3994fa] to-[#004aad] hover:opacity-95 text-white rounded-2xl py-5 font-black text-xs uppercase tracking-[0.2em] transition-all shadow-xl shadow-[#3994fa]/20 flex items-center justify-center gap-2">
+                                <button disabled={submitStatus === "loading"} type="submit" className="w-full px-6 sm:px-10 py-4 sm:py-5 bg-gradient-to-r from-[#3994fa] to-[#004aad] hover:opacity-90 text-white rounded-2xl font-black uppercase tracking-widest text-[11px] sm:text-[13px] shadow-lg shadow-[#3994fa]/25 flex items-center justify-center gap-2 transition-all hover:-translate-y-1 disabled:opacity-70">
                                     {submitStatus === "loading" ? "Submitting..." : "Request Free Software Strategy Call"} <ArrowRight className="w-4 h-4" />
                                 </button>
                                 {submitStatus === 'success' && <p className="text-emerald-500 text-[10px] font-black uppercase text-center mt-2 tracking-widest">Success! We will be in touch.</p>}
@@ -857,7 +848,7 @@ const SoftwareDevelopmentPage = () => {
                     />
 
                     <div className="flex flex-wrap justify-center gap-6 mt-12">
-                        <Link href="#strategy-form" className="group relative bg-gradient-to-r from-[#3994fa] to-[#004aad] hover:opacity-95 text-white rounded-2xl px-12 py-5 font-black text-xs uppercase tracking-[0.2em] transition-all hover:scale-105 active:scale-95 shadow-2xl shadow-[#3994fa]/20">
+                        <Link href="#strategy-form" className="px-6 sm:px-10 py-4 sm:py-5 bg-gradient-to-r from-[#3994fa] to-[#004aad] hover:opacity-90 text-white rounded-2xl font-black uppercase tracking-widest text-[11px] sm:text-[13px] shadow-lg shadow-[#3994fa]/25 flex items-center justify-center gap-2 transition-all hover:-translate-y-1">
                             Book Free Strategy Call
                         </Link>
                     </div>
@@ -895,54 +886,17 @@ const SoftwareDevelopmentPage = () => {
                     </p>
 
                     <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
-                        <Link href="#strategy-form" className="w-full sm:w-auto px-12 py-6 bg-gradient-to-r from-[#3994fa] to-[#004aad] hover:opacity-95 text-white rounded-2xl font-black text-xs uppercase tracking-[0.2em] transition-all shadow-xl shadow-[#3994fa]/20 flex items-center justify-center">
+                        <Link href="#strategy-form" className="w-full sm:w-auto px-6 py-4 sm:px-10 sm:py-5 bg-gradient-to-r from-[#3994fa] to-[#004aad] hover:opacity-95 text-white rounded-2xl font-black text-[11px] sm:text-[13px] uppercase tracking-[0.2em] transition-all shadow-xl shadow-[#3994fa]/20 flex items-center justify-center">
                             Start Your Software Project
                         </Link>
-                        <Link href="/contact" className="w-full sm:w-auto px-12 py-6 bg-white/5 border border-[#3994fa]/20 text-white hover:bg-gradient-to-r hover:from-[#3994fa] hover:to-[#004aad] hover:border-transparent rounded-2xl font-black text-xs uppercase tracking-[0.2em] transition-all flex items-center justify-center">
+                        <Link href="/contact" className="w-full sm:w-auto px-6 py-4 sm:px-10 sm:py-5 bg-white/5 border border-[#3994fa]/20 text-white hover:bg-gradient-to-r hover:from-[#3994fa] hover:to-[#004aad] hover:border-transparent rounded-2xl font-black text-[11px] sm:text-[13px] uppercase tracking-[0.2em] transition-all flex items-center justify-center">
                             Talk to Our Experts
                         </Link>
                     </div>
                 </div>
             </section>
 
-            {/* Video Modal */}
-            <AnimatePresence>
-                {isVideoModalOpen && (
-                    <motion.div
 
-                        
-                        exit={{ opacity: 0 }}
-                        className="fixed inset-0 z-[100] flex items-center justify-center bg-black/80 backdrop-blur-sm p-4 md:p-10"
-                        onClick={() => setIsVideoModalOpen(false)}
-                    >
-                        <motion.div
-                            
-                            
-                            exit={{ scale: 0.95, opacity: 0 }}
-                            className="relative w-full max-w-5xl aspect-video bg-black rounded-2xl overflow-hidden shadow-2xl border border-white/20"
-                            onClick={(e) => e.stopPropagation()}
-                        >
-                            <button
-                                onClick={() => setIsVideoModalOpen(false)}
-                                className="absolute top-4 right-4 z-10 w-10 h-10 bg-black/40 hover:bg-black/80 backdrop-blur-md rounded-full flex items-center justify-center text-white transition-all border border-white/20"
-                            >
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-5 h-5">
-                                    <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
-                                </svg>
-                            </button>
-                            <video
-                                className="w-full h-full object-cover"
-                                autoPlay
-                                controls
-                                playsInline
-                            >
-                                <source src="/videos/hero-mobile.mp4" type="video/mp4" />
-                                Your browser does not support the video tag.
-                            </video>
-                        </motion.div>
-                    </motion.div>
-                )}
-            </AnimatePresence>
 
             <Footer />
         </main>

@@ -147,7 +147,6 @@ export default function AppDevelopmentPage() {
     const [mounted, setMounted] = useState(false);
     const [openFAQ, setOpenFAQ] = useState<number | null>(null);
     const [expandedSolutions, setExpandedSolutions] = useState<number | null>(null);
-    const [isVideoOpen, setIsVideoOpen] = useState(false);
     const containerRef = useRef<HTMLDivElement>(null);
 
     const APP_CASE_STUDIES: CaseStudy[] = [
@@ -441,16 +440,11 @@ export default function AppDevelopmentPage() {
                         <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
                             <Link
                                 href="/case-studies/app-development"
-                                className="px-6 sm:px-8 py-3.5 sm:py-4 bg-gradient-to-r from-[#3994fa] to-[#004aad] text-white rounded-full font-bold transition-all transform hover:-translate-y-1 shadow-lg shadow-[#3994fa]/25 flex items-center justify-center gap-2 text-sm sm:text-base cursor-pointer hover:opacity-90"
+                                className="px-6 sm:px-10 py-4 sm:py-5 bg-gradient-to-r from-[#3994fa] to-[#004aad] hover:opacity-90 text-white rounded-2xl font-black uppercase tracking-widest text-[11px] sm:text-[13px] shadow-lg shadow-[#3994fa]/25 flex items-center justify-center gap-2 transition-all hover:-translate-y-1"
                             >
                                 Case Studies <ArrowRight className="w-4 h-4" />
                             </Link>
-                            <button
-                                onClick={() => setIsVideoOpen(true)}
-                                className="px-6 sm:px-8 py-3.5 sm:py-4 bg-white/10 hover:bg-white/20 text-slate-900 dark:text-white rounded-full font-bold transition-all border border-slate-200 dark:border-white/10 flex items-center justify-center gap-2 text-sm sm:text-base cursor-pointer"
-                            >
-                                Watch Demo <Play className="w-4 h-4 fill-slate-900 dark:fill-white" />
-                            </button>
+
                         </div>
                     </div>
 
@@ -521,7 +515,7 @@ export default function AppDevelopmentPage() {
                                     </div>
                                 </div>
                                 <div className="pt-2">
-                                    <button disabled={submitStatus === "loading"} type="submit" className="w-full py-4 bg-gradient-to-r from-[#3994fa] to-[#004aad] hover:opacity-90 text-white font-black rounded-2xl transition-all shadow-[0_0_20px_rgba(63,143,204,0.2)] hover:shadow-[0_0_30px_rgba(63,143,204,0.4)] text-[13px] uppercase tracking-widest flex items-center justify-center gap-2">
+                                    <button disabled={submitStatus === "loading"} type="submit" className="w-full px-6 sm:px-10 py-4 sm:py-5 bg-gradient-to-r from-[#3994fa] to-[#004aad] hover:opacity-90 text-white rounded-2xl font-black uppercase tracking-widest text-[11px] sm:text-[13px] shadow-lg shadow-[#3994fa]/25 flex items-center justify-center gap-2 transition-all hover:-translate-y-1 disabled:opacity-70">
                                         {submitStatus === "loading" ? "Submitting..." : "Get Free Consultation"} <ArrowRight strokeWidth={2.5} className="w-4 h-4 ml-1" />
                                     </button>
                                 </div>
@@ -755,10 +749,10 @@ export default function AppDevelopmentPage() {
                         Join modern startups and enterprise leaders who trust Preet Tech OPC Private Limited for robust, scalable, and long-term mobile success.
                     </p>
                     <div className="flex flex-col sm:flex-row justify-center items-center gap-6">
-                        <a href="#consultation" className="w-full sm:w-auto px-12 py-6 bg-gradient-to-r from-[#3994fa] to-[#004aad] hover:opacity-95 text-white rounded-2xl font-black uppercase tracking-widest text-sm hover:scale-105 transition-all shadow-xl shadow-[#3994fa]/25 flex items-center justify-center gap-3">
+                        <a href="#consultation" className="w-full sm:w-auto px-6 py-4 sm:px-10 sm:py-5 bg-gradient-to-r from-[#3994fa] to-[#004aad] hover:opacity-95 text-white rounded-2xl font-black uppercase tracking-widest text-[11px] sm:text-[13px] hover:scale-105 transition-all shadow-xl shadow-[#3994fa]/25 flex items-center justify-center gap-3">
                             Start Your Project Today <Rocket className="w-5 h-5" />
                         </a>
-                        <Link href="/contact" className="w-full sm:w-auto px-12 py-6 border border-slate-300 dark:border-white/20 hover:bg-gradient-to-r hover:from-[#3994fa] hover:to-[#004aad] hover:text-white hover:border-transparent text-slate-900 dark:text-white rounded-2xl font-bold uppercase tracking-widest text-sm transition-all flex items-center justify-center gap-3 active:scale-95 shadow-sm hover:shadow-[#3994fa]/20">
+                        <Link href="/contact" className="w-full sm:w-auto px-6 py-4 sm:px-10 sm:py-5 border border-slate-300 dark:border-white/20 hover:bg-gradient-to-r hover:from-[#3994fa] hover:to-[#004aad] hover:text-white hover:border-transparent text-slate-900 dark:text-white rounded-2xl font-black uppercase tracking-widest text-[11px] sm:text-[13px] transition-all flex items-center justify-center gap-3 active:scale-95 shadow-sm hover:shadow-[#3994fa]/20">
                             Schedule Free Call <Phone className="w-5 h-5" />
                         </Link>
                     </div>
@@ -767,45 +761,7 @@ export default function AppDevelopmentPage() {
 
             <Footer />
 
-            {/* Video Modal */}
-            <AnimatePresence>
-                {isVideoOpen && (
-                    <motion.div
 
-                        
-                        exit={{ opacity: 0 }}
-                        className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/95"
-                        onClick={() => setIsVideoOpen(false)}
-                    >
-                        <motion.div
-                            
-                            
-                            exit={{ scale: 0.95, opacity: 0 }}
-                            
-                            className="relative w-full aspect-video max-w-4xl bg-black rounded-2xl overflow-hidden border border-white/10 shadow-2xl flex items-center justify-center"
-                            onClick={e => e.stopPropagation()}
-                        >
-                            <button
-                                onClick={() => setIsVideoOpen(false)}
-                                className="absolute top-4 right-4 z-[110] w-10 h-10 bg-black/60 hover:bg-black/80 border border-white/20 rounded-full flex items-center justify-center text-white transition-colors"
-                            >
-                                <X className="w-5 h-5" />
-                            </button>
-
-                            {/* YouTube Embed */}
-                            <div className="absolute inset-0 w-full h-full bg-black">
-                                <iframe
-                                    src="https://www.youtube.com/embed/CBYfXlP7ppQ?autoplay=1"
-                                    className="w-full h-full border-0"
-                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                    allowFullScreen
-                                    title="Preet Tech OPC Private Limited Video"
-                                />
-                            </div>
-                        </motion.div>
-                    </motion.div>
-                )}
-            </AnimatePresence>
         </main>
     );
 }

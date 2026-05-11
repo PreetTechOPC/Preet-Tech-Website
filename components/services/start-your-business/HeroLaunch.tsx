@@ -19,7 +19,6 @@ import PhoneInput from '@/components/PhoneInput';
 
 const HeroLaunch = () => {
     const [formStatus, setFormStatus] = useState<'idle' | 'submitting' | 'success'>('idle');
-    const [isVideoOpen, setIsVideoOpen] = useState(false);
     const [formData, setFormData] = useState({
         name: '',
         businessIdea: '',
@@ -86,9 +85,6 @@ const HeroLaunch = () => {
                 {/* Left Side: Content */}
                 <div className="lg:col-span-7">
                     <motion.div
-                        
-                        
-                        
                         className="inline-flex items-center px-4 py-1.5 rounded-full bg-[#3994fa]/5 border border-[#3994fa]/10 dark:bg-[#3994fa]/10 dark:border-[#3994fa]/20 mb-8"
                     >
                         <span className="text-[#3994fa] dark:text-[#3994fa] text-[10px] font-bold uppercase tracking-widest">
@@ -97,9 +93,6 @@ const HeroLaunch = () => {
                     </motion.div>
 
                     <h1
-                        
-                        
-                        
                         className="text-[44px] sm:text-6xl md:text-7xl lg:text-[76px] font-black text-slate-900 dark:text-white leading-[1.05] tracking-tight mb-8"
                     >
                         From Idea To <br />
@@ -107,9 +100,6 @@ const HeroLaunch = () => {
                     </h1>
 
                     <p
-                        
-                        
-                        
                         className="text-slate-600 dark:text-slate-400 text-lg md:text-xl font-medium leading-relaxed mb-10 max-w-2xl"
                     >
                         We architect, engineer, and launch your business from the ground up. Registration, branding, technology, and marketing — all synchronized for cinematic impact.
@@ -125,31 +115,17 @@ const HeroLaunch = () => {
                             Case Studies
                             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                         </Link>
-                        <button
-                            onClick={() => setIsVideoOpen(true)}
-                            className="px-8 py-4 bg-white/10 dark:bg-white/5 border border-slate-200 dark:border-white/10 hover:bg-slate-50 dark:hover:bg-white/10 text-slate-900 dark:text-white font-bold rounded-2xl transition-all flex items-center justify-center gap-3 group cursor-pointer"
-                        >
-                            Watch Demo
-                            <div className="w-6 h-6 rounded-full bg-[#3994fa]/10 flex items-center justify-center">
-                                <Play className="w-3 h-3 fill-[#3994fa] text-[#3994fa]" />
-                            </div>
-                        </button>
                     </motion.div>
                 </div>
 
                 {/* Right Side: Form Card */}
                 <motion.div
-                    
-                    
-                    
                     className="lg:col-span-5 relative"
                 >
                     <div className="relative bg-white dark:bg-slate-900/50 backdrop-blur-md rounded-[2.5rem] p-8 md:p-10 shadow-2xl shadow-slate-200/50 dark:shadow-none border border-slate-100 dark:border-white/5">
                         <div className="relative z-10">
                             {formStatus === 'success' ? (
                                 <motion.div
-                                    
-                                    
                                     className="py-16 text-center space-y-6"
                                 >
                                     <div className="w-20 h-20 bg-emerald-500/10 rounded-full flex items-center justify-center mx-auto mb-6">
@@ -234,40 +210,6 @@ const HeroLaunch = () => {
                     </div>
                 </motion.div>
             </div>
-
-            {/* Video Modal Popup */}
-            <AnimatePresence>
-                {isVideoOpen && (
-                    <motion.div
-                        
-                        
-                        exit={{ opacity: 0 }}
-                        className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/90 backdrop-blur-md"
-                        onClick={() => setIsVideoOpen(false)}
-                    >
-                        <motion.div
-                            
-                            
-                            exit={{ scale: 0.9, opacity: 0 }}
-                            className="relative w-full max-w-5xl aspect-video rounded-3xl overflow-hidden shadow-2xl"
-                            onClick={(e) => e.stopPropagation()}
-                        >
-                            <button
-                                onClick={() => setIsVideoOpen(false)}
-                                className="absolute top-6 right-6 z-10 p-2 bg-white/10 hover:bg-white/20 text-white rounded-full transition-colors"
-                            >
-                                <X className="w-6 h-6" />
-                            </button>
-                            <video
-                                src="/videos/hero-mobile.mp4"
-                                autoPlay
-                                controls
-                                className="w-full h-full object-cover"
-                            />
-                        </motion.div>
-                    </motion.div>
-                )}
-            </AnimatePresence>
         </section>
     );
 };

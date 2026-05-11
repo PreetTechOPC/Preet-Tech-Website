@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
 import { Plus_Jakarta_Sans, Outfit, JetBrains_Mono } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 import ClientLayout from "./client-layout"; // Separate client logic like Lenis
 import { ThemeProvider } from "../components/theme-provider";
+
 
 const jakarta = Plus_Jakarta_Sans({
     subsets: ["latin"],
@@ -113,10 +115,26 @@ export default function RootLayout({
     return (
         <html lang="en" className={`${jakarta.variable} ${outfit.variable} ${jetbrains.variable}`} suppressHydrationWarning>
             <head>
+
                 <script
                     type="application/ld+json"
                     dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaOrg) }}
                 />
+                {/* Google tag (gtag.js) */}
+                <Script
+                    src="https://www.googletagmanager.com/gtag/js?id=G-91BHT2LYNW"
+                    strategy="afterInteractive"
+                />
+                <Script id="google-analytics" strategy="afterInteractive">
+                    {`
+                      window.dataLayer = window.dataLayer || [];
+                      function gtag(){dataLayer.push(arguments);}
+                      gtag('js', new Date());
+
+                      gtag('config', 'G-91BHT2LYNW');
+                    `}
+                </Script>
+
             </head>
             <body className="antialiased font-sans bg-background text-foreground selection:bg-brand-medium/30 transition-colors duration-300" suppressHydrationWarning>
                 <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false}>

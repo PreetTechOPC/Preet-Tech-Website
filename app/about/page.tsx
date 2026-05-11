@@ -54,32 +54,121 @@ const AboutHero = memo(() => {
                 </div>
             </motion.div>
 
-            <div className="max-w-7xl mx-auto px-6 relative z-10 text-center flex flex-col items-center">
-                <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-brand-medium/10 text-brand-medium text-[10px] font-black uppercase tracking-[0.4em] mb-8 border border-brand-medium/20 backdrop-blur-md">
-                    <Sparkles className="w-3 h-3" />
-                    Innovation Meets Execution
-                </span>
+            {/* Floating Badges & Accents (Desktop) */}
+            <div className="absolute inset-0 z-10 pointer-events-none hidden xl:block overflow-hidden">
+                <motion.div 
+                    animate={{ y: [0, -20, 0], rotate: [0, 5, 0] }}
+                    transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+                    className="absolute top-[25%] left-[8%] glass-morphism p-5 rounded-[2rem] border border-brand-medium/20 shadow-2xl flex items-center gap-4 bg-white/5 backdrop-blur-xl"
+                >
+                    <div className="w-12 h-12 rounded-2xl bg-brand-medium/10 flex items-center justify-center text-brand-medium">
+                        <Globe className="w-6 h-6" />
+                    </div>
+                    <div>
+                        <p className="text-[10px] font-black uppercase tracking-widest text-slate-500 mb-0.5">Global Reach</p>
+                        <p className="text-sm font-black text-foreground">Worldwide Focus</p>
+                    </div>
+                </motion.div>
 
-                <h1 className="text-4xl md:text-6xl lg:text-7xl font-black leading-[1] md:leading-[1.1] uppercase tracking-tighter mb-8 bg-clip-text text-transparent bg-gradient-to-b from-foreground via-foreground to-foreground/40">
-                    Your Innovative <br className="hidden md:block" />
-                    <span className="text-brand-medium">IT Solutions</span> Company <br className="hidden md:block" />
-                    for a Smarter Future
-                </h1>
+                <motion.div 
+                    animate={{ y: [0, 20, 0], rotate: [0, -5, 0] }}
+                    transition={{ duration: 7, repeat: Infinity, delay: 1, ease: "easeInOut" }}
+                    className="absolute bottom-[30%] right-[8%] glass-morphism p-5 rounded-[2rem] border border-brand-cyan/20 shadow-2xl flex items-center gap-4 bg-white/5 backdrop-blur-xl"
+                >
+                    <div className="w-12 h-12 rounded-2xl bg-brand-cyan/10 flex items-center justify-center text-brand-cyan">
+                        <Cpu className="w-6 h-6" />
+                    </div>
+                    <div>
+                        <p className="text-[10px] font-black uppercase tracking-widest text-slate-500 mb-0.5">Innovation</p>
+                        <p className="text-sm font-black text-foreground">AI Powered</p>
+                    </div>
+                </motion.div>
 
-                <p className="text-lg md:text-2xl text-slate-500 dark:text-slate-400 max-w-2xl leading-relaxed font-medium mb-12">
-                    Preet Tech OPC Private Limited is an <strong className="text-foreground dark:text-white">innovative IT solutions company</strong> delivering scalable, modern, and performance-driven <strong className="text-foreground dark:text-white">digital transformation services</strong>, designed to elevate your business.
-                </p>
-
-                <div className="flex flex-wrap justify-center gap-6">
-                    <Link href="/contact" className="px-8 py-3.5 rounded-full bg-brand-medium hover:bg-brand-medium/90 text-white text-[11px] font-bold uppercase tracking-[0.2em] flex items-center justify-center gap-2 hover:shadow-lg hover:shadow-brand-medium/20 hover:-translate-y-0.5 transition-all duration-300">
-                        Work With Us <ArrowRight className="w-4 h-4" />
-                    </Link>
-                </div>
+                {/* Micro tech dots/accents */}
+                <motion.div 
+                    animate={{ opacity: [0.2, 0.5, 0.2] }}
+                    transition={{ duration: 3, repeat: Infinity }}
+                    className="absolute top-[40%] right-[15%] text-brand-medium/30"
+                >
+                    <Sparkles className="w-16 h-16" />
+                </motion.div>
+                <motion.div 
+                    animate={{ opacity: [0.1, 0.3, 0.1], scale: [1, 1.2, 1] }}
+                    transition={{ duration: 5, repeat: Infinity }}
+                    className="absolute bottom-[20%] left-[15%] text-brand-cyan/20"
+                >
+                    <Zap className="w-20 h-20" />
+                </motion.div>
             </div>
+
+            {/* Mobile Floating Accents */}
+            <div className="absolute inset-0 z-10 pointer-events-none xl:hidden overflow-hidden">
+                <motion.div 
+                    animate={{ y: [0, -15, 0], opacity: [0.2, 0.5, 0.2], rotate: [0, 10, 0] }}
+                    transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+                    className="absolute top-[15%] left-[5%] text-brand-medium/30"
+                >
+                    <Globe className="w-10 h-10" />
+                </motion.div>
+                <motion.div 
+                    animate={{ y: [0, 15, 0], opacity: [0.15, 0.4, 0.15], rotate: [0, -10, 0] }}
+                    transition={{ duration: 7, repeat: Infinity, delay: 1, ease: "easeInOut" }}
+                    className="absolute top-[45%] right-[-5%] text-brand-cyan/20"
+                >
+                    <Cpu className="w-16 h-16" />
+                </motion.div>
+                
+                {/* Mobile background depth blob */}
+                <div className="absolute top-[20%] left-1/2 -translate-x-1/2 w-full h-1/2 bg-brand-medium/5 blur-[100px] rounded-full pointer-events-none" />
+            </div>
+
+            <div className="max-w-7xl mx-auto px-6 relative z-20 text-center flex flex-col items-center">
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8 }}
+                    className="flex flex-col items-center"
+                >
+                    <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-brand-medium/10 text-brand-medium text-[10px] font-black uppercase tracking-[0.4em] mb-8 border border-brand-medium/20 backdrop-blur-md">
+                        <Sparkles className="w-3 h-3" />
+                        Innovation Meets Execution
+                    </span>
+
+                    <h1 className="text-4xl md:text-6xl lg:text-7xl font-black leading-[1] md:leading-[1.1] uppercase tracking-tighter mb-8 bg-clip-text text-transparent bg-gradient-to-b from-foreground via-foreground to-foreground/40">
+                        Building the Future of <br className="hidden md:block" />
+                        <span className="text-brand-medium">Digital Innovation</span>
+                    </h1>
+
+                    <p className="text-lg md:text-2xl text-slate-500 dark:text-slate-400 max-w-3xl leading-relaxed font-medium mb-12">
+                        We are a <strong className="text-foreground dark:text-white">global-focused digital innovation company</strong> empowering startups and businesses with <strong className="text-foreground dark:text-white">scalable websites</strong>, intelligent software solutions, and modern digital transformation strategies built for the future.
+                    </p>
+
+                    <div className="flex flex-wrap justify-center gap-6">
+                        <Link href="/contact" className="px-8 py-3.5 rounded-full bg-brand-medium hover:bg-brand-medium/90 text-white text-[11px] font-bold uppercase tracking-[0.2em] flex items-center justify-center gap-2 hover:shadow-lg hover:shadow-brand-medium/20 hover:-translate-y-0.5 transition-all duration-300">
+                            Work With Us <ArrowRight className="w-4 h-4" />
+                        </Link>
+                    </div>
+                </motion.div>
+            </div>
+
+            {/* Scroll Indicator (Mobile) */}
+            <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: [0, 1, 0.5, 1] }}
+                transition={{ delay: 2, duration: 2, repeat: Infinity }}
+                className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 xl:hidden pointer-events-none"
+            >
+                <div className="w-5 h-8 rounded-full border-2 border-slate-400/30 flex justify-center p-1">
+                    <motion.div 
+                        animate={{ y: [0, 12, 0] }}
+                        transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+                        className="w-1 h-2 bg-brand-medium rounded-full"
+                    />
+                </div>
+            </motion.div>
         </section>
     );
 });
-
 AboutHero.displayName = 'AboutHero';
 
 export default function AboutPage() {
@@ -157,14 +246,14 @@ export default function AboutPage() {
             <section className="py-16 md:py-24 px-6 relative overflow-hidden bg-slate-50 dark:bg-[#0b101b]">
                 <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_30%,rgba(63,143,204,0.05),transparent_70%)]" />
                 <div className="max-w-6xl mx-auto relative z-10">
-                    <div className="text-center mb-16">
-                        <span className="text-brand-medium font-black uppercase tracking-[0.4em] text-[10px] mb-6 block">Visual Narrative</span>
-                        <h2 className="text-3xl md:text-5xl font-black tracking-tighter uppercase leading-tight mb-4 text-foreground dark:text-white">
-                            The Preet Tech OPC Private Limited <br /> <span className="text-brand-medium">Experience.</span>
+                    <div className="text-center mb-10 md:mb-16 px-4">
+                        <span className="text-brand-medium font-black uppercase tracking-[0.4em] text-[10px] mb-4 block">Visual Narrative</span>
+                        <h2 className="text-2xl md:text-5xl font-black tracking-tighter uppercase leading-[1.1] mb-4 text-foreground dark:text-white">
+                            The Preet Tech OPC <br className="md:hidden" /> Private Limited <br /> <span className="text-brand-medium">Experience.</span>
                         </h2>
                     </div>
 
-                    <div className="relative aspect-video rounded-[2.5rem] overflow-hidden bg-slate-200 dark:bg-slate-800 border border-slate-200 dark:border-white/10 shadow-2xl group">
+                    <div className="relative aspect-video rounded-[2rem] md:rounded-[2.5rem] overflow-hidden bg-slate-200 dark:bg-slate-800 border border-slate-200 dark:border-white/10 shadow-2xl group mx-2 md:mx-0">
                         <div className="absolute inset-0 pointer-events-none scale-[1.05]">
                             <iframe
                                 className="w-full h-full"
@@ -176,23 +265,27 @@ export default function AboutPage() {
                         </div>
                         <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-all duration-500" />
                         <div className="absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-black/40 to-transparent pointer-events-none" />
-                        <div className="absolute inset-x-0 bottom-0 p-8 md:p-12 flex justify-between items-end bg-gradient-to-t from-black/80 to-transparent pointer-events-none">
-                            <div className="text-white">
-                                <p className="text-[10px] font-black uppercase tracking-widest text-brand-medium mb-1">Visual Narrative</p>
-                                <h4 className="text-xl md:text-2xl font-black uppercase tracking-tighter">The Preet Tech OPC Private Limited Experience</h4>
+                        
+                        {/* Overlay Content - Adjusted for Mobile */}
+                        <div className="absolute inset-x-0 bottom-0 p-6 md:p-12 flex justify-between items-end bg-gradient-to-t from-black/90 via-black/40 to-transparent pointer-events-none">
+                            <div className="text-white max-w-[70%]">
+                                <p className="text-[8px] md:text-[10px] font-black uppercase tracking-widest text-brand-medium mb-1">Visual Narrative</p>
+                                <h4 className="text-xs md:text-2xl font-black uppercase tracking-tighter line-clamp-2 md:line-clamp-none">The Preet Tech OPC Private Limited Experience</h4>
                             </div>
                             <div className="flex gap-4">
-                                <div className="h-10 w-10 md:h-12 md:w-12 rounded-full border border-white/20 flex items-center justify-center backdrop-blur-md">
-                                    <ArrowRight className="w-4 h-4 text-white -rotate-45" />
+                                <div className="h-8 w-8 md:h-12 md:w-12 rounded-full border border-white/20 flex items-center justify-center backdrop-blur-md">
+                                    <ArrowRight className="w-3 h-3 md:w-4 md:h-4 text-white -rotate-45" />
                                 </div>
                             </div>
                         </div>
-                        <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+
+                        {/* Interactive Button */}
+                        <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 md:group-hover:opacity-100 transition-opacity duration-300">
                             <a
                                 href="https://youtu.be/2jmiNO3jwrA"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="px-6 py-3 bg-brand-medium text-black rounded-full font-black text-[10px] uppercase tracking-widest shadow-2xl hover:scale-110 transition-transform"
+                                className="px-5 py-2.5 md:px-6 md:py-3 bg-brand-medium text-white rounded-full font-black text-[9px] md:text-[10px] uppercase tracking-widest shadow-2xl hover:scale-110 transition-transform backdrop-blur-md border border-white/20"
                             >
                                 Watch with Sound
                             </a>
@@ -238,15 +331,15 @@ export default function AboutPage() {
 
             {/* 4. WHAT WE DO: SERVICE CARDS */}
             <section className="py-24 px-6 md:px-0">
-                <div className="max-w-7xl mx-auto px-6">
-                    <div className="text-center mb-16">
-                        <span className="text-brand-medium font-black uppercase tracking-[0.4em] text-[10px] mb-6 block">Core Expertise</span>
-                        <h2 className="text-4xl md:text-5xl font-black tracking-tighter uppercase leading-[0.9] mb-8">
-                            High-Impact <br /> <span className="text-brand-medium">Capabilities.</span>
+                <div className="max-w-7xl mx-auto px-6 relative z-10">
+                    <div className="text-center mb-12 md:mb-16 px-4">
+                        <span className="text-brand-medium font-black uppercase tracking-[0.4em] text-[10px] mb-4 block">Core Expertise</span>
+                        <h2 className="text-3xl md:text-5xl font-black tracking-tighter uppercase leading-[1.05] md:leading-[0.9] mb-8">
+                            High-Impact <br className="md:hidden" /> <span className="text-brand-medium">Capabilities.</span>
                         </h2>
                     </div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
                         {[
                             { title: "Web Development", link: "/services/web-development", icon: Code2, desc: "High-performance web architecture and robust web applications." },
                             { title: "Software Development", link: "/services/software-development", icon: Command, desc: "Custom software development automating business operations securely." },
@@ -255,13 +348,13 @@ export default function AboutPage() {
                             { title: "Partnership Marketing", link: "/services/partnership-marketing", icon: Cloud, desc: "Strategic partnership marketing combined with cloud efficiency." },
                             { title: "Start Your Business", link: "/services/start-your-business", icon: MessageSquare, desc: "Complete consultation as your trusted enterprise technology partner." }
                         ].map((service, i) => (
-                            <Link href={service.link} key={i}>
-                                <div className="group h-full p-8 rounded-[2rem] bg-white dark:bg-white/[0.03] border border-slate-200 dark:border-white/5 hover:border-brand-medium/50 transition-all duration-300 flex flex-col items-start shadow-sm">
-                                    <div className="w-12 h-12 rounded-xl bg-slate-50 dark:bg-white/5 flex items-center justify-center text-brand-medium mb-6 group-hover:bg-brand-medium group-hover:text-white transition-all duration-300">
-                                        <service.icon className="w-6 h-6" />
+                            <Link href={service.link} key={i} className="group">
+                                <div className="h-full p-6 md:p-8 rounded-[1.5rem] md:rounded-[2rem] bg-white dark:bg-white/[0.03] border border-slate-200 dark:border-white/10 hover:border-brand-medium/50 transition-all duration-500 flex flex-col items-start shadow-sm hover:shadow-xl hover:shadow-brand-medium/5 hover:-translate-y-1">
+                                    <div className="w-10 h-10 md:w-12 md:h-12 rounded-xl bg-slate-50 dark:bg-white/5 flex items-center justify-center text-brand-medium mb-5 md:mb-6 group-hover:bg-brand-medium group-hover:text-white transition-all duration-300">
+                                        <service.icon className="w-5 h-5 md:w-6 md:h-6" />
                                     </div>
-                                    <h4 className="text-xl font-black uppercase tracking-tighter mb-4">{service.title}</h4>
-                                    <p className="text-sm text-slate-500 dark:text-slate-400 font-medium leading-relaxed">
+                                    <h4 className="text-lg md:text-xl font-black uppercase tracking-tighter mb-3 md:mb-4 group-hover:text-brand-medium transition-colors">{service.title}</h4>
+                                    <p className="text-[13px] md:text-sm text-slate-500 dark:text-slate-400 font-medium leading-relaxed">
                                         {service.desc}
                                     </p>
                                 </div>

@@ -128,7 +128,6 @@ const TechnicalBackground = ({ isDarkMode }: { isDarkMode: boolean }) => (
 const PerformanceMarketing = () => {
     const [theme, setTheme] = useState<Theme>(Theme.DARK);
     const containerRef = useRef<HTMLDivElement>(null);
-    const [isVideoOpen, setIsVideoOpen] = useState(false);
 
     const CASE_STUDIES: CaseStudy[] = [
         {
@@ -463,16 +462,10 @@ const PerformanceMarketing = () => {
                         >
                             <Link
                                 href="/case-studies/performance-marketing"
-                                className="px-6 sm:px-8 py-3.5 sm:py-4 bg-gradient-to-r from-[#3994fa] to-[#004aad] hover:opacity-90 text-white rounded-full font-bold transition-all transform hover:-translate-y-1 shadow-lg shadow-[#3994fa]/25 flex items-center justify-center gap-2 text-sm sm:text-base cursor-pointer"
+                                className="px-6 sm:px-10 py-4 sm:py-5 bg-gradient-to-r from-[#3994fa] to-[#004aad] hover:opacity-90 text-white rounded-2xl font-black uppercase tracking-widest text-[11px] sm:text-[13px] shadow-lg shadow-[#3994fa]/25 flex items-center justify-center gap-2 transition-all hover:-translate-y-1"
                             >
                                 Case Studies <ArrowRight className="w-4 h-4" />
                             </Link>
-                            <button
-                                onClick={() => setIsVideoOpen(true)}
-                                className="px-6 sm:px-8 py-3.5 sm:py-4 bg-white/10 hover:bg-white/20 text-slate-900 dark:text-white rounded-full font-bold transition-all border border-slate-200 dark:border-white/10 flex items-center justify-center gap-2 text-sm sm:text-base cursor-pointer"
-                            >
-                                Watch Demo <Play className="w-4 h-4 fill-slate-900 dark:fill-white" />
-                            </button>
                         </div>
                     </div>
 
@@ -546,7 +539,7 @@ const PerformanceMarketing = () => {
                                     </div>
                                 </div>
                                 <div className="pt-2">
-                                    <button disabled={submitStatus === "loading"} type="submit" className="w-full py-4 bg-gradient-to-r from-[#3994fa] to-[#004aad] hover:opacity-90 text-white font-black rounded-2xl transition-all shadow-[0_0_20px_rgba(63,143,204,0.2)] hover:shadow-[0_0_30px_rgba(63,143,204,0.4)] text-[13px] uppercase tracking-widest flex items-center justify-center gap-2">
+                                    <button disabled={submitStatus === "loading"} type="submit" className="w-full px-6 sm:px-10 py-4 sm:py-5 bg-gradient-to-r from-[#3994fa] to-[#004aad] hover:opacity-90 text-white rounded-2xl font-black uppercase tracking-widest text-[11px] sm:text-[13px] shadow-lg shadow-[#3994fa]/25 flex items-center justify-center gap-2 transition-all hover:-translate-y-1 disabled:opacity-70">
                                         {submitStatus === "loading" ? "Submitting..." : "Get Free Consultation"} <ArrowRight strokeWidth={2.5} className="w-4 h-4 ml-1" />
                                     </button>
                                 </div>
@@ -965,7 +958,7 @@ const PerformanceMarketing = () => {
                             <p className="text-slate-400 text-base md:text-lg font-medium mb-10">
                                 Don't leave your growth to chance. Get a custom performance roadmap designed for your specific business goals.
                             </p>
-                            <Link href="/contact" className="px-10 py-5 bg-brand-medium text-[#030712] rounded-xl font-black text-[10px] uppercase tracking-[0.2em] hover:bg-white transition-all shadow-2xl shadow-brand-medium/20 group flex items-center gap-2 mx-auto">
+                            <Link href="/contact" className="px-6 sm:px-10 py-4 sm:py-5 bg-brand-medium text-[#030712] rounded-2xl font-black text-[11px] sm:text-[13px] uppercase tracking-widest hover:bg-white transition-all shadow-2xl shadow-brand-medium/20 group flex items-center justify-center gap-2 mx-auto">
                                 Book Free Performance Audit <ArrowRight className="w-4 h-4 group-hover:translate-x-2 transition-transform" />
                             </Link>
                         </div>
@@ -1409,7 +1402,7 @@ const PerformanceMarketing = () => {
                                         </div>
                                     </div>
 
-                                    <button className="w-full group relative bg-gradient-to-r from-[#3994fa] to-[#004aad] hover:opacity-95 text-white transition-all rounded-2xl py-5 font-black text-[10px] uppercase tracking-[0.3em] overflow-hidden flex items-center justify-center gap-3 shadow-xl shadow-[#3994fa]/20">
+                                    <button className="w-full px-6 sm:px-10 py-4 sm:py-5 bg-gradient-to-r from-[#3994fa] to-[#004aad] hover:opacity-90 text-white rounded-2xl font-black uppercase tracking-widest text-[11px] sm:text-[13px] shadow-lg shadow-[#3994fa]/25 flex items-center justify-center gap-3 transition-all hover:-translate-y-1">
                                         <span className="relative z-10">Request Data Audit</span>
                                         <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform relative z-10" />
                                     </button>
@@ -1446,7 +1439,7 @@ const PerformanceMarketing = () => {
                         <p className="text-sm md:text-base font-bold uppercase tracking-widest mb-10 opacity-80">
                             Stop Guessing. Start Scaling Profitably.
                         </p>
-                        <Link href="/contact" className="px-10 py-5 bg-slate-900 text-white hover:bg-gradient-to-r hover:from-[#3994fa] hover:to-[#004aad] rounded-xl font-black text-[10px] uppercase tracking-[0.2em] transition-all shadow-2xl flex items-center gap-2 mx-auto group">
+                        <Link href="/contact" className="px-6 sm:px-10 py-4 sm:py-5 bg-slate-900 text-white hover:bg-gradient-to-r hover:from-[#3994fa] hover:to-[#004aad] rounded-2xl font-black text-[11px] sm:text-[13px] uppercase tracking-widest transition-all shadow-2xl flex items-center gap-2 mx-auto group w-fit">
                             Start Your Growth Journey <ArrowUpRight className="w-5 h-5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
                         </Link>
                     </div>
@@ -1455,36 +1448,7 @@ const PerformanceMarketing = () => {
 
             <Footer />
 
-            {/* Video Modal */}
-            {isVideoOpen && (
-                <div
-                    className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/95"
-                    onClick={() => setIsVideoOpen(false)}
-                >
-                    <div
-                        className="relative w-full aspect-video max-w-4xl bg-black rounded-2xl overflow-hidden border border-white/10 shadow-2xl flex items-center justify-center"
-                        onClick={e => e.stopPropagation()}
-                    >
-                        <button
-                            onClick={() => setIsVideoOpen(false)}
-                            className="absolute top-4 right-4 z-[110] w-10 h-10 bg-black/60 hover:bg-black/80 border border-white/20 rounded-full flex items-center justify-center text-white transition-colors"
-                        >
-                            <X className="w-5 h-5" />
-                        </button>
 
-                        {/* YouTube Embed */}
-                        <div className="absolute inset-0 w-full h-full bg-black">
-                            <iframe
-                                src="https://www.youtube.com/embed/CBYfXlP7ppQ?autoplay=1"
-                                className="w-full h-full border-0"
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                allowFullScreen
-                                title="Preet Tech OPC Private Limited Video"
-                            />
-                        </div>
-                    </div>
-                </div>
-            )}
         </main >
     );
 };

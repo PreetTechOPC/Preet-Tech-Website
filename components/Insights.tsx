@@ -1,7 +1,7 @@
-import React, { useRef, useState, useEffect, memo } from 'react';
+import React, { useRef, useState, useEffect, memo, useCallback, useMemo } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { motion } from 'framer-motion';
+import { motion, useMotionValue, animate } from 'framer-motion';
 import { ArrowRight, ArrowLeft, BookOpen, Calendar, Clock, Tag } from 'lucide-react';
 
 const INSIGHTS = [
@@ -43,14 +43,14 @@ const INSIGHTS = [
     }
 ];
 
-const InsightCard = memo(({ post, index, dragDistance }: { post: any; index: number; dragDistance: number }) => (
-    <motion.div
-        className="insight-card group flex flex-col w-[calc(100%-48px)] md:w-[320px] bg-white dark:bg-[#111624] rounded-[2rem] overflow-hidden border border-slate-200 dark:border-white/5 hover:border-brand-medium/30 transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_20px_60px_-15px_rgba(99,102,241,0.2)] snap-center snap-always flex-shrink-0 [contain:content]"
+const InsightCard = memo(({ post, index }: { post: any; index: number }) => (
+    <div
+        className="insight-card group flex flex-col w-[calc(100vw-48px)] md:w-[320px] bg-white dark:bg-[#111624] rounded-[2rem] overflow-hidden border border-slate-200 dark:border-white/5 hover:border-brand-medium/30 transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_20px_60px_-15px_rgba(99,102,241,0.2)] flex-shrink-0 select-none"
     >
         <Link
             href={`/blog/${post.slug}`}
             className="flex flex-col h-full"
-            onClick={(e) => { if (dragDistance > 8) e.preventDefault(); }}
+            onDragStart={(e) => e.preventDefault()}
             draggable={false}
         >
             {/* Image Visual */}
@@ -96,38 +96,48 @@ const InsightCard = memo(({ post, index, dragDistance }: { post: any; index: num
                 </div>
             </div>
         </Link>
-    </motion.div>
+    </div>
 ));
 
 InsightCard.displayName = 'InsightCard';
 
 const Insights: React.FC = () => {
-    const scrollContainerRef = useRef<HTMLDivElement>(null);
-    const sectionRef = useRef<HTMLElement>(null);
+    const [cardWidth, setCardWidth] = useState(320);
+    const GAP = 32;
+    const STEP = cardWidth + GAP;
+    
+    const extendedInsights = useMemo(() => [...INSIGHTS, ...INSIGHTS, ...INSIGHTS], []);
+    
     const [isDragging, setIsDragging] = useState(false);
-    const [isAutoPlaying, setIsAutoPlaying] = useState(true);
+    const [isHovered, setIsHovered] = useState(false);
     const [isVisible, setIsVisible] = useState(false);
-    const [startX, setStartX] = useState(0);
-    const [scrollLeft, setScrollLeft] = useState(0);
-    const [dragDistance, setDragDistance] = useState(0);
-
-    const BASE_SET = [...INSIGHTS, ...INSIGHTS, ...INSIGHTS];
-    const SLIDER_INSIGHTS = BASE_SET; // 9 cards total is enough for infinite feel
-    const lastScrollTime = useRef(0);
-
-    // Set initial scroll to middle of the 3 repeated sets so both directions work
+    
+    const sectionRef = useRef<HTMLElement>(null);
+    const requestRef = useRef<number>(0);
+    const x = useMotionValue(-INSIGHTS.length * STEP);
+    
+    // Handle window resize for responsive card widths
     useEffect(() => {
-        const container = scrollContainerRef.current;
-        if (!container) return;
-        const setup = () => {
-            container.scrollLeft = container.scrollWidth / 3;
+        const updateWidth = () => {
+            if (window.innerWidth < 768) {
+                setCardWidth(window.innerWidth - 48);
+            } else {
+                setCardWidth(320);
+            }
         };
-        setup();
-        const t = setTimeout(setup, 100);
-        return () => clearTimeout(t);
+        updateWidth();
+        window.addEventListener('resize', updateWidth);
+        return () => window.removeEventListener('resize', updateWidth);
     }, []);
 
-    // Pause when off-screen
+    // Update x value when STEP changes (resize)
+    useEffect(() => {
+        const currentX = x.get();
+        const currentIndex = Math.round(-currentX / STEP);
+        x.set(-currentIndex * STEP);
+    }, [STEP, x]);
+
+    // Pause auto-slide when section is not visible
     useEffect(() => {
         const observer = new IntersectionObserver(
             ([entry]) => setIsVisible(entry.isIntersecting),
@@ -137,79 +147,83 @@ const Insights: React.FC = () => {
         return () => observer.disconnect();
     }, []);
 
-    // Auto-slide — only when visible
+    const handleLoop = useCallback((currentX: number) => {
+        const fullSetWidth = INSIGHTS.length * STEP;
+        if (currentX <= -INSIGHTS.length * 2 * STEP) {
+            return currentX + fullSetWidth;
+        } else if (currentX >= -0.5 * STEP) {
+            return currentX - fullSetWidth;
+        }
+        return currentX;
+    }, [STEP]);
+
+    // Continuous Auto-Slide Marquee (Left to Right)
     useEffect(() => {
-        let interval: NodeJS.Timeout;
-        if (isAutoPlaying && !isDragging && isVisible) {
-            interval = setInterval(() => {
-                scroll('right');
-            }, 8000);
-        }
-        return () => clearInterval(interval);
-    }, [isAutoPlaying, isDragging, isVisible]);
+        if (isDragging || isHovered || !isVisible) return;
 
-    const handleInfiniteScroll = () => {
-        if (!scrollContainerRef.current) return;
-        const now = performance.now();
-        if (now - lastScrollTime.current < 16) return;
-        lastScrollTime.current = now;
+        let lastTime = performance.now();
+        const drift = (time: number) => {
+            const delta = time - lastTime;
+            lastTime = time;
+            
+            const speed = 0.035; // Slightly slower than services for readability
+            const currentX = x.get();
+            const nextX = handleLoop(currentX - speed * delta); // Negative for Right-to-Left
+            
+            x.set(nextX);
+            requestRef.current = requestAnimationFrame(drift);
+        };
 
-        const { scrollLeft, scrollWidth } = scrollContainerRef.current;
-        const singleSetWidth = scrollWidth / 3;
+        requestRef.current = requestAnimationFrame(drift);
+        return () => cancelAnimationFrame(requestRef.current);
+    }, [isDragging, isHovered, isVisible, STEP, x, handleLoop]);
 
-        if (scrollLeft >= singleSetWidth * 2) {
-            scrollContainerRef.current.scrollLeft = scrollLeft - singleSetWidth;
-        } else if (scrollLeft <= 4) {
-            scrollContainerRef.current.scrollLeft = scrollLeft + singleSetWidth;
-        }
-    };
-
-    const handleMouseDown = (e: React.MouseEvent) => {
-        setIsDragging(true);
-        setIsAutoPlaying(false);
-        setDragDistance(0);
-        if (!scrollContainerRef.current) return;
-        setStartX(e.pageX - scrollContainerRef.current.offsetLeft);
-        setScrollLeft(scrollContainerRef.current.scrollLeft);
-    };
-
-    const handleMouseMove = (e: React.MouseEvent) => {
-        if (!isDragging || !scrollContainerRef.current) return;
-        e.preventDefault();
-        const x = e.pageX - scrollContainerRef.current.offsetLeft;
-        const walk = (x - startX) * 2;
-        setDragDistance(Math.abs(x - startX));
-        scrollContainerRef.current.scrollLeft = scrollLeft - walk;
-    };
-
-    const handleMouseUp = () => {
-        setIsDragging(false);
-        setTimeout(() => setIsAutoPlaying(true), 2000);
-    };
-
-    const scroll = (direction: 'left' | 'right') => {
-        if (scrollContainerRef.current) {
-            const firstCard = scrollContainerRef.current.querySelector('.insight-card') as HTMLElement;
-            if (firstCard) {
-                const cardWidth = firstCard.offsetWidth + (window.innerWidth < 768 ? 24 : 32);
-                scrollContainerRef.current.scrollBy({
-                    left: direction === 'left' ? -cardWidth : cardWidth,
-                    behavior: 'smooth'
-                });
+    const snapTo = useCallback((index: number) => {
+        const targetX = -index * STEP;
+        
+        animate(x, targetX, {
+            type: 'spring',
+            stiffness: 150,
+            damping: 25,
+            onUpdate: (latest) => {
+                const resetX = handleLoop(latest);
+                if (resetX !== latest) x.set(resetX);
             }
+        });
+    }, [STEP, x, handleLoop]);
+
+    const handleDragEnd = (_: any, info: any) => {
+        setIsDragging(false);
+        const currentX = x.get();
+        const offsetIndex = Math.round(-currentX / STEP);
+        const threshold = STEP / 6;
+        let targetIndex = offsetIndex;
+
+        if (info.offset.x < -threshold) {
+            targetIndex = offsetIndex + 1;
+        } else if (info.offset.x > threshold) {
+            targetIndex = offsetIndex - 1;
         }
+
+        snapTo(targetIndex);
+    };
+
+    const manualScroll = (direction: 'left' | 'right') => {
+        const currentX = x.get();
+        const currentIndex = Math.round(-currentX / STEP);
+        const targetIndex = direction === 'left' ? currentIndex - 1 : currentIndex + 1;
+        snapTo(targetIndex);
     };
 
     return (
         <section
             id="insights"
             ref={sectionRef}
-            className="pt-8 md:pt-12 pb-24 bg-slate-50 dark:bg-[#080c14] overflow-hidden"
-            onMouseEnter={() => setIsAutoPlaying(false)}
-            onMouseLeave={() => !isDragging && setIsAutoPlaying(true)}
+            className="pt-8 md:pt-12 pb-24 bg-slate-50 dark:bg-[#080c14] overflow-hidden transition-colors duration-300"
+            onMouseEnter={() => setIsHovered(true)}
+            onMouseLeave={() => setIsHovered(false)}
         >
-            <div className="max-w-7xl mx-auto px-6">
-
+            <div className="max-w-7xl mx-auto px-6 relative z-10">
                 {/* Header */}
                 <div className="flex flex-col md:flex-row md:justify-between md:items-end mb-12 md:mb-16 gap-6 md:gap-8 border-t border-slate-100 dark:border-white/5 pt-12">
                     <div className="max-w-2xl">
@@ -224,14 +238,14 @@ const Insights: React.FC = () => {
 
                     <div className="hidden md:flex items-center gap-4 mt-2 md:mt-0">
                         <button
-                            onClick={() => scroll('left')}
+                            onClick={() => manualScroll('left')}
                             className="w-12 h-12 md:w-14 md:h-14 bg-white dark:bg-transparent rounded-full flex items-center justify-center border-2 border-[#E9EEF4] dark:border-white/10 text-[#8C9FAF] hover:bg-[#3994fa] dark:hover:bg-[#3994fa] hover:text-white dark:hover:text-white hover:border-[#3994fa] dark:hover:border-[#3994fa] shadow-sm hover:shadow-lg transition-all duration-300 active:scale-95 group"
                             aria-label="Scroll left"
                         >
                             <ArrowLeft className="w-5 h-5 md:w-6 md:h-6 stroke-[2px]" />
                         </button>
                         <button
-                            onClick={() => scroll('right')}
+                            onClick={() => manualScroll('right')}
                             className="w-12 h-12 md:w-14 md:h-14 bg-white dark:bg-transparent rounded-full flex items-center justify-center border-2 border-[#E9EEF4] dark:border-white/10 text-[#8C9FAF] hover:bg-[#3994fa] dark:hover:bg-[#3994fa] hover:text-white dark:hover:text-white hover:border-[#3994fa] dark:hover:border-[#3994fa] shadow-sm hover:shadow-lg transition-all duration-300 active:scale-95 group"
                             aria-label="Scroll right"
                         >
@@ -241,32 +255,40 @@ const Insights: React.FC = () => {
                 </div>
             </div>
 
-            {/* Infinite Slider Container */}
-            <div className="relative w-full overflow-hidden pb-12">
-
-
-                <div
-                    ref={scrollContainerRef}
-                    onScroll={handleInfiniteScroll}
-                    onMouseDown={handleMouseDown}
-                    onMouseMove={handleMouseMove}
-                    onMouseUp={handleMouseUp}
-                    onMouseLeave={handleMouseUp}
-                    className="flex gap-6 md:gap-8 overflow-x-auto scrollbar-hide snap-x snap-mandatory cursor-grab active:cursor-grabbing px-6 md:pl-[max(1.5rem,calc((100%-1280px+3rem)/2))] md:pr-[max(1.5rem,calc((100%-1280px+3rem)/2))]"
-                    style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
-                >
-                    {SLIDER_INSIGHTS.map((post, index) => (
-                        <InsightCard 
-                            key={`${post.id}-${index}`} 
-                            post={post} 
-                            index={index} 
-                            dragDistance={dragDistance} 
-                        />
-                    ))}
+            {/* Infinite Slider Layout */}
+            <div className="relative w-full overflow-visible gpu">
+                {/* Drag Hint */}
+                <div className="absolute -top-8 right-6 md:right-12 text-[10px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-widest flex items-center gap-2 pointer-events-none animate-pulse z-10">
+                    <ArrowRight className="w-3 h-3" />
+                    Drag to Explore
                 </div>
+
+                <div className="overflow-visible cursor-grab active:cursor-grabbing px-6 md:pl-[max(1.5rem,calc((100%-1280px+3rem)/2))]">
+                    <motion.div
+                        style={{ x }}
+                        drag="x"
+                        dragConstraints={{ left: -20000, right: 20000 }}
+                        dragElastic={0.05}
+                        onDragStart={() => setIsDragging(true)}
+                        onDragEnd={handleDragEnd}
+                        className="flex gap-6 md:gap-8 will-change-transform"
+                    >
+                        {extendedInsights.map((post, index) => (
+                            <InsightCard 
+                                key={`${post.id}-${index}`} 
+                                post={post} 
+                                index={index} 
+                            />
+                        ))}
+                    </motion.div>
+                </div>
+
+                {/* Side Gradients */}
+                <div className="absolute left-0 top-0 bottom-0 w-8 md:w-[max(1.5rem,calc((100%-1280px+3rem)/2))] bg-gradient-to-r from-slate-50 via-slate-50/80 to-transparent dark:from-[#080c14] dark:via-[#080c14]/80 z-10 pointer-events-none hidden md:block" />
+                <div className="absolute right-0 top-0 bottom-0 w-8 md:w-[max(1.5rem,calc((100%-1280px+3rem)/2))] bg-gradient-to-l from-slate-50 via-slate-50/80 to-transparent dark:from-[#080c14] dark:via-[#080c14]/80 z-10 pointer-events-none hidden md:block" />
             </div>
 
-            <div className="mt-8 flex justify-center w-full">
+            <div className="mt-12 flex justify-center w-full relative z-10">
                 <Link
                     href="/blog"
                     className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-brand-medium text-white shadow-lg shadow-brand-medium/20 text-[10px] font-black uppercase tracking-[0.2em] hover:bg-brand-medium/90 hover:-translate-y-0.5 transition-all"

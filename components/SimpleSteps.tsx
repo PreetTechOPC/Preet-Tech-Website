@@ -128,7 +128,7 @@ const SimpleSteps: React.FC = () => {
 
                         <div className="relative z-10 shrink-0 w-full sm:w-auto">
                             <Link href="/contact">
-                                <button className="w-full lg:w-auto px-10 py-5 rounded-full bg-gradient-to-r from-[#3994fa] to-[#004aad] text-white shadow-[0_0_40px_-10px_rgba(57,148,250,0.4)] font-black uppercase tracking-[0.2em] text-xs hover:opacity-90 hover:scale-105 hover:shadow-[0_0_60px_-15px_rgba(57,148,250,0.6)] active:scale-95 transition-all duration-300 flex items-center justify-center gap-3 group/btn border border-white/10 relative overflow-hidden">
+                                <button className="w-full lg:w-auto px-8 py-4 rounded-full bg-gradient-to-r from-[#3994fa] to-[#004aad] text-white shadow-[0_0_40px_-10px_rgba(57,148,250,0.4)] font-bold uppercase tracking-[0.2em] text-[10px] hover:opacity-90 hover:scale-105 hover:shadow-[0_0_60px_-15px_rgba(57,148,250,0.6)] active:scale-95 transition-all duration-300 flex items-center justify-center gap-3 group/btn border border-white/10 relative overflow-hidden">
                                     <span className="relative z-10 flex items-center gap-2">
                                         Schedule an Audit
                                         <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />

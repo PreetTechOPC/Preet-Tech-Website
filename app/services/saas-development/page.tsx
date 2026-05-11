@@ -73,9 +73,9 @@ export default function SaaSDevelopmentPage() {
 
                 <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center relative z-10">
                     <div className="space-y-6 lg:space-y-8 text-center lg:text-left">
-                        <span className="inline-block px-4 py-1 rounded-full bg-[#3994fa]/10 text-[#3994fa] text-[10px] md:text-xs font-bold uppercase tracking-widest border border-[#3994fa]/20">
+                        <div className="inline-flex items-center px-4 py-1 rounded-full bg-[#3994fa]/10 text-[#3994fa] text-[10px] md:text-xs font-bold uppercase tracking-widest border border-[#3994fa]/20">
                             SaaS Development Company in India
-                        </span>
+                        </div>
                         <h1 className="text-3xl sm:text-5xl lg:text-7xl font-black tracking-tighter leading-[1.1] text-slate-900 dark:text-white">
                             Build Your <br />
                             <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500 dark:to-white">SaaS Empire.</span>
@@ -84,7 +84,7 @@ export default function SaaSDevelopmentPage() {
                             Expert <strong>SaaS Development</strong> services for startups and enterprises. From <strong>MERN Stack Development</strong> to scalable cloud architectures.
                         </p>
                         <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-                            <Link href="#consultation" className="px-8 py-4 bg-[#3994fa] text-white rounded-full font-bold shadow-lg flex items-center justify-center gap-2">Start Your SaaS <ArrowRight className="w-4 h-4" /></Link>
+                            <Link href="#consultation" className="px-8 py-4 bg-gradient-to-r from-[#3994fa] to-[#004aad] text-white rounded-2xl font-bold shadow-lg flex items-center justify-center gap-2 transition-transform hover:-translate-y-0.5">Start Your SaaS <ArrowRight className="w-4 h-4" /></Link>
                         </div>
                     </div>
 
@@ -123,9 +123,9 @@ export default function SaaSDevelopmentPage() {
 
             <section className="py-24 md:py-36 px-6 bg-slate-900 text-white text-center relative overflow-hidden">
                 <div className="max-w-4xl mx-auto relative z-10 space-y-10">
-                    <h2 className="text-5xl md:text-7xl font-black tracking-tighter">Ready to Scale Your <span className="text-cyan-400">SaaS Business?</span></h2>
-                    <p className="text-slate-400 text-lg md:text-xl">Join modern startups and enterprise leaders who trust Preet Tech for scalable SaaS solutions.</p>
-                    <Link href="#consultation" className="inline-block px-12 py-6 bg-[#3994fa] text-white rounded-2xl font-black uppercase tracking-widest text-sm shadow-xl">Get Started Now</Link>
+                    <h2 className="text-4xl md:text-7xl font-black tracking-tighter">Ready to Scale Your <br/><span className="text-cyan-400">SaaS Business?</span></h2>
+                    <p className="text-slate-400 text-lg md:text-xl font-medium">Join modern startups and enterprise leaders who trust Preet Tech for scalable SaaS solutions.</p>
+                    <Link href="#consultation" className="px-6 sm:px-10 py-4 sm:py-5 bg-gradient-to-r from-[#3994fa] to-[#004aad] text-white rounded-2xl font-black uppercase tracking-widest text-[11px] sm:text-[13px] shadow-xl inline-block hover:opacity-90 transition-all hover:-translate-y-1">Get Started Now</Link>
                 </div>
             </section>
 

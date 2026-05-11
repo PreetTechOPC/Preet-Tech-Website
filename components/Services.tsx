@@ -1,5 +1,5 @@
-import React, { useRef, useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
+import React, { useRef, useState, useEffect, useCallback, useMemo } from 'react';
+import { motion, useMotionValue, animate, useSpring, useTransform } from 'framer-motion';
 import { Globe, Smartphone, Palette, Share2, TrendingUp, ArrowUpRight, ArrowRight, ArrowLeft, ChevronLeft, ChevronRight, Binary, Rocket, MessageSquare, Code2, Wrench, Users, Target, ShoppingCart, Cpu, Cloud, Database } from 'lucide-react';
 import Link from 'next/link';
 
@@ -134,7 +134,7 @@ const SERVICES = [
 
 const ServiceCard = React.memo(({ service, idx }: { service: any; idx: number }) => (
   <div
-    className="service-card snap-center snap-always shrink-0 [contain:content]"
+    className="service-card shrink-0 select-none"
   >
     <div className="group w-[calc(100vw-48px)] md:w-[310px] h-[320px] md:h-[400px] relative rounded-[2rem] bg-slate-50/80 dark:bg-[#080c14]/40 border border-slate-200/60 dark:border-white/[0.05] p-6 md:p-8 flex flex-col justify-between overflow-hidden transition-[transform,shadow,border-color,background-color] duration-300 hover:shadow-xl hover:shadow-brand-medium/5 hover:-translate-y-2 will-change-transform gpu">
 
@@ -167,7 +167,11 @@ const ServiceCard = React.memo(({ service, idx }: { service: any; idx: number })
           </div>
         </div>
 
-        <Link href={`/services/${service.id}`} className="w-9 h-9 md:w-10 md:h-10 rounded-full border border-slate-100 dark:border-white/10 flex items-center justify-center group-hover:bg-brand-medium group-hover:text-white transition-all duration-300 group-hover:border-brand-medium">
+        <Link 
+          href={`/services/${service.id}`} 
+          className="w-9 h-9 md:w-10 md:h-10 rounded-full border border-slate-100 dark:border-white/10 flex items-center justify-center group-hover:bg-brand-medium group-hover:text-white transition-all duration-300 group-hover:border-brand-medium"
+          onDragStart={(e) => e.preventDefault()}
+        >
           <ArrowUpRight className="w-3.5 h-3.5 md:w-4 md:h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
         </Link>
       </div>
@@ -178,50 +182,41 @@ const ServiceCard = React.memo(({ service, idx }: { service: any; idx: number })
 ServiceCard.displayName = 'ServiceCard';
 
 const Services: React.FC = () => {
-  const scrollContainerRef = useRef<HTMLDivElement>(null);
-
+  const [cardWidth, setCardWidth] = useState(310);
+  const GAP = 24;
+  const STEP = cardWidth + GAP;
+  
   // Triple the data for infinite feeling
-  const LOOPED_SERVICES = [...SERVICES, ...SERVICES, ...SERVICES];
-
-  const lastScrollTime = useRef(0);
-  const handleInfiniteScroll = () => {
-    if (!scrollContainerRef.current) return;
-
-    const now = performance.now();
-    if (now - lastScrollTime.current < 16) return; // Throttle to roughly 60fps
-    lastScrollTime.current = now;
-
-    const { scrollLeft, scrollWidth } = scrollContainerRef.current;
-    const singleSetWidth = scrollWidth / 3;
-
-    if (scrollLeft >= singleSetWidth * 2) {
-      scrollContainerRef.current.scrollLeft = scrollLeft - singleSetWidth;
-    } else if (scrollLeft <= 5) {
-      scrollContainerRef.current.scrollLeft = scrollLeft + singleSetWidth;
-    }
-  };
-
+  const extendedServices = useMemo(() => [...SERVICES, ...SERVICES, ...SERVICES], []);
+  
+  const [isDragging, setIsDragging] = useState(false);
+  const [isHovered, setIsHovered] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);
+  
+  const sectionRef = useRef<HTMLElement>(null);
+  const requestRef = useRef<number>(0);
+  const x = useMotionValue(-SERVICES.length * STEP);
+  
+  // Handle window resize for responsive card widths
   useEffect(() => {
-    const container = scrollContainerRef.current;
-    if (container) {
-      // Initial centered scroll position - must be at the start of the middle set
-      const setupInitialScroll = () => {
-        const { scrollWidth } = container;
-        container.scrollLeft = scrollWidth / 3;
-      };
-
-      // Run after a small delay to ensure DOM is fully ready
-      const timeout = setTimeout(setupInitialScroll, 100);
-      return () => clearTimeout(timeout);
-    }
+    const updateWidth = () => {
+      if (window.innerWidth < 768) {
+        setCardWidth(window.innerWidth - 48);
+      } else {
+        setCardWidth(310);
+      }
+    };
+    updateWidth();
+    window.addEventListener('resize', updateWidth);
+    return () => window.removeEventListener('resize', updateWidth);
   }, []);
 
-  const [isDragging, setIsDragging] = useState(false);
-  const [isAutoPlaying, setIsAutoPlaying] = useState(true);
-  const [isVisible, setIsVisible] = useState(false);
-  const sectionRef = useRef<HTMLElement>(null);
-  const [startX, setStartX] = useState(0);
-  const [scrollLeft, setScrollLeft] = useState(0);
+  // Update x value when STEP changes (resize) to maintain relative position
+  useEffect(() => {
+    const currentX = x.get();
+    const currentIndex = Math.round(-currentX / (cardWidth + GAP));
+    x.set(-currentIndex * (cardWidth + GAP));
+  }, [cardWidth, x]);
 
   // Pause auto-slide when section is not visible
   useEffect(() => {
@@ -233,53 +228,76 @@ const Services: React.FC = () => {
     return () => observer.disconnect();
   }, []);
 
-  // Auto-slide functionality — only when visible
+  // Seamless Loop Logic for continuous drift
+  const handleLoop = useCallback((currentX: number) => {
+    const fullSetWidth = SERVICES.length * STEP;
+    if (currentX <= -SERVICES.length * 2 * STEP) {
+      return currentX + fullSetWidth;
+    } else if (currentX >= -0.5 * STEP) {
+      return currentX - fullSetWidth;
+    }
+    return currentX;
+  }, [STEP]);
+
+  // Continuous Auto-Slide Marquee
   useEffect(() => {
-    let interval: NodeJS.Timeout;
-    if (isAutoPlaying && !isDragging && isVisible) {
-      interval = setInterval(() => {
-        scroll('right');
-      }, 6000); // 6s reduces writes by 33% vs 4s
-    }
-    return () => clearInterval(interval);
-  }, [isAutoPlaying, isDragging, isVisible]);
+    if (isDragging || isHovered || !isVisible) return;
 
-  const handleMouseDown = (e: React.MouseEvent) => {
-    setIsDragging(true);
-    setIsAutoPlaying(false);
-    if (!scrollContainerRef.current) return;
-    setStartX(e.pageX - scrollContainerRef.current.offsetLeft);
-    setScrollLeft(scrollContainerRef.current.scrollLeft);
-  };
+    let lastTime = performance.now();
+    const animate = (time: number) => {
+      const delta = time - lastTime;
+      lastTime = time;
+      
+      const speed = 0.04; // Speed: pixels per millisecond
+      const currentX = x.get();
+      const nextX = handleLoop(currentX + speed * delta);
+      
+      x.set(nextX);
+      requestRef.current = requestAnimationFrame(animate);
+    };
 
-  const handleMouseMove = (e: React.MouseEvent) => {
-    if (!isDragging || !scrollContainerRef.current) return;
-    e.preventDefault();
-    const x = e.pageX - scrollContainerRef.current.offsetLeft;
-    const walk = (x - startX) * 2;
-    scrollContainerRef.current.scrollLeft = scrollLeft - walk;
-  };
+    requestRef.current = requestAnimationFrame(animate);
+    return () => cancelAnimationFrame(requestRef.current);
+  }, [isDragging, isHovered, isVisible, STEP, x, handleLoop]);
 
-  const handleMouseUp = () => {
-    setIsDragging(false);
-    // Optional: Resume auto-play after a delay when dragging stops
-    setTimeout(() => setIsAutoPlaying(true), 2000);
-  };
-
-  const scroll = (direction: 'left' | 'right') => {
-    if (scrollContainerRef.current) {
-      const firstCard = scrollContainerRef.current.querySelector('.service-card') as HTMLElement;
-      if (firstCard) {
-        const cardWidth = firstCard.offsetWidth + 24;
-        const currentScroll = scrollContainerRef.current.scrollLeft;
-        const newScroll = direction === 'left' ? currentScroll - cardWidth : currentScroll + cardWidth;
-
-        scrollContainerRef.current.scrollTo({
-          left: newScroll,
-          behavior: 'smooth'
-        });
+  const snapTo = useCallback((index: number) => {
+    const targetX = -index * STEP;
+    
+    animate(x, targetX, {
+      type: 'spring',
+      stiffness: 150,
+      damping: 25,
+      onUpdate: (latest) => {
+        // Still need to handle loop during snapping if it goes too far
+        const resetX = handleLoop(latest);
+        if (resetX !== latest) x.set(resetX);
       }
+    });
+  }, [STEP, x, handleLoop]);
+
+  const handleDragEnd = (_: any, info: any) => {
+    setIsDragging(false);
+    const currentX = x.get();
+    const offsetIndex = Math.round(-currentX / STEP);
+
+    // Threshold check for manual swipe
+    const threshold = STEP / 6;
+    let targetIndex = offsetIndex;
+
+    if (info.offset.x < -threshold) {
+      targetIndex = offsetIndex + 1;
+    } else if (info.offset.x > threshold) {
+      targetIndex = offsetIndex - 1;
     }
+
+    snapTo(targetIndex);
+  };
+
+  const manualScroll = (direction: 'left' | 'right') => {
+    const currentX = x.get();
+    const currentIndex = Math.round(-currentX / STEP);
+    const targetIndex = direction === 'left' ? currentIndex - 1 : currentIndex + 1;
+    snapTo(targetIndex);
   };
 
   return (
@@ -287,8 +305,8 @@ const Services: React.FC = () => {
       id="services"
       ref={sectionRef}
       className="pt-12 md:pt-20 pb-6 md:pb-8 relative bg-background overflow-hidden transition-colors duration-300"
-      onMouseEnter={() => setIsAutoPlaying(false)}
-      onMouseLeave={() => !isDragging && setIsAutoPlaying(true)}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
     >
       {/* Structural Accents */}
       <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-slate-200 dark:via-white/10 to-transparent" />
@@ -312,14 +330,14 @@ const Services: React.FC = () => {
 
           <div className="hidden md:flex items-center gap-4 mt-2 md:mt-0">
             <button
-              onClick={() => scroll('left')}
+              onClick={() => manualScroll('left')}
               className="w-12 h-12 md:w-14 md:h-14 bg-white dark:bg-transparent rounded-full flex items-center justify-center border-2 border-[#E9EEF4] dark:border-white/10 text-[#8C9FAF] hover:bg-gradient-to-r hover:from-[#3994fa] hover:to-[#004aad] hover:text-white dark:hover:text-white hover:border-transparent shadow-sm hover:shadow-lg transition-all duration-300 active:scale-95 group"
               aria-label="Scroll left"
             >
               <ArrowLeft className="w-5 h-5 md:w-6 md:h-6 stroke-[2px]" />
             </button>
             <button
-              onClick={() => scroll('right')}
+              onClick={() => manualScroll('right')}
               className="w-12 h-12 md:w-14 md:h-14 bg-white dark:bg-transparent rounded-full flex items-center justify-center border-2 border-[#E9EEF4] dark:border-white/10 text-[#8C9FAF] hover:bg-gradient-to-r hover:from-[#3994fa] hover:to-[#004aad] hover:text-white dark:hover:text-white hover:border-transparent shadow-sm hover:shadow-lg transition-all duration-300 active:scale-95 group"
               aria-label="Scroll right"
             >
@@ -331,30 +349,36 @@ const Services: React.FC = () => {
 
       {/* Infinite Loop Slider Layout - Bleeding to edges */}
       <div className="relative w-full mt-4 gpu">
-        <div
-          ref={scrollContainerRef}
-          onScroll={handleInfiniteScroll}
-          onMouseDown={handleMouseDown}
-          onMouseMove={handleMouseMove}
-          onMouseUp={handleMouseUp}
-          onMouseLeave={handleMouseUp}
-          className="flex gap-6 overflow-x-auto scrollbar-hide snap-x snap-mandatory px-6 md:pl-[max(1.5rem,calc((100%-1280px+3rem)/2))] md:pr-[max(1.5rem,calc((100%-1280px+3rem)/2))] pb-8 cursor-grab active:cursor-grabbing will-change-scroll"
-          style={{ scrollbarWidth: 'none', msOverflowStyle: 'none', overscrollBehaviorX: 'contain' }}
-        >
-          {LOOPED_SERVICES.map((service, idx) => (
-            <ServiceCard key={`${service.id}-${idx}`} service={service} idx={idx} />
-          ))}
+        {/* Drag Hint */}
+        <div className="absolute -top-8 right-6 md:right-12 text-[10px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-widest flex items-center gap-2 pointer-events-none animate-pulse">
+           <ArrowRight className="w-3 h-3" />
+           Drag to Explore
+        </div>
+
+        <div className="overflow-visible cursor-grab active:cursor-grabbing px-6 md:pl-[max(1.5rem,calc((100%-1280px+3rem)/2))]">
+          <motion.div
+            style={{ x }}
+            drag="x"
+            dragConstraints={{ left: -20000, right: 20000 }} // Infinite drag space
+            dragElastic={0.05}
+            onDragStart={() => setIsDragging(true)}
+            onDragEnd={handleDragEnd}
+            className="flex gap-6 will-change-transform"
+          >
+            {extendedServices.map((service, idx) => (
+              <ServiceCard key={`${service.id}-${idx}`} service={service} idx={idx} />
+            ))}
+          </motion.div>
         </div>
 
         {/* Desktop-only Side Gradients */}
-        <div className="absolute left-0 top-0 bottom-0 w-8 md:w-[max(1.5rem,calc((100%-1280px+3rem)/2))] bg-gradient-to-r from-background to-transparent z-10 pointer-events-none hidden md:block" />
-        <div className="absolute right-0 top-0 bottom-0 w-8 md:w-[max(1.5rem,calc((100%-1280px+3rem)/2))] bg-gradient-to-l from-background to-transparent z-10 pointer-events-none hidden md:block" />
+        <div className="absolute left-0 top-0 bottom-0 w-8 md:w-[max(1.5rem,calc((100%-1280px+3rem)/2))] bg-gradient-to-r from-background via-background/80 to-transparent z-10 pointer-events-none hidden md:block" />
+        <div className="absolute right-0 top-0 bottom-0 w-8 md:w-[max(1.5rem,calc((100%-1280px+3rem)/2))] bg-gradient-to-l from-background via-background/80 to-transparent z-10 pointer-events-none hidden md:block" />
       </div>
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
-
         {/* Responsive Footer */}
-        <div className="mt-2 flex flex-col justify-center items-center gap-6 md:gap-8 border-t border-slate-50 dark:border-white/5 pt-6 md:pt-8">
+        <div className="mt-8 flex flex-col justify-center items-center gap-6 md:gap-8 border-t border-slate-50 dark:border-white/5 pt-6 md:pt-8">
           <Link
             href="/services"
             className="px-8 py-3.5 rounded-full bg-gradient-to-r from-[#3994fa] to-[#004aad] hover:opacity-90 text-white text-[11px] font-bold uppercase tracking-[0.2em] flex items-center justify-center gap-2 hover:shadow-lg hover:shadow-[#3994fa]/20 hover:-translate-y-0.5 transition-all duration-300 w-[180px]"
@@ -369,3 +393,4 @@ const Services: React.FC = () => {
 };
 
 export default Services;
+

@@ -33,7 +33,7 @@ const HomeFAQ: React.FC = () => {
             <div className="max-w-4xl mx-auto px-6 relative z-10">
                 <div className="text-center mb-12 md:mb-16">
                     <span className="text-sm md:text-base font-bold text-brand-medium tracking-widest uppercase">Digital Growth FAQs</span>
-                    <h2 className="text-3xl md:text-5xl font-black text-foreground mt-4 mb-6 tracking-tight">
+                    <h2 className="text-3xl md:text-5xl font-bold text-foreground mt-4 mb-6 tracking-tight">
                         Frequently Asked Questions
                     </h2>
                     <p className="text-slate-600 dark:text-slate-400 text-base md:text-lg">
@@ -51,7 +51,7 @@ const HomeFAQ: React.FC = () => {
                                 onClick={() => setOpenIndex(openIndex === index ? null : index)}
                                 className="w-full text-left px-6 py-6 flex items-center justify-between focus:outline-none"
                             >
-                                <h3 className="text-lg md:text-xl font-bold text-foreground">
+                                <h3 className="text-sm md:text-base font-semibold text-foreground leading-tight">
                                     {faq.question}
                                 </h3>
                                 <ChevronDown
@@ -62,12 +62,12 @@ const HomeFAQ: React.FC = () => {
                             <AnimatePresence>
                                 {openIndex === index && (
                                     <motion.div
-                                        
-                                        
+
+
                                         exit={{ height: 0, opacity: 0 }}
-                                        
+
                                     >
-                                        <div className="px-6 pb-6 text-slate-600 dark:text-slate-400 text-base leading-relaxed">
+                                        <div className="px-6 pb-6 text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
                                             {faq.answer}
                                         </div>
                                     </motion.div>
