@@ -6,11 +6,12 @@ interface BlogSchemaProps {
 }
 
 export default function BlogSchema({ post }: BlogSchemaProps) {
+    const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.preettech.com';
     const schema = {
         "@context": "https://schema.org",
         "@type": "Article",
         "headline": post.title,
-        "image": post.featuredImage, // In a real app this would be a full URL
+        "image": post.featuredImage.startsWith('http') ? post.featuredImage : `${baseUrl}${post.featuredImage}`,
         "author": {
             "@type": "Person",
             "name": post.author.name,
@@ -28,7 +29,7 @@ export default function BlogSchema({ post }: BlogSchemaProps) {
         "description": post.excerpt,
         "mainEntityOfPage": {
             "@type": "WebPage",
-            "@id": `https://preettech.com/blog/${post.slug}`
+            "@id": `${baseUrl}/blog/${post.slug}`
         }
     };
 

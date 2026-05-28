@@ -1,8 +1,11 @@
 import React from 'react';
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import { BLOG_POSTS } from '@/lib/blog-data';
+import { BLOG_POSTS, BlogPost } from '@/lib/blog-data';
 import BlogPostContent from '@/components/blog/BlogPostContent';
+import { getPostBySlug } from '@/lib/blog-helpers';
+
+export const dynamic = 'force-dynamic';
 
 interface PageProps {
     params: Promise<{ slug: string }>;
@@ -16,7 +19,7 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
     const { slug } = await params;
-    const post = BLOG_POSTS.find((p) => p.slug === slug);
+    const { post } = await getPostBySlug(slug);
 
     if (!post) {
         return {
@@ -50,18 +53,18 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
             images: [post.featuredImage],
         },
         alternates: {
-            canonical: `https://preettech.com/blog/${post.slug}`,
+            canonical: `/blog/${post.slug}`,
         },
     };
 }
 
 export default async function BlogPostPage({ params }: PageProps) {
     const { slug } = await params;
-    const post = BLOG_POSTS.find((p) => p.slug === slug);
+    const { post, allPosts } = await getPostBySlug(slug);
 
     if (!post) {
         notFound();
     }
 
-    return <BlogPostContent post={post} />;
+    return <BlogPostContent post={post} allPosts={allPosts} />;
 }

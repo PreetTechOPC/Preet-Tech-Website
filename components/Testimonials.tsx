@@ -40,8 +40,7 @@ const REVIEWS = [
   }
 ];
 
-// Duplicate once for seamless loop — 8 cards total
-const SCROLL_REVIEWS = [...REVIEWS, ...REVIEWS];
+// Fallback hardcoded reviews if Hygraph is empty
 
 const ReviewCard = memo(({ review }: { review: typeof REVIEWS[0] }) => (
   <div className="w-[400px] flex-shrink-0 relative group">
@@ -79,7 +78,20 @@ const ReviewCard = memo(({ review }: { review: typeof REVIEWS[0] }) => (
 
 ReviewCard.displayName = 'ReviewCard';
 
-const Testimonials: React.FC = () => {
+const Testimonials: React.FC<{ initialReviews?: any[] }> = ({ initialReviews = [] }) => {
+  const hygraphReviews = initialReviews.map((r, i) => ({
+    id: r.id || `hygraph-${i}`,
+    name: r.authorName,
+    initials: r.authorName.substring(0, 2).toUpperCase(),
+    role: 'Client',
+    company: r.company || '',
+    text: r.quote,
+    rating: 5,
+  }));
+  
+  const activeReviews = hygraphReviews.length > 0 ? hygraphReviews : REVIEWS;
+  const SCROLL_REVIEWS = [...activeReviews, ...activeReviews];
+
   return (
     <section className="py-16 md:py-24 relative bg-background overflow-hidden transition-colors duration-300">
       {/* Background */}

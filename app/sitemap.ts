@@ -1,8 +1,8 @@
 import { MetadataRoute } from 'next';
-import { BLOG_POSTS } from '@/lib/blog-data';
+import { getCombinedBlogPosts } from '@/lib/blog-helpers';
 
-export default function sitemap(): MetadataRoute.Sitemap {
-    const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://preettech.com';
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
+    const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.preettech.com';
 
     const staticPages: string[] = [
         '',
@@ -35,7 +35,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
         priority: route === '' ? 1 : 0.8,
     }));
 
-    const dynamicBlogEntries: MetadataRoute.Sitemap = BLOG_POSTS.map((post) => ({
+    const posts = await getCombinedBlogPosts();
+    const dynamicBlogEntries: MetadataRoute.Sitemap = posts.map((post) => ({
         url: `${baseUrl}/blog/${post.slug}`,
         lastModified: post.date ? new Date(post.date) : new Date(),
         changeFrequency: 'monthly',

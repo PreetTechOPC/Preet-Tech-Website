@@ -62,10 +62,9 @@ const HomeFAQ: React.FC = () => {
                             <AnimatePresence>
                                 {openIndex === index && (
                                     <motion.div
-
-
+                                        initial={{ height: 0, opacity: 0 }}
+                                        animate={{ height: "auto", opacity: 1 }}
                                         exit={{ height: 0, opacity: 0 }}
-
                                     >
                                         <div className="px-6 pb-6 text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
                                             {faq.answer}

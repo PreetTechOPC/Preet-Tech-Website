@@ -55,7 +55,13 @@ const HomeFAQ = dynamic(() => import('../components/HomeFAQ'), {
     loading: () => <SectionSkeleton />,
 });
 
-export default function HomeClient() {
+export default function HomeClient({ 
+    initialTestimonials = [], 
+    initialInsights = [] 
+}: { 
+    initialTestimonials?: any[];
+    initialInsights?: any[];
+}) {
     return (
         <main className="w-full max-w-full selection:bg-brand-medium/30 overflow-x-clip bg-background text-foreground transition-colors duration-300">
             <Navbar />
@@ -68,11 +74,11 @@ export default function HomeClient() {
 
             <StatsCounter />
 
-            <Insights />
+            <Insights initialInsights={initialInsights} />
 
             <SimpleSteps />
 
-            <Testimonials />
+            <Testimonials initialReviews={initialTestimonials} />
 
             <ProductShowcase />
 

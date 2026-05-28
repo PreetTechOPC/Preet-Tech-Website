@@ -4,9 +4,6 @@ export const metadata: Metadata = {
     title: "Onboarding & Mentorship Systems | Preet Tech OPC Private Limited Solutions",
     description: "Implement structural training and onboarding portals for seamless team expansion and mentorship.",
     keywords: ["Onboarding Systems","Mentorship Platforms","Corporate Training Tech"],
-    alternates: {
-        canonical: 'https://preettech.com/services/onboarding-mentores',
-    },
     openGraph: {
         title: "Onboarding & Mentorship Systems | Preet Tech OPC Private Limited Solutions",
         description: "Implement structural training and onboarding portals for seamless team expansion and mentorship.",

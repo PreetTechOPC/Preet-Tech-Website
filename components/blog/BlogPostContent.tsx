@@ -8,12 +8,17 @@ import BlogSidebar from '@/components/blog/BlogSidebar';
 import BlogSchema from '@/components/blog/BlogSchema';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import ReactMarkdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
+import { formatMarkdown } from '@/lib/blog-utils';
+
 
 interface BlogPostContentProps {
     post: BlogPost;
+    allPosts?: BlogPost[];
 }
 
-export default function BlogPostContent({ post }: BlogPostContentProps) {
+export default function BlogPostContent({ post, allPosts }: BlogPostContentProps) {
     const [isDark, setIsDark] = useState(false);
 
     // Newsletter State
@@ -119,10 +124,18 @@ export default function BlogPostContent({ post }: BlogPostContentProps) {
 
                             {/* Post Content */}
                             <div className="prose prose-invert prose-brand max-w-none">
-                                <div
-                                    className="text-slate-400 text-lg leading-[1.8] space-y-8 blog-content-rich"
-                                    dangerouslySetInnerHTML={{ __html: post.content }}
-                                />
+                                {/<\/?[a-z][\s\S]*>/i.test(post.content || '') ? (
+                                    <div
+                                        className="text-slate-400 text-lg leading-[1.8] space-y-8 blog-content-rich"
+                                        dangerouslySetInnerHTML={{ __html: post.content }}
+                                    />
+                                ) : (
+                                    <div className="text-slate-400 text-lg leading-[1.8] space-y-8 blog-content-rich">
+                                        <ReactMarkdown remarkPlugins={[remarkGfm]}>
+                                            {formatMarkdown(post.content)}
+                                        </ReactMarkdown>
+                                    </div>
+                                )}
                             </div>
 
                             {/* Internal CTA Block */}
@@ -159,7 +172,7 @@ export default function BlogPostContent({ post }: BlogPostContentProps) {
 
                         {/* Sidebar */}
                         <div className="lg:col-span-4">
-                            <BlogSidebar />
+                            <BlogSidebar posts={allPosts} />
                         </div>
                     </div>
                 </div>

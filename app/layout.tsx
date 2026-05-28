@@ -24,7 +24,7 @@ const jetbrains = JetBrains_Mono({
     display: 'swap',
 });
 
-const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://preettech.com';
+const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.preettech.com';
 
 export const metadata: Metadata = {
     metadataBase: new URL(baseUrl),

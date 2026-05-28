@@ -4,11 +4,16 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { TrendingUp, Clock, ArrowRight, Activity } from 'lucide-react';
-import { BLOG_POSTS } from '@/lib/blog-data';
+import { BLOG_POSTS, BlogPost } from '@/lib/blog-data';
 
-export default function TrendingIntelligence() {
+interface TrendingIntelligenceProps {
+    posts?: BlogPost[];
+}
+
+export default function TrendingIntelligence({ posts }: TrendingIntelligenceProps) {
     // Curate a set of "Trending" posts
-    const trendingPosts = BLOG_POSTS.slice(0, 4);
+    const displayPosts = posts || BLOG_POSTS;
+    const trendingPosts = displayPosts.slice(0, 4);
 
     return (
         <section className="py-24 bg-slate-50 dark:bg-slate-950 relative overflow-hidden transition-colors duration-300">
@@ -36,10 +41,10 @@ export default function TrendingIntelligence() {
                     {trendingPosts.map((post, idx) => (
                         <motion.div
                             key={post.id}
-
-
-
-                            
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.5, delay: idx * 0.1 }}
                             className="group relative flex flex-col h-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-white/5 rounded-[2.5rem] p-6 md:p-8 hover:bg-slate-50 dark:hover:bg-slate-800 hover:border-brand-cyan/30 dark:hover:border-brand-cyan/30 transition-all duration-300 shadow-sm hover:shadow-xl hover:shadow-brand-cyan/5"
                         >
                             <Link href={`/blog/${post.slug}`} className="flex flex-col h-full">

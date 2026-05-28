@@ -4,9 +4,6 @@ export const metadata: Metadata = {
     title: "Advanced Website Solutions | High-Performance Web Development",
     description: "Build robust, scalable, and ultra-fast advanced websites designed to convert visitors and scale your digital presence.",
     keywords: ["Advanced Web Development","High-Performance Websites","Scalable Web Architecture"],
-    alternates: {
-        canonical: 'https://preettech.com/services/advance-website',
-    },
     openGraph: {
         title: "Advanced Website Solutions | High-Performance Web Development",
         description: "Build robust, scalable, and ultra-fast advanced websites designed to convert visitors and scale your digital presence.",

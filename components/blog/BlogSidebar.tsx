@@ -3,10 +3,15 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { Search, Mail, ArrowRight, TrendingUp } from 'lucide-react';
-import { BLOG_POSTS, CATEGORIES } from '@/lib/blog-data';
+import { BLOG_POSTS, CATEGORIES, BlogPost } from '@/lib/blog-data';
 
-export default function BlogSidebar() {
-    const recentPosts = BLOG_POSTS.slice(0, 3);
+interface BlogSidebarProps {
+    posts?: BlogPost[];
+}
+
+export default function BlogSidebar({ posts }: BlogSidebarProps) {
+    const displayPosts = posts || BLOG_POSTS;
+    const recentPosts = displayPosts.slice(0, 3);
 
     const [subscribeEmail, setSubscribeEmail] = useState('');
     const [subscribeStatus, setSubscribeStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
@@ -105,7 +110,7 @@ export default function BlogSidebar() {
                                 {cat}
                             </span>
                             <span className="text-xs font-bold text-slate-400 dark:text-slate-600 bg-slate-100 dark:bg-white/5 px-2 py-0.5 rounded-full">
-                                {BLOG_POSTS.filter(p => p.category === cat).length}
+                                {displayPosts.filter(p => p.category === cat).length}
                             </span>
                         </Link>
                     ))}

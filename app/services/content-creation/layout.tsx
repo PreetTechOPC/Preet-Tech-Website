@@ -16,9 +16,6 @@ export const metadata: Metadata = {
         "Digital Storytelling Services",
         "Performance Marketing Creatives"
     ],
-    alternates: {
-        canonical: 'https://preettech.com/services/content-creation',
-    },
     openGraph: {
         title: "Content Creation Services that Drive Growth | Preet Tech OPC Private Limited Studio",
         description: "From strategy to post-production, we handle your entire content lifecycle. Get scroll-stopping visuals that convert viewers into customers.",

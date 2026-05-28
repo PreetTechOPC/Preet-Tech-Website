@@ -14,6 +14,8 @@ export const metadata: Metadata = {
     },
 };
 
+export const dynamic = "force-dynamic";
+
 const faqSchema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
@@ -45,14 +47,47 @@ const faqSchema = {
     ]
 };
 
-export default function Home() {
+import { hygraphRequest } from "@/lib/hygraph";
+
+export default async function Home() {
+    let testimonials = [];
+    let blogPosts = [];
+    try {
+        const data = await hygraphRequest(`
+            query {
+                testimonials(orderBy: createdAt_DESC) {
+                    id
+                    authorName
+                    company
+                    quote
+                }
+                blogPosts(orderBy: createdAt_DESC, first: 10) {
+                    id
+                    title
+                    slug
+                    excerpt
+                    category
+                    date
+                    readTime
+                    featuredImage {
+                        url
+                    }
+                }
+            }
+        `);
+        testimonials = data?.testimonials || [];
+        blogPosts = data?.blogPosts || [];
+    } catch(e) {
+        console.error("Failed to fetch homepage data:", e);
+    }
+
     return (
         <>
             <script
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
             />
-            <HomeClient />
+            <HomeClient initialTestimonials={testimonials} initialInsights={blogPosts} />
         </>
     );
 }

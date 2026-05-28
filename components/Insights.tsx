@@ -101,12 +101,67 @@ const InsightCard = memo(({ post, index }: { post: any; index: number }) => (
 
 InsightCard.displayName = 'InsightCard';
 
-const Insights: React.FC = () => {
+interface InsightPost {
+    id: string | number;
+    title: string;
+    excerpt: string;
+    category: string;
+    readTime: string;
+    date: string;
+    image: string;
+    color: string;
+    bg: string;
+    slug: string;
+}
+
+interface InsightsProps {
+    initialInsights?: any[];
+}
+
+function mapInsightPost(p: any): InsightPost {
+    const categoryColors: Record<string, { color: string; bg: string }> = {
+        'Fintech': { color: 'text-emerald-500', bg: 'bg-emerald-500/10' },
+        'Startup Strategy': { color: 'text-blue-500', bg: 'bg-blue-500/10' },
+        'Technology': { color: 'text-purple-500', bg: 'bg-purple-500/10' },
+        'Performance Marketing': { color: 'text-emerald-500', bg: 'bg-emerald-500/10' },
+        'App Development': { color: 'text-blue-500', bg: 'bg-blue-500/10' },
+        'Software': { color: 'text-purple-500', bg: 'bg-purple-500/10' },
+        'Content': { color: 'text-orange-500', bg: 'bg-orange-500/10' },
+        'Web Design': { color: 'text-pink-500', bg: 'bg-pink-500/10' },
+        'AI & Tech': { color: 'text-cyan-500', bg: 'bg-cyan-500/10' },
+        'Vibe Coders': { color: 'text-rose-500', bg: 'bg-rose-500/10' },
+        'E-Commerce': { color: 'text-yellow-500', bg: 'bg-yellow-500/10' }
+    };
+    const design = categoryColors[p.category] || { color: 'text-blue-500', bg: 'bg-blue-500/10' };
+
+    return {
+        id: p.id,
+        title: p.title,
+        excerpt: p.excerpt || '',
+        category: p.category || 'AI & Tech',
+        readTime: p.readTime || '5 min read',
+        date: p.date || new Date().toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }),
+        image: p.featuredImage?.url || '/images/services/software-development.png',
+        color: design.color,
+        bg: design.bg,
+        slug: p.slug || ''
+    };
+}
+
+const Insights: React.FC<InsightsProps> = ({ initialInsights = [] }) => {
     const [cardWidth, setCardWidth] = useState(320);
     const GAP = 32;
     const STEP = cardWidth + GAP;
     
-    const extendedInsights = useMemo(() => [...INSIGHTS, ...INSIGHTS, ...INSIGHTS], []);
+    const extendedInsights = useMemo(() => {
+        const mappedHygraph = initialInsights.map(mapInsightPost);
+        const hygraphSlugs = new Set(mappedHygraph.map(p => p.slug));
+        const uniqueLocalInsights = INSIGHTS.filter(p => !hygraphSlugs.has(p.slug));
+        const merged = [...mappedHygraph, ...uniqueLocalInsights];
+        return [...merged, ...merged, ...merged];
+    }, [initialInsights]);
+
+    const uniqueCount = useMemo(() => extendedInsights.length / 3, [extendedInsights]);
     
     const [isDragging, setIsDragging] = useState(false);
     const [isHovered, setIsHovered] = useState(false);
@@ -114,7 +169,7 @@ const Insights: React.FC = () => {
     
     const sectionRef = useRef<HTMLElement>(null);
     const requestRef = useRef<number>(0);
-    const x = useMotionValue(-INSIGHTS.length * STEP);
+    const x = useMotionValue(-uniqueCount * STEP);
     
     // Handle window resize for responsive card widths
     useEffect(() => {
@@ -148,14 +203,14 @@ const Insights: React.FC = () => {
     }, []);
 
     const handleLoop = useCallback((currentX: number) => {
-        const fullSetWidth = INSIGHTS.length * STEP;
-        if (currentX <= -INSIGHTS.length * 2 * STEP) {
+        const fullSetWidth = uniqueCount * STEP;
+        if (currentX <= -uniqueCount * 2 * STEP) {
             return currentX + fullSetWidth;
         } else if (currentX >= -0.5 * STEP) {
             return currentX - fullSetWidth;
         }
         return currentX;
-    }, [STEP]);
+    }, [STEP, uniqueCount]);
 
     // Continuous Auto-Slide Marquee (Left to Right)
     useEffect(() => {

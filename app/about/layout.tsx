@@ -19,9 +19,6 @@ export const metadata: Metadata = {
         "business automation services",
         "enterprise technology partner"
     ],
-    alternates: {
-        canonical: 'https://preettech.com/about',
-    },
     openGraph: {
         title: "About Preet Tech OPC Private Limited | Innovative IT Solutions Company",
         description: "Preet Tech OPC Private Limited is an innovative IT solutions company specializing in custom software development, digital transformation, and enterprise tech solutions.",

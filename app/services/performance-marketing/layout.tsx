@@ -17,9 +17,6 @@ export const metadata: Metadata = {
         "Lead Generation Services",
         "Digital Advertising IT Company"
     ],
-    alternates: {
-        canonical: 'https://preettech.com/services/performance-marketing',
-    },
     openGraph: {
         title: "Performance Marketing that Delivers Measurable Growth | Preet Tech OPC Private Limited",
         description: "Stop guessing and start growing. We use advanced analytics and precision targeting to turn your marketing spend into a high-octane growth engine.",
