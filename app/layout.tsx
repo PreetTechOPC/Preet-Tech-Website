@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Plus_Jakarta_Sans, Outfit, JetBrains_Mono } from "next/font/google";
+import { Plus_Jakarta_Sans, Outfit, JetBrains_Mono, Poppins } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
 import ClientLayout from "./client-layout"; // Separate client logic like Lenis
@@ -24,43 +24,49 @@ const jetbrains = JetBrains_Mono({
     display: 'swap',
 });
 
+const poppins = Poppins({
+    subsets: ["latin"],
+    weight: ["600"],
+    variable: '--font-poppins',
+    display: 'swap',
+});
+
 const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.preettech.com';
 
 export const metadata: Metadata = {
     metadataBase: new URL(baseUrl),
     title: {
-        default: "Preet Tech | Next-Gen IT Company & AI Solutions Provider",
-        template: "%s | Preet Tech OPC Private Limited - Digital Transformation Experts",
+        default: "Website Development Company in Haldwani | Preet Tech",
+        template: "%s | Preet Tech",
     },
-    description: "Preet Tech OPC Private Limited is a leading Next-Gen IT Company specializing in custom software development, AI automation, high-performance marketing, and scalable enterprise solutions. Transform your business with our data-driven digital strategies.",
+    description: "Preet Tech is a technology company based in Haldwani, Uttarakhand providing website development, mobile app development, custom software development and digital solutions for startups and businesses.",
     keywords: [
-        "Preet Tech", "Next-Gen IT Company", "AI Automation Solutions", "Custom Software Development", 
-        "Web Development Services", "Digital Marketing Agency", "Performance Marketing", "SEO Optimization",
-        "Enterprise IT Solutions", "Scalable SaaS Development", "App Development Company", "IT Consulting",
-        "Generative AI Integration", "Business Growth Solutions", "E-commerce Development", "Cloud Migration",
-        "B2B IT Services", "Digital Transformation", "IT Company in India", "Global Tech Partner"
+        "Website Development Company in Haldwani", "App Development Company Haldwani",
+        "Software Development Company Haldwani", "IT Company in Haldwani",
+        "Custom Website Development Haldwani", "Website Designer Haldwani",
+        "Mobile App Development Haldwani", "Custom Software Development Haldwani",
+        "Web Development Company Haldwani", "Preet Tech", "Preet Tech OPC Private Limited"
     ],
     openGraph: {
-        title: "Preet Tech OPC Private Limited | Next-Gen IT & AI Solutions",
-        description: "Accelerate your business growth with Preet Tech. We deliver cutting-edge software, AI automation, and performance marketing solutions for global enterprises.",
+        title: "Website Development Company in Haldwani | Preet Tech",
+        description: "Preet Tech is a Haldwani-based technology company providing custom website development, mobile app development, software development and digital solutions for startups and businesses.",
         siteName: "Preet Tech OPC Private Limited",
         images: [
             {
-                url: "/og-image.png", // Ensure this exists
+                url: "/og-image.png",
                 width: 1200,
                 height: 630,
-                alt: "Preet Tech Digital Transformation",
+                alt: "Preet Tech — Website, App & Software Development Company in Haldwani",
             },
         ],
-        locale: "en_US",
+        locale: "en_IN",
         type: "website",
     },
     twitter: {
         card: "summary_large_image",
-        title: "Preet Tech | Next-Gen IT & AI Automation",
-        description: "Scalable software solutions and AI-driven growth for modern businesses.",
+        title: "Website Development Company in Haldwani | Preet Tech",
+        description: "Preet Tech is a Haldwani-based technology company building websites, mobile apps and custom software for startups and businesses.",
         images: ["/og-image.png"],
-        creator: "@preettech",
     },
     robots: {
         index: true,
@@ -73,13 +79,11 @@ export const metadata: Metadata = {
             'max-snippet': -1,
         },
     },
-    alternates: {
-        languages: {
-            'en-US': '/en-US',
-        },
-    },
+    // hreflang: Add here when multi-language routes are created (e.g., /hi for Hindi)
+    // alternates: { languages: { 'hi': '/hi', 'en-US': '/en-US' } },
     verification: {
-        google: "your-google-verification-code", // Placeholder for user
+        // TODO: Replace with your real code from Google Search Console → Settings → Ownership Verification
+        google: "your-google-verification-code",
     },
 };
 
@@ -90,6 +94,7 @@ const schemaOrg = {
             "@type": "Organization",
             "@id": `${baseUrl}/#organization`,
             "name": "Preet Tech OPC Private Limited",
+            "alternateName": "Preet Tech",
             "url": baseUrl,
             "logo": {
                 "@type": "ImageObject",
@@ -99,16 +104,16 @@ const schemaOrg = {
             },
             "contactPoint": {
                 "@type": "ContactPoint",
-                "telephone": "+91-XXXXXXXXXX",
+                "telephone": "+91 97566 67397",
+                "email": "info@preettech.com",
                 "contactType": "customer service",
-                "areaServed": "Worldwide",
+                "areaServed": ["IN"],
                 "availableLanguage": ["en", "hi"]
             },
             "sameAs": [
-                "https://twitter.com/preettech",
-                "https://linkedin.com/company/preettech",
-                "https://facebook.com/preettech",
-                "https://instagram.com/preettech"
+                "https://www.facebook.com/Preetinfotech/",
+                "https://www.instagram.com/preettech/",
+                "https://www.linkedin.com/company/preet-tech"
             ]
         },
         {
@@ -116,7 +121,7 @@ const schemaOrg = {
             "@id": `${baseUrl}/#website`,
             "url": baseUrl,
             "name": "Preet Tech OPC Private Limited",
-            "description": "Next-Gen IT Company & AI Solutions Provider",
+            "description": "Website, App & Software Development Company in Haldwani, Uttarakhand",
             "publisher": {
                 "@id": `${baseUrl}/#organization`
             },
@@ -127,17 +132,36 @@ const schemaOrg = {
             }
         },
         {
-            "@type": "ProfessionalService",
-            "@id": `${baseUrl}/#service`,
-            "name": "Preet Tech IT Solutions",
+            "@type": ["LocalBusiness", "ProfessionalService"],
+            "@id": `${baseUrl}/#localbusiness`,
+            "name": "Preet Tech OPC Private Limited",
             "image": `${baseUrl}/icon.png`,
-            "priceRange": "$$",
+            "telephone": "+91 97566 67397",
+            "email": "info@preettech.com",
+            "url": baseUrl,
+            "priceRange": "₹₹",
+            "description": "Preet Tech is a technology company based in Haldwani, Uttarakhand providing website development, mobile app development, custom software development and digital solutions.",
             "address": {
                 "@type": "PostalAddress",
+                "streetAddress": "near Krishna Hospital, Subhash Nagar",
                 "addressLocality": "Haldwani",
                 "addressRegion": "Uttarakhand",
                 "postalCode": "263139",
                 "addressCountry": "IN"
+            },
+            "areaServed": [
+                { "@type": "City", "name": "Haldwani" },
+                { "@type": "State", "name": "Uttarakhand" },
+                { "@type": "Country", "name": "India" }
+            ],
+            "sameAs": [
+                "https://www.facebook.com/Preetinfotech/",
+                "https://www.instagram.com/preettech/",
+                "https://www.linkedin.com/company/preet-tech"
+            ],
+            "foundingDate": "2021",
+            "parentOrganization": {
+                "@id": `${baseUrl}/#organization`
             }
         }
     ]
@@ -149,8 +173,14 @@ export default function RootLayout({
     children: React.ReactNode;
 }>) {
     return (
-        <html lang="en" className={`${jakarta.variable} ${outfit.variable} ${jetbrains.variable}`} suppressHydrationWarning>
+        <html lang="en" className={`${jakarta.variable} ${outfit.variable} ${jetbrains.variable} ${poppins.variable}`} suppressHydrationWarning>
             <head>
+                {/* Performance: Preconnect to external origins */}
+                <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+                <link rel="preconnect" href="https://www.googletagmanager.com" />
+                <link rel="dns-prefetch" href="https://www.google-analytics.com" />
+                {/* Mobile: Theme color for browser chrome */}
+                <meta name="theme-color" content="#3994fa" />
 
                 <script
                     type="application/ld+json"
@@ -173,7 +203,7 @@ export default function RootLayout({
 
             </head>
             <body className="antialiased font-sans bg-background text-foreground selection:bg-brand-medium/30 transition-colors duration-300" suppressHydrationWarning>
-                <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false}>
+                <ThemeProvider attribute="class" defaultTheme="system" enableSystem={false}>
                     <ClientLayout>
                         {children}
                     </ClientLayout>

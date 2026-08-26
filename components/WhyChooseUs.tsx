@@ -6,33 +6,33 @@ import { Handshake, Layers, TrendingUp, ShieldCheck, Search, Banknote } from 'lu
 const FEATURES = [
     {
         icon: Banknote,
-        title: "Strategic Risk Sharing",
-        description: "Zero upfront friction. Our proprietary revenue-share model ensures we only succeed when you do—creating a perfect alignment of interests."
+        title: "Business-First Approach",
+        description: "We align every line of code and marketing campaign with your revenue goals. We aren't just developers; we are business growth consultants."
     },
     {
         icon: Layers,
-        title: "Institutional Engineering",
-        description: "Beyond simple code. We architect enterprise-grade digital infrastructures designed for infinite scale and long-term security."
-    },
-    {
-        icon: TrendingUp,
-        title: "Growth Acceleration",
-        description: "We don't just drive metrics; we drive market share. Our data-led engineering team builds systems that dominate customer acquisition."
-    },
-    {
-        icon: Handshake,
-        title: "Full Strategic Alignment",
-        description: "We operate as your high-performance technical board. We provide the strategic clarity and engineering muscle local leaders demand."
+        title: "Custom Solutions",
+        description: "No generic templates. We build technology tailored to your specific operational needs, ensuring a perfect fit for your unique workflows."
     },
     {
         icon: Search,
-        title: "Radical Transparency",
-        description: "Complete visibility into your growth metrics. Honest reporting, direct communication, and no-nonsense business logic."
+        title: "Transparent Communication",
+        description: "Clear milestones, direct developer access, and honest project management. Full transparency into every campaign and project."
+    },
+    {
+        icon: TrendingUp,
+        title: "Scalable Technology",
+        description: "Systems architected to grow with your business over the next decade, preventing you from outgrowing your digital infrastructure."
     },
     {
         icon: ShieldCheck,
-        title: "ROI-First Methodology",
-        description: "Vanity metrics have no place here. Every engineering decision is evaluated against its impact on your bottom line and LTV."
+        title: "End-to-End Security",
+        description: "Robust protection against vulnerabilities and architecture built to handle traffic spikes, ensuring your digital assets remain secure."
+    },
+    {
+        icon: Handshake,
+        title: "Long-term Partnership",
+        description: "We embed with your team as a high-performance technical partner, providing ongoing support, security updates, and performance marketing."
     }
 ];
 
@@ -49,14 +49,14 @@ const WhyChooseUs: React.FC = () => {
                     <h2
                         className="text-3xl md:text-6xl font-black text-foreground mb-6 tracking-tight leading-tight"
                     >
-                        Why Leaders Choose Our <br />
-                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-medium to-brand-cyan">SEO & IT Company.</span>
+                        Why Businesses Choose Preet Tech as Their <br />
+                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-medium to-brand-cyan">Technology Partner.</span>
                     </h2>
 
                     <p
                         className="text-base md:text-lg text-slate-600 dark:text-slate-400 leading-relaxed max-w-2xl mx-auto"
                     >
-                        As a top <span className="font-bold text-foreground dark:text-white">performance marketing IT Company</span>, we bridge the gap between ambitious vision and technical reality with robust <span className="font-bold text-foreground dark:text-white">SEO optimization services</span>, secure <span className="font-bold text-foreground dark:text-white">cloud migration services</span>, and distinct <span className="font-bold text-foreground dark:text-white">brand identity design</span>. Partner with a team built for digital dominance.
+                        We bridge the gap between ambitious vision and technical reality with robust <span className="font-bold text-foreground dark:text-white">custom software development</span>, secure <span className="font-bold text-foreground dark:text-white">scalable architecture</span>, and data-driven <span className="font-bold text-foreground dark:text-white">digital growth systems</span>. Partner with a team built for your success.
                     </p>
                 </div>
 

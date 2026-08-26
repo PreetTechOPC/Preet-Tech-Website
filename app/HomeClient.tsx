@@ -5,8 +5,18 @@ import React from 'react';
 import Navbar from '../components/Navbar';
 import Hero from '../components/Hero';
 import Footer from '../components/Footer';
+import EntitySection from '../components/EntitySection';
 
-// Skeleton placeholder for below-fold sections while they hydrate
+// SSR-ENABLED: pure React components — crawlers read these (SEO critical)
+import WhyChooseUs from '../components/WhyChooseUs';
+import StatsCounter from '../components/StatsCounter';
+import SimpleSteps from '../components/SimpleSteps';
+import ReadyToPartner from '../components/ReadyToPartner';
+import Testimonials from '../components/Testimonials';
+import Insights from '../components/Insights';
+import HomeFAQ from '../components/HomeFAQ';
+
+// Skeleton placeholder for below-fold dynamic sections while they hydrate
 const SectionSkeleton = () => (
     <div className="w-full py-16 md:py-24 bg-background animate-pulse">
         <div className="max-w-7xl mx-auto px-6 space-y-4">
@@ -17,43 +27,12 @@ const SectionSkeleton = () => (
     </div>
 );
 
-// SSR-disabled only for components that use browser-only APIs (drag, Three.js, scroll position)
+// SSR-disabled ONLY for components that require browser-only APIs (drag carousel, Three.js)
 const Services = dynamic(() => import('../components/Services'), {
     ssr: false,
     loading: () => <SectionSkeleton />,
 });
-const WhyChooseUs = dynamic(() => import('../components/WhyChooseUs'), {
-    ssr: false,
-    loading: () => <SectionSkeleton />,
-});
-const StatsCounter = dynamic(() => import('../components/StatsCounter'), {
-    ssr: false,
-    loading: () => <SectionSkeleton />,
-});
-const SimpleSteps = dynamic(() => import('../components/SimpleSteps'), {
-    ssr: false,
-    loading: () => <SectionSkeleton />,
-});
-const ReadyToPartner = dynamic(() => import('../components/ReadyToPartner'), {
-    ssr: false,
-    loading: () => <SectionSkeleton />,
-});
-const Testimonials = dynamic(() => import('../components/Testimonials'), {
-    ssr: false,
-    loading: () => <SectionSkeleton />,
-});
-const ProductShowcase = dynamic(() => import('../components/ProductShowcase'), {
-    ssr: false,
-    loading: () => <SectionSkeleton />,
-});
-const Insights = dynamic(() => import('../components/Insights'), {
-    ssr: false,
-    loading: () => <SectionSkeleton />,
-});
-const HomeFAQ = dynamic(() => import('../components/HomeFAQ'), {
-    ssr: false,
-    loading: () => <SectionSkeleton />,
-});
+
 
 export default function HomeClient({ 
     initialTestimonials = [], 
@@ -68,6 +47,8 @@ export default function HomeClient({
 
             <Hero />
 
+            <EntitySection />
+
             <Services />
 
             <WhyChooseUs />
@@ -80,7 +61,7 @@ export default function HomeClient({
 
             <Testimonials initialReviews={initialTestimonials} />
 
-            <ProductShowcase />
+
 
             <HomeFAQ />
 

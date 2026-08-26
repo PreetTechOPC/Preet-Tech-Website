@@ -6,7 +6,7 @@ import {
     Building2, ChevronRight, Activity, Target, BarChart3, TrendingUp, Search,
     Globe, CheckCircle2, Share2, Briefcase, Rocket, Plus, Minus, Code2,
     Database, Cloud, MonitorSmartphone, Tablet, Check, Star, Settings, Headphones, Users,
-    Play, CreditCard, ChevronDown, X, BrainCircuit, Bot, Sparkles, MessageSquare, Workflow
+    Play, CreditCard, ChevronDown, X, BrainCircuit, Bot, MessageSquare, Workflow
 } from 'lucide-react';
 import Navbar from '@/components/Navbar';
 import Link from 'next/link';
@@ -29,7 +29,7 @@ const AI_SOLUTIONS = [
     { t: 'Predictive Analytics', d: 'Leverage machine learning to forecast trends, customer behavior, and sales growth with high accuracy.', icon: BarChart3, color: 'from-emerald-400 to-teal-600' },
     { t: 'Process Automation', d: 'Automate repetitive tasks with AI-driven workflows, reducing human error and operational costs.', icon: Workflow, color: 'from-orange-400 to-red-600' },
     { t: 'AI Voice & Image', d: 'Custom voice synthesis and computer vision solutions for advanced data processing and user interaction.', icon: Bot, color: 'from-cyan-400 to-blue-600' },
-    { t: 'SaaS AI Tools', d: 'Build full-scale AI products from scratch — from prompt engineering to deployment.', icon: Sparkles, color: 'from-yellow-400 to-amber-600' }
+    { t: 'SaaS AI Tools', d: 'Build full-scale AI products from scratch — from prompt engineering to deployment.', icon: Zap, color: 'from-yellow-400 to-amber-600' }
 ];
 
 export default function AISolutionsClient() {

@@ -66,5 +66,58 @@ export default async function BlogPostPage({ params }: PageProps) {
         notFound();
     }
 
-    return <BlogPostContent post={post} allPosts={allPosts} />;
+    const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.preettech.com';
+
+    // Article JSON-LD schema for E-E-A-T signals
+    const articleSchema = {
+        '@context': 'https://schema.org',
+        '@type': 'Article',
+        headline: post.title,
+        description: post.seo.description,
+        image: post.featuredImage,
+        datePublished: post.date,
+        dateModified: post.date,
+        author: {
+            '@type': 'Person',
+            name: post.author.name,
+        },
+        publisher: {
+            '@type': 'Organization',
+            name: 'Preet Tech OPC Private Limited',
+            logo: {
+                '@type': 'ImageObject',
+                url: `${baseUrl}/icon.png`,
+            },
+        },
+        mainEntityOfPage: {
+            '@type': 'WebPage',
+            '@id': `${baseUrl}/blog/${post.slug}`,
+        },
+    };
+
+    // BreadcrumbList schema for rich results
+    const breadcrumbSchema = {
+        '@context': 'https://schema.org',
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+            { '@type': 'ListItem', position: 1, name: 'Home', item: baseUrl },
+            { '@type': 'ListItem', position: 2, name: 'Blog', item: `${baseUrl}/blog` },
+            { '@type': 'ListItem', position: 3, name: post.title, item: `${baseUrl}/blog/${post.slug}` },
+        ],
+    };
+
+    return (
+        <>
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
+            />
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+            />
+            <BlogPostContent post={post} allPosts={allPosts} />
+        </>
+    );
 }
+

@@ -23,9 +23,9 @@ export default function FeaturedSection({ posts }: FeaturedSectionProps) {
                     <div>
                         <div className="flex items-center gap-3 mb-4">
                             <div className="w-10 h-1px bg-brand-cyan" />
-                            <span className="text-brand-cyan text-[11px] font-bold uppercase tracking-[0.3em]">Trending Now</span>
+                            <span className="text-brand-cyan text-[11px] font-semibold  tracking-[0.3em]">Trending Now</span>
                         </div>
-                        <h2 className="text-4xl md:text-6xl font-black tracking-tight text-slate-900 dark:text-white uppercase italic">
+                        <h2 className="text-4xl md:text-6xl font-semibold tracking-tight text-slate-900 dark:text-white  italic">
                             The <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-sky to-brand-cyan not-italic">Latest</span> Blogs.
                         </h2>
                     </div>
@@ -58,15 +58,15 @@ export default function FeaturedSection({ posts }: FeaturedSectionProps) {
                                     className="max-w-3xl"
                                 >
                                     <div className="flex flex-wrap items-center gap-4 mb-4">
-                                        <span className="px-3 py-1.5 bg-brand-cyan/10 border border-brand-cyan/20 text-brand-cyan rounded-full text-[9px] font-black uppercase tracking-[0.2em] backdrop-blur-sm">
+                                        <span className="px-3 py-1.5 bg-brand-cyan/10 border border-brand-cyan/20 text-brand-cyan rounded-full text-[9px] font-semibold  tracking-[0.2em] backdrop-blur-sm">
                                             {mainPost.category}
                                         </span>
-                                        <span className="flex items-center gap-2 text-white/60 text-[9px] font-black uppercase tracking-widest">
+                                        <span className="flex items-center gap-2 text-white/60 text-[9px] font-semibold  tracking-widest">
                                             <Clock className="w-3 h-3 text-brand-sky" /> {mainPost.readTime}
                                         </span>
                                     </div>
 
-                                    <h3 className="text-3xl md:text-4xl lg:text-5xl font-black text-white uppercase tracking-tighter leading-[1.1] mb-4 group-hover:text-brand-cyan transition-colors duration-300">
+                                    <h3 className="text-3xl md:text-4xl lg:text-5xl font-semibold text-white  tracking-tighter leading-[1.1] mb-4 group-hover:text-brand-cyan transition-colors duration-300">
                                         {mainPost.title}
                                     </h3>
 
@@ -106,16 +106,16 @@ export default function FeaturedSection({ posts }: FeaturedSectionProps) {
                                                 className="object-cover group-hover:scale-110 transition-transform duration-400"
                                             />
                                         </div>
-                                        <span className="text-[9px] font-black uppercase tracking-widest text-brand-cyan bg-brand-cyan/5 px-3 py-1.5 rounded-full">
+                                        <span className="text-[9px] font-semibold  tracking-widest text-brand-cyan bg-brand-cyan/5 px-3 py-1.5 rounded-full">
                                             {post.category}
                                         </span>
                                     </div>
 
-                                    <h4 className="text-base md:text-lg font-black text-slate-900 dark:text-white uppercase tracking-tight leading-tight mb-3 group-hover:text-brand-cyan transition-colors line-clamp-2 flex-1 mt-auto">
+                                    <h4 className="text-base md:text-lg font-semibold text-slate-900 dark:text-white  tracking-tight leading-tight mb-3 group-hover:text-brand-cyan transition-colors line-clamp-2 flex-1 mt-auto">
                                         {post.title}
                                     </h4>
 
-                                    <div className="flex items-center gap-3 text-[8px] font-bold text-slate-500 uppercase tracking-widest mt-auto">
+                                    <div className="flex items-center gap-3 text-[8px] font-semibold text-slate-500  tracking-widest mt-auto">
                                         <Clock className="w-3 h-3" />
                                         <span>{post.readTime}</span>
                                         <div className="w-1 h-1 rounded-full bg-slate-300 dark:bg-slate-700 mx-1" />

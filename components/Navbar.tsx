@@ -22,7 +22,11 @@ const Navbar: React.FC<NavbarProps> = ({ isDark: _ignoredIsDark, toggleTheme: _i
 
   const currentTheme = theme === 'system' ? systemTheme : theme;
   const isDark = mounted ? currentTheme === 'dark' : false;
-  const toggleTheme = () => setTheme(currentTheme === 'dark' ? 'light' : 'dark');
+  const toggleTheme = () => {
+    const nextTheme = currentTheme === 'dark' ? 'light' : 'dark';
+    localStorage.setItem("theme_user_manual", "true");
+    setTheme(nextTheme);
+  };
   const [isScrolled, setIsScrolled] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const [showMegaMenu, setShowMegaMenu] = useState(false);
@@ -59,7 +63,7 @@ const Navbar: React.FC<NavbarProps> = ({ isDark: _ignoredIsDark, toggleTheme: _i
     { name: 'Home', href: '/', desc: 'Preet Tech OPC Private Limited Home' },
     { name: 'About', href: '/about', desc: 'The Preet Edge' },
     { name: 'Services', href: '/services', desc: 'Strategic Multipliers', hasMegaMenu: true },
-    { name: 'Business Tools', href: '/services/business-tools', desc: 'Measurable Outcomes' },
+    { name: 'Careers', href: '/careers', desc: 'Join Our Team' },
     { name: 'Blog', href: '/blog', desc: 'Digital Logic' },
     { name: 'Contact', href: '/contact', desc: 'Start a Journey' },
   ];

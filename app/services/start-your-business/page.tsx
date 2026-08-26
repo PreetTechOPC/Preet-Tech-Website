@@ -1,102 +1,65 @@
-"use client";
+import { Metadata } from "next";
+import StartYourBusinessClient from "./StartYourBusinessClient";
 
-import React, { useState, useEffect } from 'react';
-import Navbar from '@/components/Navbar';
-import Footer from '@/components/Footer';
-import CaseStudies, { CaseStudy } from '@/components/CaseStudies';
-
-// Importing modular components for the "Start Your Business" service page
-import HeroLaunch from '@/components/services/start-your-business/HeroLaunch';
-import WhoIsThisFor from '@/components/services/start-your-business/WhoIsThisFor';
-import Challenges from '@/components/services/start-your-business/Challenges';
-import WhyChoosePreetTech from '@/components/services/start-your-business/WhyChoosePreetTech';
-
-import RegistrationServices from '@/components/services/start-your-business/RegistrationServices';
-import CreativeServices from '@/components/services/start-your-business/CreativeServices';
-import StrategyAndMarketing from '@/components/services/start-your-business/StrategyAndMarketing';
-import TrustAndProcess from '@/components/services/start-your-business/TrustAndProcess';
-import FinalConsultation from '@/components/services/start-your-business/FinalConsultation';
-
-const StartYourBusiness = () => {
-    const [isDark, setIsDark] = useState(false);
-
-    useEffect(() => {
-        const storedTheme = localStorage.getItem('theme');
-        if (storedTheme === 'dark') {
-            setIsDark(true);
-        } else if (storedTheme === 'light') {
-            setIsDark(false);
-        }
-    }, []);
-
-    const toggleTheme = () => {
-        const newTheme = !isDark;
-        setIsDark(newTheme);
-        if (newTheme) {
-            localStorage.setItem('theme', 'dark');
-        } else {
-            localStorage.setItem('theme', 'light');
-        }
-    };
-
-    const STARTUP_CASE_STUDIES: CaseStudy[] = [
-        {
-            id: 'startup-1',
-            title: 'Fintech Launch: Zero to One',
-            client: 'NeoBank India',
-            category: 'Startup Launch',
-            description: 'Handled everything from legal registration and GST to brand identity and the initial MVP launch in 45 days.',
-            stats: [
-                { label: 'Time to Market', value: '45 Days' },
-                { label: 'Waitlist', value: '10k+' },
-                { label: 'Funding', value: 'Seed' }
-            ],
-            tags: ['Company Registration', 'Branding', 'MVP']
-        },
-        {
-            id: 'startup-2',
-            title: 'D2C Brand: Market Entry',
-            client: 'PureOrganics',
-            category: 'E-commerce Launch',
-            description: 'Strategic market entry for an organic skincare brand, including legal compliance, packaging design, and web setup.',
-            stats: [
-                { label: 'Launch ROAS', value: '3.2x' },
-                { label: 'SKUs', value: '25+' },
-                { label: 'Compliance', value: '100%' }
-            ],
-            tags: ['Trademark', 'Shopify', 'Creative']
-        }
-    ];
-
-    return (
-        <main className="bg-white dark:bg-[#030712] transition-colors duration-300 selection:bg-brand-cyan/30">
-            <Navbar isDark={isDark} toggleTheme={toggleTheme} />
-
-            <HeroLaunch />
-            <WhoIsThisFor />
-            <Challenges />
-            <WhyChoosePreetTech />
-
-
-            <RegistrationServices />
-            <CreativeServices />
-            <StrategyAndMarketing />
-
-            <TrustAndProcess />
-            
-            {/* Success Stories Section */}
-            <CaseStudies 
-                studies={STARTUP_CASE_STUDIES} 
-                subtitle="Startup Success" 
-                title="From Idea to Enterprise."
-                themeColor="#3994fa"
-            />
-
-            <FinalConsultation />
-
-            <Footer />
-        </main>
-    );
+export const metadata: Metadata = {
+    title: "Start Your Business in India | Complete Tech & Digital Setup | Preet Tech",
+    description: "Launch your business the right way with Preet Tech. We provide complete technology setup, digital strategy, brand foundation, and business registration support to get your venture live and growing fast.",
+    keywords: [
+        "start your business India",
+        "business setup services India",
+        "new business technology setup",
+        "startup launch services India",
+        "complete business setup package",
+        "digital setup for new business",
+        "how to start a business in India",
+        "business registration and tech setup",
+        "startup launch consulting India"
+    ],
+    openGraph: {
+        title: "Start Your Business in India | Complete Tech & Digital Setup | Preet Tech",
+        description: "Everything you need to launch — tech stack, digital presence, brand identity, and growth strategy in one comprehensive package.",
+        url: "https://www.preettech.com/services/start-your-business",
+        siteName: "Preet Tech OPC Private Limited",
+        type: "website",
+        images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "Start Your Business — Preet Tech" }],
+    },
+    alternates: { canonical: "/services/start-your-business" },
 };
 
-export default StartYourBusiness;
+const serviceSchema = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "serviceType": "Business Launch & Setup Services",
+    "provider": { "@type": "Organization", "name": "Preet Tech OPC Private Limited", "url": "https://www.preettech.com" },
+    "description": "End-to-end business setup services including technology infrastructure, brand identity, digital presence, and go-to-market strategy for new ventures in India.",
+    "areaServed": "IN",
+    "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Business Launch Services",
+        "itemListElement": [
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Startup Technology Setup" } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Brand Identity & Digital Presence" } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Go-to-Market Strategy" } },
+        ]
+    }
+};
+
+const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.preettech.com" },
+        { "@type": "ListItem", "position": 2, "name": "Services", "item": "https://www.preettech.com/services" },
+        { "@type": "ListItem", "position": 3, "name": "Start Your Business", "item": "https://www.preettech.com/services/start-your-business" },
+    ]
+};
+
+export default function StartYourBusinessPage() {
+    return (
+        <>
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }} />
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+            <StartYourBusinessClient />
+        </>
+    );
+}

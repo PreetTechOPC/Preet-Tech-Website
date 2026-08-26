@@ -55,6 +55,11 @@ const Footer: React.FC = () => {
             { name: 'App Development', href: '/services/app-development' },
             { name: 'Software Development', href: '/services/software-development' },
         ],
+        LocalServices: [
+            { name: 'Website Development Haldwani', href: '/website-development-haldwani' },
+            { name: 'App Development Haldwani', href: '/app-development-haldwani' },
+            { name: 'Software Development Haldwani', href: '/software-development-haldwani' },
+        ],
         Company: [
             { name: 'About Us', href: '/about' },
             { name: 'Careers', href: '/careers' },
@@ -128,6 +133,19 @@ const Footer: React.FC = () => {
                                     </li>
                                 ))}
                             </ul>
+                            <div className="space-y-4">
+                                <h3 className="text-[10px] font-black uppercase tracking-[0.2em] text-brand-medium">Haldwani Services</h3>
+                                <ul className="space-y-4">
+                                    {FOOTER_LINKS.LocalServices.map((link) => (
+                                        <li key={link.name}>
+                                            <a href={link.href} className="text-sm text-slate-400 hover:text-white transition-colors flex items-center gap-2 group whitespace-nowrap">
+                                                <span className="w-1.5 h-1.5 rounded-full bg-brand-medium/0 group-hover:bg-brand-medium transition-all" />
+                                                {link.name}
+                                            </a>
+                                        </li>
+                                    ))}
+                                </ul>
+                            </div>
                         </div>
 
                         <div className="space-y-8">

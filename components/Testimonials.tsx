@@ -4,72 +4,125 @@ import { Quote, Star } from 'lucide-react';
 const REVIEWS = [
   {
     id: 1,
-    name: "Sarah Chen",
-    initials: "SC",
-    role: "CTO",
-    company: "Nebula Enterprise",
-    text: "Preet Tech OPC Private Limited is one of the few partners who actually delivers on the promise of high-performance engineering. Their strategic approach to our legacy migration was flawless.",
+    name: "shuchi virmani",
+    initials: "SV",
+    role: "Client",
+    company: "Milestone Learners Academy",
+    text: "I have taken a package from Preet Tech Haldwani for poster designing and social media handling. I am really happy. They are very professional and the staff is very nice and cooperative. I recommend others to try their services.",
     rating: 5,
+    image: "/images/reviews/shuchi.png",
   },
   {
     id: 2,
-    name: "Marcus Thorne",
-    initials: "MT",
-    role: "Head of Growth",
-    company: "Solaris Tech",
-    text: "The measurable ROI increase we saw after implementing Preet Tech OPC Private Limited's performance engine was unprecedented. A truly professional team with deep technical expertise.",
+    name: "Dr. Harshit Joshi",
+    initials: "HJ",
+    role: "Local Guide",
+    company: "",
+    text: "Happy to hear that Preet Tech is bringing one stop Web Designing and Development solutions in Haldwani City and providing top notch services to their clients. My best wishes to team and their constant efforts.",
     rating: 5,
+    image: "/images/reviews/harshit.png",
   },
   {
     id: 3,
-    name: "Elena Rossi",
-    initials: "ER",
-    role: "Managing Director",
-    company: "Zenith Global",
-    text: "Beyond just coding, they understand business objectives. Our global infrastructure is now more secure and scalable than ever before. Simply outstanding work.",
+    name: "Amar Sandhu",
+    initials: "AS",
+    role: "Client",
+    company: "",
+    text: "It was great experience.. overall happy with all the services.thank you",
     rating: 5,
+    image: "/images/reviews/amar.png",
   },
   {
     id: 4,
-    name: "David Kim",
-    initials: "DK",
-    role: "VP of Product",
-    company: "Vortex Systems",
-    text: "Their ability to translate complex requirements into intuitive user experiences is unmatched. The new platform has transformed our customer engagement metrics.",
+    name: "Paras Singh karki",
+    initials: "PK",
+    role: "Client",
+    company: "",
+    text: "Best service great experience❤️",
     rating: 5,
+    image: "/images/reviews/paras.png",
+  },
+  {
+    id: 5,
+    name: "Vijay Bisht VJ",
+    initials: "VB",
+    role: "Local Guide",
+    company: "",
+    text: "Best service and good nature 😊 ...",
+    rating: 5,
+    image: "/images/reviews/vijay.png",
+  },
+  {
+    id: 6,
+    name: "Prabjot Kaur",
+    initials: "PK",
+    role: "Client",
+    company: "",
+    text: "Best services soacial media marketing nd website",
+    rating: 5,
+    image: "/images/reviews/prabjot.png",
+  },
+  {
+    id: 7,
+    name: "sagar negi",
+    initials: "SN",
+    role: "Client",
+    company: "",
+    text: "Awesome service in social media marketing",
+    rating: 5,
+    image: "/images/reviews/sagar.png",
+  },
+  {
+    id: 8,
+    name: "Vaibhav Bhatt",
+    initials: "VB",
+    role: "Client",
+    company: "",
+    text: "Best Service...",
+    rating: 5,
+    image: "/images/reviews/vaibhav.png",
   }
 ];
 
-// Fallback hardcoded reviews if Hygraph is empty
-
 const ReviewCard = memo(({ review }: { review: typeof REVIEWS[0] }) => (
-  <div className="w-[400px] flex-shrink-0 relative group">
-    <div className="relative h-full bg-white dark:bg-[#0b0f1a] border border-slate-200 dark:border-white/5 p-8 rounded-[2rem] transition-transform duration-300 group-hover:-translate-y-1 shadow-lg dark:shadow-none">
-      <Quote className="w-10 h-10 text-brand-medium/20 absolute top-6 right-6" />
-
-      <div className="flex items-center gap-1 mb-5">
-        {Array.from({ length: review.rating }).map((_, i) => (
-          <Star key={i} className="w-4 h-4 text-yellow-500 fill-yellow-500" />
-        ))}
+  <div className="w-[300px] md:w-[380px] flex-shrink-0 relative group py-4">
+    <div className="relative h-full bg-white dark:bg-[#070b14] border border-slate-200 dark:border-white/5 p-6 md:p-8 rounded-3xl transition-all duration-300 hover:shadow-2xl hover:border-brand-medium/30 dark:hover:border-brand-medium/30">
+      
+      <div className="flex justify-between items-start mb-6">
+        <div className="flex items-center gap-1">
+          {Array.from({ length: review.rating }).map((_, i) => (
+            <Star key={i} className="w-4 h-4 text-brand-medium fill-brand-medium" />
+          ))}
+        </div>
+        <Quote className="w-8 h-8 text-slate-100 dark:text-white/5 group-hover:text-brand-medium/10 transition-colors duration-300" />
       </div>
 
-      <p className="text-base text-slate-600 dark:text-slate-300 leading-relaxed mb-7 font-medium italic">
-        &ldquo;{review.text}&rdquo;
+      <p className="text-sm md:text-base text-slate-700 dark:text-slate-300 leading-relaxed mb-6 font-medium">
+        "{review.text}"
       </p>
 
-      <div className="flex items-center gap-3 mt-auto">
-        {/* Avatar — pure CSS, no img tag needed since all images are null */}
-        <div
-          className="w-11 h-11 rounded-full flex items-center justify-center text-white font-black text-sm flex-shrink-0"
-          style={{ background: 'linear-gradient(135deg, #3994fa, #004aad)' }}
-        >
-          {review.initials}
-        </div>
+      <div className="flex items-center gap-4 mt-auto">
+        {review.image ? (
+          <img 
+            src={review.image} 
+            alt={review.name}
+            className="w-10 h-10 md:w-12 md:h-12 rounded-full object-cover flex-shrink-0"
+          />
+        ) : (
+          <div
+            className="w-10 h-10 md:w-12 md:h-12 rounded-full flex items-center justify-center text-white font-black text-xs md:text-sm flex-shrink-0"
+            style={{ background: 'linear-gradient(135deg, #3994fa, #004aad)' }}
+          >
+            {review.initials}
+          </div>
+        )}
         <div>
-          <h3 className="text-foreground font-bold text-sm">{review.name}</h3>
-          <p className="text-[10px] text-brand-medium font-mono uppercase tracking-wider">
-            {review.role}, {review.company}
-          </p>
+          <h3 className="text-foreground font-bold text-sm md:text-base">{review.name}</h3>
+          {(review.role || review.company) && (
+            <p className="text-[10px] md:text-xs text-slate-500 dark:text-slate-400 font-semibold uppercase tracking-wider mt-0.5">
+              {review.role}{review.role && review.company ? ', ' : ''}{review.company}
+            </p>
+          )}
         </div>
       </div>
     </div>
@@ -87,39 +140,63 @@ const Testimonials: React.FC<{ initialReviews?: any[] }> = ({ initialReviews = [
     company: r.company || '',
     text: r.quote,
     rating: 5,
+    image: '',
   }));
   
   const activeReviews = hygraphReviews.length > 0 ? hygraphReviews : REVIEWS;
-  const SCROLL_REVIEWS = [...activeReviews, ...activeReviews];
+  
+  // Create 4 copies for flawless looping
+  const SCROLL_REVIEWS_1 = [...activeReviews, ...activeReviews, ...activeReviews, ...activeReviews];
+  const SCROLL_REVIEWS_2 = [...activeReviews].reverse();
+  const SCROLL_REVIEWS_2_FULL = [...SCROLL_REVIEWS_2, ...SCROLL_REVIEWS_2, ...SCROLL_REVIEWS_2, ...SCROLL_REVIEWS_2];
 
   return (
-    <section className="py-16 md:py-24 relative bg-background overflow-hidden transition-colors duration-300">
-      {/* Background */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-brand-deep/10 via-background to-background pointer-events-none" />
+    <section className="py-12 md:py-20 relative bg-slate-50 dark:bg-[#020408] overflow-hidden transition-colors duration-300">
+      
+      {/* Decorative BG */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-4xl h-px bg-gradient-to-r from-transparent via-brand-medium/20 to-transparent" />
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[300px] bg-brand-medium/5 blur-[120px] rounded-full pointer-events-none" />
 
-      <div className="max-w-7xl mx-auto px-6 mb-12 relative z-10">
-        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-100 dark:bg-white/5 border border-slate-200 dark:border-white/10 mb-8">
-          <Star className="w-4 h-4 text-yellow-500 fill-yellow-500" />
-          <span className="text-xs font-mono text-slate-600 dark:text-slate-300 tracking-wider">TRUSTED BY INDUSTRY LEADERS</span>
+      <div className="max-w-7xl mx-auto px-6 mb-16 relative z-10 text-center">
+        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white dark:bg-white/5 border border-slate-200 dark:border-white/10 mb-6 shadow-sm">
+          <Star className="w-3.5 h-3.5 text-brand-medium fill-brand-medium" />
+          <span className="text-[10px] md:text-xs font-bold text-brand-medium uppercase tracking-[0.2em]">Trusted by Industry Leaders</span>
         </div>
-        <h2 className="text-5xl md:text-7xl font-black text-foreground tracking-tighter mb-6">
-          Client <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-medium to-brand-cyan">Voices.</span>
+        
+        <h2 
+          className="text-4xl md:text-6xl lg:text-7xl font-semibold text-foreground tracking-tighter"
+          style={{ fontFamily: 'var(--font-poppins)' }}
+        >
+          Client <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-medium to-brand-cyan font-semibold">Voices.</span>
         </h2>
+        <p className="mt-6 text-slate-600 dark:text-slate-400 max-w-2xl mx-auto font-medium md:text-lg">
+          Don't just take our word for it. See what our partners have to say about scaling their businesses with our high-performance solutions.
+        </p>
       </div>
 
-      {/* Marquee */}
-      <div className="relative w-full pb-20">
-        {/* Edge fades */}
-        <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-background to-transparent z-20 pointer-events-none" />
-        <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-background to-transparent z-20 pointer-events-none" />
+      {/* Infinite Carousel Lanes */}
+      <div className="relative w-full flex flex-col gap-6 md:gap-8 pb-10">
+        {/* Edge fades for seamless in/out */}
+        <div className="absolute left-0 top-0 bottom-0 w-24 md:w-48 bg-gradient-to-r from-slate-50 dark:from-[#020408] to-transparent z-20 pointer-events-none" />
+        <div className="absolute right-0 top-0 bottom-0 w-24 md:w-48 bg-gradient-to-l from-slate-50 dark:from-[#020408] to-transparent z-20 pointer-events-none" />
 
-        {/* Single CSS-animated row — no JS, no React re-renders */}
+        {/* Lane 1 (Moving Left) */}
         <div
-          className="flex gap-8 animate-marquee-reverse hover:[animation-play-state:paused]"
+          className="flex gap-6 md:gap-8 animate-marquee hover:[animation-play-state:paused]"
           style={{ width: 'max-content', willChange: 'transform' }}
         >
-          {SCROLL_REVIEWS.map((review, i) => (
-            <ReviewCard key={`${review.id}-${i}`} review={review} />
+          {SCROLL_REVIEWS_1.map((review, i) => (
+            <ReviewCard key={`lane1-${review.id}-${i}`} review={review} />
+          ))}
+        </div>
+
+        {/* Lane 2 (Moving Right) */}
+        <div
+          className="flex gap-6 md:gap-8 animate-marquee-reverse hover:[animation-play-state:paused] ml-[-200px]"
+          style={{ width: 'max-content', willChange: 'transform' }}
+        >
+          {SCROLL_REVIEWS_2_FULL.map((review, i) => (
+            <ReviewCard key={`lane2-${review.id}-${i}`} review={review} />
           ))}
         </div>
       </div>

@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight, Calendar, Sparkles, ShieldCheck, Zap } from 'lucide-react';
+import { ArrowRight, Calendar, ShieldCheck, Zap, Headset } from 'lucide-react';
 import Link from 'next/link';
 
 const ReadyToPartner: React.FC = () => {
@@ -21,17 +21,16 @@ const ReadyToPartner: React.FC = () => {
                     
                 >
                     <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-brand-medium/10 border border-brand-medium/20 mb-6 font-mono">
-                        <Sparkles className="w-4 h-4 text-brand-medium" />
+                        
                         <span className="text-[10px] md:text-xs font-bold text-brand-medium uppercase tracking-widest">Growth Partnership</span>
                     </div>
 
                     <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-foreground tracking-tighter leading-[1] md:leading-tight mb-6">
-                        Ready to <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-medium via-brand-sky to-brand-cyan">Partner?</span>
+                        Ready to Build Your <br className="hidden md:block" /> Next Digital <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-medium via-brand-sky to-brand-cyan">Asset?</span>
                     </h2>
 
                     <p className="text-base md:text-xl lg:text-2xl text-slate-600 dark:text-slate-400 max-w-2xl mx-auto mb-10 md:mb-12 leading-relaxed font-semibold md:font-medium">
-                        Experience explosive growth with <span className="font-bold text-foreground">zero upfront investment</span>.
-                        We only succeed when you do — powered by our performance-based revenue-share model.
+                        Stop losing customers to poor digital experiences. Let's discuss how we can <span className="font-bold text-foreground">engineer technology</span> that drives your business forward.
                     </p>
 
                     {/* CTA Buttons */}
@@ -51,15 +50,15 @@ const ReadyToPartner: React.FC = () => {
                     <div className="flex flex-wrap justify-center items-center gap-x-12 gap-y-6 pt-12 border-t border-slate-100 dark:border-white/5">
                         <div className="flex items-center gap-3 text-slate-500">
                             <ShieldCheck className="w-5 h-5 text-emerald-500" />
-                            <span className="text-sm font-bold uppercase tracking-wider">No Upfront Cost</span>
+                            <span className="text-sm font-bold uppercase tracking-wider">Custom Solutions</span>
                         </div>
                         <div className="flex items-center gap-3 text-slate-500">
                             <Zap className="w-5 h-5 text-amber-500" />
-                            <span className="text-sm font-bold uppercase tracking-wider">Performance-Based</span>
+                            <span className="text-sm font-bold uppercase tracking-wider">Scalable Technology</span>
                         </div>
                         <div className="flex items-center gap-3 text-slate-500">
-                            <Sparkles className="w-5 h-5 text-brand-sky" />
-                            <span className="text-sm font-bold uppercase tracking-wider">Long-Term Partnership</span>
+                            <Headset className="w-5 h-5 text-blue-500" />
+                            <span className="text-sm font-bold uppercase tracking-wider">Dedicated Support</span>
                         </div>
                     </div>
                 </motion.div>

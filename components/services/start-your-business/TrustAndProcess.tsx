@@ -128,75 +128,7 @@ const TrustAndProcess = () => {
                 </div>
             </div>
 
-            {/* Industries (Section 14) & Tools (Section 15) */}
-            <div className="max-w-7xl mx-auto px-6 space-y-24">
-                <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-center">
-                    {/* Left: Industries Section */}
-                    <div className="lg:col-span-5 space-y-8">
-                        <div>
-                            <span className="text-brand-medium dark:text-brand-cyan text-[10px] font-black uppercase tracking-[0.4em] mb-4 block">Market Reach</span>
-                            <h2 className="text-4xl md:text-5xl font-black text-slate-900 dark:text-white uppercase tracking-tight leading-[0.9]">
-                                Industries <br /> <span className="text-brand-medium dark:text-brand-cyan italic font-serif">We Ignite.</span>
-                            </h2>
-                        </div>
-                        <p className="text-slate-500 dark:text-slate-400 text-sm font-medium leading-relaxed max-w-sm">
-                            Tailored operational frameworks designed specifically for your industry's unique challenges and growth patterns.
-                        </p>
-                        <div className="flex flex-wrap gap-3">
-                            {INDUSTRIES.map((ind, i) => (
-                                <motion.div
-                                    key={i}
-                                    
-                                    className="flex items-center gap-3 px-5 py-3 rounded-2xl bg-white dark:bg-white/5 border border-slate-200 dark:border-white/10 group transition-all cursor-pointer shadow-sm hover:border-brand-medium/40 dark:hover:border-brand-cyan/40"
-                                >
-                                    <ind.icon className="w-4 h-4 text-brand-medium dark:text-brand-cyan group-hover:scale-110 transition-transform" />
-                                    <span className="text-[11px] font-black uppercase tracking-widest text-slate-700 dark:text-slate-300 group-hover:text-brand-medium dark:hover:text-brand-cyan transition-colors">{ind.name}</span>
-                                </motion.div>
-                            ))}
-                        </div>
-                    </div>
 
-                    {/* Right: Tools Section - Dynamic Grid */}
-                    <div className="lg:col-span-7">
-                        <div className="p-10 md:p-14 rounded-[4rem] bg-slate-50 dark:bg-slate-900/40 border border-slate-200 dark:border-white/5 relative overflow-hidden group">
-                            <div className="absolute top-0 right-0 w-64 h-64 bg-brand-medium/10 dark:bg-brand-cyan/10 blur-[48px] pointer-events-none group-hover:bg-brand-medium/20 dark:hover:bg-brand-cyan/20 transition-all duration-400" />
-
-                            <div className="relative z-10 flex flex-col md:flex-row justify-between items-start md:items-center gap-6 mb-12">
-                                <div>
-                                    <span className="text-brand-medium dark:text-brand-cyan text-[9px] font-black uppercase tracking-[0.6em] mb-3 block">Power Stack</span>
-                                    <h3 className="text-2xl md:text-3xl font-black text-slate-900 dark:text-white uppercase tracking-tight">Tools <span className="text-brand-medium dark:text-brand-cyan">&</span> Tech</h3>
-                                </div>
-                                <div className="px-4 py-2 rounded-full bg-emerald-500/10 border border-emerald-500/20 flex items-center gap-2">
-                                    <div className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
-                                    <span className="text-[9px] font-black text-emerald-500 uppercase tracking-widest">Live Integration Ready</span>
-                                </div>
-                            </div>
-
-                            <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 relative z-10">
-                                {TOOLS.map((tool, i) => (
-                                    <motion.div
-                                        key={i}
-                                        
-                                        className="flex flex-col items-center gap-4 group/tool"
-                                    >
-                                        <div className="w-20 h-20 rounded-[2rem] bg-white dark:bg-black/40 border border-slate-200 dark:border-white/5 flex items-center justify-center p-5 group-hover/tool:border-brand-medium/50 dark:border-brand-cyan/50 group-hover/tool:shadow-2xl group-hover/tool:shadow-brand-cyan/10 transition-all duration-300">
-                                            <img
-                                                src={tool.logo}
-                                                alt={tool.name}
-                                                className="w-full h-full object-contain filter grayscale opacity-60 group-hover/tool:grayscale-0 group-hover/tool:opacity-100 transition-all duration-300"
-                                                onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }}
-                                            />
-                                        </div>
-                                        <span className="text-[9px] font-black uppercase tracking-widest text-slate-600 dark:text-slate-400 group-hover/tool:text-slate-900 dark:group-hover/tool:text-slate-900 dark:text-white transition-colors">
-                                            {tool.name}
-                                        </span>
-                                    </motion.div>
-                                ))}
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
 
             {/* Case Studies (Section 16) - Editorial Card Redesign */}
             <div className="py-24 bg-white dark:bg-[#030712]">

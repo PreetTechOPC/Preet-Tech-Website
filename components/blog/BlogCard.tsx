@@ -34,13 +34,13 @@ export default function BlogCard({ post }: BlogCardProps) {
 
                 {/* Category Badge */}
                 <div className="absolute top-5 left-5">
-                    <span className="px-4 py-2 bg-brand-cyan/20 backdrop-blur-md border border-brand-cyan/30 rounded-full text-[8px] font-black text-brand-cyan uppercase tracking-[0.2em]">
+                    <span className="px-4 py-2 bg-brand-cyan/20 backdrop-blur-md border border-brand-cyan/30 rounded-full text-[8px] font-semibold text-brand-cyan  tracking-[0.2em]">
                         {post.category}
                     </span>
                 </div>
 
                 {/* Metadata Overlay (Image-Integrated) */}
-                <div className="absolute bottom-5 left-5 flex items-center gap-5 text-[9px] font-black text-white uppercase tracking-[0.25em]">
+                <div className="absolute bottom-5 left-5 flex items-center gap-5 text-[9px] font-semibold text-white  tracking-[0.25em]">
                     <div className="flex items-center gap-1.5">
                         <Calendar className="w-3.5 h-3.5 text-brand-cyan" />
                         <span>{post.date}</span>
@@ -55,7 +55,7 @@ export default function BlogCard({ post }: BlogCardProps) {
             {/* Content Body */}
             <div className="p-6 md:p-8 flex flex-col flex-grow">
                 <Link href={`/blog/${post.slug}`} className="block mb-4">
-                    <h3 className="text-xl md:text-2xl font-black text-slate-900 dark:text-white uppercase tracking-tighter leading-[1.15] transition-colors group-hover:text-brand-cyan group-hover:underline underline-offset-4 decoration-brand-cyan/30">
+                    <h3 className="text-xl md:text-2xl font-semibold text-slate-900 dark:text-white  tracking-tighter leading-[1.15] transition-colors group-hover:text-brand-cyan group-hover:underline underline-offset-4 decoration-brand-cyan/30">
                         {post.title}
                     </h3>
                 </Link>
@@ -68,7 +68,7 @@ export default function BlogCard({ post }: BlogCardProps) {
                 <div className="mt-auto pt-6 border-t border-slate-100 dark:border-white/5 flex items-center justify-between">
                     <Link
                         href={`/blog/${post.slug}`}
-                        className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-400 group-hover:text-brand-cyan transition-colors"
+                        className="text-[10px] font-semibold  tracking-[0.2em] text-slate-400 group-hover:text-brand-cyan transition-colors"
                     >
                         Read Article
                     </Link>

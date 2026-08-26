@@ -1215,4 +1215,152 @@ export const BLOG_POSTS: BlogPost[] = [
       keywords: ["student wellness website", "college community platform", "mental health resources online", "eco website case study"],
     },
   },
+  {
+    id: "antigravity-extensions-launch",
+    title: "Antigravity Extensions Launch for VS Code, Visual Studio, Zed, JetBrains & Xcode",
+    slug: "antigravity-extensions-for-ides",
+    excerpt: "Antigravity is expanding to popular development environments with new Extensions for VS Code, Visual Studio, Zed, JetBrains and Xcode. Here's what the launch means for developers.",
+    content: `
+      <p><strong>Antigravity Extensions are integrations introduced for popular development environments including Visual Studio Code, Visual Studio, Zed, JetBrains and Xcode, bringing Antigravity closer to developers' existing workflows.</strong></p>
+
+      <p>Antigravity is expanding beyond the browser and bringing its experience closer to where developers already build. With the introduction of Antigravity Extensions, developers can access Antigravity from some of the most popular development environments, including Visual Studio Code, Visual Studio, Zed, JetBrains IDEs, and Xcode.</p>
+      
+      <h2>What Are Antigravity Extensions?</h2>
+      <p>Antigravity is introducing Extensions for popular development environments, allowing developers to access Antigravity through the tools they already use for building software. In modern software engineering, workflow efficiency is critical. Extensions allow developers to integrate powerful capabilities without breaking their concentration or switching context away from their codebase.</p>
+
+      <img src="/images/blog/antigravity-extensions-1.png" alt="Antigravity extension running in a development environment" class="w-full h-auto rounded-xl my-8 object-cover shadow-lg border border-slate-200 dark:border-slate-800" />
+
+      <h2>Supported Development Environments</h2>
+      <p>The new expansion aims to support the following ecosystems:</p>
+      
+      <h3>Visual Studio Code</h3>
+      <p>Visual Studio Code is one of the most widely used development environments globally. Extension support makes Antigravity accessible within a familiar workflow, allowing developers to leverage the platform alongside their existing extensions and configurations.</p>
+      
+      <h3>Visual Studio</h3>
+      <p>For professional software development and larger application ecosystems, Visual Studio remains a cornerstone. Support for Visual Studio brings Antigravity into enterprise-grade development processes.</p>
+      
+      <h3>Zed</h3>
+      <p>Support for Zed brings Antigravity to a modern, high-performance developer environment, catering to developers who prioritize speed and efficiency in their editor.</p>
+      
+      <h3>JetBrains</h3>
+      <p>The JetBrains ecosystem is favored by many developers for its deep language understanding and integrated tools. The introduction of Antigravity support ensures these developers aren't left behind.</p>
+      
+      <h3>Xcode</h3>
+      <p>Support for developers working within Apple's development ecosystem is crucial for iOS and macOS development. Antigravity Extensions aim to integrate smoothly into this specialized workflow.</p>
+
+      <img src="/images/blog/antigravity-extensions-2.png" alt="Antigravity integration features" class="w-full h-auto rounded-xl my-8 object-cover shadow-lg border border-slate-200 dark:border-slate-800" />
+
+      <h2>Why IDE Extensions Matter</h2>
+      <p>The best developer tools are often the ones that fit naturally into an existing workflow instead of forcing developers to constantly switch between different applications. Developers frequently alternate between code editors, browsers, documentation, AI tools, terminals, debugging tools, and project management applications. Bringing tools closer to the development environment can potentially reduce this unnecessary context switching, improving focus and productivity.</p>
+
+      <h2>One Product, Multiple Development Environments</h2>
+      <p>Developers should be able to access powerful tools without being forced to change the environment they already know and use. Whether you are a <a href="/services/software-development" class="text-brand-medium hover:underline">VS Code enthusiast, an enterprise developer using Visual Studio</a>, someone exploring modern tools like Zed, a steadfast user of the JetBrains ecosystem, or an Apple developer using Xcode, this expansion acknowledges that there is no single "right" way to build software.</p>
+
+      <h2>What This Means for Developers</h2>
+      <p>Working inside familiar tools reduces workflow friction and provides easier access to Antigravity. Depending on the capabilities available in each extension, developers can expect the integration to bring Antigravity closer to their existing workflow, offering more flexibility in how they choose to build and problem-solve.</p>
+
+      <h2>The Future of Developer Tooling</h2>
+      <p>As AI-assisted development evolves, we are seeing integrated developer experiences become the norm rather than the exception. <a href="/services/ai-solutions" class="text-brand-medium hover:underline">AI tools are moving closer to the codebase</a>, and developers increasingly expect tools to integrate with existing workflows. Antigravity Extensions are part of this broader movement toward more cohesive ecosystem compatibility.</p>
+
+      <h2>Supported IDEs at a Glance</h2>
+      <div class="overflow-x-auto my-8 border border-slate-200 dark:border-slate-800 rounded-xl">
+        <table class="w-full text-left border-collapse">
+          <thead>
+            <tr class="bg-slate-100 dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800">
+              <th class="p-4 font-bold text-slate-800 dark:text-slate-200">Development Environment</th>
+              <th class="p-4 font-bold text-slate-800 dark:text-slate-200">Antigravity Extension</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-b border-slate-100 dark:border-slate-800/50">
+              <td class="p-4 text-slate-600 dark:text-slate-400">Visual Studio Code</td>
+              <td class="p-4 text-brand-medium font-medium">Introduced</td>
+            </tr>
+            <tr class="border-b border-slate-100 dark:border-slate-800/50">
+              <td class="p-4 text-slate-600 dark:text-slate-400">Visual Studio</td>
+              <td class="p-4 text-brand-medium font-medium">Introduced</td>
+            </tr>
+            <tr class="border-b border-slate-100 dark:border-slate-800/50">
+              <td class="p-4 text-slate-600 dark:text-slate-400">Zed</td>
+              <td class="p-4 text-brand-medium font-medium">Introduced</td>
+            </tr>
+            <tr class="border-b border-slate-100 dark:border-slate-800/50">
+              <td class="p-4 text-slate-600 dark:text-slate-400">JetBrains</td>
+              <td class="p-4 text-brand-medium font-medium">Introduced</td>
+            </tr>
+            <tr>
+              <td class="p-4 text-slate-600 dark:text-slate-400">Xcode</td>
+              <td class="p-4 text-brand-medium font-medium">Introduced</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2>Why This Announcement Is Important</h2>
+      <p>Antigravity is expanding its ecosystem, meaning developers can access it through popular development environments spanning multiple developer communities. IDE integration can make tools more accessible within existing workflows, reflecting the growing importance of integrated developer experiences.</p>
+
+      <h2>Conclusion</h2>
+      <p>Developers have strong preferences when it comes to their tools, and changing an entire development environment just to access one product can create unnecessary friction. By introducing Antigravity Extensions for Visual Studio Code, Visual Studio, Zed, JetBrains, and Xcode, Antigravity is moving closer to the environments where developers already spend their time building. This expansion aims to make the development process smoother and more integrated for everyone.</p>
+
+      <hr class="my-10 border-slate-200 dark:border-slate-800" />
+      
+      <h2 class="mb-6">Frequently Asked Questions (FAQ)</h2>
+      
+      <div class="mb-6">
+        <h3 class="text-xl font-semibold mb-2">What are Antigravity Extensions?</h3>
+        <p class="text-slate-600 dark:text-slate-400">Antigravity Extensions are integrations introduced for popular development environments that allow developers to access Antigravity directly within the tools they already use for building software.</p>
+      </div>
+      
+      <div class="mb-6">
+        <h3 class="text-xl font-semibold mb-2">Which IDEs support Antigravity Extensions?</h3>
+        <p class="text-slate-600 dark:text-slate-400">Antigravity Extensions are being introduced for Visual Studio Code, Visual Studio, Zed, JetBrains IDEs, and Xcode.</p>
+      </div>
+      
+      <div class="mb-6">
+        <h3 class="text-xl font-semibold mb-2">Why is Antigravity adding IDE extensions?</h3>
+        <p class="text-slate-600 dark:text-slate-400">To reduce context switching and workflow friction. Bringing Antigravity into the IDE makes it more accessible and integrates it naturally into existing development habits.</p>
+      </div>
+      
+      <div class="mb-6">
+        <h3 class="text-xl font-semibold mb-2">Can developers use Antigravity in Visual Studio Code?</h3>
+        <p class="text-slate-600 dark:text-slate-400">Yes, Visual Studio Code is one of the development environments included in the Antigravity Extensions announcement.</p>
+      </div>
+      
+      <div class="mb-6">
+        <h3 class="text-xl font-semibold mb-2">Does Antigravity support JetBrains IDEs?</h3>
+        <p class="text-slate-600 dark:text-slate-400">Yes, the JetBrains ecosystem is included in the list of supported development environments for the new extensions.</p>
+      </div>
+      
+      <div class="mb-6">
+        <h3 class="text-xl font-semibold mb-2">Is Antigravity available for Xcode?</h3>
+        <p class="text-slate-600 dark:text-slate-400">Yes, Xcode is one of the supported environments for Antigravity Extensions, catering to Apple platform developers.</p>
+      </div>
+    `,
+    category: "AI & Tech",
+    author: {
+      name: "Preet Tech Team",
+      role: "Editorial Team",
+      avatar: null,
+    },
+    date: "Aug 26, 2026",
+    readTime: "4 min read",
+    featuredImage: "/images/blog/antigravity-extensions-thumbnail.jpg",
+    isFeatured: true,
+    tags: ["Antigravity Extensions", "IDE Integration", "VS Code", "JetBrains", "Xcode", "Developer Tools", "AI Development"],
+    seo: {
+      title: "Antigravity Extensions Launch for VS Code, Visual Studio, Zed, JetBrains & Xcode",
+      description: "Antigravity is expanding to popular development environments with new Extensions for VS Code, Visual Studio, Zed, JetBrains and Xcode. Here's what the launch means for developers.",
+      keywords: [
+        "Antigravity Extensions", 
+        "Antigravity IDE extension", 
+        "Antigravity VS Code extension", 
+        "Antigravity Visual Studio extension", 
+        "Antigravity Zed extension", 
+        "Antigravity JetBrains extension", 
+        "Antigravity Xcode extension", 
+        "Antigravity developer tools", 
+        "Antigravity AI development"
+      ],
+    },
+  }
 ];

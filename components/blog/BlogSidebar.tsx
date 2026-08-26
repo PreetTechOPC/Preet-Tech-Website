@@ -54,7 +54,7 @@ export default function BlogSidebar({ posts }: BlogSidebarProps) {
 
             {/* Search Bar */}
             <div className="bg-white dark:bg-[#0d1120] border border-slate-200 dark:border-white/10 p-5 rounded-2xl shadow-sm">
-                <h3 className="text-xs font-black uppercase tracking-widest mb-4 text-slate-700 dark:text-white">Search</h3>
+                <h3 className="text-xs font-semibold  tracking-widest mb-4 text-slate-700 dark:text-white">Search</h3>
                 <div className="relative">
                     <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-[#3994fa] w-4 h-4" />
                     <input
@@ -67,7 +67,7 @@ export default function BlogSidebar({ posts }: BlogSidebarProps) {
 
             {/* Recent Posts */}
             <div className="bg-white dark:bg-[#0d1120] border border-slate-200 dark:border-white/10 p-5 rounded-2xl shadow-sm">
-                <h3 className="text-xs font-black uppercase tracking-widest mb-5 flex items-center gap-2 text-slate-700 dark:text-white">
+                <h3 className="text-xs font-semibold  tracking-widest mb-5 flex items-center gap-2 text-slate-700 dark:text-white">
                     <TrendingUp className="w-4 h-4 text-[#3994fa]" />
                     Latest Posts
                 </h3>
@@ -84,10 +84,10 @@ export default function BlogSidebar({ posts }: BlogSidebarProps) {
                                 />
                             </div>
                             <div className="flex-1 min-w-0">
-                                <h4 className="text-sm font-bold leading-snug text-slate-800 dark:text-white group-hover:text-[#3994fa] transition-colors line-clamp-2">
+                                <h4 className="text-sm font-semibold leading-snug text-slate-800 dark:text-white group-hover:text-[#3994fa] transition-colors line-clamp-2">
                                     {post.title}
                                 </h4>
-                                <span className="text-[10px] text-slate-400 dark:text-slate-500 uppercase font-bold tracking-wider mt-1.5 block">
+                                <span className="text-[10px] text-slate-400 dark:text-slate-500  font-semibold tracking-wider mt-1.5 block">
                                     {post.date}
                                 </span>
                             </div>
@@ -98,7 +98,7 @@ export default function BlogSidebar({ posts }: BlogSidebarProps) {
 
             {/* Categories */}
             <div className="bg-white dark:bg-[#0d1120] border border-slate-200 dark:border-white/10 p-5 rounded-2xl shadow-sm">
-                <h3 className="text-xs font-black uppercase tracking-widest mb-4 text-slate-700 dark:text-white">All Categories</h3>
+                <h3 className="text-xs font-semibold  tracking-widest mb-4 text-slate-700 dark:text-white">All Categories</h3>
                 <div className="space-y-1">
                     {CATEGORIES.map((cat) => (
                         <Link
@@ -109,7 +109,7 @@ export default function BlogSidebar({ posts }: BlogSidebarProps) {
                             <span className="text-sm text-slate-600 dark:text-slate-400 group-hover:text-[#3994fa] transition-colors font-medium">
                                 {cat}
                             </span>
-                            <span className="text-xs font-bold text-slate-400 dark:text-slate-600 bg-slate-100 dark:bg-white/5 px-2 py-0.5 rounded-full">
+                            <span className="text-xs font-semibold text-slate-400 dark:text-slate-600 bg-slate-100 dark:bg-white/5 px-2 py-0.5 rounded-full">
                                 {displayPosts.filter(p => p.category === cat).length}
                             </span>
                         </Link>
@@ -126,7 +126,7 @@ export default function BlogSidebar({ posts }: BlogSidebarProps) {
                         <div className="w-7 h-7 rounded-lg bg-[#3994fa]/10 flex items-center justify-center">
                             <Mail className="w-3.5 h-3.5 text-[#3994fa]" />
                         </div>
-                        <h3 className="text-sm font-black text-slate-800 dark:text-white tracking-tight">Growth Insights Weekly</h3>
+                        <h3 className="text-sm font-semibold text-slate-800 dark:text-white tracking-tight">Growth Insights Weekly</h3>
                     </div>
                     <p className="text-slate-500 dark:text-slate-400 text-xs leading-relaxed mb-5">
                         Join 5,000+ founders getting our best growth strategies every week.
@@ -144,12 +144,12 @@ export default function BlogSidebar({ posts }: BlogSidebarProps) {
                         <button
                             type="submit"
                             disabled={subscribeStatus === 'loading'}
-                            className="w-full h-11 bg-gradient-to-r from-[#3994fa] to-[#004aad] text-white rounded-xl font-bold text-xs uppercase tracking-widest hover:opacity-90 hover:shadow-lg hover:shadow-[#3994fa]/20 transition-all active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed"
+                            className="w-full h-11 bg-gradient-to-r from-[#3994fa] to-[#004aad] text-white rounded-xl font-semibold text-xs  tracking-widest hover:opacity-90 hover:shadow-lg hover:shadow-[#3994fa]/20 transition-all active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed"
                         >
                             {subscribeStatus === 'loading' ? 'SUBSCRIBING...' : 'SUBSCRIBE NOW'}
                         </button>
                         {subscribeMessage && (
-                            <p className={`text-xs mt-1 font-bold ${subscribeStatus === 'success' ? 'text-[#3994fa]' : 'text-red-500'}`}>
+                            <p className={`text-xs mt-1 font-semibold ${subscribeStatus === 'success' ? 'text-[#3994fa]' : 'text-red-500'}`}>
                                 {subscribeMessage}
                             </p>
                         )}
@@ -162,13 +162,13 @@ export default function BlogSidebar({ posts }: BlogSidebarProps) {
                 <div className="absolute -bottom-8 -right-8 w-32 h-32 bg-white/10 blur-[40px] rounded-full pointer-events-none" />
                 <div className="absolute top-0 left-0 right-0 bottom-0 bg-[radial-gradient(circle_at_top_left,rgba(255,255,255,0.1),transparent_60%)] pointer-events-none" />
                 <div className="relative z-10">
-                    <h3 className="text-lg font-black mb-2 leading-tight">Ready to Scale Your Digital Presence?</h3>
+                    <h3 className="text-lg font-semibold mb-2 leading-tight">Ready to Scale Your Digital Presence?</h3>
                     <p className="text-white/70 text-xs mb-5 leading-relaxed">
                         Book a free discovery call with our experts today.
                     </p>
                     <Link
                         href="/contact"
-                        className="w-full py-3 bg-white text-[#3994fa] rounded-xl font-black text-xs uppercase tracking-widest flex items-center justify-center gap-2 hover:bg-white/90 transition-all active:scale-95 shadow-md"
+                        className="w-full py-3 bg-white text-[#3994fa] rounded-xl font-semibold text-xs  tracking-widest flex items-center justify-center gap-2 hover:bg-white/90 transition-all active:scale-95 shadow-md"
                     >
                         Book Free Strategy Call <ArrowRight className="w-3.5 h-3.5" />
                     </Link>

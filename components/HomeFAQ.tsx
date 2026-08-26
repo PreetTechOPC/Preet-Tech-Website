@@ -4,24 +4,36 @@ import { ChevronDown } from 'lucide-react';
 
 const FAQS = [
     {
-        question: "What makes Preet Tech OPC Private Limited a top Next Gen IT Company?",
-        answer: "As a leading Next Gen IT Company, we combine over a decade of IT experience with cutting-edge generative AI integration. We specialize in custom software development, AI-driven marketing, and scalable tech solutions to ensure your business stays ahead of the digital curve."
+        question: "Which is the best website development company in Haldwani?",
+        answer: "Preet Tech OPC Private Limited is a leading website development company in Haldwani, Uttarakhand. Since 2021, we have built high-performance websites, mobile apps, and custom software for startups and businesses across Uttarakhand and beyond. We combine local market understanding with global technology standards."
+    },
+    {
+        question: "How much does website development cost in Haldwani?",
+        answer: "Website development costs in Haldwani vary based on scope and complexity. Our Eco Website packages are budget-friendly and ideal for small businesses and startups. Custom websites, e-commerce platforms, and advanced web applications are priced based on features, integrations, and scale. We offer a free consultation to give you a transparent, precise quote."
+    },
+    {
+        question: "Does Preet Tech serve businesses outside Haldwani?",
+        answer: "Yes. While Preet Tech is headquartered in Haldwani, Uttarakhand, we work with clients across India and globally. We offer complete remote collaboration for discovery, design, development, testing, deployment, and ongoing support. Build Local. Scale Global."
+    },
+    {
+        question: "What makes Preet Tech OPC Private Limited a top IT company in Haldwani?",
+        answer: "Preet Tech combines deep local knowledge of the Haldwani and Uttarakhand market with modern technology standards. We specialize in custom website development, mobile app development, software development, and digital marketing services that deliver real business growth."
     },
     {
         question: "Do you offer custom software and e-commerce development?",
-        answer: "Yes. Our web and app development company builds robust, scalable platforms tailored to your specific business needs. From complex enterprise IT solutions to high-converting e-commerce development, we engineer digital products built for aggressive market growth."
+        answer: "Yes. We build robust, scalable platforms tailored to your specific business needs. From high-converting e-commerce stores to enterprise business software and SaaS applications, we engineer digital products built for growth and long-term reliability."
     },
     {
-        question: "How do your SEO optimization services improve ranking?",
-        answer: "We use data-driven, ROI-focused SEO and performance marketing strategies. By optimizing site structure, improving Core Web Vitals, producing E-E-A-T compliant content, and leveraging AI SEO techniques, we help brands dominate search engine results and AI answer engines."
+        question: "What is your typical project turnaround time?",
+        answer: "Our Eco Website packages can go live in as little as 7–14 days. Standard custom web applications take 4–8 weeks. Large-scale enterprise software, SaaS platforms, and mobile applications typically range from 3–6 months, depending on scope and complexity. We provide detailed timelines at the start of every project."
     },
     {
-        question: "Why should a B2B business choose your cloud migration services?",
-        answer: "Our B2B IT Company specializes in secure, seamless cloud migration services. We reduce infrastructure costs, improve security, and ensure 99.99% uptime, allowing your enterprise to scale its tech solutions safely and efficiently."
+        question: "How do I start a project with Preet Tech?",
+        answer: "Starting is simple. You can book a free consultation through our Contact page, or send us your project brief via email at info@preettech.com. Our team will review your requirements and schedule a discovery session within 24 hours to discuss your goals, timeline, and budget."
     },
     {
-        question: "Why is Preet Tech considered the Best IT Company in Haldwani?",
-        answer: "Preet Tech is recognized as the Best IT Company in Haldwani because we combine local market understanding with global tech standards. As a premier Website Developer in Haldwani, we offer end-to-end Digital Marketing, SEO, and Software Development services that deliver real business growth."
+        question: "Do you offer post-launch support and maintenance?",
+        answer: "Yes. All our projects include a post-launch support period, and we offer ongoing maintenance retainers for bug fixes, security updates, performance optimization, and feature additions. We are a long-term technology partner, not a one-time vendor."
     }
 ];
 

@@ -2,12 +2,18 @@ import { Metadata } from "next";
 import AdvanceWebsiteClient from "./AdvanceWebsiteClient";
 
 export const metadata: Metadata = {
-    title: "Custom Web Development Services | Enterprise Solutions | Preet Tech",
-    description: "Scale your business with Preet Tech's high-performance custom web development services. We build enterprise-grade websites, SaaS platforms, and custom ERP systems using React, Next.js, and Node.js.",
+    title: "Custom Web Development Company in Haldwani | Advanced Websites | Preet Tech",
+    description: "Preet Tech builds high-performance custom websites, SaaS platforms, and enterprise web applications for businesses in Haldwani, Uttarakhand and beyond. Built on Next.js, React and Node.js.",
     keywords: [
-        "Custom Web Development", "Enterprise Web Solutions", "Next.js Development Agency",
-        "SaaS Development Services", "Custom ERP Systems", "High-Performance Websites",
-        "React Development Company", "Scalable Web Architecture", "Bespoke UI/UX Design"
+        "Custom Web Development Haldwani",
+        "Advanced Website Development Haldwani",
+        "Custom Website Development Haldwani",
+        "Enterprise Web Development Haldwani",
+        "SaaS Development Haldwani",
+        "Next.js Development Haldwani",
+        "React Development Haldwani",
+        "Web Application Development Haldwani",
+        "High-Performance Website Haldwani"
     ],
     alternates: {
         canonical: "/services/advance-website",
@@ -23,7 +29,7 @@ const serviceSchema = {
         "name": "Preet Tech OPC Private Limited"
     },
     "description": "High-performance custom web development including SaaS platforms, enterprise solutions, and custom ERP systems.",
-    "areaServed": "Worldwide",
+    "areaServed": "Haldwani, Uttarakhand, India",
     "hasOfferCatalog": {
         "@type": "OfferCatalog",
         "name": "Web Development Services",
@@ -50,24 +56,9 @@ const breadcrumbSchema = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     "itemListElement": [
-        {
-            "@type": "ListItem",
-            "position": 1,
-            "name": "Home",
-            "item": "https://preettech.com"
-        },
-        {
-            "@type": "ListItem",
-            "position": 2,
-            "name": "Services",
-            "item": "https://preettech.com/services"
-        },
-        {
-            "@type": "ListItem",
-            "position": 3,
-            "name": "Advanced Website Development",
-            "item": "https://preettech.com/services/advance-website"
-        }
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.preettech.com" },
+        { "@type": "ListItem", "position": 2, "name": "Services", "item": "https://www.preettech.com/services" },
+        { "@type": "ListItem", "position": 3, "name": "Advanced Website Development", "item": "https://www.preettech.com/services/advance-website" }
     ]
 };
 

@@ -7,10 +7,21 @@ export const metadata: Metadata = {
     openGraph: {
         title: "Preet Tech OPC Private Limited Blog | Digital Growth & IT Insights",
         description: "Explore the latest insights on digital growth, artificial intelligence, cloud computing, and software development strategies.",
-        url: 'https://preettech.com/blog',
+        url: 'https://www.preettech.com/blog',
         siteName: 'Preet Tech OPC Private Limited',
         type: 'website',
-    }
+        images: [
+            {
+                url: '/og-image.png',
+                width: 1200,
+                height: 630,
+                alt: 'Preet Tech Blog — Digital Growth & IT Insights',
+            },
+        ],
+    },
+    alternates: {
+        canonical: '/blog',
+    },
 };
 
 export default function Layout({

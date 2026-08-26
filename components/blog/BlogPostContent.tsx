@@ -77,12 +77,12 @@ export default function BlogPostContent({ post, allPosts }: BlogPostContentProps
         <main className="min-h-screen bg-background text-foreground transition-colors duration-300">
             <Navbar isDark={isDark} toggleTheme={toggleTheme} />
 
-            <article className="pt-32 pb-24">
+            <article className="pt-32 pb-24 font-poppins font-normal">
                 <BlogSchema post={post} />
 
                 {/* Breadcrumbs */}
                 <div className="max-w-7xl mx-auto px-4 md:px-6 mb-12">
-                    <nav className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-widest text-slate-500">
+                    <nav className="flex items-center gap-2 text-[10px] font-semibold  tracking-widest text-slate-500">
                         <Link href="/" className="hover:text-brand-cyan transition-colors">Home</Link>
                         <ChevronRight className="w-3 h-3" />
                         <Link href="/blog" className="hover:text-brand-cyan transition-colors">Blog</Link>
@@ -98,14 +98,16 @@ export default function BlogPostContent({ post, allPosts }: BlogPostContentProps
                             {/* Header */}
                             <header className="mb-12">
                                 <div className="flex items-center gap-3 mb-6">
-                                    <span className="px-4 py-1.5 bg-brand-medium/10 border border-brand-medium/20 rounded-full text-xs font-bold text-brand-sky uppercase tracking-widest">
+                                    <span className="px-4 py-1.5 bg-brand-medium/10 border border-brand-medium/20 rounded-full text-xs font-semibold text-brand-sky  tracking-widest">
                                         {post.category}
                                     </span>
                                     <div className="h-px w-8 bg-white/10" />
-                                    <span className="text-[10px] font-bold text-slate-500 uppercase tracking-widest">{post.date}</span>
+                                    <span className="text-[10px] font-semibold text-slate-500  tracking-widest">{post.date}</span>
+                                    <div className="h-px w-8 bg-white/10" />
+                                    <span className="text-[10px] font-semibold flex items-center gap-1 text-slate-500  tracking-widest"><Clock className="w-3 h-3" /> {post.readTime}</span>
                                 </div>
 
-                                <h1 className="text-4xl md:text-6xl font-black tracking-tight mb-8 leading-tight">
+                                <h1 className="text-4xl md:text-6xl font-semibold tracking-tight mb-8 leading-tight">
                                     {post.title}
                                 </h1>
 
@@ -120,6 +122,17 @@ export default function BlogPostContent({ post, allPosts }: BlogPostContentProps
                                     className="object-cover"
                                     priority
                                 />
+                            </div>
+
+                            {/* Table of Contents Placeholder for SEO */}
+                            <div className="mb-12 p-6 rounded-2xl bg-white/5 border border-white/10">
+                                <h3 className="text-xl font-semibold text-white mb-4">Table of Contents</h3>
+                                <ul className="space-y-2 text-slate-400 text-sm">
+                                    <li><a href="#introduction" className="hover:text-brand-cyan transition-colors">1. Introduction</a></li>
+                                    <li><a href="#core-concepts" className="hover:text-brand-cyan transition-colors">2. Core Concepts</a></li>
+                                    <li><a href="#implementation" className="hover:text-brand-cyan transition-colors">3. Implementation Guide</a></li>
+                                    <li><a href="#conclusion" className="hover:text-brand-cyan transition-colors">4. Conclusion & Next Steps</a></li>
+                                </ul>
                             </div>
 
                             {/* Post Content */}
@@ -144,13 +157,13 @@ export default function BlogPostContent({ post, allPosts }: BlogPostContentProps
                                     <Rocket className="w-32 h-32" />
                                 </div>
                                 <div className="relative z-10">
-                                    <h3 className="text-2xl md:text-3xl font-black mb-4 tracking-tight">Want Help Implementing This Strategy?</h3>
+                                    <h3 className="text-2xl md:text-3xl font-semibold mb-4 tracking-tight">Want Help Implementing This Strategy?</h3>
                                     <p className="text-slate-400 text-lg mb-8 max-w-xl">
                                         Our growth experts have helped dozens of companies execute these exact frameworks to drive millions in revenue.
                                     </p>
                                     <Link
                                         href="/contact"
-                                        className="inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-[#3994fa] to-[#004aad] text-white rounded-2xl font-black uppercase tracking-widest hover:scale-105 transition-transform"
+                                        className="inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-[#3994fa] to-[#004aad] text-white rounded-2xl font-semibold  tracking-widest hover:scale-105 transition-transform"
                                     >
                                         Book Free Strategy Call <ArrowRight className="w-5 h-5" />
                                     </Link>
@@ -161,7 +174,7 @@ export default function BlogPostContent({ post, allPosts }: BlogPostContentProps
                             <div className="pt-12 border-t border-slate-200 dark:border-white/5">
                                 <div className="flex flex-wrap gap-2">
                                     {post.tags.map(tag => (
-                                        <span key={tag} className="px-4 py-2 bg-slate-100 dark:bg-white/5 rounded-lg text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest border border-slate-200 dark:border-white/5 cursor-default hover:bg-slate-200 dark:hover:bg-white/10 transition-colors">
+                                        <span key={tag} className="px-4 py-2 bg-slate-100 dark:bg-white/5 rounded-lg text-xs font-semibold text-slate-500 dark:text-slate-400  tracking-widest border border-slate-200 dark:border-white/5 cursor-default hover:bg-slate-200 dark:hover:bg-white/10 transition-colors">
                                             #{tag}
                                         </span>
                                     ))}
@@ -183,8 +196,8 @@ export default function BlogPostContent({ post, allPosts }: BlogPostContentProps
                         <div className="max-w-2xl mx-auto bg-white dark:bg-[#0d1120] border border-slate-200 dark:border-white/10 rounded-3xl p-10 shadow-sm relative overflow-hidden">
                             {/* Top accent */}
                             <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#3994fa] to-[#004aad] rounded-t-3xl" />
-                            <span className="text-[#3994fa] font-black uppercase tracking-[0.3em] text-[10px] mb-4 block">Stay Ahead of the Curve</span>
-                            <h2 className="text-2xl md:text-4xl font-black mb-4 tracking-tight text-slate-900 dark:text-white">Ready to master the digital landscape?</h2>
+                            <span className="text-[#3994fa] font-semibold  tracking-[0.3em] text-[10px] mb-4 block">Stay Ahead of the Curve</span>
+                            <h2 className="text-2xl md:text-4xl font-semibold mb-4 tracking-tight text-slate-900 dark:text-white">Ready to master the digital landscape?</h2>
                             <p className="text-slate-500 dark:text-slate-400 text-base mb-8 leading-relaxed">
                                 Subscribe for exclusive weekly insights you won't find on our blog.
                             </p>
@@ -200,7 +213,7 @@ export default function BlogPostContent({ post, allPosts }: BlogPostContentProps
                                         className="w-full h-14 px-6 rounded-xl bg-slate-50 dark:bg-[#1a2035] border border-slate-200 dark:border-white/10 focus:border-[#3994fa] focus:ring-2 focus:ring-[#3994fa]/10 outline-none transition-all text-base text-slate-800 dark:text-white placeholder:text-slate-400 dark:placeholder:text-slate-500 disabled:opacity-50"
                                     />
                                     {subscribeMessage && (
-                                        <p className={`text-xs ml-1 font-bold ${subscribeStatus === 'success' ? 'text-[#3994fa]' : 'text-red-500'}`}>
+                                        <p className={`text-xs ml-1 font-semibold ${subscribeStatus === 'success' ? 'text-[#3994fa]' : 'text-red-500'}`}>
                                             {subscribeMessage}
                                         </p>
                                     )}
@@ -208,7 +221,7 @@ export default function BlogPostContent({ post, allPosts }: BlogPostContentProps
                                 <button
                                     type="submit"
                                     disabled={subscribeStatus === 'loading'}
-                                    className="h-14 shrink-0 px-8 bg-gradient-to-r from-[#3994fa] to-[#004aad] text-white rounded-xl font-black uppercase tracking-widest hover:opacity-90 hover:scale-[1.02] transition-all active:scale-95 whitespace-nowrap shadow-lg shadow-[#3994fa]/20 disabled:opacity-50 disabled:cursor-not-allowed"
+                                    className="h-14 shrink-0 px-8 bg-gradient-to-r from-[#3994fa] to-[#004aad] text-white rounded-xl font-semibold  tracking-widest hover:opacity-90 hover:scale-[1.02] transition-all active:scale-95 whitespace-nowrap shadow-lg shadow-[#3994fa]/20 disabled:opacity-50 disabled:cursor-not-allowed"
                                 >
                                     {subscribeStatus === 'loading' ? 'Subscribing...' : 'Sign Me Up'}
                                 </button>

@@ -7,29 +7,29 @@ import Link from 'next/link';
 const STEPS = [
     {
         id: "01",
-        title: "Discovery",
-        description: "We dive deep into your business metrics and market opportunities to define a clear path for growth.",
+        title: "Discover & Strategize",
+        description: "We analyze your business model, competitors, and target audience to define a clear path for growth.",
         icon: <Search className="w-6 h-6" />,
         color: "from-blue-500 to-cyan-500"
     },
     {
         id: "02",
-        title: "Strategy",
-        description: "Designing a high-performance roadmap and technical architecture tailored to your unique scaling needs.",
+        title: "Design & Architecture",
+        description: "Creating intuitive UX/UI and a robust technical architecture tailored to your unique scaling needs.",
         icon: <Compass className="w-6 h-6" />,
         color: "from-indigo-500 to-purple-500"
     },
     {
         id: "03",
-        title: "Execution",
-        description: "Our engineers and designers bring the vision to life with cinematic fidelity and robust, scalable code.",
+        title: "Build & Test",
+        description: "Agile development with regular check-ins, followed by rigorous Quality Assurance across all devices.",
         icon: <Zap className="w-6 h-6" />,
         color: "from-amber-500 to-orange-500"
     },
     {
         id: "04",
-        title: "Scale",
-        description: "Continuous data-driven optimization and strategic iterations to multiply your ROI and market share.",
+        title: "Launch & Grow",
+        description: "Deployment, ongoing support, security updates, and data-driven performance marketing.",
         icon: <TrendingUp className="w-6 h-6" />,
         color: "from-emerald-500 to-teal-500"
     }
@@ -37,25 +37,60 @@ const STEPS = [
 
 const SimpleSteps: React.FC = () => {
     return (
-        <section id="process" className="py-16 md:py-20 bg-background relative overflow-hidden transition-colors duration-300">
-            {/* Background Grid Pattern */}
-            <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:40px_40px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)]" />
+        <section id="process" className="py-10 md:py-16 bg-background relative overflow-hidden transition-colors duration-300">
+            {/* Background Global Map & Pins */}
+            <div className="absolute inset-0 pointer-events-none overflow-hidden">
+                <div 
+                    className="absolute inset-0 opacity-20 dark:opacity-10 mix-blend-multiply dark:mix-blend-screen transition-opacity duration-300" 
+                    style={{ 
+                        backgroundImage: "url('/images/world-map.svg')", 
+                        backgroundSize: '120% auto', 
+                        backgroundPosition: 'center 20%', 
+                        backgroundRepeat: 'no-repeat',
+                        filter: 'invert(40%) sepia(100%) saturate(400%) hue-rotate(190deg)'
+                    }} 
+                />
+                
+                {/* Animated Location Pins (Full screen relative to match background map) */}
+                <div className="absolute inset-0 w-full h-full opacity-50 dark:opacity-100">
+                    {[
+                        { top: '35%', left: '22%', delay: 0, label: 'North America' },    
+                        { top: '65%', left: '32%', delay: 1.5, label: 'South America' },  
+                        { top: '30%', left: '51%', delay: 0.5, label: 'Europe' },         
+                        { top: '45%', left: '68%', delay: 2, label: 'India' },            
+                        { top: '72%', left: '82%', delay: 1, label: 'Australia' },        
+                        { top: '55%', left: '53%', delay: 2.5, label: 'Africa' },         
+                        { top: '38%', left: '82%', delay: 0.8, label: 'Japan' },          
+                    ].map((pin, i) => (
+                        <div 
+                            key={i}
+                            className="absolute w-1.5 h-1.5 md:w-2 md:h-2 rounded-full bg-brand-cyan/80 dark:bg-brand-cyan shadow-[0_0_10px_2px_rgba(0,195,255,0.4)] dark:shadow-[0_0_15px_3px_rgba(0,195,255,0.8)]"
+                            style={{ top: pin.top, left: pin.left }}
+                        >
+                            <div 
+                                className="absolute inset-0 rounded-full bg-brand-cyan animate-ping" 
+                                style={{ animationDelay: `${pin.delay}s`, animationDuration: '3s' }} 
+                            />
+                        </div>
+                    ))}
+                </div>
+            </div>
 
             <div className="max-w-7xl mx-auto px-6 relative z-10">
 
                 {/* Header */}
-                <div className="text-center mb-16 md:mb-24">
+                <div className="text-center mb-12 md:mb-16">
 
                     <h2
                         className="text-3xl md:text-5xl lg:text-7xl font-black text-foreground tracking-tighter mb-6 leading-tight uppercase"
                     >
-                        THE GENESIS <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-medium to-brand-cyan">PROCESS.</span>
+                        OUR PROVEN <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-medium to-brand-cyan">PROCESS.</span>
                     </h2>
 
                     <p
                         className="text-base md:text-xl text-slate-600 dark:text-slate-400 max-w-2xl mx-auto"
                     >
-                        Growth doesn't have to be complicated. We've streamlined our process to take you from discovery to digital dominance.
+                        We've streamlined our delivery process to take you from discovery to digital dominance with total transparency.
                     </p>
                 </div>
 
@@ -64,7 +99,7 @@ const SimpleSteps: React.FC = () => {
                     {/* Connecting Line (Desktop) */}
                     <div className="hidden lg:block absolute top-[60px] left-0 w-full h-px bg-slate-200 dark:bg-white/10" />
 
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-6">
                         {STEPS.map((step, index) => (
                             <motion.div
                                 key={step.id}
@@ -76,10 +111,10 @@ const SimpleSteps: React.FC = () => {
                                 <div className="flex flex-col items-center sm:items-start text-center sm:text-left pt-4">
                                     {/* Large Number with Mask */}
                                     <div className="mb-8 relative">
-                                        <div className="text-7xl md:text-8xl font-black text-slate-200 dark:text-white/[0.03] select-none leading-none group-hover:text-brand-medium/10 transition-colors">
+                                        <div className="text-6xl md:text-7xl font-black text-slate-300 dark:text-white/10 select-none leading-none group-hover:text-brand-medium/20 transition-colors">
                                             {step.id}
                                         </div>
-                                        <div className={`absolute top-1/2 left-1/2 sm:left-0 -translate-x-1/2 sm:translate-x-0 -translate-y-1/2 w-12 h-12 md:w-14 md:h-14 rounded-2xl bg-gradient-to-br ${step.color} p-0.5 shadow-xl group-hover:scale-110 transition-transform duration-300`}>
+                                        <div className={`absolute top-1/2 left-1/2 sm:left-0 -translate-x-1/2 sm:translate-x-0 -translate-y-1/2 w-10 h-10 md:w-12 md:h-12 rounded-2xl bg-gradient-to-br ${step.color} p-0.5 shadow-xl group-hover:scale-110 transition-transform duration-300`}>
                                             <div className="w-full h-full bg-white dark:bg-[#0b0f1a] rounded-[14px] flex items-center justify-center text-foreground">
                                                 {step.icon}
                                             </div>
@@ -93,10 +128,6 @@ const SimpleSteps: React.FC = () => {
                                     <p className="text-sm md:text-base text-slate-600 dark:text-slate-400 leading-relaxed mb-6">
                                         {step.description}
                                     </p>
-
-                                    <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-slate-400 group-hover:text-foreground transition-all">
-                                        Learn More <ArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform" />
-                                    </div>
                                 </div>
                             </motion.div>
                         ))}
@@ -105,13 +136,13 @@ const SimpleSteps: React.FC = () => {
 
                 {/* Final CTA Visual */}
                 <motion.div
-                    className="mt-16 md:mt-24 relative rounded-[2rem] md:rounded-[3rem] p-[1px] overflow-hidden group shadow-[0_8px_30px_rgb(0,0,0,0.06)] dark:shadow-2xl dark:shadow-brand-medium/5"
+                    className="mt-12 md:mt-16 relative rounded-[2rem] md:rounded-[3rem] p-[1px] overflow-hidden group shadow-[0_8px_30px_rgb(0,0,0,0.06)] dark:shadow-2xl dark:shadow-brand-medium/5"
                 >
                     {/* Animated Gradient Border */}
                     <div className="absolute inset-[-50%] bg-[conic-gradient(from_0deg,transparent_0_340deg,var(--tw-colors-brand-medium)_360deg)] animate-[spin_4s_linear_infinite] opacity-20 group-hover:opacity-100 transition-opacity duration-400" />
                     <div className="absolute inset-0 bg-gradient-to-r from-brand-medium/30 via-brand-cyan/30 to-brand-medium/30 rounded-[2rem] md:rounded-[3rem] opacity-30 dark:opacity-50 group-hover:opacity-100 transition-opacity" />
 
-                    <div className="relative h-full w-full bg-slate-50/90 dark:bg-[#070b14] backdrop-blur-md rounded-[2rem] md:rounded-[3rem] p-10 md:p-14 lg:p-20 flex flex-col lg:flex-row items-center justify-between gap-10 overflow-hidden">
+                    <div className="relative h-full w-full bg-slate-50/90 dark:bg-[#070b14] backdrop-blur-md rounded-[2rem] md:rounded-[3rem] p-8 md:p-10 lg:p-14 flex flex-col lg:flex-row items-center justify-between gap-8 overflow-hidden">
 
                         {/* Background Accents (Inner) */}
                         <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-brand-medium/10 rounded-full blur-[48px] -translate-y-1/2 translate-x-1/2 opacity-50 group-hover:opacity-100 transition-opacity duration-400" />

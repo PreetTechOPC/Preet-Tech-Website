@@ -58,15 +58,7 @@ const SERVICES = [
     accent: 'text-brand-sky',
     bg: 'from-sky-500/10 to-transparent'
   },
-  {
-    id: 'business-tools',
-    title: 'Tools for Business',
-    tag: 'LOGIC_07',
-    description: 'Proprietary internal systems and automation tools designed to optimize operations and reduce resource friction.',
-    icon: Wrench,
-    accent: 'text-brand-cyan',
-    bg: 'from-cyan-400/10 to-transparent'
-  },
+
   {
     id: 'partnership-marketing',
     title: 'Partnership Marketing',
@@ -103,15 +95,7 @@ const SERVICES = [
     accent: 'text-brand-medium',
     bg: 'from-blue-500/10 to-transparent'
   },
-  {
-    id: 'ai-solutions',
-    title: 'AI Solutions',
-    tag: 'BRAIN_12',
-    description: 'Generative AI integration and intelligent automation to future-proof your business operations.',
-    icon: Cpu,
-    accent: 'text-brand-sky',
-    bg: 'from-sky-500/10 to-transparent'
-  },
+
   {
     id: 'saas-development',
     title: 'SaaS Development',
@@ -317,15 +301,15 @@ const Services: React.FC = () => {
         {/* Responsive Header */}
         <div className="mb-6 md:mb-10 flex flex-col md:flex-row justify-between items-start md:items-end gap-6 md:gap-10">
           <div className="space-y-2 md:space-y-4 max-w-2xl">
-            <span className="text-sm md:text-base font-bold text-brand-medium tracking-widest uppercase">Digital Transformation Services</span>
+            <span className="text-sm md:text-base font-bold text-brand-medium tracking-widest uppercase">Comprehensive Digital Solutions</span>
             <h2
-              className="text-4xl sm:text-5xl md:text-7xl font-black text-foreground uppercase tracking-tighter leading-none"
+              className="text-4xl sm:text-5xl md:text-7xl font-semibold text-foreground tracking-tighter leading-none"
+              style={{ fontFamily: 'var(--font-poppins)' }}
             >
-              Our Core <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-medium to-brand-cyan italic font-black">Solutions.</span>
+              Designed for <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-medium to-brand-cyan italic font-semibold">ROI.</span>
             </h2>
             <p className="text-slate-600 dark:text-slate-400 mt-4 text-base md:text-lg font-medium leading-relaxed">
-              As a premier <span className="font-bold text-foreground dark:text-white">web and app development company</span>, we empower brands with <span className="font-bold text-foreground dark:text-white">generative AI integration</span>, robust <span className="font-bold text-foreground dark:text-white">e-commerce development</span>, and <span className="font-bold text-foreground dark:text-white">B2B IT Company</span> expertise.
+              We engineer fast, responsive, and SEO-optimized business <span className="font-bold text-foreground dark:text-white">websites</span>, high-performance <span className="font-bold text-foreground dark:text-white">mobile applications</span>, custom <span className="font-bold text-foreground dark:text-white">SaaS platforms</span>, and data-driven <span className="font-bold text-foreground dark:text-white">marketing systems</span> designed to maximize conversion and scale revenue.
             </p>
           </div>
 

@@ -11,7 +11,7 @@ export default function BlogGrid({ posts }: BlogGridProps) {
     if (posts.length === 0) {
         return (
             <div className="py-20 text-center">
-                <h3 className="text-2xl font-bold text-slate-400 mb-8">No articles found matching your criteria.</h3>
+                <h3 className="text-2xl font-semibold text-slate-400 mb-8">No articles found matching your criteria.</h3>
                 <BlogCarousel posts={BLOG_POSTS} />
             </div>
         );

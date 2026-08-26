@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
     Monitor, Globe, Code2, Server, Database, Smartphone, Layout, Rocket,
@@ -532,7 +533,7 @@ export default function AdvanceWebsiteClient() {
                                         <div className="flex gap-2"><div className="w-4 h-4 rounded-full bg-slate-200 dark:bg-white/10" /><div className="w-4 h-4 rounded-full bg-slate-200 dark:bg-white/10" /></div>
                                     </div>
                                     <div className="w-full bg-slate-50 dark:bg-slate-800 rounded-xl relative overflow-hidden border border-slate-200 dark:border-white/10">
-                                        <img src="/neurological_ui_design.png" alt="Neurological UI/UX Design Demonstration" className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-400 ease-out" />
+                                        <Image width={1200} height={800} src="/neurological_ui_design.png" alt="Neurological UI/UX Design Demonstration" className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-400 ease-out" />
                                     </div>
                                 </div>
                             </div>
@@ -646,11 +647,11 @@ export default function AdvanceWebsiteClient() {
                             </div>
 
                             {/* Absolute image overlaying right side on desktop */}
-                            <div className="hidden lg:block absolute -right-20 -bottom-20 w-[55%] lg:w-[45%] h-auto rounded-xl shadow-2xl border border-white/10 group-hover:scale-[1.03] group-hover:-translate-y-2 group-hover:-translate-x-2 transition-all duration-400 ease-out z-10 rotate-[-2deg] group-hover:rotate-0 overflow-hidden bg-[#0a0f18] p-1.5">
-                                <img src="/advanced_ecommerce_dashboard.png" alt="E-Commerce Interface" className="w-full h-auto rounded-lg rounded-br-none" />
+                            <div className="hidden lg:block absolute -right-20 -bottom-20 w-[55%] lg:w-[45%] h-auto rounded-xl shadow-2xl border border-white/10 group-hover:scale-[1.03] group-hover:-translate-y-2 group-hover:-translate-x-2 transition-all duration-400 ease-out z-10 rotate-[-2deg] group-hover:rotate-0 overflow-hidden bg-[#0a0f18] p-1.5 relative">
+                                <Image width={800} height={600} src="/advanced_ecommerce_dashboard.png" alt="E-Commerce Interface" className="w-full h-auto rounded-lg rounded-br-none" />
                             </div>
                             <div className="lg:hidden w-full h-[220px] mt-4 rounded-xl shadow-2xl border border-white/10 z-10 overflow-hidden relative bg-[#0a0f18] flex-shrink-0">
-                                <img src="/advanced_ecommerce_dashboard.png" alt="E-Commerce Interface" className="absolute top-1.5 left-1.5 w-full h-auto rounded-tl-lg" />
+                                <Image fill src="/advanced_ecommerce_dashboard.png" alt="E-Commerce Interface" className="absolute top-1.5 left-1.5 w-full h-auto object-cover rounded-tl-lg" />
                             </div>
                         </div>
 

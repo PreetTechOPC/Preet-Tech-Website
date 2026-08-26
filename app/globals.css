@@ -146,7 +146,7 @@ html {
 }
 
 .animate-marquee {
-    animation: marquee 30s linear infinite;
+    animation: marquee 80s linear infinite;
     width: fit-content;
 }
 
@@ -182,7 +182,7 @@ html {
 }
 
 .animate-marquee-reverse {
-    animation: marquee-reverse 30s linear infinite;
+    animation: marquee-reverse 80s linear infinite;
     width: fit-content;
 }
 

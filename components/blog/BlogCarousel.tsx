@@ -38,7 +38,7 @@ export default function BlogCarousel({ posts }: BlogCarouselProps) {
     return (
         <div className="w-full relative py-8">
             <div className="flex items-center justify-between mb-8">
-                <h3 className="text-2xl font-black text-slate-900 dark:text-white uppercase tracking-tight">
+                <h3 className="text-2xl font-semibold text-slate-900 dark:text-white  tracking-tight">
                     Explore Stories
                 </h3>
                 <div className="flex gap-2">

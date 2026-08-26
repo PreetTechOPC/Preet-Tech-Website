@@ -2,7 +2,7 @@
 
 import React, { useRef } from 'react';
 import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
-import { Rocket, MessageSquare, ArrowRight, Zap, Shield, Sparkles } from 'lucide-react';
+import { Rocket, MessageSquare, ArrowRight, Zap, Shield } from 'lucide-react';
 
 const ContactCTA: React.FC = () => {
     const sectionRef = useRef<HTMLElement>(null);

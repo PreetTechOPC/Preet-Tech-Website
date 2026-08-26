@@ -2,7 +2,7 @@
 
 import React, { useState, memo } from 'react';
 import { motion } from 'framer-motion';
-import { ArrowUpRight, Globe, Cpu, Hexagon, Activity, Sparkles } from 'lucide-react';
+import { ArrowUpRight, Globe, Cpu, Hexagon, Activity } from 'lucide-react';
 import Link from 'next/link';
 import dynamic from 'next/dynamic';
 
@@ -11,12 +11,15 @@ const ThreeSphereScene = dynamic(() => import('./ThreeSphere'), {
   loading: () => <div className="absolute inset-0 z-0 bg-background" />
 });
 
+import MeetingSchedulerModal from './MeetingSchedulerModal';
+
 interface HeroProps {
   isDark?: boolean;
 }
 
 const Hero: React.FC<HeroProps> = ({ isDark: _ignoredIsDark }) => {
   const [hovered, setHovered] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   return (
     <section className="relative min-h-screen w-full flex items-center justify-center overflow-hidden bg-background py-16 lg:py-32">
@@ -54,7 +57,7 @@ const Hero: React.FC<HeroProps> = ({ isDark: _ignoredIsDark }) => {
           transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
           className="absolute bottom-[25%] left-[10%] text-brand-medium/20"
         >
-          <Sparkles className="w-12 h-12" />
+          
         </motion.div>
         
         {/* Mobile-only background blobs for extra depth */}
@@ -77,12 +80,15 @@ const Hero: React.FC<HeroProps> = ({ isDark: _ignoredIsDark }) => {
               transition={{ delay: 0.5, duration: 0.8 }}
               className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-brand-medium/10 border border-brand-medium/20 text-[10px] md:text-xs font-bold uppercase tracking-[0.2em] text-brand-medium dark:text-brand-cyan mb-2 backdrop-blur-sm shadow-lg shadow-brand-medium/5"
             >
-              <Sparkles className="w-3 h-3" />
-              BEST IT COMPANY
+              
+              HALDWANI&apos;S DIGITAL TECHNOLOGY PARTNER
             </motion.span>
-            <h1 className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-black tracking-tighter leading-[0.95] md:leading-[0.9] flex flex-col items-center text-center px-4 drop-shadow-2xl">
-              <span className="text-transparent bg-clip-text bg-gradient-to-br from-slate-950 via-slate-800 to-brand-medium dark:from-white dark:via-white/90 dark:to-brand-medium/50 py-2 max-w-5xl">
-                SCALE <br /> GLOBALLY
+            {/* SEO-targeted H1: visually large brand heading + keyword-rich accessible label */}
+            <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black tracking-tighter leading-[0.95] md:leading-[0.9] flex flex-col items-center text-center px-4 drop-shadow-2xl">
+              {/* Screen-reader & crawler visible keyword text */}
+              <span className="sr-only">Website, App &amp; Software Development Company in Haldwani, Uttarakhand — Build Local. Scale Global.</span>
+              <span aria-hidden="true" className="text-transparent bg-clip-text bg-gradient-to-br from-slate-950 via-slate-800 to-brand-medium dark:from-white dark:via-white/90 dark:to-brand-medium/50 py-2 max-w-5xl">
+                WEBSITE, APP &amp; SOFTWARE DEVELOPMENT
               </span>
             </h1>
           </div>
@@ -90,7 +96,7 @@ const Hero: React.FC<HeroProps> = ({ isDark: _ignoredIsDark }) => {
           <p
             className="text-base md:text-xl text-slate-600 dark:text-slate-400 max-w-2xl leading-relaxed md:leading-relaxed mb-10 md:mb-12 font-medium px-4 md:px-0 text-center mx-auto opacity-90"
           >
-            Building high-performance digital experiences that help modern businesses grow, scale, and lead in the digital era.
+            Preet Tech builds high-performance websites, scalable mobile apps and custom software for startups and businesses in <strong className="text-foreground dark:text-white">Haldwani, Uttarakhand</strong> and beyond. Build Local. Scale Global.
           </p>
 
           {/* Action Buttons */}
@@ -100,22 +106,22 @@ const Hero: React.FC<HeroProps> = ({ isDark: _ignoredIsDark }) => {
             transition={{ duration: 0.8, delay: 0.4 }}
             className="flex flex-col sm:flex-row gap-4 md:gap-6 w-full sm:w-auto px-4 sm:px-0"
           >
-            <Link
-              href="/about"
+            <button
+              onClick={() => setIsModalOpen(true)}
               className="group relative px-10 sm:px-12 py-4.5 md:py-5 bg-gradient-to-r from-[#3994fa] to-[#004aad] text-white font-bold tracking-widest uppercase text-[11px] sm:text-xs rounded-2xl overflow-hidden transition-all shadow-xl shadow-[#3994fa]/30 hover:shadow-2xl hover:shadow-[#3994fa]/40 hover:-translate-y-1 active:scale-95 text-center flex items-center justify-center min-h-[56px] md:min-h-[60px]"
             >
               <div className="absolute inset-0 bg-white/20 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-500 skew-x-12" />
               <span className="relative flex items-center justify-center gap-3">
-                Learn More about Preet Tech <ArrowUpRight className="w-5 h-5 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
+                Book a Strategy Call <ArrowUpRight className="w-5 h-5 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
               </span>
-            </Link>
+            </button>
 
             <Link 
               href="/contact"
               className="group px-10 sm:px-12 py-4.5 md:py-5 bg-slate-100 dark:bg-white/5 backdrop-blur-md border border-slate-200 dark:border-white/10 text-slate-900 dark:text-white font-bold text-[11px] sm:text-xs tracking-widest uppercase transition-all rounded-2xl hover:bg-slate-200 dark:hover:bg-white/10 hover:-translate-y-1 active:scale-95 flex items-center justify-center min-h-[56px] md:min-h-[60px]"
             >
               <span className="flex items-center justify-center gap-3">
-                Book Strategy Call <Hexagon className="w-5 h-5 transition-transform duration-500 group-hover:rotate-180" />
+                Get a Free Digital Audit <Hexagon className="w-5 h-5 transition-transform duration-500 group-hover:rotate-180" />
               </span>
             </Link>
           </motion.div>
@@ -137,6 +143,11 @@ const Hero: React.FC<HeroProps> = ({ isDark: _ignoredIsDark }) => {
           />
         </div>
       </motion.div>
+
+      <MeetingSchedulerModal 
+        isOpen={isModalOpen} 
+        onClose={() => setIsModalOpen(false)} 
+      />
 
       {/* 4. ANIMATED PROPS (LEFT & RIGHT) - DESKTOP ONLY */}
 
@@ -242,7 +253,7 @@ const Hero: React.FC<HeroProps> = ({ isDark: _ignoredIsDark }) => {
         >
           <div className="absolute -top-10 -right-10 w-32 h-32 bg-brand-medium/20 blur-3xl" />
           <div className="flex items-center gap-4 mb-4">
-            <Sparkles className="w-6 h-6 text-brand-medium" />
+            
             <p className="text-[10px] font-black uppercase tracking-widest text-slate-400">Content Creation</p>
           </div>
           <p className="text-xl font-black text-foreground tracking-tighter leading-tight">

@@ -16,7 +16,6 @@ import {
     Heart,
     CheckCircle2,
     ArrowRight,
-    Sparkles,
     Code2,
     Command,
     Palette,
@@ -90,7 +89,7 @@ const AboutHero = memo(() => {
                     transition={{ duration: 3, repeat: Infinity }}
                     className="absolute top-[40%] right-[15%] text-brand-medium/30"
                 >
-                    <Sparkles className="w-16 h-16" />
+                    
                 </motion.div>
                 <motion.div 
                     animate={{ opacity: [0.1, 0.3, 0.1], scale: [1, 1.2, 1] }}
@@ -130,7 +129,7 @@ const AboutHero = memo(() => {
                     className="flex flex-col items-center"
                 >
                     <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-brand-medium/10 text-brand-medium text-[10px] font-black uppercase tracking-[0.4em] mb-8 border border-brand-medium/20 backdrop-blur-md">
-                        <Sparkles className="w-3 h-3" />
+                        
                         Innovation Meets Execution
                     </span>
 

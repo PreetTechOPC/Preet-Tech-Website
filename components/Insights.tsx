@@ -286,8 +286,11 @@ const Insights: React.FC<InsightsProps> = ({ initialInsights = [] }) => {
                             <BookOpen className="w-4 h-4 text-brand-medium" />
                             <span className="text-[10px] md:text-xs font-bold text-brand-medium uppercase tracking-[0.2em]">Knowledge Base</span>
                         </div>
-                        <h2 className="text-2xl md:text-4xl lg:text-5xl font-black text-foreground mb-6 leading-[1.1] md:leading-tight uppercase tracking-tighter">
-                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-medium to-brand-cyan">Case Studies.</span>
+                        <h2 
+                            className="text-2xl md:text-4xl lg:text-5xl font-semibold text-foreground mb-6 leading-[1.1] md:leading-tight tracking-tighter"
+                            style={{ fontFamily: 'var(--font-poppins)' }}
+                        >
+                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-medium to-brand-cyan font-semibold">Case Studies.</span>
                         </h2>
                     </div>
 

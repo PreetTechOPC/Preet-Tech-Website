@@ -21,8 +21,8 @@ import {
     Coffee, 
     Cpu, 
     ChevronRight,
+    ChevronDown,
     Star,
-    Sparkles,
     X,
     Upload,
     FileText,
@@ -37,10 +37,8 @@ import {
 import { AnimatePresence } from 'framer-motion';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
-import ThreeSphereScene from '@/components/ThreeSphere';
 import PhoneInput from '@/components/PhoneInput';
-import { jsPDF } from 'jspdf';
-import autoTable from 'jspdf-autotable';
+
 
 // --- 🛰️ Lightweight Static Background (CSS-only) ---
 const TechnicalBackground = () => (
@@ -76,58 +74,31 @@ const CareersPage = () => {
         resumeName: ''
     });
 
-    const generatePDF = (data: any, position: string) => {
-        const doc = new jsPDF();
-        
-        // Header
-        doc.setFontSize(22);
-        doc.setTextColor(57, 148, 250); // Brand Medium
-        doc.text('Job Application Summary', 20, 20);
-        
-        doc.setFontSize(10);
-        doc.setTextColor(100, 116, 139); // Slate 500
-        doc.text(`Preet Tech OPC Private Limited | Generated on ${new Date().toLocaleString()}`, 20, 30);
-        
-        // Table
-        autoTable(doc, {
-            startY: 40,
-            head: [['Field', 'Details']],
-            body: [
-                ['Applied Position', position],
-                ['Full Name', data.name],
-                ['Email Address', data.email],
-                ['Phone Number', data.phone],
-                ['Experience', `${data.experience} Year(s)`],
-                ['Portfolio/LinkedIn', data.portfolio || 'Not provided'],
-                ['Motivation', data.motivation],
-            ],
-            theme: 'striped',
-            headStyles: { fillColor: [57, 148, 250], textColor: [255, 255, 255], fontStyle: 'bold' },
-            bodyStyles: { fontSize: 10 },
-            columnStyles: { 0: { fontStyle: 'bold', cellWidth: 50 } }
-        });
-        
-        doc.save(`Application_${data.name.replace(/\s/g, '_')}.pdf`);
-    };
+
 
     const handleApplySubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         setFormStatus('submitting');
 
         try {
+            const submitData = new FormData();
+            submitData.append('position', selectedJob?.title || 'General Application');
+            submitData.append('name', formData.name);
+            submitData.append('email', formData.email);
+            submitData.append('phone', `${formData.countryCode} ${formData.phone}`);
+            submitData.append('experience', formData.experience);
+            submitData.append('portfolio', formData.portfolio);
+            submitData.append('motivation', formData.motivation);
+            if (selectedFile) {
+                submitData.append('resume', selectedFile);
+            }
+
             const response = await fetch('/api/apply', {
                 method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({
-                    position: selectedJob?.title,
-                    resumeName: selectedFile?.name || 'No file',
-                    ...formData
-                })
+                body: submitData
             });
 
             if (response.ok) {
-                // Generate PDF on success
-                generatePDF({ ...formData, resume: selectedFile?.name || 'Not uploaded' }, selectedJob?.title);
                 setFormStatus('success');
                 // Reset form
                 setFormData({
@@ -293,91 +264,10 @@ const CareersPage = () => {
         <main className="relative z-10 selection:bg-brand-medium/20 bg-white dark:bg-[#050608] text-slate-900 dark:text-white transition-colors duration-300 overflow-x-hidden font-sans">
             <Navbar isDark={isDarkMode} toggleTheme={() => setIsDarkMode(!isDarkMode)} />
 
-            {/* 1. Hero Section */}
-            <section className="relative pt-32 pb-20 md:pt-48 md:pb-32 px-6 overflow-hidden">
+            {/* Open Positions (Top Section) */}
+            <section id="positions" className="relative pt-32 pb-24 md:pt-48 md:pb-32 px-6 overflow-hidden">
                 <TechnicalBackground />
-                <ThreeSphereScene />
-                <div className="max-w-7xl mx-auto relative z-10">
-                    <div className="text-center space-y-8 max-w-4xl mx-auto">
-                        <motion.div
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.6 }}
-                            className="flex flex-col items-center gap-6 mb-4"
-                        >
-                            <div className="flex items-center gap-3 px-4 py-2 rounded-full bg-slate-50 dark:bg-white/5 border border-slate-100 dark:border-white/10 shadow-sm">
-                                <div className="flex items-center -space-x-2">
-                                    {[1, 2, 3, 4].map((i) => (
-                                        <div key={i} className="w-8 h-8 rounded-full border-2 border-white dark:border-slate-900 bg-slate-200 dark:bg-slate-800 overflow-hidden">
-                                            <img src={`https://api.dicebear.com/7.x/avataaars/svg?seed=${i + 10}`} alt="User" />
-                                        </div>
-                                    ))}
-                                    <div className="w-8 h-8 rounded-full border-2 border-white dark:border-slate-900 bg-brand-medium flex items-center justify-center text-[10px] font-bold text-white">+12</div>
-                                </div>
-                                <div className="h-4 w-px bg-slate-200 dark:bg-white/10" />
-                                <div className="flex items-center gap-1.5">
-                                    <div className="flex items-center gap-0.5">
-                                        {[1, 2, 3, 4, 5].map((i) => (
-                                            <Star key={i} className="w-3 h-3 fill-amber-400 text-amber-400" />
-                                        ))}
-                                    </div>
-                                    <span className="text-[11px] font-bold text-slate-600 dark:text-slate-300">4.9/5 Average Rating</span>
-                                </div>
-                            </div>
-
-                            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand-medium/10 border border-brand-medium/20">
-                                <span className="w-2 h-2 rounded-full bg-brand-medium animate-pulse" />
-                                <span className="text-[10px] font-black uppercase tracking-[0.3em] text-brand-medium">We're Hiring</span>
-                            </div>
-                        </motion.div>
-                        
-                        <motion.h1
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.6, delay: 0.1 }}
-                            className="text-6xl md:text-[7.5rem] font-black tracking-[-0.04em] leading-[0.85] uppercase"
-                        >
-                            <span className="block text-slate-900 dark:text-white mb-2">Shape the</span>
-                            <span className="relative inline-block text-transparent bg-clip-text bg-gradient-to-r from-[#3994fa] via-[#004aad] to-[#3994fa] bg-[length:200%_auto] animate-gradient italic px-2">
-                                Future of Digital.
-                                <span className="absolute inset-0 bg-brand-medium/20 blur-[40px] -z-10 opacity-50" />
-                            </span>
-                        </motion.h1>
-
-                        <motion.p
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.6, delay: 0.2 }}
-                            className="text-base md:text-2xl text-slate-500 dark:text-slate-400 font-medium leading-relaxed max-w-3xl mx-auto tracking-tight"
-                        >
-                            Join a team of elite engineers, designers, and growth experts building <br className="hidden md:block" />
-                            <span className="text-slate-900 dark:text-white">high-performance solutions</span> for global visionaries.
-                        </motion.p>
-
-                        <motion.div
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.6, delay: 0.3 }}
-                            className="flex flex-col sm:flex-row items-center justify-center gap-6 pt-4"
-                        >
-                            <a href="#positions" className="px-10 py-5 bg-gradient-to-r from-[#3994fa] to-[#004aad] text-white rounded-2xl font-black uppercase tracking-widest text-[11px] shadow-xl shadow-[#3994fa]/20 hover:scale-105 transition-all">
-                                View Openings
-                            </a>
-                            <a href="/about" className="px-10 py-5 border border-slate-200 dark:border-white/10 rounded-2xl font-black uppercase tracking-widest text-[11px] hover:bg-slate-50 dark:hover:bg-white/5 transition-all">
-                                Our Mission
-                            </a>
-                        </motion.div>
-                    </div>
-                </div>
-            </section>
-
-
-
-
-
-            {/* 4. Open Positions */}
-            <section id="positions" className="py-24 md:py-32 px-6 bg-slate-50 dark:bg-[#030712]/50">
-                <div className="max-w-5xl mx-auto">
+                <div className="max-w-5xl mx-auto relative z-10">
                     <div className="flex flex-col md:flex-row items-end justify-between mb-16 gap-8">
                         <div className="space-y-4">
                             <span className="text-brand-medium text-[10px] font-black uppercase tracking-[0.4em] block">Current Openings</span>
@@ -417,6 +307,27 @@ const CareersPage = () => {
                                 >
                                     Apply Now <ArrowRight className="w-4 h-4" />
                                 </button>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </section>
+
+            {/* Benefits Section */}
+            <section className="py-24 md:py-32 px-6 bg-slate-50 dark:bg-[#030712]/50">
+                <div className="max-w-5xl mx-auto">
+                    <div className="text-center space-y-4 mb-16">
+                        <span className="text-brand-medium text-[10px] font-black uppercase tracking-[0.4em] block">Why Join Us</span>
+                        <h2 className="text-4xl md:text-5xl font-black tracking-tight uppercase leading-[0.95]">Perks & <span className="text-brand-medium italic">Benefits.</span></h2>
+                    </div>
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        {BENEFITS.map((benefit, i) => (
+                            <div key={i} className="p-8 rounded-3xl bg-white dark:bg-white/[0.02] border border-slate-200 dark:border-white/5 hover:border-brand-medium/30 transition-all flex flex-col items-start gap-4 group">
+                                <div className="w-12 h-12 rounded-2xl bg-brand-medium/10 flex items-center justify-center text-brand-medium group-hover:scale-110 transition-transform">
+                                    <benefit.icon className="w-6 h-6" />
+                                </div>
+                                <h3 className="text-xl font-bold text-slate-900 dark:text-white mt-2">{benefit.title}</h3>
+                                <p className="text-sm font-medium text-slate-500 leading-relaxed">{benefit.desc}</p>
                             </div>
                         ))}
                     </div>
@@ -530,18 +441,21 @@ const CareersPage = () => {
 
                                         <div className="space-y-2">
                                             <label className="text-[10px] font-black uppercase tracking-widest text-slate-500 ml-1">Experience (Years)</label>
-                                            <select 
-                                                required 
-                                                value={formData.experience}
-                                                onChange={(e) => setFormData({ ...formData, experience: e.target.value })}
-                                                className="w-full bg-white dark:bg-white/5 border border-slate-200 dark:border-white/10 rounded-2xl px-6 py-4 text-sm font-medium outline-none focus:border-brand-medium transition-all appearance-none"
-                                            >
-                                                <option value="" className="bg-white dark:bg-slate-900">Select Experience</option>
-                                                <option value="0-1" className="bg-white dark:bg-slate-900">0 - 1 Year</option>
-                                                <option value="1-3" className="bg-white dark:bg-slate-900">1 - 3 Years</option>
-                                                <option value="3-5" className="bg-white dark:bg-slate-900">3 - 5 Years</option>
-                                                <option value="5+" className="bg-white dark:bg-slate-900">5+ Years</option>
-                                            </select>
+                                            <div className="relative">
+                                                <select 
+                                                    required 
+                                                    value={formData.experience}
+                                                    onChange={(e) => setFormData({ ...formData, experience: e.target.value })}
+                                                    className="w-full bg-white dark:bg-white/5 border border-slate-200 dark:border-white/10 rounded-2xl px-6 py-4 text-sm font-medium outline-none focus:border-brand-medium transition-all appearance-none cursor-pointer pr-12 text-slate-900 dark:text-white"
+                                                >
+                                                    <option value="" disabled className="text-slate-400 dark:bg-slate-900">Select Experience</option>
+                                                    <option value="Fresher / 0-1 Year" className="text-slate-900 dark:bg-slate-900 dark:text-white">Fresher / 0 - 1 Year</option>
+                                                    <option value="1-3 Years" className="text-slate-900 dark:bg-slate-900 dark:text-white">1 - 3 Years</option>
+                                                    <option value="3-5 Years" className="text-slate-900 dark:bg-slate-900 dark:text-white">3 - 5 Years</option>
+                                                    <option value="5+ Years" className="text-slate-900 dark:bg-slate-900 dark:text-white">5+ Years</option>
+                                                </select>
+                                                <ChevronDown className="w-4 h-4 text-slate-400 absolute right-5 top-1/2 -translate-y-1/2 pointer-events-none" />
+                                            </div>
                                         </div>
 
                                         <div className="space-y-2">
@@ -646,7 +560,7 @@ const CareersPage = () => {
                             Follow on LinkedIn <Users className="w-5 h-5" />
                         </a>
                         <a href="/contact" className="w-full sm:w-auto px-12 py-6 bg-gradient-to-r from-[#3994fa] to-[#004aad] text-white rounded-2xl font-black uppercase tracking-widest text-xs shadow-xl shadow-[#3994fa]/20 hover:scale-105 transition-all flex items-center justify-center gap-3">
-                            General Inquiry <Sparkles className="w-5 h-5" />
+                            General Inquiry 
                         </a>
                     </div>
                 </div>

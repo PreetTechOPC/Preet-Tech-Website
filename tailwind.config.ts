@@ -27,6 +27,7 @@ const config: Config = {
                 sans: ['var(--font-jakarta)', 'sans-serif'],
                 display: ['var(--font-outfit)', 'sans-serif'],
                 mono: ['var(--font-jetbrains)', 'monospace'],
+                poppins: ['var(--font-poppins)', 'sans-serif'],
             },
             backgroundImage: {
                 "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",

@@ -50,7 +50,7 @@ export default function BlogHero({ activeCategory, onCategoryChange, onSearch }:
                                 type="text"
                                 placeholder="Search library..."
                                 onChange={(e) => onSearch(e.target.value)}
-                                className="w-full h-16 pl-16 pr-6 rounded-2xl bg-white/5 border border-white/10 focus:border-brand-cyan/30 outline-none transition-all text-lg font-bold placeholder:text-slate-600 shadow-xl"
+                                className="w-full h-16 pl-16 pr-6 rounded-2xl bg-white/5 border border-white/10 focus:border-brand-cyan/30 outline-none transition-all text-lg font-semibold placeholder:text-slate-600 shadow-xl"
                             />
                         </div>
                     </motion.div>
@@ -67,7 +67,7 @@ export default function BlogHero({ activeCategory, onCategoryChange, onSearch }:
                                     <button
                                         key={cat}
                                         onClick={() => handleSelect(cat)}
-                                        className={`flex-shrink-0 px-6 py-2 rounded-xl text-[10px] font-black uppercase tracking-widest transition-all duration-300 border ${activeCategory === cat
+                                        className={`flex-shrink-0 px-6 py-2 rounded-xl text-[10px] font-semibold  tracking-widest transition-all duration-300 border ${activeCategory === cat
                                             ? 'bg-gradient-to-r from-[#3994fa] to-[#004aad] border-transparent text-white shadow-lg shadow-[#3994fa]/20 scale-105'
                                             : 'bg-white/5 border-white/10 text-slate-300 hover:border-brand-sky/40 hover:text-white hover:bg-white/10'
                                             }`}
@@ -82,7 +82,7 @@ export default function BlogHero({ activeCategory, onCategoryChange, onSearch }:
                         <div className="relative flex-shrink-0 z-[200]" ref={dropdownRef}>
                             <button
                                 onClick={() => setDropdownOpen((prev) => !prev)}
-                                className={`flex items-center gap-2 px-5 py-2.5 rounded-xl text-[10px] font-black uppercase tracking-widest border transition-all duration-300 ${dropdownOpen
+                                className={`flex items-center gap-2 px-5 py-2.5 rounded-xl text-[10px] font-semibold  tracking-widest border transition-all duration-300 ${dropdownOpen
                                     ? 'bg-gradient-to-r from-[#3994fa] to-[#004aad] border-transparent text-white shadow-lg shadow-[#3994fa]/20'
                                     : 'bg-white/5 border-white/10 text-slate-200 hover:border-brand-sky/40 hover:text-white hover:bg-white/10'
                                     }`}
@@ -109,7 +109,7 @@ export default function BlogHero({ activeCategory, onCategoryChange, onSearch }:
                                                 <button
                                                     key={cat}
                                                     onClick={() => handleSelect(cat)}
-                                                    className={`w-full flex items-center justify-between px-4 py-2.5 rounded-xl text-[11px] font-bold transition-all duration-200 text-left ${activeCategory === cat
+                                                    className={`w-full flex items-center justify-between px-4 py-2.5 rounded-xl text-[11px] font-semibold transition-all duration-200 text-left ${activeCategory === cat
                                                         ? 'bg-gradient-to-r from-[#3994fa]/15 to-[#004aad]/10 text-[#3994fa] border border-[#3994fa]/20'
                                                         : 'text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-white/5 hover:text-slate-900 dark:hover:text-white'
                                                         }`}
