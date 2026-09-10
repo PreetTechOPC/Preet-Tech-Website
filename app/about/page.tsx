@@ -241,57 +241,6 @@ export default function AboutPage() {
                 </div>
             </section>
 
-            {/* 2.5 VIDEO SECTION: THE PREET TECH EXPERIENCE */}
-            <section className="py-16 md:py-24 px-6 relative overflow-hidden bg-slate-50 dark:bg-[#0b101b]">
-                <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_30%,rgba(63,143,204,0.05),transparent_70%)]" />
-                <div className="max-w-6xl mx-auto relative z-10">
-                    <div className="text-center mb-10 md:mb-16 px-4">
-                        <span className="text-brand-medium font-black uppercase tracking-[0.4em] text-[10px] mb-4 block">Visual Narrative</span>
-                        <h2 className="text-2xl md:text-5xl font-black tracking-tighter uppercase leading-[1.1] mb-4 text-foreground dark:text-white">
-                            The Preet Tech OPC <br className="md:hidden" /> Private Limited <br /> <span className="text-brand-medium">Experience.</span>
-                        </h2>
-                    </div>
-
-                    <div className="relative aspect-video rounded-[2rem] md:rounded-[2.5rem] overflow-hidden bg-slate-200 dark:bg-slate-800 border border-slate-200 dark:border-white/10 shadow-2xl group mx-2 md:mx-0">
-                        <div className="absolute inset-0 pointer-events-none scale-[1.05]">
-                            <iframe
-                                className="w-full h-full"
-                                src="https://www.youtube.com/embed/2jmiNO3jwrA?autoplay=1&mute=1&loop=1&playlist=2jmiNO3jwrA&controls=0&modestbranding=1&rel=0&playsinline=1&showinfo=0"
-                                title="Preet Tech OPC Private Limited Experience"
-                                frameBorder="0"
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                            ></iframe>
-                        </div>
-                        <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-all duration-500" />
-                        <div className="absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-black/40 to-transparent pointer-events-none" />
-                        
-                        {/* Overlay Content - Adjusted for Mobile */}
-                        <div className="absolute inset-x-0 bottom-0 p-6 md:p-12 flex justify-between items-end bg-gradient-to-t from-black/90 via-black/40 to-transparent pointer-events-none">
-                            <div className="text-white max-w-[70%]">
-                                <p className="text-[8px] md:text-[10px] font-black uppercase tracking-widest text-brand-medium mb-1">Visual Narrative</p>
-                                <h4 className="text-xs md:text-2xl font-black uppercase tracking-tighter line-clamp-2 md:line-clamp-none">The Preet Tech OPC Private Limited Experience</h4>
-                            </div>
-                            <div className="flex gap-4">
-                                <div className="h-8 w-8 md:h-12 md:w-12 rounded-full border border-white/20 flex items-center justify-center backdrop-blur-md">
-                                    <ArrowRight className="w-3 h-3 md:w-4 md:h-4 text-white -rotate-45" />
-                                </div>
-                            </div>
-                        </div>
-
-                        {/* Interactive Button */}
-                        <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 md:group-hover:opacity-100 transition-opacity duration-300">
-                            <a
-                                href="https://youtu.be/2jmiNO3jwrA"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="px-5 py-2.5 md:px-6 md:py-3 bg-brand-medium text-white rounded-full font-black text-[9px] md:text-[10px] uppercase tracking-widest shadow-2xl hover:scale-110 transition-transform backdrop-blur-md border border-white/20"
-                            >
-                                Watch with Sound
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </section>
 
             {/* 3. MISSION & VISION: TWO CARDS */}
             <section className="py-16 md:py-32 bg-slate-50 dark:bg-white/[0.02] relative">
