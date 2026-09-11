@@ -35,7 +35,7 @@ const SERVICE_CATEGORIES = [
                 tag: "WEB_ECO_01",
                 color: "from-blue-500 to-cyan-400",
                 href: "/services/eco-website",
-                image: "/images/services/eco-website.png"
+                image: "/images/services/eco-website-modern.png"
             },
             {
                 title: "Advance Website",
@@ -62,7 +62,7 @@ const SERVICE_CATEGORIES = [
                 tag: "APP_04",
                 color: "from-blue-400 to-indigo-500",
                 href: "/services/app-development",
-                image: "/images/services/app-development.png"
+                image: "/images/services/app-development-modern.png"
             }
         ]
     },
@@ -77,7 +77,7 @@ const SERVICE_CATEGORIES = [
                 tag: "ROI_06",
                 color: "from-emerald-500 to-teal-400",
                 href: "/services/performance-marketing",
-                image: "/images/services/performance-marketing.png"
+                image: "/images/services/performance-marketing-modern.png"
             },
             {
                 title: "Social Media Handling",
@@ -86,7 +86,7 @@ const SERVICE_CATEGORIES = [
                 tag: "SYNC_07",
                 color: "from-teal-400 to-emerald-600",
                 href: "/services/social-media-handling",
-                image: "/images/services/social-media.png"
+                image: "/images/services/social-media-handling-modern.png"
             },
             {
                 title: "Partnership Marketing",
@@ -95,7 +95,7 @@ const SERVICE_CATEGORIES = [
                 tag: "ALLOY_08",
                 color: "from-emerald-600 to-teal-500",
                 href: "/services/partnership-marketing",
-                image: "/images/services/partnership.png"
+                image: "/images/services/partnership-marketing-modern.png"
             },
             {
                 title: "Content Creation",
@@ -104,7 +104,7 @@ const SERVICE_CATEGORIES = [
                 tag: "MEDIA_11",
                 color: "from-rose-600 to-orange-500",
                 href: "/services/content-creation",
-                image: "/images/services/content-creation.png"
+                image: "/images/services/content-creation-modern.png"
             }
         ]
     },
@@ -119,16 +119,7 @@ const SERVICE_CATEGORIES = [
                 tag: "LAUNCH_09",
                 color: "from-orange-500 to-red-500",
                 href: "/services/start-your-business",
-                image: "/images/services/start-business.png"
-            },
-            {
-                title: "Premium Tools",
-                description: "Access high-value enterprise software licenses, templates, and digital tools at up to 95% off. Verified premium access delivered via WhatsApp confirmation.",
-                icon: Cpu,
-                tag: "DEALS_05",
-                color: "from-indigo-600 to-cyan-500",
-                href: "/services/business-tools",
-                image: "/images/services/business-tools.png"
+                image: "/images/services/start-your-business-modern.png"
             }
         ]
     }
@@ -157,7 +148,7 @@ export default function ServicesClient() {
             <Navbar isDark={theme === 'dark'} toggleTheme={toggleTheme} />
 
             {/* Hero Section */}
-            <section className="relative min-h-[90vh] flex flex-col justify-center overflow-hidden pt-32 pb-24 bg-gradient-to-b from-transparent to-slate-50/50 dark:from-transparent dark:to-slate-900/50 gpu">
+            <section className="relative min-h-[70vh] flex flex-col justify-center overflow-hidden pt-32 pb-12 bg-gradient-to-b from-transparent to-slate-50/50 dark:from-transparent dark:to-slate-900/50 gpu">
                 {/* Immersive Background - Optimized with radial gradients instead of heavy blurs */}
                 <div className="absolute inset-0 pointer-events-none">
                     <motion.div 
@@ -303,7 +294,7 @@ export default function ServicesClient() {
 
             {/* Services Sections by Category */}
             {SERVICE_CATEGORIES.map((category, catIndex) => (
-                <section key={catIndex} className="py-20 relative border-t border-slate-100 dark:border-white/5 bg-white dark:bg-[#010309] transition-colors duration-300">
+                <section key={catIndex} className="py-12 md:py-16 relative border-t border-slate-100 dark:border-white/5 bg-white dark:bg-[#010309] transition-colors duration-300">
                     <div className="max-w-7xl mx-auto px-6">
                         <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-6 mb-16">
                             <div className="space-y-4">
@@ -313,7 +304,7 @@ export default function ServicesClient() {
                                     <div className="w-6 h-[2px] bg-brand-medium" />
                                     <span className="text-brand-medium font-mono text-[10px] font-black uppercase tracking-[0.4em]">{category.tag}</span>
                                 </div>
-                                <h2 className="text-4xl md:text-6xl font-black text-foreground dark:text-white uppercase tracking-tighter leading-none">
+                                <h2 className="text-4xl md:text-6xl font-poppins font-semibold text-foreground dark:text-white tracking-tighter leading-none">
                                     {category.name}.
                                 </h2>
                             </div>

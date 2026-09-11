@@ -3,6 +3,7 @@
 import React, { useRef } from 'react';
 import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
 import { Rocket, MessageSquare, ArrowRight, Zap, Shield } from 'lucide-react';
+import Link from 'next/link';
 
 const ContactCTA: React.FC = () => {
     const sectionRef = useRef<HTMLElement>(null);
@@ -67,13 +68,14 @@ const ContactCTA: React.FC = () => {
 
                         {/* Strategic Actions */}
                         <div className="flex items-center justify-center pt-4">
-                            <button
+                            <Link
+                                href="/contact"
                                 className="w-full sm:w-auto group relative px-8 py-4 bg-gradient-to-r from-[#3994fa] to-[#004aad] text-white rounded-xl overflow-hidden shadow-xl shadow-[#3994fa]/20 transition-[transform,shadow] font-black uppercase text-xs tracking-widest flex items-center justify-center gap-3 hover:scale-105"
                             >
                                 <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
                                 <Rocket className="w-4 h-4 group-hover:-translate-y-1 group-hover:translate-x-1 transition-transform" />
                                 <span className="relative z-10">Initiate Project</span>
-                            </button>
+                            </Link>
                         </div>
                     </div>
 
