@@ -44,7 +44,7 @@ const SERVICE_CATEGORIES = [
                 tag: "WEB_ADV_02",
                 color: "from-cyan-500 to-blue-500",
                 href: "/services/advance-website",
-                image: "/images/services/advance-website.png"
+                image: "/images/services/advance-website-modern.png"
             },
             {
                 title: "Software Development",
@@ -53,7 +53,7 @@ const SERVICE_CATEGORIES = [
                 tag: "CODE_03",
                 color: "from-indigo-500 to-blue-600",
                 href: "/services/software-development",
-                image: "/images/services/software-development.png"
+                image: "/images/services/software-development-modern.png"
             },
             {
                 title: "App Development",
@@ -160,8 +160,16 @@ export default function ServicesClient() {
             <section className="relative min-h-[90vh] flex flex-col justify-center overflow-hidden pt-32 pb-24 bg-gradient-to-b from-transparent to-slate-50/50 dark:from-transparent dark:to-slate-900/50 gpu">
                 {/* Immersive Background - Optimized with radial gradients instead of heavy blurs */}
                 <div className="absolute inset-0 pointer-events-none">
-                    <div className="absolute top-1/4 left-1/4 w-[400px] h-[400px] bg-[radial-gradient(circle,rgba(57,148,250,0.1),transparent_70%)] rounded-full blur-[40px]" />
-                    <div className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-[radial-gradient(circle,rgba(0,186,224,0.08),transparent_70%)] rounded-full blur-[40px]" />
+                    <motion.div 
+                        animate={{ y: [0, -20, 0], x: [0, 10, 0] }} 
+                        transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+                        className="absolute top-1/4 left-1/4 w-[400px] h-[400px] bg-[radial-gradient(circle,rgba(57,148,250,0.1),transparent_70%)] rounded-full blur-[40px]" 
+                    />
+                    <motion.div 
+                        animate={{ y: [0, 20, 0], x: [0, -10, 0] }} 
+                        transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
+                        className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-[radial-gradient(circle,rgba(0,186,224,0.08),transparent_70%)] rounded-full blur-[40px]" 
+                    />
 
                     {/* Grid Pattern */}
                     <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:40px_40px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)]" />
@@ -169,61 +177,109 @@ export default function ServicesClient() {
 
                 {/* Floating Elements Background */}
                 <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
-                    <div className="absolute top-[20%] left-[10%] xl:left-[15%] w-16 h-16 bg-white/70 dark:bg-slate-800/70 backdrop-blur-md border border-slate-200/50 dark:border-white/10 rounded-2xl flex items-center justify-center text-brand-medium shadow-2xl">
+                    <motion.div 
+                        initial={{ opacity: 0, scale: 0, rotate: -20 }}
+                        animate={{ opacity: 1, scale: 1, rotate: 0, y: [0, -15, 0] }}
+                        transition={{ 
+                            opacity: { duration: 0.8, delay: 0.1 },
+                            scale: { duration: 0.8, delay: 0.1, type: "spring" },
+                            rotate: { duration: 0.8, delay: 0.1 },
+                            y: { duration: 5, repeat: Infinity, ease: "easeInOut", delay: 0.9 }
+                        }}
+                        className="absolute top-[20%] left-[10%] xl:left-[15%] w-16 h-16 bg-white/70 dark:bg-slate-800/70 backdrop-blur-md border border-slate-200/50 dark:border-white/10 rounded-2xl flex items-center justify-center text-brand-medium shadow-2xl"
+                    >
                         <Code2 size={24} />
-                    </div>
+                    </motion.div>
 
-                    <div className="absolute top-[25%] right-[10%] xl:right-[15%] w-20 h-20 bg-white/70 dark:bg-slate-800/70 backdrop-blur-md border border-slate-200/50 dark:border-white/10 rounded-full flex items-center justify-center text-brand-cyan shadow-2xl">
+                    <motion.div 
+                        initial={{ opacity: 0, scale: 0, rotate: 20 }}
+                        animate={{ opacity: 1, scale: 1, rotate: 0, y: [0, -20, 0] }}
+                        transition={{ 
+                            opacity: { duration: 0.8, delay: 0.3 },
+                            scale: { duration: 0.8, delay: 0.3, type: "spring" },
+                            rotate: { duration: 0.8, delay: 0.3 },
+                            y: { duration: 6, repeat: Infinity, ease: "easeInOut", delay: 1.1 }
+                        }}
+                        className="absolute top-[25%] right-[10%] xl:right-[15%] w-20 h-20 bg-white/70 dark:bg-slate-800/70 backdrop-blur-md border border-slate-200/50 dark:border-white/10 rounded-full flex items-center justify-center text-brand-cyan shadow-2xl"
+                    >
                         <Rocket size={32} />
-                    </div>
+                    </motion.div>
 
-                    <div className="absolute bottom-[20%] left-[15%] xl:left-[20%] w-14 h-14 bg-white/70 dark:bg-slate-800/70 backdrop-blur-md border border-slate-200/50 dark:border-white/10 rounded-xl flex items-center justify-center text-rose-500 shadow-2xl hidden md:flex">
+                    <motion.div 
+                        initial={{ opacity: 0, scale: 0, rotate: -15 }}
+                        animate={{ opacity: 1, scale: 1, rotate: 0, y: [0, 15, 0] }}
+                        transition={{ 
+                            opacity: { duration: 0.8, delay: 0.2 },
+                            scale: { duration: 0.8, delay: 0.2, type: "spring" },
+                            rotate: { duration: 0.8, delay: 0.2 },
+                            y: { duration: 5.5, repeat: Infinity, ease: "easeInOut", delay: 1.0 }
+                        }}
+                        className="absolute bottom-[20%] left-[15%] xl:left-[20%] w-14 h-14 bg-white/70 dark:bg-slate-800/70 backdrop-blur-md border border-slate-200/50 dark:border-white/10 rounded-xl flex items-center justify-center text-rose-500 shadow-2xl hidden md:flex"
+                    >
                         <Palette size={20} />
-                    </div>
+                    </motion.div>
 
-                    <div className="absolute bottom-[25%] right-[15%] xl:right-[20%] w-16 h-16 bg-white/70 dark:bg-slate-800/70 backdrop-blur-md border border-slate-200/50 dark:border-white/10 rounded-2xl flex items-center justify-center text-emerald-500 shadow-2xl hidden md:flex">
+                    <motion.div 
+                        initial={{ opacity: 0, scale: 0, rotate: 15 }}
+                        animate={{ opacity: 1, scale: 1, rotate: 0, y: [0, 10, 0] }}
+                        transition={{ 
+                            opacity: { duration: 0.8, delay: 0.4 },
+                            scale: { duration: 0.8, delay: 0.4, type: "spring" },
+                            rotate: { duration: 0.8, delay: 0.4 },
+                            y: { duration: 4.5, repeat: Infinity, ease: "easeInOut", delay: 1.2 }
+                        }}
+                        className="absolute bottom-[25%] right-[15%] xl:right-[20%] w-16 h-16 bg-white/70 dark:bg-slate-800/70 backdrop-blur-md border border-slate-200/50 dark:border-white/10 rounded-2xl flex items-center justify-center text-emerald-500 shadow-2xl hidden md:flex"
+                    >
                         <BarChart3 size={24} />
-                    </div>
+                    </motion.div>
                 </div>
 
                 <div className="max-w-7xl mx-auto px-6 relative z-10 w-full text-center">
 
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.6 }}
+                        className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white dark:bg-white/5 border border-slate-200 dark:border-white/10 shadow-sm mb-8 relative"
+                    >
+                        <span className="flex h-2 w-2 rounded-full bg-brand-cyan animate-pulse" />
+                        <span className="text-xs font-semibold uppercase tracking-widest text-slate-700 dark:text-slate-300">Our Services</span>
+                    </motion.div>
 
                     <div className="relative inline-block w-full">
-                        <h1
-                            className="text-[14vw] md:text-[10rem] lg:text-[11rem] font-black text-slate-900 dark:text-white uppercase tracking-tighter leading-[0.85] mb-8 select-none flex flex-col items-center justify-center"
+                        <motion.h1
+                            initial={{ opacity: 0, y: 30 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.8, delay: 0.1 }}
+                            className="text-5xl md:text-7xl lg:text-[6rem] font-bold text-slate-900 dark:text-white tracking-tight leading-[1.05] mb-8"
                         >
-                            <span
-                                className="inline-block"
-                            >
-                                OUR
-                            </span>
-                            <span
-                                className="relative inline-block text-transparent bg-clip-text bg-gradient-to-r from-brand-medium via-cyan-400 to-blue-600 dark:from-brand-medium dark:via-cyan-300 dark:to-blue-500 p-2 md:p-4"
-                            >
-                                SERVICES.
-                            </span>
-                        </h1>
+                            Digital Excellence, <br className="hidden md:block" />
+                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-medium to-brand-cyan font-black">Delivered.</span>
+                        </motion.h1>
                     </div>
 
-                    <div className="max-w-3xl mx-auto relative cursor-default">
+                    <div className="max-w-2xl mx-auto relative cursor-default">
                         {/* Decorative blur behind text */}
                         <div className="absolute inset-0 bg-white/40 dark:bg-slate-900/40 backdrop-blur-md rounded-full -z-10" />
 
-                        <p
-                            className="text-lg md:text-2xl text-slate-600 dark:text-slate-300 font-medium leading-relaxed mb-12 relative z-10 px-4"
+                        <motion.p
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.8, delay: 0.2 }}
+                            className="text-lg md:text-xl text-slate-600 dark:text-slate-400 font-medium leading-relaxed mb-12 relative z-10 px-4"
                         >
-                            We architect digital excellence through <span className="text-brand-medium font-semibold">precision engineering</span> and <span className="text-brand-cyan font-semibold">cinematic design</span>. Seamlessly blending logic with visual flair to solve complex challenges.
-                        </p>
+                            We architect digital ecosystems through <span className="text-brand-medium dark:text-brand-cyan font-semibold">precision engineering</span> and <span className="text-brand-cyan dark:text-blue-400 font-semibold">cinematic design</span>. Seamlessly blending logic with visual flair to solve complex challenges.
+                        </motion.p>
 
-                        <div
+                        <motion.div
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.8, delay: 0.3 }}
                             className="flex flex-col items-center justify-center gap-8"
                         >
-                            <Link href="#services-grid" className="group flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-[#3994fa] to-[#004aad] text-white rounded-full font-bold uppercase tracking-widest text-xs md:text-sm hover:scale-105 transition-all duration-300 shadow-xl hover:shadow-[#3994fa]/20 text-center">
+                            <Link href="#services-grid" className="group flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-blue-500 to-blue-700 hover:from-blue-400 hover:to-blue-600 text-white rounded-2xl font-bold uppercase tracking-widest text-xs md:text-sm hover:scale-105 transition-all duration-300 shadow-xl shadow-blue-500/30 text-center">
+                                <Rocket size={18} className="transition-transform group-hover:-translate-y-1 group-hover:translate-x-1" />
                                 Explore Capabilities
-                                <div className="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center group-hover:translate-x-1 transition-transform">
-                                    <ArrowRight size={16} />
-                                </div>
                             </Link>
 
                             <div className="flex items-center gap-6 opacity-60">
@@ -235,7 +291,7 @@ export default function ServicesClient() {
                                 </span>
                                 <div className="h-[1px] w-8 md:w-16 bg-gradient-to-l from-transparent to-slate-400 dark:to-slate-500" />
                             </div>
-                        </div>
+                        </motion.div>
                     </div>
                 </div>
 
@@ -280,60 +336,57 @@ export default function ServicesClient() {
 
 function ServiceCard({ service, index }: { service: any, index: number }) {
     return (
-        <div
-            className="group relative h-full flex flex-col"
+        <Link
+            href={service.href}
+            className="group relative flex flex-col bg-white dark:bg-[#0b101b] border border-slate-200/80 dark:border-slate-800 rounded-[2rem] overflow-hidden hover:shadow-2xl hover:shadow-brand-medium/10 transition-all duration-500 h-full"
         >
-            {/* Image Container */}
-            <div className="relative h-64 md:h-72 w-full rounded-t-[2.5rem] overflow-hidden">
+            {/* Inset Image Container */}
+            <div className="relative h-56 m-3 mb-0 rounded-[1.5rem] overflow-hidden bg-slate-100 dark:bg-slate-900">
                 <img
                     src={service.image}
                     alt={service.title}
-                    className="w-full h-full object-cover transition-transform duration-400 group-hover:scale-110"
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                     onError={(e) => { const t = e.target as HTMLImageElement; t.style.background = 'linear-gradient(135deg, #1e293b 0%, #334155 100%)'; t.style.opacity = '1'; t.src = ''; }}
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-60 group-hover:opacity-40 transition-opacity" />
-
-                {/* Floating Icon Over Image */}
-                <div className="absolute top-6 left-6 w-12 h-12 rounded-xl bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center text-white shadow-xl">
-                    <service.icon size={22} />
-                </div>
-
-                <div className="absolute bottom-6 left-6 right-6">
-                    <span className="font-mono text-[9px] font-black text-white/60 uppercase tracking-[0.3em]">
-                        {service.tag}
-                    </span>
-                    <h3 className="text-xl md:text-2xl font-black text-white uppercase tracking-tight mt-1 leading-tight">
-                        {service.title}
-                    </h3>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                
+                {/* Floating Icon */}
+                <div className="absolute top-4 left-4 w-10 h-10 rounded-full bg-white/90 dark:bg-slate-900/90 backdrop-blur-md flex items-center justify-center text-brand-medium shadow-sm">
+                    <service.icon size={18} />
                 </div>
             </div>
 
             {/* Content Container */}
-            <div className="flex-1 bg-white dark:bg-slate-900/40 backdrop-blur-md border-x border-b border-slate-200 dark:border-white/5 rounded-b-[2.5rem] p-8 flex flex-col transition-all duration-300 group-hover:border-brand-medium/50 group-hover:shadow-2xl group-hover:shadow-brand-medium/10">
-                <p className="text-slate-500 dark:text-slate-400 text-sm font-medium leading-relaxed mb-8 flex-grow">
-                    {service.description}
-                </p>
+            <div className="flex-1 p-6 md:p-8 flex flex-col">
+                <div className="mb-4">
+                    <span className="inline-block px-3 py-1 rounded-full bg-slate-100 dark:bg-white/5 text-[10px] font-bold text-brand-medium dark:text-brand-cyan uppercase tracking-widest mb-4">
+                        {service.tag}
+                    </span>
+                    <h3 className="text-xl md:text-2xl font-bold text-slate-900 dark:text-white tracking-tight mb-3 group-hover:text-brand-medium dark:group-hover:text-brand-cyan transition-colors">
+                        {service.title}
+                    </h3>
+                    <p className="text-slate-500 dark:text-slate-400 text-sm leading-relaxed line-clamp-3">
+                        {service.description}
+                    </p>
+                </div>
 
-                <div className="flex items-center justify-between pt-6 border-t border-slate-100 dark:border-white/5">
+                <div className="mt-auto pt-6 border-t border-slate-100 dark:border-white/5 flex items-center justify-between">
                     <div className="flex items-center gap-2">
-                        <div className="w-1.5 h-1.5 rounded-full bg-brand-medium animate-pulse" />
-                        <span className="text-[10px] font-bold text-slate-400 dark:text-white/40 uppercase tracking-widest">Active_Service</span>
+                        <div className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+                        <span className="text-[10px] font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider">Active</span>
                     </div>
 
-                    <Link
-                        href={service.href}
-                        className="flex items-center gap-2 text-[11px] font-black text-brand-medium uppercase tracking-widest group/btn hover:text-[#004aad] transition-colors duration-300 ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
-                    >
-                        Learn More
-                        <div className="w-6 h-6 rounded-full border border-brand-medium flex items-center justify-center group-hover/btn:bg-gradient-to-r group-hover/btn:from-[#3994fa] group-hover/btn:to-[#004aad] group-hover/btn:border-transparent group-hover/btn:text-white transition-all">
-                            <ChevronRight size={12} className="group-hover/btn:translate-x-0.5 transition-transform" />
+                    <div className="flex items-center gap-2 text-[11px] font-bold text-brand-medium uppercase tracking-widest group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-300">
+                        Explore
+                        <div className="w-8 h-8 rounded-full bg-blue-50 dark:bg-blue-900/20 flex items-center justify-center group-hover:bg-brand-medium group-hover:text-white transition-all">
+                            <ArrowRight size={14} className="group-hover:translate-x-0.5 transition-transform" />
                         </div>
-                    </Link>
+                    </div>
                 </div>
             </div>
 
             {/* Hover Accent Glow */}
-            <div className={`absolute -bottom-10 left-1/2 -translate-x-1/2 w-4/5 h-10 bg-gradient-to-r ${service.color} blur-[50px] opacity-0 group-hover:opacity-20 transition-opacity duration-400 pointer-events-none`} />
-        </div>
+            <div className={`absolute -inset-px rounded-[2rem] bg-gradient-to-r ${service.color} opacity-0 group-hover:opacity-[0.03] dark:group-hover:opacity-10 transition-opacity duration-500 pointer-events-none`} />
+        </Link>
     );
 }

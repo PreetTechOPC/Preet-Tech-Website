@@ -26,7 +26,7 @@ const jetbrains = JetBrains_Mono({
 
 const poppins = Poppins({
     subsets: ["latin"],
-    weight: ["600"],
+    weight: ["400", "500", "600", "700"],
     variable: '--font-poppins',
     display: 'swap',
 });

@@ -65,7 +65,7 @@ const Footer: React.FC = () => {
             { name: 'Careers', href: '/careers' },
             { name: 'Contact Us', href: '/contact' },
             { name: 'Blog', href: '/blog' },
-            { name: 'Business Tools', href: '/services/business-tools' },
+            { name: 'Portfolio', href: '/portfolio' },
         ],
         Legal: [
             { name: 'Privacy Policy', href: '/privacy-policy' },

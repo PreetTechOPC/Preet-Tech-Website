@@ -139,11 +139,11 @@ export default function BlogPostContent({ post, allPosts }: BlogPostContentProps
                             <div className="prose prose-invert prose-brand max-w-none">
                                 {/<\/?[a-z][\s\S]*>/i.test(post.content || '') ? (
                                     <div
-                                        className="text-slate-400 text-lg leading-[1.8] space-y-8 blog-content-rich"
+                                        className="text-slate-400 text-lg leading-[1.8] space-y-8 blog-content-rich font-poppins font-normal"
                                         dangerouslySetInnerHTML={{ __html: post.content }}
                                     />
                                 ) : (
-                                    <div className="text-slate-400 text-lg leading-[1.8] space-y-8 blog-content-rich">
+                                    <div className="text-slate-400 text-lg leading-[1.8] space-y-8 blog-content-rich font-poppins font-normal">
                                         <ReactMarkdown remarkPlugins={[remarkGfm]}>
                                             {formatMarkdown(post.content)}
                                         </ReactMarkdown>

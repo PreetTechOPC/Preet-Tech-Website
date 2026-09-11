@@ -64,7 +64,7 @@ const Navbar: React.FC<NavbarProps> = ({ isDark: _ignoredIsDark, toggleTheme: _i
     { name: 'About', href: '/about', desc: 'The Preet Edge' },
     { name: 'Services', href: '/services', desc: 'Strategic Multipliers', hasMegaMenu: true },
     { name: 'Careers', href: '/careers', desc: 'Join Our Team' },
-    { name: 'Blog', href: '/blog', desc: 'Digital Logic' },
+    { name: 'Portfolio', href: '/portfolio', desc: 'Our Work' },
     { name: 'Contact', href: '/contact', desc: 'Start a Journey' },
   ];
 
