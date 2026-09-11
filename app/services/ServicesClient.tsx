@@ -319,7 +319,7 @@ export default function ServicesClient() {
                             </div>
                         </div>
 
-                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
                             {category.services.map((service, index) => (
                                 <ServiceCard key={index} service={service} index={index} />
                             ))}
@@ -338,10 +338,10 @@ function ServiceCard({ service, index }: { service: any, index: number }) {
     return (
         <Link
             href={service.href}
-            className="group relative flex flex-col bg-white dark:bg-[#0b101b] border border-slate-200/80 dark:border-slate-800 rounded-[2rem] overflow-hidden hover:shadow-2xl hover:shadow-brand-medium/10 transition-all duration-500 h-full"
+            className="group relative flex flex-col bg-white dark:bg-[#0b101b] border border-slate-200/80 dark:border-slate-800 rounded-2xl overflow-hidden hover:shadow-2xl hover:shadow-brand-medium/10 transition-all duration-500 h-full"
         >
             {/* Inset Image Container */}
-            <div className="relative h-56 m-3 mb-0 rounded-[1.5rem] overflow-hidden bg-slate-100 dark:bg-slate-900">
+            <div className="relative h-48 m-2 mb-0 rounded-xl overflow-hidden bg-slate-100 dark:bg-slate-900">
                 <img
                     src={service.image}
                     alt={service.title}
@@ -357,12 +357,12 @@ function ServiceCard({ service, index }: { service: any, index: number }) {
             </div>
 
             {/* Content Container */}
-            <div className="flex-1 p-6 md:p-8 flex flex-col">
+            <div className="flex-1 p-5 flex flex-col">
                 <div className="mb-4">
                     <span className="inline-block px-3 py-1 rounded-full bg-slate-100 dark:bg-white/5 text-[10px] font-bold text-brand-medium dark:text-brand-cyan uppercase tracking-widest mb-4">
                         {service.tag}
                     </span>
-                    <h3 className="text-xl md:text-2xl font-bold text-slate-900 dark:text-white tracking-tight mb-3 group-hover:text-brand-medium dark:group-hover:text-brand-cyan transition-colors">
+                    <h3 className="text-lg md:text-xl font-bold text-slate-900 dark:text-white tracking-tight mb-2 group-hover:text-brand-medium dark:group-hover:text-brand-cyan transition-colors">
                         {service.title}
                     </h3>
                     <p className="text-slate-500 dark:text-slate-400 text-sm leading-relaxed line-clamp-3">
@@ -386,7 +386,7 @@ function ServiceCard({ service, index }: { service: any, index: number }) {
             </div>
 
             {/* Hover Accent Glow */}
-            <div className={`absolute -inset-px rounded-[2rem] bg-gradient-to-r ${service.color} opacity-0 group-hover:opacity-[0.03] dark:group-hover:opacity-10 transition-opacity duration-500 pointer-events-none`} />
+            <div className={`absolute -inset-px rounded-2xl bg-gradient-to-r ${service.color} opacity-0 group-hover:opacity-[0.03] dark:group-hover:opacity-10 transition-opacity duration-500 pointer-events-none`} />
         </Link>
     );
 }
